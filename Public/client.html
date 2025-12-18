@@ -1,0 +1,1032 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tableau de Bord Client | AFRIXA LOGISTICS</title>
+    <link rel="stylesheet" href="/CSS/client.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="header-content">
+            <div class="logo">
+                <img src="/images/afrixa_logo.png" alt="AFRIXA LOGISTICS" class="logo-image">
+                <div class="logo-text">
+                    <h1>AFRIXA <span>LOGISTICS</span></h1>
+                </div>
+            </div>
+            <div class="user-menu">
+                <div class="user-info">
+                    <div class="user-avatar">
+                        <img src="https://via.placeholder.com/40x40?text=U" alt="Utilisateur" id="header-avatar">
+                    </div>
+                    <div class="user-details">
+                        <span class="user-name" id="header-name">Chargement...</span>
+                        
+                    </div>
+                </div>
+                <button class="menu-toggle" id="menuToggle">
+                    <i class="fas fa-bars"></i>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Navigation -->
+    <nav class="sidebar" id="sidebar">
+        <ul class="nav-links">
+            <li class="nav-item active" data-page="dashboard">
+                <a href="#">
+                    <div class="nav-icon">
+                        <i class="fas fa-home"></i>
+                    </div>
+                    <div class="nav-text">
+                        <span class="nav-title">Tableau de Bord</span>
+                        <span class="nav-subtitle">Vue d'ensemble</span>
+                    </div>
+                </a>
+            </li>
+            <li class="nav-item" data-page="new-request">
+                <a href="#">
+                    <div class="nav-icon">
+                        <i class="fas fa-plus-circle"></i>
+                    </div>
+                    <div class="nav-text">
+                        <span class="nav-title">Faire une Demande</span>
+                        <span class="nav-subtitle">Nouveau transport</span>
+                    </div>
+                </a>
+            </li>
+            <li class="nav-item" data-page="requests">
+                <a href="#">
+                    <div class="nav-icon">
+                        <i class="fas fa-list"></i>
+                    </div>
+                    <div class="nav-text">
+                        <span class="nav-title">Mes Demandes</span>
+                        <span class="nav-subtitle">Suivi en temps réel</span>
+                    </div>
+                    <span class="badge" id="requests-badge" style="display: none;">0</span>
+                </a>
+            </li>
+            <li class="nav-item" data-page="offers">
+                <a href="#">
+                    <div class="nav-icon">
+                        <i class="fas fa-handshake"></i>
+                    </div>
+                    <div class="nav-text">
+                        <span class="nav-title">Offres Reçues</span>
+                        <span class="nav-subtitle">Propositions transporteurs</span>
+                    </div>
+                    <span class="badge" id="offers-badge" style="display: none;">0</span>
+                </a>
+            </li>
+            <li class="nav-item" data-page="history">
+                <a href="#">
+                    <div class="nav-icon">
+                        <i class="fas fa-history"></i>
+                    </div>
+                    <div class="nav-text">
+                        <span class="nav-title">Historique</span>
+                        <span class="nav-subtitle">Archives complètes</span>
+                    </div>
+                </a>
+            </li>
+            <li class="nav-item" data-page="profile">
+                <a href="#">
+                    <div class="nav-icon">
+                        <i class="fas fa-user-cog"></i>
+                    </div>
+                    <div class="nav-text">
+                        <span class="nav-title">Profil</span>
+                        <span class="nav-subtitle">Gérer mon compte</span>
+                    </div>
+                </a>
+            </li>
+        </ul>
+        
+        <div class="sidebar-footer">
+            <div class="logout-section">
+                <a href="#" id="logout-btn" class="logout-btn">
+                    <div class="logout-icon">
+                        <i class="fas fa-sign-out-alt"></i>
+                    </div>
+                    <div class="logout-text">
+                        <span>Déconnexion</span>
+                        <small>Se déconnecter du compte</small>
+                    </div>
+                </a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main class="main-content">
+        <!-- Dashboard Section -->
+        <section id="dashboard" class="content-section active">
+            <div class="section-header">
+                <div class="header-left">
+                    <h1> Tableau de Bord</h1>
+                    <p id="welcome-message">Chargement...</p>
+                </div>
+                <div class="header-right">
+                    <div class="current-date">
+                        <i class="fas fa-calendar-alt"></i>
+                        <span id="currentDate"></span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="dashboard-content">
+                <div class="dashboard-main">
+                    <div class="quick-actions-section">
+                        <div class="section-title">
+                            <h2> Actions Rapides</h2>
+                            <p>Accédez rapidement aux fonctionnalités principales</p>
+                        </div>
+                        <div class="actions-grid">
+                            <div class="action-card" data-page="new-request">
+                                <div class="action-icon primary">
+                                    <i class="fas fa-plus"></i>
+                                </div>
+                                <div class="action-content">
+                                    <h3>Nouvelle Demande</h3>
+                                    <p>Créer une nouvelle demande de transport</p>
+                                </div>
+                                <div class="action-arrow">
+                                    <i class="fas fa-chevron-right"></i>
+                                </div>
+                            </div>
+                            <div class="action-card" data-page="requests">
+                                <div class="action-icon success">
+                                    <i class="fas fa-list"></i>
+                                </div>
+                                <div class="action-content">
+                                    <h3>Mes Demandes</h3>
+                                    <p>Voir et gérer toutes vos demandes</p>
+                                </div>
+                                <div class="action-arrow">
+                                    <i class="fas fa-chevron-right"></i>
+                                </div>
+                            </div>
+                            <div class="action-card" data-page="offers">
+                                <div class="action-icon warning">
+                                    <i class="fas fa-handshake"></i>
+                                </div>
+                                <div class="action-content">
+                                    <h3>Offres Reçues</h3>
+                                    <p>Consulter et répondre aux offres</p>
+                                </div>
+                                <div class="action-arrow">
+                                    <i class="fas fa-chevron-right"></i>
+                                </div>
+                            </div>
+                            <div class="action-card" id="openProofModalBtn">
+                                <div class="action-icon danger">
+                                    <i class="fas fa-credit-card"></i>
+                                </div>
+                                <div class="action-content">
+                                    <h3>Preuve de Paiement</h3>
+                                    <p>Télécharger vos justificatifs</p>
+                                </div>
+                                <div class="action-arrow">
+                                    <i class="fas fa-chevron-right"></i>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="recent-activity-section">
+                        <div class="section-title">
+                            <h2><i class="fas fa-history"></i> Dernière Demande</h2>
+                            <p>Votre demande la plus récente</p>
+                        </div>
+                        <div class="activity-card" id="last-request-card" style="display: none;">
+                            <div class="activity-header">
+                                <div class="activity-icon">
+                                    <i class="fas fa-box"></i>
+                                </div>
+                                <div class="activity-info">
+                                    <h3 id="last-request-type">Chargement...</h3>
+                                    <span class="activity-badge" id="last-request-status">Chargement...</span>
+                                </div>
+                            </div>
+                            <div class="activity-details">
+                                <div class="detail-item">
+                                    <i class="fas fa-map-marker-alt"></i>
+                                    <span id="last-request-route">Chargement...</span>
+                                </div>
+                                <div class="detail-item">
+                                    <i class="fas fa-calendar"></i>
+                                    <span id="last-request-date">Date: Chargement...</span>
+                                </div>
+                                <div class="detail-item">
+                                    <i class="fas fa-barcode"></i>
+                                    <span id="last-request-code">Code: Chargement...</span>
+                                </div>
+                            </div>
+                            <div class="activity-footer">
+                                <!-- <button class="btn btn-outline view-details-btn" data-id="">
+                                    <i class="fas fa-eye"></i> Voir Détails
+                                </button> -->
+                            </div>
+                        </div>
+                        <div id="no-requests-message" class="empty-state">
+                            <i class="fas fa-inbox fa-3x"></i>
+                            <h3>Aucune demande trouvée</h3>
+                            <p>Commencez par créer votre première demande de transport</p>
+                            <button class="btn btn-primary" data-page="new-request">
+                                <i class="fas fa-plus"></i> Créer une Demande
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="dashboard-sidebar">
+                    <div class="notifications-section">
+                        <div class="section-title">
+                            <h2><i class="fas fa-bell"></i> Notifications</h2>
+                        </div>
+                        <div class="notifications-list" id="notifications-list">
+                            <div class="empty-state">
+                                <i class="fas fa-bell-slash fa-2x"></i>
+                                <p>Aucune notification pour le moment</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="help-section">
+                        <div class="section-title">
+                            <h2><i class="fas fa-question-circle"></i> Besoin d'aide ?</h2>
+                        </div>
+                        <div class="help-cards">
+                            <div class="help-card">
+                                <div class="help-icon">
+                                    <i class="fas fa-phone-alt"></i>
+                                </div>
+                                <div class="help-content">
+                                    <h4>Support Client</h4>
+                                    <p>Contactez-nous 24/7</p>
+                                    <span class="help-number">+33 1 23 45 67 89</span>
+                                </div>
+                            </div>
+                            <div class="help-card">
+                                <div class="help-icon">
+                                    <i class="fas fa-envelope"></i>
+                                </div>
+                                <div class="help-content">
+                                    <h4>Email Support</h4>
+                                    <p>Réponse sous 24h</p>
+                                    <span class="help-email">support@afrixa-logistics.com</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- New Request Section -->
+        <section id="new-request" class="content-section">
+            <div class="section-header">
+                <div class="header-left">
+                    <h1><i class="fas fa-plus-circle"></i> Faire une Demande</h1>
+                    <p>Créer une nouvelle demande de transport</p>
+                </div>
+            </div>
+
+            <div class="request-types-container">
+                <div class="section-title">
+                    <h2><i class="fas fa-list-alt"></i> Type de Demande</h2>
+                    <p>Sélectionnez le type de transport souhaité</p>
+                </div>
+                <div class="request-types">
+                    <div class="type-card active" data-type="grand-transport">
+                        <div class="type-header">
+                            <div class="type-icon primary">
+                                <i class="fas fa-truck"></i>
+                            </div>
+                            <div class="type-badge">Recommandé</div>
+                        </div>
+                        <div class="type-content">
+                            <h3>Grand Transport</h3>
+                            <p>Transport de marchandises volumineuses pour professionnels et particuliers</p>
+                            <ul class="type-features">
+                                <li><i class="fas fa-check"></i> Camions de 3.5T à 40T</li>
+                                <li><i class="fas fa-check"></i> Assurances incluses</li>
+                                <li><i class="fas fa-check"></i> Suivi GPS en temps réel</li>
+                                <li><i class="fas fa-check"></i> Manutention disponible</li>
+                            </ul>
+                        </div>
+                        <div class="type-footer">
+                            <button class="btn btn-primary select-type-btn" data-type="grand-transport">
+                                <i class="fas fa-check"></i> Sélectionner
+                            </button>
+                        </div>
+                    </div>
+                    <div class="type-card disabled" data-type="expedition">
+                        <div class="type-header">
+                            <div class="type-icon secondary">
+                                <i class="fas fa-box"></i>
+                            </div>
+                            <div class="type-badge coming-soon">Bientôt</div>
+                        </div>
+                        <div class="type-content">
+                            <h3>Expédition</h3>
+                            <p>Service de colis et envois pour particuliers et entreprises</p>
+                            <ul class="type-features">
+                                <li><i class="fas fa-clock"></i> Livraison express</li>
+                                <li><i class="fas fa-clock"></i> Emballage inclus</li>
+                                <li><i class="fas fa-clock"></i> Tracking numérique</li>
+                                <li><i class="fas fa-clock"></i> Points relais</li>
+                            </ul>
+                        </div>
+                        <div class="type-footer">
+                            <button class="btn btn-secondary" disabled>
+                                <i class="fas fa-clock"></i> Bientôt disponible
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Grand Transport Form -->
+            <form id="grand-transport-form" class="request-form active">
+                <div class="form-header">
+                    <h2><i class="fas fa-file-alt"></i> Formulaire Grand Transport</h2>
+                    <p>Tous les champs marqués d'un * sont obligatoires</p>
+                </div>
+                
+                <div class="form-card">
+                    <div class="form-section-header">
+                        <div class="section-icon">
+                            <i class="fas fa-user"></i>
+                        </div>
+                        <div class="section-title">
+                            <h3>Informations Personnelles</h3>
+                            <p>Vos coordonnées de contact</p>
+                        </div>
+                    </div>
+                    
+                    <div class="form-grid">
+                        <div class="form-group">
+                            <label for="nom">
+                                <i class="fas fa-user"></i> Nom Complet *
+                            </label>
+                            <input type="text" id="nom" placeholder="Ex: Jean Dupont" required>
+                            <div class="form-hint">Votre nom complet comme sur votre pièce d'identité</div>
+                        </div>
+                        <div class="form-group">
+                            <label for="email">
+                                <i class="fas fa-envelope"></i> Email *
+                            </label>
+                            <input type="email" id="email" placeholder="exemple@email.com" required>
+                            <div class="form-hint">Nous enverrons les confirmations à cette adresse</div>
+                        </div>
+                        <div class="form-group">
+                            <label for="telephone">
+                                <i class="fas fa-phone"></i> Téléphone *
+                            </label>
+                            <input type="tel" id="telephone" placeholder="+243 81 23 45 678" required>
+                            <div class="form-hint">Numéro où vous joindre pour les mises à jour</div>
+                        </div>
+                        <div class="form-group">
+                            <label for="ville">
+                                <i class="fas fa-city"></i> Ville *
+                            </label>
+                            <input type="text" id="ville" placeholder="Ex: Kinshasa" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="commune">
+                                <i class="fas fa-map-marker-alt"></i> Commune *
+                            </label>
+                            <input type="text" id="commune" placeholder="Ex: Gombe, Limete, etc." required>
+                        </div>
+                        <div class="form-group full-width">
+                            <label for="adress">
+                                <i class="fas fa-home"></i> Adresse Complète *
+                            </label>
+                            <input type="text" id="adress" placeholder="Numéro, avenue, quartier" required>
+                            <div class="form-hint">Adresse exacte pour les formalités administratives</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-card">
+                    <div class="form-section-header">
+                        <div class="section-icon">
+                            <i class="fas fa-truck"></i>
+                        </div>
+                        <div class="section-title">
+                            <h3>Informations sur le Transport</h3>
+                            <p>Détails de votre expédition</p>
+                        </div>
+                    </div>
+                    
+                    <div class="form-grid">
+                        <div class="form-group">
+                            <label for="villeDepart">
+                                <i class="fas fa-map-pin"></i> Ville de Départ *
+                            </label>
+                            <input type="text" id="villeDepart" placeholder="Ex: Kinshasa" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="villeArrivee">
+                                <i class="fas fa-flag-checkered"></i> Ville d'Arrivée *
+                            </label>
+                            <input type="text" id="villeArrivee" placeholder="Ex: Lubumbashi" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="poidsVolume">
+                                <i class="fas fa-weight-hanging"></i> Poids ou Volume *
+                            </label>
+                            <input type="text" id="poidsVolume" placeholder="Ex: 500 kg ou 10 m³" required>
+                            <div class="form-hint">Indiquez le poids (kg) ou volume (m³)</div>
+                        </div>
+                        <div class="form-group">
+                            <label for="typeMarchandise">
+                                <i class="fas fa-boxes"></i> Type de Marchandise *
+                            </label>
+                            <input type="text" id="typeMarchandise" placeholder="Ex: Meubles, Matériaux, Électronique" required>
+                        </div>
+                        <div class="form-group full-width">
+                            <label for="typeCamion">
+                                <i class="fas fa-truck-loading"></i> Type de Camion *
+                            </label>
+                            <select id="typeCamion" required>
+                                <option value="">Sélectionnez un type de camion</option>
+                                <option value="petit">Petit camion (3.5T)</option>
+                                <option value="moyen">Camion moyen (10T)</option>
+                                <option value="grand">Grand camion (19T)</option>
+                                <option value="benne">Benne (26T)</option>
+                                <option value="plateau">Plateau (40T)</option>
+                                <option value="fourgon">Fourgon frigorifique (12T)</option>
+                                <option value="frigorifique">Frigorifique (19T)</option>
+                            </select>
+                            <div class="form-hint">Choisissez en fonction de vos besoins et du volume</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-card">
+                    <div class="form-section-header">
+                        <div class="section-icon">
+                            <i class="fas fa-file-alt"></i>
+                        </div>
+                        <div class="section-title">
+                            <h3>Description et Documents</h3>
+                            <p>Décrivez votre colis et ajoutez des photos</p>
+                        </div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="description">
+                            <i class="fas fa-align-left"></i> Description du Colis *
+                        </label>
+                        <textarea id="description" rows="4" placeholder="Décrivez en détail votre colis : dimensions, fragile, conditions spéciales, etc." required></textarea>
+                        <div class="form-hint">Plus votre description est précise, mieux nous pourrons vous servir</div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label>
+                            <i class="fas fa-camera"></i> Photo du Colis
+                        </label>
+                        <div class="upload-container">
+                            <div class="upload-area" id="uploadArea">
+                                <div class="upload-icon">
+                                    <i class="fas fa-cloud-upload-alt"></i>
+                                </div>
+                                <div class="upload-text">
+                                    <h4>Glissez-déposez vos fichiers ici</h4>
+                                    <p>ou cliquez pour parcourir vos fichiers</p>
+                                    <p class="upload-info">Formats acceptés: JPG, PNG (max. 5MB)</p>
+                                </div>
+                                <input type="file" id="fileInput" accept="image/*" style="display: none;">
+                            </div>
+                            <div id="previewContainer" class="preview-container" style="display: none;">
+                                <div class="preview-header">
+                                    <h4><i class="fas fa-image"></i> Aperçu de l'image</h4>
+                                </div>
+                                <div class="preview-content">
+                                    <img id="previewImage" src="" alt="Aperçu du colis">
+                                    <div class="preview-actions">
+                                        <button type="button" id="removeImage" class="btn btn-danger">
+                                            <i class="fas fa-trash"></i> Supprimer
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-actions">
+                    <div class="form-info-card">
+                        <div class="info-icon">
+                            <i class="fas fa-info-circle"></i>
+                        </div>
+                        <div class="info-content">
+                            <h4>Important à savoir</h4>
+                            <ul>
+                                <li>Votre demande recevra un code unique (ex: AFRIXA-12345) après validation</li>
+                                <li>Un conseiller vous contactera sous 24h pour finaliser les détails</li>
+                                <li>Tous les transports sont assurés jusqu'à 1 million d'euros</li>
+                                <li>Le suivi est disponible 24/7 sur votre espace client</li>
+                            </ul>
+                        </div>
+                    </div>
+                    
+                    <div class="submit-section">
+                        <button type="button" class="btn btn-secondary cancel-btn">
+                            <i class="fas fa-times"></i> Annuler
+                        </button>
+                        <button type="submit" class="btn btn-primary submit-btn">
+                            <i class="fas fa-paper-plane"></i> Envoyer 
+                        </button>
+                    </div>
+                </div>
+            </form>
+        </section>
+
+        <!-- Mes Demandes Section -->
+        <section id="requests" class="content-section">
+            <div class="section-header">
+                <div class="header-left">
+                    <h1><i class="fas fa-list"></i> Mes Demandes</h1>
+                    <p>Suivez l'état de toutes vos demandes en temps réel</p>
+                </div>
+                <div class="header-actions">
+                    <div class="search-box">
+                        <i class="fas fa-search"></i>
+                        <input type="text" id="searchRequests" placeholder="Rechercher par code, ville, marchandise...">
+                    </div>
+                </div>
+            </div>
+
+            <div class="requests-container">
+                <div class="requests-header">
+                    <div class="requests-stats">
+                        <div class="stat-item">
+                            <span class="stat-number" id="total-requests-count">0</span>
+                            <span class="stat-label">Total</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-number" id="active-requests-count">0</span>
+                            <span class="stat-label">Actives</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-number" id="pending-requests-count">0</span>
+                            <span class="stat-label">En attente</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="requests-list" id="requests-list">
+                    <div class="loading-state">
+                        <i class="fas fa-spinner fa-spin fa-2x"></i>
+                        <p>Chargement des demandes...</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Offres Reçues Section -->
+        <section id="offers" class="content-section">
+            <div class="section-header">
+                <div class="header-left">
+                    <h1><i class="fas fa-handshake"></i> Offres Reçues</h1>
+                    <p>Gérez toutes les offres de transport reçues</p>
+                </div>
+            </div>
+
+            <div class="offers-header">
+                <div class="filter-section">
+                    <div class="filter-buttons">
+                        <button class="filter-btn active" data-filter="all">
+                            <i class="fas fa-layer-group"></i> Toutes
+                        </button>
+                        <button class="filter-btn" data-filter="en_attente">
+                            <i class="fas fa-clock"></i> En attente
+                        </button>
+                        <button class="filter-btn" data-filter="accepté_par_client">
+                            <i class="fas fa-check-circle"></i> Acceptées
+                        </button>
+                        <button class="filter-btn" data-filter="refusé_par_client">
+                            <i class="fas fa-times-circle"></i> Refusées
+                        </button>
+                    </div>
+                    
+                    <div class="search-section">
+                        <div class="search-box">
+                            <i class="fas fa-search"></i>
+                            <input type="text" id="offerSearch" placeholder="Rechercher par code colis, ville, transporteur...">
+                            <button class="search-clear" id="clearSearch">
+                                <i class="fas fa-times"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="offers-container" id="offersContainer">
+                <div class="empty-state">
+                    <i class="fas fa-inbox fa-4x"></i>
+                    <h3>Aucune offre reçue</h3>
+                    <p>Vous recevrez des offres ici dès que des transporteurs répondront à vos demandes</p>
+                    <button class="btn btn-primary" data-page="requests">
+                        <i class="fas fa-eye"></i> Voir mes demandes
+                    </button>
+                </div>
+            </div>
+        </section>
+
+        <!-- Historique Section -->
+        <section id="history" class="content-section">
+            <div class="section-header">
+                <div class="header-left">
+                    <h1><i class="fas fa-history"></i> Historique</h1>
+                    <p>Consultez l'historique complet de vos demandes</p>
+                </div>
+                <div class="header-actions">
+                    <div class="date-range">
+                    
+                    </div>
+                </div>
+            </div>
+
+            <div class="history-container">
+                <!-- <div class="history-stats">
+                    <div class="stat-card">
+                        <div class="stat-icon">
+                            <i class="fas fa-check-circle"></i>
+                        </div>
+                        <div class="stat-content">
+                            <span class="stat-number" id="completed-count">0</span>
+                            <span class="stat-label">Terminées</span>
+                        </div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-icon">
+                            <i class="fas fa-truck"></i>
+                        </div>
+                        <div class="stat-content">
+                            <span class="stat-number" id="delivered-count">0</span>
+                            <span class="stat-label">Livrées</span>
+                        </div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-icon">
+                            <i class="fas fa-star"></i>
+                        </div>
+                        <div class="stat-content">
+                            <span class="stat-number" id="rated-count">0</span>
+                            <span class="stat-label">Notées</span>
+                        </div>
+                    </div>
+                </div> -->
+
+                <div class="history-list" id="history-list">
+                    <div class="loading-state">
+                        <i class="fas fa-spinner fa-spin fa-2x"></i>
+                        <p>Chargement de l'historique...</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Profil Section -->
+        <section id="profile" class="content-section">
+            <div class="section-header">
+                <div class="header-left">
+                    <h1><i class="fas fa-user-cog"></i> Profil</h1>
+                    <p>Gérez vos informations personnelles et paramètres</p>
+                </div>
+                <div class="header-actions">
+                    <button class="btn btn-outline" id="changePasswordBtn">
+                        <i class="fas fa-key"></i> Changer mot de passe
+                    </button>
+                </div>
+            </div>
+
+            <div class="profile-container">
+                <div class="profile-header-card">
+                    <div class="profile-avatar-section">
+                        <div class="avatar-container">
+                            <img src="https://via.placeholder.com/120x120?text=U" alt="Utilisateur" id="profile-avatar">
+                            <div class="avatar-overlay">
+                                <button class="edit-avatar" type="button">
+                                    <i class="fas fa-camera"></i>
+                                    <input type="file" id="avatarFileInput" accept="image/*" style="display: none;">
+                                </button>
+                            </div>
+                        </div>
+                        <div class="avatar-info">
+                            <h2 id="profile-name">Chargement...</h2>
+                            <p id="profile-since">Client depuis: Chargement...</p>
+                            <div class="verification-badge">
+                                <i class="fas fa-check-circle"></i>
+                                <span>Compte vérifié</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <form class="profile-form" id="profile-form">
+                    <div class="form-section">
+                        <div class="form-section-header">
+                          
+                            <div class="section-title">
+                                <h3>Informations Personnelles</h3>
+                                <p>Vos coordonnées et informations de contact</p>
+                            </div>
+                        </div>
+                        
+                        <div class="form-grid">
+                            <div class="form-group">
+                                <label for="profile-fullName">
+                                    <i class="fas fa-user"></i> Nom Complet
+                                </label>
+                                <input type="text" id="profile-fullName">
+                                <div class="form-hint">Votre nom complet officiel</div>
+                            </div>
+                            <div class="form-group">
+                                <label for="profile-email">
+                                    <i class="fas fa-envelope"></i> Email
+                                </label>
+                                <input type="email" id="profile-email">
+                                <div class="form-hint">Utilisé pour les communications</div>
+                            </div>
+                            <div class="form-group">
+                                <label for="profile-phone">
+                                    <i class="fas fa-phone"></i> Téléphone
+                                </label>
+                                <input type="tel" id="profile-phone">
+                                <div class="form-hint">Numéro de contact principal</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-section">
+                       
+                        
+                        <div class="form-grid">
+                            <div class="form-group full-width">
+                                <label for="profile-address">
+                                    <i class="fas fa-home"></i> Adresse
+                                </label>
+                                <input type="text" id="profile-address">
+                                <div class="form-hint">Adresse complète avec numéro, rue</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-actions">
+                        <button type="button" class="btn btn-secondary cancel-btn">
+                            <i class="fas fa-times"></i> Annuler
+                        </button>
+                        <button type="submit" class="btn btn-primary save-btn">
+                            <i class="fas fa-save"></i> Sauvegarder les modifications
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </section>
+    </main>
+
+    <!-- Request Details Modal -->
+    <div id="requestModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <div class="modal-title">
+                    <h2><i class="fas fa-file-alt"></i> Détails de la Demande</h2>
+                    <p id="modalRequestCode">Code: Chargement...</p>
+                </div>
+                <button class="close-modal">&times;</button>
+            </div>
+            <div class="modal-body" id="modalContent">
+                <!-- Content loaded dynamically -->
+            </div>
+            <div class="modal-footer">
+                <button class="btn btn-secondary close-btn">
+                    <i class="fas fa-times"></i> Fermer
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Message Box -->
+    <div id="messageBox" class="message-box" style="display: none;">
+        <div class="message-content">
+            <div class="message-icon">
+                <i class="fas fa-check-circle"></i>
+            </div>
+            <div class="message-text">
+                <h4>Succès !</h4>
+                <p class="message-detail"></p>
+            </div>
+            <button class="message-close">
+                <i class="fas fa-times"></i>
+            </button>
+        </div>
+    </div>
+
+    <!-- Payment Proof Modal -->
+    <div id="paymentProofModal" class="modal">
+        <div class="modal-content large">
+            <div class="modal-header">
+                <div class="modal-title">
+                    <h2><i class="fas fa-money-check-alt"></i> Preuve de Paiement</h2>
+                    <p>Téléchargez votre justificatif de paiement</p>
+                </div>
+                <button class="close-modal">&times;</button>
+            </div>
+            <div class="modal-body">
+                <div class="modal-steps">
+                    <div class="step active">
+                        <div class="step-number">1</div>
+                        <div class="step-text">
+                            <h4>Informations</h4>
+                            <p>Renseignez vos coordonnées</p>
+                        </div>
+                    </div>
+                    <div class="step">
+                        <div class="step-number">2</div>
+                        <div class="step-text">
+                            <h4>Téléchargement</h4>
+                            <p>Ajoutez votre fichier</p>
+                        </div>
+                    </div>
+                    <div class="step">
+                        <div class="step-number">3</div>
+                        <div class="step-text">
+                            <h4>Confirmation</h4>
+                            <p>Finalisez l'envoi</p>
+                        </div>
+                    </div>
+                </div>
+
+                <form id="paymentProofForm">
+                    <div class="form-card">
+                        <div class="form-section-header">
+                            <div class="section-icon">
+                                <i class="fas fa-user-check"></i>
+                            </div>
+                            <div class="section-title">
+                                <h3>Vérification Client</h3>
+                                <p>Confirmez vos informations pour le traitement</p>
+                            </div>
+                        </div>
+
+                        <div class="form-grid">
+                            <div class="form-group">
+                                <label for="clientName">
+                                    <i class="fas fa-user"></i> Nom Complet du Client *
+                                </label>
+                                <input type="text" id="clientName" placeholder="Ex: Jean Dupont" required>
+                                <div class="form-hint">Doit correspondre au nom sur le reçu de paiement</div>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="codeColis">
+                                    <i class="fas fa-barcode"></i> Code du Colis *
+                                </label>
+                                <div class="input-with-action">
+                                    <input type="text" id="codeColis" placeholder="Ex: AFRIXA-12345" required>
+                                </div>
+                                <div class="form-hint">Le code de suivi de votre demande</div>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="paymentMethod">
+                                    <i class="fas fa-credit-card"></i> Méthode de Paiement *
+                                </label>
+                                <select id="paymentMethod" required>
+                                    <option value="">Sélectionnez une méthode</option>
+                                    <option value="bank_transfer">Virement bancaire</option>
+                                    <option value="mobile_money">Mobile Money</option>
+                                    <option value="cash">Espèces</option>
+                                    <option value="check">Chèque</option>
+                                    <option value="card">Carte bancaire</option>
+                                </select>
+                                <div class="form-hint">Comment avez-vous effectué le paiement ?</div>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="paymentDate">
+                                    <i class="fas fa-calendar-alt"></i> Date du Paiement *
+                                </label>
+                                <input type="date" id="paymentDate" required>
+                                <div class="form-hint">Date à laquelle vous avez effectué le paiement</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-card">
+                        <div class="form-section-header">
+                            <div class="section-icon">
+                                <i class="fas fa-file-upload"></i>
+                            </div>
+                            <div class="section-title">
+                                <h3>Document de Preuve</h3>
+                                <p>Téléchargez votre justificatif de paiement</p>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <div class="upload-container">
+                                <div class="upload-area" id="proofUploadArea">
+                                    <div class="upload-icon">
+                                        <i class="fas fa-cloud-upload-alt"></i>
+                                    </div>
+                                    <div class="upload-text">
+                                        <h4>Glissez-déposez votre fichier ici</h4>
+                                        <p>ou cliquez pour parcourir vos fichiers</p>
+                                        <p class="upload-info">Formats acceptés: PDF, JPG, PNG (max. 10MB)</p>
+                                    </div>
+                                    <input type="file" id="proofFile" accept=".pdf,.jpg,.jpeg,.png" style="display: none;">
+                                </div>
+                                <div id="proofPreviewContainer" class="preview-container" style="display: none;">
+                                    <div class="preview-header">
+                                        <h4><i class="fas fa-file"></i> Document sélectionné</h4>
+                                    </div>
+                                    <div class="preview-content">
+                                        <div id="proofPreviewContent">
+                                            <div class="file-icon">
+                                                <i class="fas fa-file-pdf" id="proofFileIcon"></i>
+                                            </div>
+                                            <div class="file-info">
+                                                <h5 id="proofFileName"></h5>
+                                                <p id="proofFileSize"></p>
+                                                <p id="proofFileType"></p>
+                                            </div>
+                                        </div>
+                                        <div class="preview-actions">
+                                            <button type="button" id="removeProofFile" class="btn btn-danger">
+                                                <i class="fas fa-trash"></i> Supprimer
+                                            </button>
+                                            <button type="button" class="btn btn-outline" id="viewProofFile">
+                                                <i class="fas fa-eye"></i> Aperçu
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="form-info">
+                                <div class="info-icon">
+                                    <i class="fas fa-lightbulb"></i>
+                                </div>
+                                <div class="info-content">
+                                    <h4>Types de documents acceptés :</h4>
+                                    <ul>
+                                        <li>Capture d'écran du virement bancaire</li>
+                                        <li>Reçu de paiement Mobile Money</li>
+                                        <li>Ticket de caisse ou reçu de caisse</li>
+                                        <li>Copie du chèque (recto/verso)</li>
+                                        <li>Extrait de compte bancaire</li>
+                                        <li>Confirmation de transaction</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="paymentNotes">
+                                <i class="fas fa-sticky-note"></i> Notes (optionnel)
+                            </label>
+                            <textarea id="paymentNotes" rows="3" placeholder="Ajoutez des informations supplémentaires si nécessaire..."></textarea>
+                            <div class="form-hint">Référence de transaction, numéro de confirmation, etc.</div>
+                        </div>
+                    </div>
+
+                    <div class="form-actions">
+                        <div class="terms-agreement">
+                            <label class="checkbox-container">
+                                <input type="checkbox" id="termsAgreement" required>
+                                <span class="checkmark"></span>
+                                Je certifie que les informations fournies sont exactes et que le document téléchargé est un justificatif de paiement valide.
+                            </label>
+                        </div>
+                        
+                        <div class="action-buttons">
+                            <button type="button" class="btn btn-secondary close-proof-modal">
+                                <i class="fas fa-times"></i> Annuler
+                            </button>
+                            <button type="submit" class="btn btn-primary" id="submitProofBtn">
+                                <i class="fas fa-paper-plane"></i> Envoyer la Preuve
+                                <span class="btn-subtext">Soumettre pour vérification</span>
+                            </button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <script src="/JS/client.js"></script>
+</body>
+</html>

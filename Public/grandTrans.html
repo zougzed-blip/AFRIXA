@@ -1,0 +1,640 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Panel Transporteur - AFRIXA LOGISTICS</title>
+    <link rel="stylesheet" href="/CSS/grandTrans.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <!-- Sidebar Navigation -->
+    <nav class="sidebar">
+        <div class="logo">
+            <div class="logo-container">
+                <img src="/images/afrixa_logo.png" alt="AFRIXA LOGISTICS">
+                <h2>TRANSPORTEUR</h2>
+            </div>
+            <button class="sidebar-toggle" id="sidebarToggle">
+                <i class="fas fa-bars"></i>
+            </button>
+        </div>
+        
+        <ul class="nav-links">
+            <li class="nav-item active">
+                <a href="#dashboard">
+                    <i class="fas fa-chart-pie"></i>
+                    <span>Dashboard</span>
+                </a>
+            </li>
+            <li class="nav-item">
+                <a href="#demandes">
+                    <i class="fas fa-inbox"></i>
+                    <span>Demandes</span>
+                    <span class="badge clickable-badge" id="new-demands-count" onclick="clearBadge('new-demands')">0</span>
+                </a>
+            </li>
+            <li class="nav-item">
+                <a href="#propositions">
+                    <i class="fas fa-paper-plane"></i>
+                    <span>Mes Propositions</span>
+                </a>
+            </li>
+            <li class="nav-item">
+                <a href="#confirmes">
+                    <i class="fas fa-check-circle"></i>
+                    <span>Confirmés</span>
+                    <span class="badge clickable-badge" id="confirmed-count" onclick="clearBadge('confirmed')">0</span>
+                </a>
+            </li>
+            <li class="nav-item">
+                <a href="#historique">
+                    <i class="fas fa-history"></i>
+                    <span>Historique</span>
+                </a>
+            </li>
+        
+            <li class="nav-item">
+                     <a href="#paiements">
+                    <i class="fas fa-money-bill-wave"></i>
+                    <span>Paiements Reçus</span>
+                </a>
+            </li>
+            <li class="nav-item">
+                <a href="#parametres">
+                    <i class="fas fa-cog"></i>
+                    <span>Paramètres</span>
+                </a>
+            </li>
+            <li class="nav-item logout-item">
+                <a href="#" onclick="logout()">
+                    <i class="fas fa-sign-out-alt"></i>
+                    <span>Déconnexion</span>
+                </a>
+            </li>
+        </ul>
+    </nav>
+
+    <!-- Main Content -->
+    <main class="main-content">
+        <!-- Header -->
+        <header class="header">
+            <div class="header-left">
+                <div class="breadcrumb">
+                    <span id="page-title">Dashboard</span>
+                    <span class="separator">/</span>
+                    <span id="page-subtitle">Vue d'ensemble</span>
+                </div>
+                <h1>Bonjour, <span id="transporteur-name">Transporteur</span></h1>
+            </div>
+            <div class="header-right">
+                <div class="header-actions">
+                    <div class="status-indicator">
+                        <i class="fas fa-circle"></i>
+                        <span>En ligne</span>
+                    </div>
+                    <div class="admin-info">
+                        <div class="admin-avatar" id="profile-avatar" onclick="showSection('parametres')" style="cursor: pointer;">
+                            <img id="user-avatar" src="" alt="Transporteur">
+                            <span id="avatar-initials">T</span>
+                        </div>
+                        <div class="admin-details">
+                            <span class="admin-name" id="user-fullname">Transporteur</span>
+                            <span class="admin-role">Grand Transporteur</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </header>
+
+        <!-- Dashboard Section -->
+        <section id="dashboard" class="content-section active">
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <div class="stat-icon demandes">
+                        <i class="fas fa-inbox"></i>
+                    </div>
+                    <div class="stat-info">
+                        <h3 id="total-demandes">0</h3>
+                        <p>Toutes Demandes</p>
+                    </div>
+                </div>
+
+                <div class="stat-card">
+                    <div class="stat-icon en-attente">
+                        <i class="fas fa-clock"></i>
+                    </div>
+                    <div class="stat-info">
+                        <h3 id="total-en-attente">0</h3>
+                        <p>Demandes en attente</p>
+                    </div>
+                </div>
+
+                <div class="stat-card">
+                    <div class="stat-icon acceptees">
+                        <i class="fas fa-check-circle"></i>
+                    </div>
+                    <div class="stat-info">
+                        <h3 id="total-acceptees">0</h3>
+                        <p>Propositions acceptées</p>
+                    </div>
+                </div>
+
+                <div class="stat-card">
+                    <div class="stat-icon refusees">
+                        <i class="fas fa-times-circle"></i>
+                    </div>
+                    <div class="stat-info">
+                        <h3 id="total-refusees">0</h3>
+                        <p>Propositions refusées</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="dashboard-content">
+                <div class="content-column">
+                    <div class="card">
+                        <div class="card-header">
+                            <h3>Activités Récentes</h3>
+                        </div>
+                        <div class="card-body">
+                            <div class="activity-list" id="recent-activities">
+                                <div class="empty-state">
+                                    <i class="fas fa-sync fa-spin"></i>
+                                    <p>Chargement des activités...</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="content-column">
+                    <div class="card">
+                        <div class="card-header">
+                            <h3>Mes derniers gains</h3>
+                        </div>
+                        <div class="card-body">
+                            <div class="earnings-summary" id="earnings-summary">
+                                <div class="empty-state">
+                                    <i class="fas fa-money-bill-wave"></i>
+                                    <p>Aucun revenu pour le moment</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Demandes Section -->
+        <section id="demandes" class="content-section">
+            <div class="section-header">
+                <div class="header-content">
+                    <h1>Demandes de Transport</h1>
+                    <p>Gérez toutes les demandes reçues</p>
+                </div>
+                <div class="header-actions">
+                    <div class="search-box">
+                        <i class="fas fa-search"></i>
+                        <input type="text" id="search-demand" placeholder="Rechercher par code colis, client...">
+                    </div>
+                    <div class="filter-group">
+                        <select id="status-filter" class="modern-select">
+                            <option value="en_attente">En attente</option>
+                            <option value="all">Tous les statuts</option>
+                            <option value="accepté">Accepté</option>
+                            <option value="refusé">Refusé</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+
+            <div class="filter-stats-card">
+                <span class="stat-number" id="demandes-count">0</span>
+                <span class="stat-label">demandes au total</span>
+            </div>
+
+            <div class="requests-container">
+                <div class="requests-list" id="requests-list">
+                    <div class="empty-state">
+                        <i class="fas fa-sync fa-spin"></i>
+                        <p>Chargement des demandes...</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Mes Propositions Section -->
+        <section id="propositions" class="content-section">
+            <div class="section-header">
+                <div class="header-content">
+                    <h1>Mes Propositions</h1>
+                    <p>Suivez l'état de vos propositions envoyées</p>
+                </div>
+                <div class="header-actions">
+                    <div class="search-box">
+                        <i class="fas fa-search"></i>
+                        <input type="text" id="search-propositions" placeholder="Rechercher par code, montant...">
+                    </div>
+                    <div class="filter-group">
+                        <select id="proposition-status" class="modern-select">
+                            <option value="all">Tous les statuts</option>
+                            <option value="en_attente">En attente</option>
+                            <option value="accepté_par_client">Accepté</option>
+                            <option value="refusé_par_client">Refusé</option>
+                            <option value="en_cours">En cours</option>
+                            <option value="livré">Livré</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+
+            <div class="filter-stats-card">
+                <span class="stat-number" id="propositions-count">0</span>
+                <span class="stat-label">propositions totales</span>
+            </div>
+
+            <div class="propositions-container" id="propositions-container">
+                <div class="empty-state">
+                    <i class="fas fa-sync fa-spin"></i>
+                    <p>Chargement des propositions...</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Confirmés Section -->
+        <section id="confirmes" class="content-section">
+            <div class="section-header">
+                <div class="header-content">
+                    <h1>Livraisons Confirmées</h1>
+                    <p>Mettez à jour le statut des livraisons</p>
+                </div>
+                <div class="header-actions">
+                    <div class="search-box">
+                        <i class="fas fa-search"></i>
+                        <input type="text" id="search-confirmes" placeholder="Rechercher par code, client...">
+                    </div>
+                    <div class="filter-group">
+                        <select id="confirme-status-filter" class="modern-select">
+                            <option value="all">Tous les statuts</option>
+                            <option value="accepté_par_client">Confirmés</option>
+                            <option value="en_cours">En cours</option>
+                            <option value="livré">Livrés</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+
+            <div class="table-container">
+                <div class="users-table-container">
+                    <table class="users-table" id="confirmed-table">
+                        <thead>
+                            <tr>
+                                <th>Code Colis</th>
+                                <th>Client</th>
+                                <th>Trajet</th>
+                                <th>Montant</th>
+                                <th>Statut</th>
+                                <th>Date</th>
+                                <th>Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody id="confirmed-table-body">
+                            <tr>
+                                <td colspan="7" style="text-align: center; padding: 2rem;">
+                                    <i class="fas fa-sync fa-spin"></i>
+                                    <p>Chargement...</p>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </section>
+
+        <!-- Historique Section -->
+        <section id="historique" class="content-section">
+            <div class="section-header">
+                <div class="header-content">
+                    <h1>Historique Complet</h1>
+                    <p>Toutes vos activités passées</p>
+                </div>
+                <div class="header-actions">
+                    <div class="search-box">
+                        <i class="fas fa-search"></i>
+                        <input type="text" id="search-history" placeholder="Rechercher par code, client...">
+                    </div>
+                    <div class="filter-group">
+                        <select id="history-type" class="modern-select">
+                            <option value="all">Tous les types</option>
+                            <option value="proposition">Propositions</option>
+                            <option value="accepté_par_client">Acceptés</option>
+                            <option value="refusé_par_client">Refusés</option>
+                            <option value="en_cours">En cours</option>
+                            <option value="livré">Livrés</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+
+            <div class="table-container">
+                <div class="users-table-container">
+                    <table class="users-table" id="history-table">
+                        <thead>
+                            <tr>
+                                <th>Date</th>
+                                <th>Type</th>
+                                <th>Code Colis</th>
+                                <th>Client</th>
+                                <th>Trajet</th>
+                                <th>Montant</th>
+                                <th>Détails</th>
+                            </tr>
+                        </thead>
+                        <tbody id="history-table-body">
+                            <tr>
+                                <td colspan="8" style="text-align: center; padding: 3rem;">
+                                    <i class="fas fa-history"></i>
+                                    <p>Chargement de l'historique...</p>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </section>
+<!-- Section Paiements (après Historique section) -->
+<section id="paiements" class="content-section">
+    <div class="section-header">
+        <div class="header-content">
+            <h1><i class="fas fa-money-bill-wave"></i> Paiements Reçus</h1>
+            <p>Preuves de paiement envoyées par l'administration</p>
+        </div>
+    </div>
+
+    <div class="table-container">
+        <div class="users-table-container">
+            <table class="users-table" id="payments-table">
+                <thead>
+                    <tr>
+                        <th>Date</th>
+                        <th>Code Colis</th>
+                        <th>Montant</th>
+                        <th>Devise</th>
+                        <th>Preuve</th>
+                    </tr>
+                </thead>
+                <tbody id="payments-table-body">
+                    <tr>
+                        <td colspan="6" style="text-align: center; padding: 3rem;">
+                            <i class="fas fa-sync fa-spin"></i>
+                            <p>Chargement des paiements...</p>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</section>
+        <!-- Paramètres Section -->
+        <section id="parametres" class="content-section">
+            <div class="section-header">
+                <div class="header-content">
+                    <h1><i class="fas fa-cog"></i> Paramètres du compte</h1>
+                    <p>Gérez votre profil et vos préférences</p>
+                </div>
+            </div>
+
+            <div class="dashboard-content">
+                <div class="content-column">
+                    <!-- Profil -->
+                    <div class="card">
+                        <div class="card-header">
+                            <h3><i class="fas fa-user-circle"></i> Profil</h3>
+                        </div>
+                        <div class="card-body">
+                            <div class="profile-section">
+                                <div class="avatar-upload">
+                                    <div class="avatar-preview" id="profile-avatar-preview">
+                                        <img id="profile-picture" src="" alt="Photo de profil">
+                                    </div>
+                                    <input type="file" id="upload-avatar" accept="image/*" hidden>
+                                    <button class="btn-secondary btn-small" onclick="document.getElementById('upload-avatar').click()">
+                                        <i class="fas fa-camera"></i> Changer la photo
+                                    </button>
+                                </div>
+                                
+                                <div class="profile-info">
+                                    <div class="form-group">
+                                        <label>Nom de l'entreprise</label>
+                                        <input type="text" id="entreprise-name" class="modern-input" placeholder="Nom de votre entreprise">
+                                    </div>
+                                    <div class="form-group">
+                                        <label>Email</label>
+                                        <input type="email" id="entreprise-email" class="modern-input" placeholder="email@entreprise.com" disabled>
+                                        <small style="color: var(--gris-texte); font-size: 0.8rem;">Email non modifiable</small>
+                                    </div>
+                                    <div class="form-group">
+                                        <label>Téléphone</label>
+                                        <input type="tel" id="entreprise-phone" class="modern-input" placeholder="+243 81 234 5678">
+                                    </div>
+                                    <div class="form-group">
+                                        <label>Adresse du dépôt</label>
+                                        <input type="text" id="entreprise-adresse" class="modern-input" placeholder="Adresse complète">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Informations Transport -->
+                    <div class="card" style="margin-top: 1.5rem;">
+                        <div class="card-header">
+                            <h3><i class="fas fa-truck"></i> Informations de transport</h3>
+                        </div>
+                        <div class="card-body">
+                            <div class="form-grid">
+                                <div class="form-group">
+                                    <label>Type de camion</label>
+                                    <input type="text" id="type-camion" class="modern-input" placeholder="Ex: Camion, Minibus, Remorque">
+                                </div>
+                                <div class="form-group">
+                                    <label>Destinations disponibles</label>
+                                    <input type="text" id="destinations" class="modern-input" placeholder="Séparées par des virgules">
+                                </div>
+                            </div>
+                            <div class="form-group" style="margin-top: 1rem;">
+                                <label>Provinces desservies (RDC)</label>
+                                <textarea id="provinces" class="modern-input" style="min-height: 80px;" placeholder="Liste des provinces séparées par des virgules"></textarea>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="content-column">
+                    <!-- Trajets disponibles -->
+                    <div class="card">
+                        <div class="card-header">
+                            <h3><i class="fas fa-route"></i> Trajets disponibles</h3>
+                            <button class="btn-primary btn-small" onclick="openAddTrajetModal()">
+                                <i class="fas fa-plus"></i> Ajouter
+                            </button>
+                        </div>
+                        <div class="card-body">
+                            <div class="trajets-list" id="trajets-list">
+                                <div class="empty-state">
+                                    <i class="fas fa-route"></i>
+                                    <p>Aucun trajet configuré</p>
+                                    <p class="small">Ajoutez vos trajets disponibles</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Actions -->
+                    <div class="card" style="margin-top: 1.5rem;">
+                        <div class="card-header">
+                            <h3><i class="fas fa-save"></i> Enregistrer les modifications</h3>
+                        </div>
+                        <div class="card-body">
+                            <p style="color: var(--gris-texte); margin-bottom: 1.5rem;">
+                                Cliquez sur les boutons ci-dessous pour annuler ou enregistrer toutes les modifications apportées à votre profil.
+                            </p>
+                            <div class="form-actions">
+                                <button class="btn btn-secondary btn-action-cancel" onclick="loadProfileData()">
+                                    <i class="fas fa-times"></i> Annuler
+                                </button>
+                                <button class="btn btn-primary btn-action-save" onclick="updateProfile()">
+                                    <i class="fas fa-save"></i> Enregistrer
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Modal Voir Détails Demande -->
+    <div id="details-modal" class="modal">
+        <div class="modal-content large">
+            <div class="modal-header">
+                <h3>Détails de la demande - <span id="modal-demand-code"></span></h3>
+                <span class="close-modal">&times;</span>
+            </div>
+            <div class="modal-body" id="modal-details-content">
+                <!-- Contenu dynamique -->
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal Analyser et Proposer -->
+    <div id="analysis-modal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3>Faire une proposition - <span id="modal-proposal-code"></span></h3>
+                <span class="close-modal">&times;</span>
+            </div>
+            <div class="modal-body">
+                <div class="analysis-form">
+                    <input type="hidden" id="proposal-demand-id">
+                    
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label>Montant proposé (FC)</label>
+                            <input type="number" id="proposed-amount" placeholder="Ex: 45000" min="1000" step="1000" required>
+                        </div>
+                        <div class="form-group">
+                            <label>Délai proposé (jours)</label>
+                            <input type="number" id="proposed-delay" placeholder="Ex: 3" min="1" max="30" required>
+                        </div>
+                    </div>
+                    
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label>Jour disponible</label>
+                            <input type="date" id="available-day" required>
+                        </div>
+                        <div class="form-group">
+                            <label>Heure disponible</label>
+                            <input type="time" id="available-time" required>
+                        </div>
+                    </div>
+                    
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label>Couleur du camion</label>
+                            <input type="text" id="truck-color" placeholder="Ex: Blanc" required>
+                        </div>
+                        <div class="form-group">
+                            <label>Plaque d'immatriculation</label>
+                            <input type="text" id="truck-plate" placeholder="Ex: KIN-123-AB" required>
+                        </div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label>Description complémentaire</label>
+                        <textarea id="proposal-description" placeholder="Ajoutez des détails supplémentaires sur votre proposition... (facultatif)" rows="3"></textarea>
+                    </div>
+                    
+                    <div class="form-actions">
+                        <button class="btn btn-secondary" onclick="closeModal()">Annuler</button>
+                        <button class="btn btn-primary" onclick="sendProposal()">
+                            <i class="fas fa-paper-plane"></i> Envoyer la proposition
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal Ajouter Trajet -->
+    <div id="add-trajet-modal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3><i class="fas fa-route"></i> Ajouter un trajet</h3>
+                <span class="close-modal" onclick="closeAddTrajetModal()">&times;</span>
+            </div>
+            <div class="modal-body">
+                <div class="analysis-form">
+                    <div class="form-group">
+                        <label>Destination</label>
+                        <input type="text" id="new-trajet-destination" placeholder="Ex: Kinshasa-Lubumbashi" required>
+                    </div>
+                    
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label>Prix (USD)</label>
+                            <input type="number" id="new-trajet-prix" placeholder="Ex: 500" step="0.01" min="0" required>
+                        </div>
+                        <div class="form-group">
+                            <label>Délai (jours)</label>
+                            <input type="number" id="new-trajet-delai" placeholder="Ex: 3" min="1" required>
+                        </div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label>Unité</label>
+                        <select id="new-trajet-unite" class="modern-select">
+                            <option value="colis">Colis</option>
+                            <option value="kg">Kilogramme</option>
+                            <option value="m3">Mètre cube</option>
+                        </select>
+                    </div>
+                    
+                    <div class="form-actions">
+                        <button class="btn btn-secondary" onclick="closeAddTrajetModal()">Annuler</button>
+                        <button class="btn btn-primary" onclick="addNewTrajet()">
+                            <i class="fas fa-plus"></i> Ajouter le trajet
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="popup-container"></div>
+
+    <script src="/JS/grandTrans.js"></script>
+</body>
+</html>
