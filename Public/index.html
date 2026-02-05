@@ -2,62 +2,253 @@
 <html lang="fr">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AFRIXA LOGISTICS - Simplifiez vos expéditions et transports</title>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link rel="stylesheet" href="CSS/style.css">
+    <meta name="robots" content="noindex, nofollow">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, viewport-fit=cover">
+<title>AFRIXA |   Digitalisation Logistique pour les Agences Africaines</title>
+<meta name="description" content="AFRIXA digitalise les agences africaines : suivi colis temps réel, portail client, +86% croissance. Essai gratuit 7j."><meta name="keywords" content="SaaS logistique Afrique, digitalisation d'agence d'expedition, plateforme colis, gestion agence digitale, solution logistique SaaS">
+<meta name="author" content="AFRIXA Logistics">
+<meta name="robots" content="index, follow">
+<!-- Canonical -->
+<link rel="canonical" href="https://afrixalogistics.com/">
+<!-- Open Graph -->
+<meta property="og:title" content="AFRIXA | Digitalisez Votre Agence de Transport en Afrique">
+<meta property="og:description" content="La plateforme SaaS dédiée aux agences logistiques africaines. Suivi colis en temps réel, portail client, croissance accélérée.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://afrixalogistics.com/">
+<meta property="og:image" content="https://afrixalogistics.com/images/afrixa_logo.png">
+<meta property="og:locale" content="fr_FR">
+<meta property="og:site_name" content="AFRIXA Logistics">
+<link rel="dns-prefetch" href="https://formspree.io">
+<meta http-equiv="Content-Security-Policy"
+content="default-src 'self';
+img-src 'self' https: data:;
+style-src 'self' 'unsafe-inline' https://fonts.googleapis.com;
+font-src 'self' https://fonts.gstatic.com;
+form-action 'self' https://formspree.io;">
+
+<meta name="theme-color" content="#0A1AFF">
+
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="AFRIXA | Plateforme SaaS Logistique pour l’Afrique">
+<meta name="twitter:description" content="Digitalisez votre agence d’expédition africaine avec AFRIXA. Essai gratuit 7 jours.">
+
+<link rel="alternate" hreflang="fr" href="https://afrixalogistics.com/">
+<link rel="alternate" hreflang="en" href="https://afrixalogistics.com/en/">
+<link rel="alternate" hreflang="x-default" href="https://afrixalogistics.com/">
+
+<link rel="icon" type="image/png" sizes="32x32" href="images/afrixa_logo.png">
+<link rel="apple-touch-icon" sizes="180x180" href="images/afrixa_logo.png">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="preload" as="font" href="https://fonts.gstatic.com/s/inter/v12/UcC73FwrK3iLTeHuS_fvQtMwCp50KnMa1ZL7.woff2" crossorigin>
+<link rel="preload" as="font" href="https://fonts.gstatic.com/s/poppins/v20/pxiByp8kv8JHgFVrLCz7Z1xlFQ.woff2" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="preload" href="CSS/style.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+<!-- <meta name="google-site-verification" content="ton_code_google_search_console">
+<meta name="msvalidate.01" content="ton_code_bing"> -->
+<noscript><link rel="stylesheet" href="CSS/style.css"></noscript>
+<link rel="stylesheet" href="CSS/style.css">
+<link rel="preload" as="image" href="images/dash1.webp">
+
 </head>
 <body>
-
-    <header class="header">
+    <nav class="navbar" id="navbar" aria-label="Navigation principale">
         <div class="container">
             <div class="nav-container">
-                <div class="logo">
-                    <img src="images/afrixa_logo.png" alt="AFRIXA LOGISTICS">
-                    <span class="logo-text">AFRIXA LOGISTICS</span>
-                </div>
-                <nav class="nav-menu">
-                    <a href="index.html" class="nav-link">Accueil</a>
-                    <a href="services.html" class="nav-link">Services</a>
-                    <a href="apropos.html" class="nav-link">À propos</a>
-                    <a href="portail.html" class="nav-link">Mon Portail</a>
-                    <a href="connexion.html" class="nav-link login-btn">Connexion</a>
-                    <a href="inscription.html" class="nav-link">S'inscrire</a>
-                </nav>
-                <div class="mobile-menu-btn">
-                    <span></span>
-                    <span></span>
-                    <span></span>
+                <a href="#" class="logo">
+                    <img src="images/afrixa_logo.png" alt="AFRIXA LOGISTICS - Plateforme digitale logistique" width="40" height="40">
+                    <div class="logo-text">
+                        <div class="logo-main">AFRIXA</div>
+                        <div class="logo-sub">LOGISTICS</div>
+                    </div>
+                </a>
+
+                <button class="mobile-toggle" id="mobileToggle" aria-label="Menu mobile" aria-expanded="false" aria-controls="navLinks">
+                    ☰
+                </button>
+
+                <div class="nav-links" id="navLinks">
+                    <a href="#hero" class="nav-link" data-en="Home" data-fr="Accueil">Accueil</a>
+                    <a href="#problem" class="nav-link" data-en="Problems" data-fr="Problèmes">Problèmes</a>
+                    <a href="#features" class="nav-link" data-en="Solution" data-fr="Solution">Solution</a>
+                    <a href="#pricing" class="nav-link" data-en="Pricing" data-fr="Tarifs">Tarifs</a>
+                    <div class="language-selector">
+                        <select id="languageSelect" class="language-dropdown" aria-label="Sélection de la langue">
+                            <option value="fr">Français</option>
+                            <option value="en">English</option>
+                        </select>
+                    </div>
+                    <a href="#cta" class="btn btn-accent" data-en="Start Free Trial" data-fr="Démarrer l'essai">Démarrer l'essai</a>
                 </div>
             </div>
         </div>
-    </header>
+    </nav>
 
-    <section class="hero">
-        <div class="container">
+    <!-- Hero Section -->
+<section id="hero" class="hero">
+    <div class="container">
+        <div class="hero-grid">
             <div class="hero-content">
-                <div class="hero-text">
-                    <h1>Simplifiez vos expéditions et vos transports entre l'Afrique du Sud et le Congo</h1>
-                    <p>Avec AFRIXA LOGISTICS, envoyez vos colis ou transportez vos marchandises facilement, en toute sécurité et sans perte de temps. Nous connectons automatiquement les bonnes agences pour vous.</p>
-                    <div class="hero-buttons">
-                        <button class="btn-dark">
-                            <i class="fas fa-box"></i> Expédier un colis
-                        </button>
-                        <button class="btn-gold">
-                            <i class="fas fa-truck"></i> Demander un transport
-                        </button>
+                <div class="hero-badge" data-en="Professional Solution" data-fr="Solution Professionnelle">
+                    Solution Professionnelle
+                </div>
+                
+                <h1 class="hero-title" data-en="Digitalize Your Shipping Agency" data-fr="Digitalisez Votre Agence d'Expédition">
+                    Digitalisez Votre Agence d'Expédition Africaine
+                </h1>
+                
+                <p class="hero-description" data-en="AFRIXA transforms your manual management into a professional digital system. Manage requests, track packages and grow your business with a platform designed for the African market." data-fr="AFRIXA transforme votre gestion manuelle en système digital professionnel. Gérez les demandes, suivez les colis et développez votre business avec une plateforme adaptée au marché africain.">
+                    AFRIXA transforme votre gestion manuelle en système digital professionnel. 
+                    Gérez les demandes, suivez les colis et développez votre business avec 
+                    une plateforme adaptée au marché africain.
+                </p>
+
+                <div class="hero-stats">
+                    <div class="stat">
+                        <span class="stat-number">100%</span>
+                        <span class="stat-label" data-en="Tailored for the African market" data-fr="adaptée au marché africain">adaptée au marché africain</span>
+                    </div>
+                    <div class="stat">
+                        <span class="stat-number">-72%</span>
+                        <span class="stat-label" data-en="Administrative Time" data-fr="Temps Administratif">Temps Administratif</span>
+                    </div>
+                    <div class="stat">
+                        <span class="stat-number">+86%</span>
+                        <span class="stat-label" data-en="Revenue Growth" data-fr="Croissance CA">Croissance CA</span>
                     </div>
                 </div>
-                <div class="hero-video-container">
-                    <div class="video-wrapper">
-                        <video class="hero-video" autoplay muted loop playsinline>
-                            <source src="https://assets.mixkit.co/videos/preview/mixkit-aerial-view-of-a-truck-on-a-highway-41536-large.mp4" type="video/mp4">
-                        </video>
+
+                <div style="display: flex; gap: var(--spacing-md); margin-top: var(--spacing-lg); flex-wrap: wrap; justify-content: center;">
+                    <a href="#cta" class="btn btn-accent" data-en="7 Days Trial" data-fr="Essai 7 Jours" aria-label="Commencez votre essai gratuit de 7 jours">
+                        Essai 7 Jours
+                    </a>
+                    <a href="#features" class="btn btn-secondary" data-en="Features" data-fr="Fonctionnalités" aria-label="Découvrez toutes nos fonctionnalités">
+                        Fonctionnalités
+                    </a>
+                </div>
+            </div>
+
+            <div class="hero-images">
+                <div class="hero-image-stack">
+                    <div class="image-item main-image">
+                        <img src="images/dash1.webp" 
+                             alt="Dashboard principal AFRIXA - Interface de gestion des colis et suivi en temps réel"
+                             width="600" 
+                             height="400"
+                             loading="eager">
                     </div>
-                    <div class="video-overlay">
-                        <div class="play-icon">
-                            <i class="fas fa-play"></i>
+                    <div class="image-item secondary-image">
+                        <img src="images/dash4.png" 
+                             alt="Dashboard secondaire AFRIXA - Analytics et statistiques de performance"
+                             width="400" 
+                             height="300"
+                             loading="lazy">
+                    </div>
+                    <div class="image-item tertiary-image">
+                        <img src="images/dash7.png" 
+                             alt="Dashboard analytics AFRIXA - Graphiques de croissance et indicateurs clés"
+                             width="350" 
+                             height="250"
+                             loading="lazy">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+    <!-- Problem Section  -->
+    <section id="problem" class="problem">
+        <div class="container problem-container">
+            <div class="section-header">
+                <h2 class="section-title" data-en="Problems We Solve" data-fr="Problèmes que Nous Résolvons">Problèmes que Nous Résolvons dans le Transport Africain</h2>
+                <p class="section-subtitle" data-en="Challenges faced by traditional shipping agencies" data-fr="Les défis auxquels font face les agences d'expédition traditionnelles">
+                    Les défis auxquels font face les agences d'expédition traditionnelles
+                </p>
+            </div>
+
+            <div class="problem-grid">
+                <div class="problem-card">
+                    <div class="problem-number">01</div>
+                    <div class="problem-content">
+                        <div class="problem-image">
+                            <img src="images/callRep.webp" 
+                                 alt="Problème d'appels répétitifs dans les agences de transport"
+                                 width="300"
+                                 height="200"
+                                 loading="lazy">
+                        </div>
+                        <div class="problem-text">
+                            <h4 data-en="Repeated Calls" data-fr="Appels Répétitifs">Appels Répétitifs</h4>
+                            <p data-en="Hours wasted daily repeating the same information. Inefficient management of customer requests." data-fr="Des heures perdues chaque jour à répéter les mêmes informations. Gestion inefficace des demandes clients.">Des heures perdues chaque jour à répéter les mêmes informations. Gestion inefficace des demandes clients.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="problem-card">
+                    <div class="problem-number">02</div>
+                    <div class="problem-content">
+                        <div class="problem-image">
+                            <img src="images/gestionP.webp" 
+                                 alt="Gestion papier chaotique dans la logistique traditionnelle"
+                                 width="300"
+                                 height="200"
+                                 loading="lazy">
+                        </div>
+                        <div class="problem-text">
+                            <h4 data-en="Chaotic Paper Management" data-fr="Gestion Papier Chaotique">Gestion Papier Chaotique</h4>
+                            <p data-en="Scattered notebooks, lost invoices, approximate tracking. Archaic system that generates errors." data-fr="Cahiers éparpillés, factures perdues, suivi approximatif. Système archaïque qui génère des erreurs.">Cahiers éparpillés, factures perdues, suivi approximatif. Système archaïque qui génère des erreurs.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="problem-card">
+                    <div class="problem-number">03</div>
+                    <div class="problem-content">
+                        <div class="problem-image">
+                            <img src="images/unhappy.webp" 
+                                 alt="Clients mécontents à cause du manque de suivi colis"
+                                 width="300"
+                                 height="200"
+                                 loading="lazy">
+                        </div>
+                        <div class="problem-text">
+                            <h4 data-en="Unsatisfied Customers" data-fr="Clients Mécontents">Clients Mécontents</h4>
+                            <p data-en="Lack of transparency, unpredictable delays, no tracking. Loss of trust and customers." data-fr="Manque de transparence, délais imprévisibles, suivi inexistant. Perte de confiance et de clients.">Manque de transparence, délais imprévisibles, suivi inexistant. Perte de confiance et de clients.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="problem-card">
+                    <div class="problem-number">04</div>
+                    <div class="problem-content">
+                        <div class="problem-image">
+                            <img src="images/croissan.webp" 
+                                 alt="Croissance limitée des agences de transport non digitalisées"
+                                 width="300"
+                                 height="200"
+                                 loading="lazy">
+                        </div>
+                        <div class="problem-text">
+                            <h4 data-en="Limited Growth" data-fr="Croissance Limitée">Croissance Limitée</h4>
+                            <p data-en="Difficulty scaling your business, dependence on manual methods, inability to handle more volume." data-fr="Difficulté à scaler votre business, dépendance à des méthodes manuelles, impossibilité de gérer plus de volume.">Difficulté à scaler votre business, dépendance à des méthodes manuelles, impossibilité de gérer plus de volume.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="problem-card">
+                    <div class="problem-number">05</div>
+                    <div class="problem-content">
+                        <div class="problem-image">
+                            <img src="images/suiviP.webp" 
+                                 alt="Suivi imprécis des colis dans le transport traditionnel"
+                                 width="300"
+                                 height="200"
+                                 loading="lazy">
+                        </div>
+                        <div class="problem-text">
+                            <h4 data-en="Inaccurate Tracking" data-fr="Suivi Imprécis">Suivi Imprécis</h4>
+                            <p data-en="Where is my package? No tracking system, no transparency for your customers." data-fr="Où est mon colis ? Pas de système de tracking, pas de transparence pour vos clients.">Où est mon colis ? Pas de système de tracking, pas de transparence pour vos clients.</p>
                         </div>
                     </div>
                 </div>
@@ -65,288 +256,554 @@
         </div>
     </section>
 
-    <section class="services">
+    <!-- Features Section  -->
+    <section id="features" class="features">
         <div class="container">
             <div class="section-header">
-                <h2><i class="fas fa-truck"></i> Nos solutions logistiques intelligentes</h2>
-                <div class="gold-bar"></div>
-                <p>Chez AFRIXA LOGISTICS, nous combinons la technologie et la logistique africaine pour simplifier chaque étape de vos envois et transports. Découvrez nos services clés :</p>
+                <h2 class="section-title" data-en="Our Complete Solution" data-fr="Notre Solution Complète pour le Transport">Notre Solution Complète pour le Transport</h2>
+                <p class="section-subtitle" data-en="Everything your agency needs in a single platform" data-fr="Tout ce dont votre agence a besoin dans une seule plateforme">
+                    Tout ce dont votre agence de transport a besoin dans une seule plateforme digitale
+                </p>
             </div>
-            <div class="services-grid">
-                <div class="service-card">
-                    <div class="service-icon">
-                        <i class="fas fa-box-open"></i>
-                    </div>
-                    <h3>Expédition Afrique du Sud ↔ Congo</h3>
-                    <p>Nous assurons l'expédition de vos colis et marchandises entre l'Afrique du Sud et la République Démocratique du Congo. Grâce à notre système automatisé, votre demande est analysée et confiée à l'agence la plus adaptée selon votre zone, le poids et le type de colis.</p>
-                    <div class="service-subtitle">"Envoyez sans stress, suivez en toute confiance."</div>
-                </div>
-                <div class="service-card">
-                    <div class="service-icon">
-                        <i class="fas fa-truck-moving"></i>
-                    </div>
-                    <h3>Transport de marchandises local et interurbain</h3>
-                    <p>Vous avez besoin de déplacer des produits ou marchandises d'une ville à une autre ? Nos transporteurs partenaires vous offrent un service rapide, fiable et abordable à travers plusieurs villes d'Afrique du Sud et du Congo.</p>
-                    <div class="service-subtitle">"De la route au dépôt, votre marchandise reste entre de bonnes mains."</div>
-                </div>
-                <div class="service-card">
-                    <div class="service-icon">
-                        <i class="fas fa-home"></i>
-                    </div>
-                    <h3>Ramassage et livraison à domicile</h3>
-                    <p>Vous n'avez pas le temps de vous déplacer ? AFRIXA LOGISTICS met à votre disposition deux équipes spécialisées : une en Afrique du Sud pour venir récupérer votre colis, une au Congo pour livrer le destinataire à domicile.</p>
-                    <div class="service-subtitle">"On vient chez vous, on livre chez eux."</div>
-                </div>
-                <div class="service-card">
-                    <div class="service-icon">
-                        <i class="fas fa-map-marked-alt"></i>
-                    </div>
-                    <h3>Suivi et traçabilité en temps réel</h3>
-                    <p>Chaque expédition génère un code de suivi unique. Il vous permet de connaître le statut exact de votre colis à tout moment : de la collecte jusqu'à la livraison finale. Vous recevez des notifications automatiques à chaque étape.</p>
-                    <div class="service-subtitle">"Suivez votre colis pas à pas, sans stress."</div>
-                </div>
-                <div class="service-card">
-                    <div class="service-icon">
-                        <i class="fas fa-building"></i>
-                    </div>
-                    <h3>Solutions logistiques pour entreprises</h3>
-                    <p>AFRIXA LOGISTICS accompagne aussi les entreprises qui souhaitent automatiser leurs livraisons régulières entre l'Afrique du Sud et le Congo. Nous offrons des partenariats sur mesure, des tarifs préférentiels et une interface dédiée.</p>
-                    <div class="service-subtitle">"La logistique intelligente au service de votre croissance."</div>
-                </div>
-            </div>
-        </div>
-    </section>
 
-    <section class="how-it-works">
-        <div class="container">
-            <div class="section-header">
-                <h2>Comment ça marche ?</h2>
-                <div class="gold-bar"></div>
-                <p>Un processus clair, simple et rapide.</p>
-            </div>
-            <div class="steps-container">
-                <div class="step">
-                    <div class="step-circle">1</div>
-                    <div class="step-icon">
-                        <i class="fas fa-edit"></i>
-                    </div>
-                    <h4>Créez votre demande</h4>
-                    <p>Indiquez vos infos et le poids du colis</p>
-                </div>
-                <div class="step">
-                    <div class="step-circle">2</div>
-                    <div class="step-icon">
-                        <i class="fas fa-search"></i>
-                    </div>
-                    <h4>AFRIXA trouve l'agence</h4>
-                    <p>Selon la zone et le type de service</p>
-                </div>
-                <div class="step">
-                    <div class="step-circle">3</div>
-                    <div class="step-icon">
-                        <i class="fas fa-dollar-sign"></i>
-                    </div>
-                    <h4>Tarif automatique</h4>
-                    <p>Expédition + transport</p>
-                </div>
-                <div class="step">
-                    <div class="step-circle">4</div>
-                    <div class="step-icon">
-                        <i class="fas fa-credit-card"></i>
-                    </div>
-                    <h4>Paiement & preuve</h4>
-                    <p>Payez et uploadez votre preuve</p>
-                </div>
-                <div class="step">
-                    <div class="step-circle">5</div>
-                    <div class="step-icon">
-                        <i class="fas fa-shipping-fast"></i>
-                    </div>
-                    <h4>Suivi en temps réel</h4>
-                    <p>Avec un code de suivi unique</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section class="why-choose-us">
-        <div class="container">
-            <div class="section-header">
-                <h2>Pourquoi choisir AFRIXA LOGISTICS ?</h2>
-                <div class="gold-bar"></div>
-            </div>
             <div class="features-grid">
                 <div class="feature-card">
-                    <div class="feature-icon">
-                        <i class="fas fa-robot"></i>
+                    <div class="feature-image">
+                        <img src="images/dash3.webp" 
+                             alt="Portail client professionnel AFRIXA pour le suivi colis"
+                             width="350"
+                             height="250"
+                             loading="lazy">
                     </div>
-                    <h3>Automatisation intelligente</h3>
-                    <p>Plus besoin d'attendre les offres. Le système choisit instantanément le meilleur service pour vous.</p>
+                    <h4 data-en="Professional Client Portal" data-fr="Portail Client Professionnel">Portail Client Professionnel</h4>
+                    <p data-en="Your customers make their requests online, receive quotes and track their packages in real-time." data-fr="Vos clients effectuent leurs demandes en ligne, reçoivent des devis et suivent leurs colis en temps réel.">Vos clients effectuent leurs demandes en ligne, reçoivent des devis et suivent leurs colis en temps réel.</p>
                 </div>
+
                 <div class="feature-card">
-                    <div class="feature-icon">
-                        <i class="fas fa-handshake"></i>
+                    <div class="feature-image">
+                        <img src="images/dash2.webp" 
+                             alt="Dashboard intelligent AFRIXA pour la gestion logistique"
+                             width="350"
+                             height="250"
+                             loading="lazy">
                     </div>
-                    <h3>Partenaires fiables</h3>
-                    <p>Nos agences et transporteurs sont vérifiés et actifs sur le terrain.</p>
+                    <h4 data-en="Smart Dashboard" data-fr="Dashboard Intelligent">Dashboard Intelligent</h4>
+                    <p data-en="Monitor all your operations at a glance: statistics, revenue, packages in transit." data-fr="Surveillez toutes vos opérations en un coup d'œil : statistiques, revenus, colis en transit.">Surveillez toutes vos opérations en un coup d'œil : statistiques, revenus, colis en transit.</p>
                 </div>
+
                 <div class="feature-card">
-                    <div class="feature-icon">
-                        <i class="fas fa-shield-alt"></i>
+                    <div class="feature-image">
+                        <img src="images/dash9.png" 
+                             alt="Suivi en temps réel des colis AFRIXA"
+                             width="350"
+                             height="250"
+                             loading="lazy">
                     </div>
-                    <h3>Paiement sécurisé</h3>
-                    <p>Chaque paiement est validé par nos administrateurs avant expédition.</p>
+                    <h4 data-en="Real-Time Tracking" data-fr="Suivi en Temps Réel">Suivi en Temps Réel</h4>
+                    <p data-en="Each package has a unique tracking code. Total transparency for your customers." data-fr="Chaque colis dispose d'un code unique de suivi. Transparence totale pour vos clients.">Chaque colis dispose d'un code unique de suivi. Transparence totale pour vos clients.</p>
                 </div>
+
+
                 <div class="feature-card">
-                    <div class="feature-icon">
-                        <i class="fas fa-globe-africa"></i>
+                    <div class="feature-image">
+                        <img src="images/dash8.png" 
+                             alt="Facturation automatique AFRIXA pour agences de transport"
+                             width="350"
+                             height="250"
+                             loading="lazy">
                     </div>
-                    <h3>Présence bilatérale</h3>
-                    <p>Opérationnelle en Afrique du Sud et au Congo avec une coordination complète.</p>
+                    <h4 data-en="Automatic Invoicing" data-fr="Facturation Automatique">Facturation Automatique</h4>
+                    <p data-en="Generate professional invoices automatically, send them by email, track payments." data-fr="Générez des factures professionnelles automatiquement, envoyez-les par email, suivez les paiements.">Générez des factures professionnelles automatiquement, envoyez-les par email, suivez les paiements.</p>
+                </div>
+
+                <div class="feature-card">
+                    <div class="feature-image">
+                        <img src="images/dash6.webp" 
+                             alt="Notifications intelligentes AFRIXA pour la logistique"
+                             width="350"
+                             height="250"
+                             loading="lazy">
+                    </div>
+                    <h4 data-en="Smart Notifications" data-fr="Notifications Intelligentes">Notifications Intelligentes</h4>
+                    <p data-en="Automatic emails for new requests, status updates and payment reminders." data-fr="Emails automatiques pour nouvelles demandes, mises à jour de statut et rappels de paiement.">Emails automatiques pour nouvelles demandes, mises à jour de statut et rappels de paiement.</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <section class="testimonials">
+    <!-- Benefits Section -->
+    <section class="benefits">
         <div class="container">
             <div class="section-header">
-                <h2>Ce que disent nos clients</h2>
-                <div class="gold-bar"></div>
+                <h2 class="section-title" data-en="Concrete Benefits" data-fr="Avantages Concrets de la Digitalisation">Avantages Concrets de la Digitalisation</h2>
+                <p class="section-subtitle" data-en="What our solution brings to your agency" data-fr="Ce que notre solution apporte à votre agence">
+                    Ce que notre solution digitale apporte à votre agence de transport
+                </p>
             </div>
-            <div class="testimonials-slider">
-                <div class="testimonial active">
-                    <div class="testimonial-content">
-                        <div class="quote-icon">
-                            <i class="fas fa-quote-left"></i>
-                        </div>
-                        <p>"J'ai envoyé un colis de Johannesburg à Kinshasa, tout s'est bien passé. Le suivi était excellent et la livraison rapide."</p>
-                        <div class="author-info">
-                            <span class="author">Patrick M.</span>
-                            <span class="client-location">Johannesburg → Kinshasa</span>
-                        </div>
+
+            <div class="benefits-timeline">
+                <div class="benefit-card">
+                    <div class="benefit-circle">
+                        <img src="images/gain.jpg" 
+                             alt="Gain de temps avec AFRIXA - Réduction administrative"
+                             width="150"
+                             height="150"
+                             loading="lazy">
+                        <span class="benefit-badge">70%</span>
                     </div>
+                    <h3 data-en="Time Savings" data-fr="Gain de Temps">Gain de Temps</h3>
+                    <p data-en="Reduce your administrative time by 70%" data-fr="Réduisez votre temps administratif de 70%">Réduisez votre temps administratif de 70%</p>
                 </div>
-                <div class="testimonial">
-                    <div class="testimonial-content">
-                        <div class="quote-icon">
-                            <i class="fas fa-quote-left"></i>
-                        </div>
-                        <p>"Le système est simple et rapide. J'ai reçu mon colis sans problème. Je recommande vivement AFRIXA LOGISTICS."</p>
-                        <div class="author-info">
-                            <span class="author">Sarah K.</span>
-                            <span class="client-location">Durban → Lubumbashi</span>
-                        </div>
+
+                <div class="benefit-card">
+                    <div class="benefit-circle">
+                        <img src="images/augmentation.jpg" 
+                             alt="Augmentation chiffre d'affaires avec AFRIXA"
+                             width="150"
+                             height="150"
+                             loading="lazy">
+                        <span class="benefit-badge">+86%</span>
                     </div>
+                    <h3 data-en="Revenue Increase" data-fr="Augmentation CA">Augmentation CA</h3>
+                    <p data-en="+86% average growth in 6 months" data-fr="+86% de croissance en moyenne en 6 mois">+86% de croissance en moyenne en 6 mois</p>
                 </div>
-                <div class="testimonial">
-                    <div class="testimonial-content">
-                        <div class="quote-icon">
-                            <i class="fas fa-quote-left"></i>
-                        </div>
-                        <p>"Le suivi m'a permis de voir chaque étape. Très rassurant. Un service professionnel et fiable."</p>
-                        <div class="author-info">
-                            <span class="author">Jean-Paul K.</span>
-                            <span class="client-location">Cape Town → Kinshasa</span>
-                        </div>
+
+                <div class="benefit-card">
+                    <div class="benefit-circle">
+                        <img src="images/satis.jpg" 
+                             alt="Clients satisfaits grâce au suivi colis AFRIXA"
+                             width="150"
+                             height="150"
+                             loading="lazy">
+                        <span class="benefit-badge">★</span>
                     </div>
+                    <h3 data-en="Satisfied Customers" data-fr="Clients Satisfaits">Clients Satisfaits</h3>
+                    <p data-en="Total transparency and real-time tracking" data-fr="Transparence totale et suivi en temps réel">Transparence totale et suivi en temps réel</p>
                 </div>
-                <div class="slider-controls">
-                    <button class="slider-prev">
-                        <i class="fas fa-chevron-left"></i>
-                    </button>
-                    <div class="slider-dots">
-                        <span class="dot active"></span>
-                        <span class="dot"></span>
-                        <span class="dot"></span>
+
+                <div class="benefit-card">
+                    <div class="benefit-circle">
+                        <img src="images/scalable.webp" 
+                             alt="Scalabilité illimitée avec la plateforme AFRIXA"
+                             width="150"
+                             height="150"
+                             loading="lazy">
+                        <span class="benefit-badge">∞</span>
                     </div>
-                    <button class="slider-next">
-                        <i class="fas fa-chevron-right"></i>
-                    </button>
+                    <h3 data-en="Scalability" data-fr="Scalabilité">Scalabilité</h3>
+                    <p data-en="Manage 10 or 1000 packages without loss of efficiency" data-fr="Gérez 10 ou 1000 colis sans perte d'efficacité">Gérez 10 ou 1000 colis sans perte d'efficacité</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <section class="cta">
+<section id="journey" class="journey">
+    <div class="container">
+        <div class="section-header">
+            <h2 class="section-title" data-en="Your Transformation Journey" data-fr="Le Parcours de Transformation Digitale">Le Parcours de Transformation Digitale</h2>
+            <p class="section-subtitle" data-en="From traditional agency to digital leader" data-fr="De l'agence traditionnelle au leader digital">
+                De l'agence de transport traditionnelle au leader digital africain
+            </p>
+        </div>
+
+        <div class="journey-timeline">
+            <!-- Étape 1 -->
+            <div class="journey-step">
+                <div class="step-indicator">
+                    <span class="step-number">Phase 1</span>
+                    <div class="step-line"></div>
+                </div>
+                <div class="step-content">
+                    <div class="step-header">
+                        <div class="step-icon icon-config">CFG</div>
+                        <h4 data-en="Day 1-2: Installation &amp; Configuration" data-fr="Jour 1-2 : Installation &amp; Configuration">Jour 1-2 : Installation &amp; Configuration</h4>
+                    </div>
+                    <ul class="step-features">
+                        <li data-en="Customized platform with your rates" data-fr="Plateforme personnalisée avec vos tarifs">Plateforme personnalisée avec vos tarifs</li>
+                        <li data-en="Your logo and visual identity integrated" data-fr="Votre logo et identité visuelle intégrée">Votre logo et identité visuelle intégrée</li>
+                        <li data-en="Professional domain name activated" data-fr="Nom de domaine professionnel activé">Nom de domaine professionnel activé</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Étape 2 -->
+            <div class="journey-step">
+                <div class="step-indicator">
+                    <span class="step-number">Phase 2</span>
+                    <div class="step-line"></div>
+                </div>
+                <div class="step-content">
+                    <div class="step-header">
+                        <div class="step-icon icon-train">TRN</div>
+                        <h4 data-en="Day 3-7: Training &amp; Integration" data-fr="Jour 3-7 : Formation &amp; Intégration">Jour 3-7 : Formation &amp; Intégration</h4>
+                    </div>
+                    <ul class="step-features">
+                        <li data-en="Complete training for your team" data-fr="Formation complète de votre équipe">Formation complète de votre équipe</li>
+                        <li data-en="Migration of your existing data" data-fr="Migration de vos données existantes">Migration de vos données existantes</li>
+                        <li data-en="First customers imported on the platform" data-fr="Premiers clients importés sur la plateforme">Premiers clients importés sur la plateforme</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Étape 3 -->
+            <div class="journey-step">
+                <div class="step-indicator">
+                    <span class="step-number">Phase 3</span>
+                    <div class="step-line"></div>
+                </div>
+                <div class="step-content">
+                    <div class="step-header">
+                        <div class="step-icon icon-grow">GRW</div>
+                        <h4 data-en="Month 1-3: Growth &amp; Optimization" data-fr="Mois 1-3 : Croissance &amp; Optimisation">Mois 1-3 : Croissance &amp; Optimisation</h4>
+                    </div>
+                    <ul class="step-features">
+                        <li data-en="Performance analysis and adjustments" data-fr="Analyse des performances et ajustements">Analyse des performances et ajustements</li>
+                        <li data-en="70% of your customers use the portal" data-fr="70% de vos clients utilisent le portail">70% de vos clients utilisent le portail</li>
+                        <li data-en="50% reduction in administrative time" data-fr="50% de réduction du temps administratif">50% de réduction du temps administratif</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Étape 4 -->
+            <div class="journey-step">
+                <div class="step-indicator">
+                    <span class="step-number">Objectif</span>
+                </div>
+                <div class="step-content">
+                    <div class="step-header">
+                        <div class="step-icon icon-leader">LDR</div>
+                        <h4 data-en="At 6 months: Digital Leadership Achieved" data-fr="À 6 mois : Leadership Digital Atteint">À 6 mois : Leadership Digital Atteint</h4>
+                    </div>
+                    <ul class="step-features">
+                        <li data-en="100% of processes digitalized" data-fr="100% des processus digitalisés">100% des processus digitalisés</li>
+                        <li data-en="Mobile application deployed" data-fr="Application mobile déployée">Application mobile déployée</li>
+                        <li data-en="+100% revenue growth" data-fr="+100% de croissance du chiffre d'affaires">+100% de croissance du chiffre d'affaires</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="journey-cta">
+            <div class="cta-card">
+                <h3 data-en="Ready to start your transformation?" data-fr="Prêt à débuter votre transformation ?">Prêt à débuter votre transformation digitale ?</h3>
+                <p data-en="Your first step towards digital excellence starts here" data-fr="Votre premier pas vers l'excellence digitale commence ici">Votre premier pas vers l'excellence digitale commence ici</p>
+                <a href="#cta" class="btn btn-accent btn-large" data-en="Start my journey now" data-fr="Démarrer mon parcours maintenant" aria-label="Commencer mon parcours de transformation digitale maintenant">
+                    Démarrer mon parcours maintenant
+                </a>
+                <div class="cta-note">
+                    <span data-en="Installation guaranteed in 72h" data-fr="Installation garantie en 72h">Installation garantie en 72h</span>
+                    <span data-en="7 days free trial" data-fr="7 jours d'essai gratuit">7 jours d'essai gratuit</span>
+                    <span data-en="Dedicated support included" data-fr="Support dédié inclus">Support dédié inclus</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+    <!-- Pricing Section -->
+    <section id="pricing" class="pricing">
         <div class="container">
-            <div class="cta-content">
-                <h2>Prêt à expédier ou transporter vos colis ?</h2>
-                <p>AFRIXA LOGISTICS s'occupe de tout pour vous. Rejoignez des centaines de clients satisfaits.</p>
-                <div class="cta-stats">
-                    <div class="stat">
-                        <span class="stat-number">500+</span>
-                        <span class="stat-label">Clients satisfaits</span>
+            <div class="section-header">
+                <h2 class="section-title" data-en="Our Plans" data-fr="Nos Formules de Digitalisation">Nos Formules de Digitalisation</h2>
+                <p class="section-subtitle" data-en="Choose the plan suited to your agency" data-fr="Choisissez la formule adaptée à votre agence">
+                    Choisissez la formule adaptée à votre agence de transport
+                </p>
+            </div>
+
+            <div class="pricing-grid">
+                <div class="pricing-card">
+                    <div class="pricing-header">
+                        <h3 class="pricing-title" data-en="Starter" data-fr="Essentiel">Essentiel</h3>
+                        <div class="pricing-price">69$</div>
+                        <p data-en="To get started" data-fr="Pour démarrer">Pour démarrer la digitalisation</p>
                     </div>
-                    <div class="stat">
-                        <span class="stat-number">98%</span>
-                        <span class="stat-label">Livraisons réussies</span>
-                    </div>
-                    <div class="stat">
-                        <span class="stat-number">24h</span>
-                        <span class="stat-label">Support réactif</span>
-                    </div>
+                    <ul class="pricing-features">
+                        <li data-en="Customized website" data-fr="Site web personnalisé">Site web personnalisé</li>
+                        <li data-en="Management dashboard" data-fr="Dashboard de gestion">Dashboard de gestion</li>
+                        <li data-en="Up to 100 packages/month" data-fr="Jusqu'à 100 colis/mois">Jusqu'à 100 colis/mois</li>
+                        <li data-en="Email support" data-fr="Support email">Support email</li>
+                        <li data-en="Initial training" data-fr="Formation initiale">Formation initiale</li>
+                    </ul>
+                    <a href="#cta" class="btn btn-secondary" style="width: 100%;" data-en="Choose" data-fr="Choisir" aria-label="Choisir la formule Essentiel">
+                        Choisir
+                    </a>
                 </div>
-                <div class="cta-buttons">
-                    <button class="btn-gold">
-                        <i class="fas fa-rocket"></i> Commencer maintenant
-                    </button>
-                    <button class="btn-outline">
-                        <i class="fas fa-phone-alt"></i> Nous contacter
-                    </button>
+
+                <div class="pricing-card popular">
+                    <div class="popular-badge" data-en="Popular" data-fr="Populaire">Populaire</div>
+                    <div class="pricing-header">
+                        <h3 class="pricing-title" data-en="Professional" data-fr="Professionnel">Professionnel</h3>
+                        <div class="pricing-price">149$</div>
+                        <p data-en="Complete solution" data-fr="Solution complète">Solution complète de digitalisation</p>
+                    </div>
+                    <ul class="pricing-features">
+                        <li data-en="All Starter +" data-fr="Tout l'Essentiel +">Tout l'Essentiel +</li>
+                        <li data-en=".com domain name" data-fr="Nom de domaine .com">Nom de domaine .com</li>
+                        <li data-en="Unlimited packages" data-fr="Colis illimités">Colis illimités</li>
+                        <li data-en="Advanced management" data-fr="Administration avancée">Administration avancée</li>
+                        <li data-en="24/7 support" data-fr="Support 24/7">Support 24/7</li>
+                        <li data-en="Advanced training" data-fr="Formation avancée">Formation avancée</li>
+                    </ul>
+                    <a href="#cta" class="btn btn-accent" style="width: 100%;" data-en="Choose" data-fr="Choisir" aria-label="Choisir la formule Professionnel">
+                        Choisir
+                    </a>
+                </div>
+
+                <div class="pricing-card">
+                    <div class="pricing-header">
+                        <h3 class="pricing-title" data-en="Enterprise" data-fr="Entreprise">Entreprise</h3>
+                        <div class="pricing-price">449$</div>
+                        <p data-en="For leaders" data-fr="Pour les leaders">Pour les leaders du transport</p>
+                    </div>
+                    <ul class="pricing-features">
+                        <li data-en="All Professional +" data-fr="Tout le Professionnel +">Tout le Professionnel +</li>
+                        <li data-en="Mobile application" data-fr="Application mobile">Application mobile</li>
+                        <li data-en="Advanced analytics" data-fr="Analytics avancés">Analytics avancés</li>
+                        <li data-en="24/7 support" data-fr="Support 24/7">Support 24/7</li>
+                    </ul>
+                    <a href="#cta" class="btn btn-secondary" style="width: 100%;" data-en="Contact us" data-fr="Nous contacter" aria-label="Nous contacter pour la formule Entreprise">
+                        Nous contacter
+                    </a>
                 </div>
             </div>
         </div>
     </section>
 
+    <!-- FAQ Section -->
+    <section id="faq" class="faq">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title" data-en="Frequently Asked Questions" data-fr="Questions Fréquentes sur AFRIXA">Questions Fréquentes sur AFRIXA</h2>
+                <p class="section-subtitle" data-en="Answers to your questions" data-fr="Réponses à vos questions">
+                    Réponses à vos questions sur la digitalisation du transport
+                </p>
+            </div>
+
+            <div class="faq-container">
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <h4 data-en="How long does installation take?" data-fr="Combien de temps prend l'installation ?">Combien de temps prend l'installation d'AFRIXA ?</h4>
+                        <span>▼</span>
+                    </div>
+                    <div class="faq-answer">
+                        <p data-en="On average 72 hours. We configure your platform with your domain name, logo, rates and settings. Training included." data-fr="En moyenne 72 heures. Nous configurons votre plateforme avec votre nom de domaine, logo, tarifs et paramètres. Formation incluse.">En moyenne 72 heures. Nous configurons votre plateforme avec votre nom de domaine, logo, tarifs et paramètres. Formation incluse.</p>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <h4 data-en="What if my customers don't know how to use the Internet?" data-fr="Et si mes clients ne savent pas utiliser Internet ?">Et si mes clients ne savent pas utiliser Internet ?</h4>
+                        <span>▼</span>
+                    </div>
+                    <div class="faq-answer">
+                        <p data-en="Your team can fill out requests for them. The form is simple and intuitive. We provide complete training." data-fr="Votre équipe peut remplir les demandes pour eux. Le formulaire est simple et intuitif. Nous fournissons une formation complète.">Votre équipe peut remplir les demandes pour eux. Le formulaire est simple et intuitif. Nous fournissons une formation complète.</p>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <h4 data-en="Can I change my plan later?" data-fr="Puis-je changer de formule ultérieurement ?">Puis-je changer de formule ultérieurement ?</h4>
+                        <span>▼</span>
+                    </div>
+                    <div class="faq-answer">
+                        <p data-en="Absolutely. You can upgrade to a higher plan at any time without additional fees. The update is instant." data-fr="Absolument. Vous pouvez passer à une formule supérieure à tout moment sans frais supplémentaires. La mise à jour est instantanée.">Absolument. Vous pouvez passer à une formule supérieure à tout moment sans frais supplémentaires. La mise à jour est instantanée.</p>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <h4 data-en="Does the system work offline?" data-fr="Le système fonctionne-t-il hors ligne ?">Le système AFRIXA fonctionne-t-il hors ligne ?</h4>
+                        <span>▼</span>
+                    </div>
+                    <div class="faq-answer">
+                        <p data-en="Our platform is primarily online to ensure data synchronization. However, some features like order entry can be prepared offline and synchronized once the connection is restored." data-fr="Notre plateforme est principalement en ligne pour garantir la synchronisation des données. Cependant, certaines fonctionnalités comme la saisie de commande peuvent être préparées hors ligne et synchronisées une fois la connexion rétablie.">Notre plateforme est principalement en ligne pour garantir la synchronisation des données. Cependant, certaines fonctionnalités comme la saisie de commande peuvent être préparées hors ligne et synchronisées une fois la connexion rétablie.</p>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <h4 data-en="How does technical support work?" data-fr="Comment se passe l'assistance technique ?">Comment se passe l'assistance technique d'AFRIXA ?</h4>
+                        <span>▼</span>
+                    </div>
+                    <div class="faq-answer">
+                        <p data-en="We offer support adapted to each plan: by email for Starter, chat and phone 24/7 for Professional and Enterprise plans, with guaranteed response time." data-fr="Nous proposons un support adapté à chaque formule : par email pour l'Essentiel, chat et téléphone 24/7 pour les formules Professionnel et Entreprise, avec un temps de réponse garanti.">Nous proposons un support adapté à chaque formule : par email pour l'Essentiel, chat et téléphone 24/7 pour les formules Professionnel et Entreprise, avec un temps de réponse garanti.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section id="cta" class="cta-section">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title" data-en="Ready to Digitalize Your Agency?" data-fr="Prêt à Digitaliser Votre Agence de Transport ?">Prêt à Digitaliser Votre Agence de Transport ?</h2>
+                <p class="section-subtitle" data-en="Start your free 7-day trial today" data-fr="Commencez votre essai gratuit de 7 jours aujourd'hui">
+                    Commencez votre essai gratuit de 7 jours aujourd'hui
+                </p>
+            </div>
+
+            <div class="cta-form">
+                <form id="leadForm" action="https://formspree.io/f/mwvnelgp" method="POST">
+                    <div class="form-row">
+                        <div class="form-group">
+                            <input name="name" type="text" placeholder="Votre nom complet" id="ctaName" data-en="Your full name" data-fr="Votre nom complet" required aria-label="Votre nom complet">
+                        </div>
+                        <div class="form-group">
+                            <input name="phone" type="tel" placeholder="Votre téléphone" id="ctaPhone" data-en="Your phone" data-fr="Votre téléphone" required aria-label="Votre numéro de téléphone">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <input name="email" type="email" placeholder="Votre email professionnel" id="ctaEmail" data-en="Your professional email" data-fr="Votre email professionnel" required aria-label="Votre email professionnel">
+                    </div>
+                    <div class="form-group">
+                        <input name="agency" type="text" placeholder="Nom de votre agence" id="ctaAgency" data-en="Name of your agency" data-fr="Nom de votre agence" aria-label="Nom de votre agence de transport">
+                    </div>
+                    <div class="form-group">
+                        <textarea name="message" placeholder="Votre message" id="ctaMessage" data-en="Your message" data-fr="Votre message" rows="4" aria-label="Votre message"></textarea>
+                    </div>
+                    <button type="submit" class="btn" data-en="Start free trial" data-fr="Démarrer l'essai gratuit" aria-label="Démarrer l'essai gratuit de 7 jours">
+                        Démarrer l'essai gratuit
+                    </button>
+                    
+                    <p style="margin-top: var(--spacing-md); color: rgba(255, 255, 255, 0.7); font-size: 14px; text-align: center;">
+                        Données sécurisées · Aucun spam
+                    </p>
+                </form>
+            </div>
+        </div>
+    </section>
+    
     <footer class="footer">
         <div class="container">
-            <div class="footer-content">
-                <div class="footer-section">
-                    <div class="footer-logo">
-                        <img src="images/afrixa_logo.png" alt="AFRIXA LOGISTICS">
-                        <span class="logo-text">AFRIXA LOGISTICS</span>
+            <div class="footer-grid">
+                <div class="footer-about">
+                    <div class="logo">
+                        <img src="images/afrixa_logo.png" alt="AFRIXA LOGISTICS - Leader de la digitalisation logistique africaine" width="40" height="40">
+                        <div class="logo-text">
+                            <div class="logo-main">AFRIXA</div>
+                            <div class="logo-sub">LOGISTICS</div>
+                        </div>
                     </div>
-                    <p>"Connecter les nations africaines par la logistique intelligente."</p>
-                    <div class="footer-social">
-                        <a href="#"><i class="fab fa-facebook-f"></i></a>
-                        <a href="#"><i class="fab fa-instagram"></i></a>
-                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
-                        <a href="#"><i class="fab fa-twitter"></i></a>
+                    <p class="footer-about-text" data-en="We support African shipping agencies in their digital transformation. Professional solutions for a high-performing business." data-fr="Nous accompagnons les agences d'expédition africaines dans leur transformation digitale. Solutions professionnelles pour un business performant.">
+                        Nous accompagnons les agences d'expédition africaines dans leur transformation digitale. 
+                        Solutions professionnelles pour un business performant.
+                    </p>
+                    
+                    <div class="footer-whatsapp">
+                        <a href="https://wa.me/243603737036" class="whatsapp-btn" target="_blank" data-en="WhatsApp Support" data-fr="Support WhatsApp" aria-label="Support WhatsApp AFRIXA">
+                             Support WhatsApp
+                        </a>
                     </div>
                 </div>
-                <div class="footer-section">
-                    <h4>Nos services</h4>
-                    <a href="#"><i class="fas fa-box"></i> Expédition de colis</a>
-                    <a href="#"><i class="fas fa-truck"></i> Transport de marchandises</a>
-                    <a href="#"><i class="fas fa-home"></i> Livraison à domicile</a>
-                    <a href="#"><i class="fas fa-building"></i> Solutions entreprises</a>
+
+                <div class="footer-links">
+                    <h4 data-en="Solution" data-fr="Solution">Solution</h4>
+                    <ul>
+                        <li><a href="index.html#features" data-en="Features" data-fr="Fonctionnalités">Fonctionnalités</a></li>
+                        <li><a href="index.html#pricing" data-en="Pricing" data-fr="Tarifs">Tarifs</a></li>
+                        <li><a href="index.html#journey" data-en="Transformation" data-fr="Transformation">Transformation</a></li>
+                        <li><a href="index.html#cta" data-en="Free Trial" data-fr="Essai Gratuit">Essai Gratuit</a></li>
+                    </ul>
                 </div>
-                <div class="footer-section">
-                    <h4>Liens utiles</h4>
-                    <a href="index.html"><i class="fas fa-home"></i> Accueil</a>
-                    <a href="services.html"><i class="fas fa-box"></i> Services</a>
-                    <a href="apropos.html"><i class="fas fa-info-circle"></i> À propos</a>
-                    <a href="portail.html"><i class="fas fa-user-circle"></i> Mon Portail</a>
+
+                <div class="footer-links">
+                    <h4 data-en="Support" data-fr="Support">Support</h4>
+                    <ul>
+                        <li><a href="tel:+27603737036">+27 60 3737036</a></li>
+                        <li><a href="https://wa.me/27603737036" target="_blank" data-en="WhatsApp Business" data-fr="WhatsApp Business">WhatsApp Business</a></li>
+                        <li><a href="mailto:contact@afrixalogistics.com">contact@afrixalogistics.com</a></li>
+                        <li><a href="index.html#faq" data-en="FAQ & Help" data-fr="FAQ & Aide">FAQ & Aide</a></li>
+                    </ul>
                 </div>
-                <div class="footer-section">
-                    <h4>Contact</h4>
-                    <p><i class="fas fa-phone"></i> +27 000 000 000</p>
-                    <p><i class="fas fa-phone"></i> +243 000 000 000</p>
-                    <p><i class="fas fa-envelope"></i> contact@afrixalogistics.com</p>
-                    <p><i class="fas fa-map-marker-alt"></i> Johannesburg | Kinshasa</p>
+                
+                <div class="footer-links">
+                    <h4 data-en="Legal" data-fr="Légal">Légal</h4>
+                    <ul>
+                        <li><a href="privacy.html" data-en="Privacy" data-fr="Confidentialité">Confidentialité</a></li>
+                        <li><a href="terms.html" data-en="Terms" data-fr="Conditions">Conditions</a></li>
+                        <li><a href="cgu.html" data-en="Terms of Use" data-fr="CGU">CGU</a></li>
+                        <li><a href="mentions.html" data-en="Notices" data-fr="Mentions">Mentions</a></li>
+                    </ul>
                 </div>
             </div>
+
             <div class="footer-bottom">
-                <p>&copy; 2026 AFRIXA LOGISTICS — Tous droits réservés.</p>
-                <div class="footer-links">
-                    <a href="#">Politique de confidentialité</a>
-                    <a href="#">Conditions d'utilisation</a>
+                <div class="footer-location">
+                    <span data-en="Digital platform for African logistics " data-fr="Plateforme digitale pour la logistique africaine ">Plateforme digitale pour la logistique africaine </span>
+                </div>
+                
+                <div class="footer-copyright">
+                    <span data-en="© 2025–2026 AFRIXA LOGISTICS. All rights reserved." data-fr="© 2025–2026 AFRIXA LOGISTICS. Tous droits réservés.">&copy; 2025–2026 AFRIXA LOGISTICS. Tous droits réservés.</span>
+                </div>
+                
+                <div class="footer-legal-links">
+                    <a href="privacy.html" data-en="Privacy" data-fr="Confidentialité">Confidentialité</a> | 
+                    <a href="terms.html" data-en="Terms" data-fr="Conditions">Conditions</a> | 
+                    <a href="cgu.html" data-en="Terms of Use" data-fr="CGU">CGU</a>
                 </div>
             </div>
         </div>
     </footer>
 
+ <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "SoftwareApplication",
+      "name": "AFRIXA Logistics Platform",
+      "description": "Plateforme SaaS de digitalisation pour agences de transport africaines",
+      "applicationCategory": "BusinessApplication",
+      "operatingSystem": "Web",
+      "offers": {
+        "@type": "AggregateOffer",
+        "lowPrice": "69",
+        "highPrice": "449",
+        "priceCurrency": "USD",
+        "offerCount": "3"
+      },
+      "aggregateRating": {
+        "@type": "AggregateRating",
+        "ratingValue": "4.8",
+        "ratingCount": "42",
+        "bestRating": "5"
+      }
+    },
+    {
+      "@type": "WebSite",
+      "url": "https://afrixalogistics.com",
+      "potentialAction": {
+        "@type": "SearchAction",
+        "target": "https://afrixalogistics.com/search?q={search_term_string}",
+        "query-input": "required name=search_term_string"
+      }
+    },
+    {
+      "@type": "Organization",
+      "name": "AFRIXA LOGISTICS",
+      "url": "https://afrixalogistics.com",
+      "logo": "https://afrixalogistics.com/images/afrixa_logo.png"
+    },
+    {
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Combien de temps prend l'installation d'AFRIXA ?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "En moyenne 72 heures..."
+      }
+    }
+  ]
+}
+  ]
+}
+</script>
+
+    <!-- JavaScript -->
     <script src="JS/script.js"></script>
+    <script src="JS/languages.js"></script>
 </body>
 </html>

@@ -27,21 +27,5 @@ router.get('/admin/dashboard', authMiddleware,
   res.json({ message: 'Bienvenue Admin !' })
 });
 
-router.get('/petitTrans/dashboard', 
-  authMiddleware, 
-  roleMiddleware('petit_transporteur'),
-  verifiedMiddleware, 
-  (req, res) => {
-    res.json({ message: 'Bienvenue Petit Transporteur !' })
-});
-
-
-router.get('/grandTrans/dashboard', 
-  authMiddleware, 
-  roleMiddleware('grand_transporteur'),
-  verifiedMiddleware, 
-  (req, res) => {
-    res.json({ message: 'Bienvenue Grand Transporteur !' })
-});
 
 module.exports = router

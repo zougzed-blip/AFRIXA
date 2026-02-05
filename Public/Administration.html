@@ -7,21 +7,21 @@
     <link rel="stylesheet" href="/CSS/administration.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/dompurify/3.0.6/purify.min.js"></script>
 </head>
 <body>
-    <!-- Sidebar Navigation -->
+    
     <nav class="sidebar">
         <div class="logo">
             <div class="logo-container">
                 <img src="/images/afrixa_logo.png" alt="AFRIXA LOGISTICS">
                 <h2>AFRIXA <span>ADMIN</span></h2>
             </div>
-            <button class="sidebar-toggle" id="sidebarToggle">
-                <i class="fas fa-bars"></i>
-            </button>
+             <button class="sidebar-toggle" id="sidebarToggle">
+            <i class="fas fa-bars"></i>
+        </button>
         </div>
 
-        <!-- Profil Admin dans Sidebar -->
         <div class="admin-profile-sidebar">
             <div class="admin-avatar-sidebar">
                 <img src="" alt="Admin" id="admin-photo-sidebar" style="display:none;">
@@ -36,14 +36,12 @@
         <ul class="nav-links">
             <li class="nav-item active">
                 <a href="#dashboard">
-                    <i class="fas fa-chart-line"></i>
                     <span>Dashboard</span>
                 </a>
             </li>
             
             <li class="nav-item">
                 <a href="#validation">
-                    <i class="fas fa-check-circle"></i>
                     <span>Validation Sociétés</span>
                     <span class="badge" id="pending-count">0</span>
                 </a>
@@ -51,7 +49,6 @@
             
             <li class="nav-item">
                 <a href="#utilisateurs">
-                    <i class="fas fa-users"></i>
                     <span>Gestion Utilisateurs</span>
                     <span class="badge" id="users-badge">0</span>
                 </a>
@@ -59,15 +56,20 @@
             
             <li class="nav-item">
                 <a href="#paiements">
-                    <i class="fas fa-receipt"></i>
                     <span>Preuves de Paiement</span>
                     <span class="badge" id="new-proofs-count">0</span>
                 </a>
             </li>
             
             <li class="nav-item">
+                <a href="#demandes-agence">
+                    <span>Demandes Agence</span>
+                    <span class="badge" id="demandes-agence-badge">0</span>
+                </a>
+            </li>
+            
+            <li class="nav-item">
                 <a href="#demandes">
-                    <i class="fas fa-truck-moving"></i>
                     <span>Demandes Transport</span>
                     <span class="badge" id="demandes-badge">0</span>
                 </a>
@@ -75,7 +77,6 @@
 
             <li class="nav-item">
                 <a href="#propositions">
-                    <i class="fas fa-handshake"></i>
                     <span>Propositions Transport</span>
                     <span class="badge" id="propositions-badge">0</span>
                 </a>
@@ -89,15 +90,8 @@
                 </a>
             </li>
 
-            <li class="nav-item">
-                <a href="#parametres">
-                    <i class="fas fa-sliders-h"></i>
-                    <span>Paramètres</span>
-                </a>
-            </li>
-            
-            <li class="nav-item logout-item">
-                <a href="/login" class="logout" onclick="logout(event)">
+           <li class="nav-item logout-item">
+                <a href="/login" class="logout">
                     <i class="fas fa-sign-out-alt"></i>
                     <span>Déconnexion</span>
                 </a>
@@ -107,7 +101,7 @@
 
     <!-- Main Content -->
     <main class="main-content">
-        <!-- Header -->
+        
         <header class="header">
             <div class="header-left">
                 <div class="breadcrumb">
@@ -119,7 +113,6 @@
             </div>
             <div class="header-right">
                 <div class="header-actions">
-                    <!-- Notification Bell -->
                     <button class="header-action-btn" id="notificationBell">
                         <i class="fas fa-bell"></i>
                         <span class="notification-count" id="notificationCount">0</span>
@@ -139,278 +132,272 @@
             </div>
         </header>
 
-        <!-- Dashboard Section -->
-        <section id="dashboard" class="content-section active">
-            <!-- Stats Grid Amélioré -->
-            <div class="stats-grid">
-                <div class="stat-card">
-                    <div class="stat-icon">
-                        <i class="fas fa-users"></i>
-                    </div>
-                    <div class="stat-info">
-                        <h3 id="total-users">0</h3>
-                        <p>Total Utilisateurs</p>
-                        <div class="stat-subinfo">
-                            <span><strong id="active-users">0</strong> actifs</span>
-                        </div>
-                    </div>
-                </div>
+<!-- Dashboard Section -->
+<section id="dashboard" class="content-section active">
+    <div class="stats-grid">
+        <div class="stat-card">
+            <div class="stat-info">
+                <h3 id="total-users">0</h3>
+                <p>Total Utilisateurs</p>
+            </div>
+        </div>
 
-                <div class="stat-card">
-                    <div class="stat-icon clients">
-                        <i class="fas fa-user-tie"></i>
-                    </div>
-                    <div class="stat-info">
-                        <h3 id="total-clients">0</h3>
-                        <p>Clients</p>
-                        <div class="stat-subinfo">
-                            <span><strong id="new-clients">0</strong> nouveaux</span>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="stat-card">
-                    <div class="stat-icon agences">
-                        <i class="fas fa-building"></i>
-                    </div>
-                    <div class="stat-info">
-                        <h3 id="total-agences">0</h3>
-                        <p>Agences</p>
-                        <div class="stat-subinfo">
-                            <span><strong id="verified-agences">0</strong> vérifiées</span>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="stat-card">
-                    <div class="stat-icon transporteurs">
-                        <i class="fas fa-truck"></i>
-                    </div>
-                    <div class="stat-info">
-                        <h3 id="total-grand-transporteurs">0</h3>
-                        <p>Grands Transporteurs</p>
-                        <div class="stat-subinfo">
-                            <span><strong id="active-transporteurs">0</strong> actifs</span>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="stat-card">
-                    <div class="stat-icon transporteurs">
-                        <i class="fas fa-motorcycle"></i>
-                    </div>
-                    <div class="stat-info">
-                        <h3 id="total-petit-transporteurs">0</h3>
-                        <p>Petits Transporteurs</p>
-                        <div class="stat-subinfo">
-                            <span><strong id="active-petit-transporteurs">0</strong> actifs</span>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="stat-card urgent">
-                    <div class="stat-icon pending">
-                        <i class="fas fa-clock"></i>
-                    </div>
-                    <div class="stat-info">
-                        <h3 id="pending-validation">0</h3>
-                        <p>En Attente</p>
-                        <div class="stat-subinfo">
-                            <span><strong id="urgent-pending">0</strong> urgents</span>
-                        </div>
-                    </div>
+        <div class="stat-card">
+            <div class="stat-info">
+                <h3 id="total-agences">0</h3>
+                <p>Agences</p>
+                <div class="stat-subinfo">
+                    <span><strong id="active-agences">0</strong> actives</span>
                 </div>
             </div>
+        </div>
 
-            <!-- Dashboard Content Amélioré -->
-            <div class="dashboard-content">
-                <div class="content-column main-column">
-                    <!-- Section Envoyer Preuve -->
-                    <div class="card send-proof-card">
-                        <div class="card-header">
-                            <h3><i class="fas fa-paper-plane"></i> Envoyer une Preuve de Paiement</h3>
+        <div class="stat-card">
+            <div class="stat-info">
+                <h3 id="total-demandes-agence">0</h3>
+                <p>Demandes Agence</p>
+                <div class="stat-subinfo-grid">
+                    <span><strong id="pending-demandes-agence">0</strong> attente</span>
+                    <span><strong id="acceptees-demandes-agence">0</strong> acceptées</span>
+                    <span><strong id="livrees-demandes-agence">0</strong> livrées</span>
+                    <span><strong id="annulees-demandes-agence">0</strong> annulées</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="stat-card">
+            <div class="stat-info">
+                <h3 id="total-paiements-agence">0</h3>
+                <p>Paiements Agence</p>
+                <div class="stat-subinfo-grid">
+                    <span><strong id="pending-paiements-agence">0</strong> attente</span>
+                    <span><strong id="acceptes-paiements-agence">0</strong> acceptés</span>
+                    <span><strong id="refuses-paiements-agence">0</strong> refusés</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="stat-card">
+            <div class="stat-info" style="display: grid; grid-template-columns: 1fr 1fr; width: 100%; gap: 2rem;">
+                <div class="revenue-left">
+                    <h3 id="revenue-agence">0 USD</h3>
+                    <p>Revenu Total Agences</p>
+                    <div class="stat-subinfo">
+                        <div class="revenue-filters">
+                            <label>Devise:</label>
+                            <select id="revenue-currency" class="mini-select">
+                                <option value="USD">USD</option>
+                                <option value="FC">FC</option>
+                                <option value="ZAR">ZAR</option>
+                            </select>
                         </div>
-                        <div class="card-body">
-                            <div class="send-proof-form" id="send-proof-form">
-                                <div class="form-row">
-                                    <div class="form-group">
-                                        <label for="proof-code">Code Colis</label>
-                                        <input type="text" id="proof-code" placeholder="Ex: AFX-12345" class="modern-input">
-                                    </div>
-                                    <div class="form-group">
-                                        <label for="proof-amount">Montant</label>
-                                        <input type="number" id="proof-amount" placeholder="0.00" class="modern-input">
-                                    </div>
-                                    <div class="form-group">
-                                        <label for="proof-currency">Devise</label>
-                                        <select id="proof-currency" class="modern-input">
-                                            <option value="USD">USD ($)</option>
-                                            <option value="ZAR">ZAR (R)</option>
-                                            <option value="FC">FC (FC)</option>
-                                        </select>
-                                    </div>
+                    </div>
+                </div>
+                
+                <div class="revenue-right">
+                    <div class="revenue-filters">
+                        <label>Du:</label>
+                        <input type="date" id="revenue-date-start" class="mini-input">
+                    </div>
+                    <div class="revenue-filters">
+                        <label>Au:</label>
+                        <input type="date" id="revenue-date-end" class="mini-input">
+                    </div>
+                    <button class="btn-mini" id="filter-revenue-btn">Filtrer</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <div class="dashboard-content">
+        
+        <div class="content-top-section">
+            <div class="content-column main-column">
+                <div class="card send-proof-card">
+                    <div class="card-header">
+                        <h3><i class="fas fa-paper-plane"></i> Envoyer une Preuve de Paiement</h3>
+                    </div>
+                    <div class="card-body">
+                        <div class="send-proof-form" id="send-proof-form">
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label for="proof-code">Code Colis</label>
+                                    <input type="text" id="proof-code" placeholder="Ex: AFX-12345" class="modern-input">
                                 </div>
                                 <div class="form-group">
-                                    <label for="proof-photo">Photo de la Preuve</label>
-                                    <div class="file-upload">
-                                        <input type="file" id="proof-photo" accept="image/*" class="file-input">
-                                        <label for="proof-photo" class="file-label">
-                                            <i class="fas fa-upload"></i>
-                                            <span>Choisir une image</span>
-                                        </label>
-                                        <div class="file-preview" id="file-preview">
-                                            <span class="file-name" id="file-name">Aucun fichier sélectionné</span>
-                                        </div>
+                                    <label for="proof-amount">Montant</label>
+                                    <input type="number" id="proof-amount" placeholder="0.00" class="modern-input">
+                                </div>
+                               
+                                <div class="form-group">
+                                    <label for="proof-currency">Devise</label>
+                                    <select id="proof-currency" class="modern-input">
+                                        <option value="USD">USD ($)</option>
+                                        <option value="ZAR">ZAR (R)</option>
+                                        <option value="FC">FC (FC)</option>
+                                    </select>
+                                </div>
+                                <div class="form-group">
+                                    <label for="proof-form">METHOD</label>
+                                    <select id="proof-form" class="modern-input">
+                                        <option value="agencemethod">Face to face</option>
+                                        <option value="mpsa">MPESA</option>
+                                        <option value="orange">ORANGE-MONEY</option>
+                                        <option value="bank">BANK</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="proof-photo">Photo de la Preuve</label>
+                                <div class="file-upload">
+                                    <input type="file" id="proof-photo" accept="image/*" class="file-input">
+                                    <label for="proof-photo" class="file-label">
+                                        <i class="fas fa-upload"></i>
+                                        <span>Choisir une image</span>
+                                    </label>
+                                    <div class="file-preview" id="file-preview">
+                                        <span class="file-name" id="file-name">Aucun fichier sélectionné</span>
                                     </div>
                                 </div>
-                                <button class="btn btn-primary btn-block" id="send-proof-btn">
-                                    <i class="fas fa-paper-plane"></i> Envoyer la Preuve
-                                </button>
                             </div>
-                            
-                            <!-- Liste des Entreprises pour l'envoi -->
-                            <div class="companies-send-list" id="companies-send-list" style="display: none;">
-                                <h4>Sélectionner l'entreprise destinataire</h4>
-                                <div class="companies-grid" id="companies-grid">
-                                    <!-- Les entreprises seront chargées ici -->
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <!-- Activités Récentes -->
-                    <div class="card">
-                        <div class="card-header">
-                            <h3><i class="fas fa-history"></i> Activités Récentes</h3>
-                        </div>
-                        <div class="card-body">
-                            <div class="activity-list" id="recent-activities">
-                                <div class="loading-activities">
-                                    <i class="fas fa-spinner fa-spin"></i>
-                                    <span>Chargement des activités...</span>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <!-- Demandes Récentes -->
-                    <div class="card">
-                        <div class="card-header">
-                            <h3><i class="fas fa-truck-moving"></i> Demandes Récentes</h3>
-                            <a href="#demandes" class="view-all">Voir tout <i class="fas fa-arrow-right"></i></a>
-                        </div>
-                        <div class="card-body">
-                            <div class="requests-list" id="recent-requests">
-                                <!-- Chargé par API -->
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="content-column sidebar-column">
-                    <!-- Notifications -->
-                    <div class="card notifications-card">
-                        <div class="card-header">
-                            <h3><i class="fas fa-bell"></i> Notifications</h3>
-                            <button class="btn-icon" id="mark-all-read">
-                                <i class="fas fa-check-double"></i>
+                            <button class="btn btn-primary btn-block" id="send-proof-btn">
+                                <i class="fas fa-paper-plane"></i> Envoyer la Preuve
                             </button>
                         </div>
-                        <div class="card-body">
-                            <div class="notifications-list" id="notifications-list">
-                                <!-- Chargé par API -->
-                            </div>
-                            <div class="empty-notifications">
-                                <i class="fas fa-bell-slash"></i>
-                                <p>Aucune notification</p>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <!-- Statistiques Rapides -->
-                    <div class="card quick-stats">
-                        <div class="card-header">
-                            <h3><i class="fas fa-chart-line"></i> Statistiques Rapides</h3>
-                        </div>
-                        <div class="card-body">
-                            <div class="quick-stats-grid">
-                                <div class="quick-stat">
-                                    <div class="quick-stat-icon">
-                                        <i class="fas fa-check-circle"></i>
-                                    </div>
-                                    <div class="quick-stat-info">
-                                        <span class="quick-stat-value" id="completed-transports-quick">0</span>
-                                        <span class="quick-stat-label">Transports terminés</span>
-                                    </div>
-                                </div>
-                                <div class="quick-stat">
-                                    <div class="quick-stat-icon">
-                                        <i class="fas fa-star"></i>
-                                    </div>
-                                    <div class="quick-stat-info">
-                                        <span class="quick-stat-value" id="avg-rating">0.0</span>
-                                        <span class="quick-stat-label">Note moyenne</span>
-                                    </div>
-                                </div>
-                                <div class="quick-stat">
-                                    <div class="quick-stat-icon">
-                                        <i class="fas fa-percentage"></i>
-                                    </div>
-                                    <div class="quick-stat-info">
-                                        <span class="quick-stat-value" id="satisfaction-rate">0%</span>
-                                        <span class="quick-stat-label">Satisfaction</span>
-                                    </div>
-                                </div>
-                                <div class="quick-stat">
-                                    <div class="quick-stat-icon">
-                                        <i class="fas fa-bolt"></i>
-                                    </div>
-                                    <div class="quick-stat-info">
-                                        <span class="quick-stat-value" id="response-time">2h</span>
-                                        <span class="quick-stat-label">Temps réponse</span>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <!-- Actions Rapides -->
-                    <div class="card quick-actions">
-                        <div class="card-header">
-                            <h3><i class="fas fa-bolt"></i> Actions Rapides</h3>
-                        </div>
-                        <div class="card-body">
-                            <div class="actions-grid">
-                                <button class="action-btn" onclick="showSection('validation')">
-                                    <div class="action-icon">
-                                        <i class="fas fa-check"></i>
-                                    </div>
-                                    <span>Valider sociétés</span>
-                                </button>
-                                <button class="action-btn" onclick="showSection('utilisateurs')">
-                                    <div class="action-icon">
-                                        <i class="fas fa-user-cog"></i>
-                                    </div>
-                                    <span>Gérer utilisateurs</span>
-                                </button>
-                                <button class="action-btn" onclick="showSection('paiements')">
-                                    <div class="action-icon">
-                                        <i class="fas fa-file-invoice-dollar"></i>
-                                    </div>
-                                    <span>Vérifier paiements</span>
-                                </button>
-                                <button class="action-btn" onclick="showSection('propositions')">
-                                    <div class="action-icon">
-                                        <i class="fas fa-handshake"></i>
-                                    </div>
-                                    <span>Voir propositions</span>
-                                </button>
+                        
+                        <div class="companies-send-list" id="companies-send-list" style="display: none;">
+                            <h4>Sélectionner l'entreprise destinataire</h4>
+                            <div class="companies-grid" id="companies-grid">
+                                <!-- Les entreprises seront chargées ici -->
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
-        </section>
+            
+            <div class="content-column sidebar-column">
+                <div class="card notifications-card">
+                    <div class="card-header">
+                        <h3><i class="fas fa-bell"></i> Notifications</h3>
+                        <button class="btn-icon" id="mark-all-read">
+                            <i class="fas fa-check-double"></i>
+                        </button>
+                    </div>
+                    <div class="card-body">
+                        <div class="notifications-list" id="notifications-list">
+                            <!-- Chargé par API -->
+                        </div>
+                        <div class="empty-notifications">
+                            <i class="fas fa-bell-slash"></i>
+                            <p>Aucune notification</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="card quick-stats">
+                    <div class="card-header">
+                        <h3><i class="fas fa-chart-pie"></i> Statistiques Agence</h3>
+                    </div>
+                    <div class="card-body">
+                        <div class="quick-stats-grid">
+                            <div class="quick-stat">
+                                <div class="quick-stat-info">
+                                    <span class="quick-stat-value" id="agence-total-demandes">0</span>
+                                    <span class="quick-stat-label">Total demandes</span>
+                                </div>
+                            </div>
+                            <div class="quick-stat">
+                                <div class="quick-stat-info">
+                                    <span class="quick-stat-value" id="agence-demandes-livrees">0</span>
+                                    <span class="quick-stat-label">Livrées</span>
+                                </div>
+                            </div>
+                            <div class="quick-stat">
+                                <div class="quick-stat-info">
+                                    <span class="quick-stat-value" id="agence-revenue">0</span>
+                                    <span class="quick-stat-label">Revenue</span>
+                                </div>
+                            </div>
+                            <div class="quick-stat">
+                                <div class="quick-stat-info">
+                                    <span class="quick-stat-value" id="agence-success-rate">0%</span>
+                                    <span class="quick-stat-label">Taux succès</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="card quick-actions">
+                    <div class="card-header">
+                        <h3> Actions Rapides</h3>
+                    </div>
+                    <div class="card-body">
+                        <div class="actions-grid">
+                            <button class="action-btn" data-action="show-section" data-section="validation">
+                                <div class="action-icon">
+                                    <i class="fas fa-check"></i>
+                                </div>
+                                <span>Valider sociétés</span>
+                            </button>
+                            <button class="action-btn" data-action="show-section" data-section="demandes-agence">
+                                <div class="action-icon">
+                                    <i class="fas fa-shipping-fast"></i>
+                                </div>
+                                <span>Voir demandes agence</span>
+                            </button>
+                            <button class="action-btn" data-action="show-section" data-section="paiements">
+                                <div class="action-icon">
+                                    <i class="fas fa-file-invoice-dollar"></i>
+                                </div>
+                                <span>Vérifier paiements</span>
+                            </button>
+                            <button class="action-btn" data-action="show-section" data-section="historique-agences">
+                                <div class="action-icon">
+                                    <i class="fas fa-history"></i>
+                                </div>
+                                <span>Historique agences</span>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="content-bottom-section">
+            <div class="content-column main-column">
+                <div class="card">
+                    <div class="card-header">
+                        <h3>Activités Récentes</h3>
+                    </div>
+                    <div class="card-body">
+                        <div class="activity-list" id="recent-activities">
+                            <div class="loading-activities">
+                                <i class="fas fa-spinner fa-spin"></i>
+                                <span>Chargement des activités...</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="card">
+                    <div class="card-header">
+                        <h3> Demandes Agence Récentes</h3>
+                    </div>
+                    <div class="card-body">
+                        <div class="requests-list" id="recent-agence-demands">
+                            <!-- Chargé par API -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="content-column sidebar-column">
+                <!-- Tu peux laisser vide ou ajouter autre chose -->
+            </div>
+        </div>
+    </div>
+</section>
 
         <!-- Validation Sociétés Section -->
         <section id="validation" class="content-section">
@@ -551,19 +538,89 @@
                 </div>
             </div>
 
+          <div class="table-container">
+    <div class="users-table-container">
+        <table class="users-table" id="proofs-table">
+            <thead>
+                <tr>
+                    <th>Client</th>
+                    <th>Code Colis</th>
+                    <th>Montant</th>
+                    <th>Devise</th>
+                    <th>Méthode</th>
+                    <th>Statut</th>
+                    <th>Date</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody id="proofs-table-body">
+                <!-- Chargé par API -->
+            </tbody>
+        </table>
+    </div>
+</div>
+        </section>
+
+        <!-- NOUVELLE SECTION: Demandes Agence -->
+        <section id="demandes-agence" class="content-section">
+            <div class="section-header">
+                <div class="header-content">
+                    <h1>Demandes d'Agence</h1>
+                    <p>Gérez toutes les demandes des agences de transport</p>
+                </div>
+            </div>
+
+            <div class="filters-card">
+                <div class="search-box">
+                    <i class="fas fa-search"></i>
+                    <input type="text" id="search-demande-agence" placeholder="Rechercher par code colis, client...">
+                </div>
+                <div class="filter-group">
+                    <label></label>
+                    <select id="status-filter-agence" class="modern-select">
+                        <option value="all">Tous les statuts</option>
+                        <option value="en_attente">En attente</option>
+                        <option value="acceptee">Accepté</option>
+                        <option value="livree">Livré</option>
+                        <option value="annulee">Annulé</option>
+                    </select>
+                </div>
+                <div class="filter-group">
+                    <label>Du:</label>
+                    <input type="date" id="date-filter-start-agence" class="modern-select">
+                </div>
+                <div class="filter-group">
+                    <label>Au:</label>
+                    <input type="date" id="date-filter-end-agence" class="modern-select">
+                </div>
+                <div class="filter-group">
+                    <button class="btn btn-primary" id="filter-demandes-agence-btn">
+                         Filtrer
+                    </button>
+                </div>
+               
+            </div>
+
             <div class="table-container">
                 <div class="users-table-container">
-                    <table class="users-table" id="proofs-table">
+                    <table class="users-table" id="demandes-agence-table">
                         <thead>
                             <tr>
+                                <th>Code</th>
                                 <th>Client</th>
-                                <th>Code Colis</th>
-                                <th>Date d'envoi</th>
-                                <th>Preuve</th>
+                                <th>Destination</th>
+                                <th>Date</th>
+                                <th>Statut</th>
+                                <th>Actions</th>
                             </tr>
                         </thead>
-                        <tbody id="proofs-table-body">
-                            <!-- Chargé par API -->
+                        <tbody id="demandes-agence-table-body">
+                            <tr>
+                                <td colspan="10" style="text-align: center; padding: 2rem;">
+                                    <i class="fas fa-spinner fa-spin"></i>
+                                    <p>Chargement des demandes...</p>
+                                </td>
+                            </tr>
                         </tbody>
                     </table>
                 </div>
@@ -736,7 +793,7 @@
                             <tr>
                                 <th>Code Colis</th>
                                 <th>Client</th>
-                                <th>Transporteur</th>
+                                <th>AGENCE</th>
                                 <th>Note</th>
                                 <th>Date</th>
                             </tr>
@@ -757,7 +814,6 @@
                     <p>Configurez les paramètres de la plateforme</p>
                 </div>
             </div>
-            <!-- Contenu paramètres... -->
         </section>
     </main>
 
@@ -783,6 +839,112 @@
             </div>
             <div class="modal-body" id="all-notifications">
                 <!-- Contenu dynamique -->
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal Détails Demande Agence -->
+    <div id="demande-agence-details-modal" class="modal">
+        <div class="modal-content large">
+            <div class="modal-header">
+                <div class="modal-title">
+                    <h2><i class="fas fa-file-alt"></i> Détails de la demande d'agence</h2>
+                    <p id="modal-demande-agence-code">Code: Chargement...</p>
+                </div>
+                <button class="close-modal">&times;</button>
+            </div>
+            <div class="modal-body" id="modal-demande-agence-content">
+                <!-- Contenu dynamique -->
+            </div>
+            <div class="modal-footer">
+                <button class="btn btn-secondary close-btn">
+                    <i class="fas fa-times"></i> Fermer
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal Changement Statut Demande Agence -->
+    <div id="demande-agence-status-modal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <div class="modal-title">
+                    <h2>Changer le statut</h2>
+                    <p id="modal-demande-agence-status-code">Code: Chargement...</p>
+                </div>
+                <button class="close-modal">&times;</button>
+            </div>
+            <div class="modal-body">
+                <form class="status-form" id="demande-agence-status-form">
+                    <input type="hidden" id="demande-agence-id">
+                    
+                    <div class="current-status">
+                        <label>Statut actuel:</label>
+                        <span class="status-badge" id="current-demande-agence-status-badge">En attente</span>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="new-demande-agence-status">Nouveau statut *</label>
+                        <select id="new-demande-agence-status" class="modern-select" required>
+                            <option value="">Sélectionnez un statut</option>
+                            <option value="en_attente">En attente</option>
+                            <option value="accepté">Accepté</option>
+                            <option value="livré">Livré</option>
+                            <option value="annulé">Annulé</option>
+                        </select>
+                    </div>
+
+                    <div class="form-actions">
+                        <button type="button" class="btn btn-secondary cancel-btn">
+                            Annuler
+                        </button>
+                        <button type="submit" class="btn btn-primary submit-btn">
+                            Mettre à jour
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal Ajustement Poids Demande Agence -->
+    <div id="demande-agence-adjust-modal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <div class="modal-title">
+                    <h2>Ajuster le poids</h2>
+                    <p id="modal-demande-agence-adjust-code">Code: Chargement...</p>
+                </div>
+                <button class="close-modal">&times;</button>
+            </div>
+            <div class="modal-body">
+                <form class="adjust-form" id="demande-agence-adjust-form">
+                    <input type="hidden" id="demande-agence-adjust-id">
+                    
+                    <div class="form-group">
+                        <label>Poids actuel:</label>
+                        <div class="current-price-display">
+                            <span id="current-demande-agence-weight">0 kg</span>
+                        </div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="demande-agence-adjust-weight">Nouveau poids (kg)</label>
+                        <div class="input-with-unit">
+                            <input type="number" id="demande-agence-adjust-weight" class="modern-input" placeholder="Nouveau poids" step="0.01" min="0" required>
+                            <span class="unit">kg</span>
+                        </div>
+                    </div>
+
+                    <div class="form-actions">
+                        <button type="button" class="btn btn-secondary cancel-btn">
+                            Annuler
+                        </button>
+                        <button type="submit" class="btn btn-primary submit-btn">
+                            Confirmer l'ajustement
+                        </button>
+                    </div>
+                </form>
             </div>
         </div>
     </div>
@@ -818,9 +980,8 @@
         </div>
     </div>
 
-    <!-- Système de messages -->
     <div id="popup-container"></div>
 
-    <script src="/JS/administration.js"></script>
+    <script type="module" src="/JS/administration-panel/main.js"></script>
 </body>
 </html>

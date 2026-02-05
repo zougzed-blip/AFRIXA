@@ -1,12 +1,12 @@
 const multer = require('multer');
 const cloudinary = require('../config/cloudinary');
-const sharp = require('sharp'); // Installe: npm install sharp
+const sharp = require('sharp'); 
 
 const storage = multer.memoryStorage();
 
 const upload3 = multer({
   storage,
-  limits: { fileSize: 5 * 1024 * 1024 }, // Réduit à 5MB pour plus de stabilité
+  limits: { fileSize: 5 * 1024 * 1024 },
   fileFilter: function (req, file, cb) {
     const allowedTypes = ['image/', 'application/pdf'];
 
@@ -21,14 +21,13 @@ const upload3 = multer({
   }
 });
 
-// Middleware pour compresser les images
 const compressImage = async (req, res, next) => {
   if (!req.file || !req.file.mimetype.startsWith('image/')) {
     return next();
   }
   
   try {
-    // Redimensionner et compresser les images uniquement
+
     const compressedBuffer = await sharp(req.file.buffer)
       .resize({
         width: 1200,
@@ -42,16 +41,14 @@ const compressImage = async (req, res, next) => {
       })
       .toBuffer();
     
-    // Mettre à jour le buffer
+    
     req.file.buffer = compressedBuffer;
     req.file.size = compressedBuffer.length;
     
-    console.log(`✅ Image compressée: ${(req.file.size / 1024).toFixed(2)}KB`);
-    
+     
     next();
   } catch (err) {
-    console.log("⚠️ Compression échouée, continuation sans:", err.message);
-    next(); // Continue même si la compression échoue
+    next()
   }
 };
 
@@ -64,26 +61,23 @@ const uploadToCloudinaryMiddleware3 = async (req, res, next) => {
     const buffer = req.file.buffer;
     const folder = 'afrixa/paymentProofs';
 
-    console.log(`📤 Début upload Cloudinary - Taille: ${(buffer.length / 1024).toFixed(2)}KB`);
-
-    // ✅ AUGMENTER LE TIMEOUT POUR CLOUDINARY
     const result = await new Promise((resolve, reject) => {
-      // Créer un timeout séparé
+
       const timeoutId = setTimeout(() => {
         reject(new Error('Upload Cloudinary timeout après 45 secondes'));
-      }, 45000); // 45 secondes
+      }, 45000);
 
       cloudinary.uploader.upload_stream(
         { 
           folder, 
           resource_type: "auto",
           type: 'upload',
-          timeout: 60000 // Timeout Cloudinary à 60s
+          timeout: 60000 
         },
         (err, result) => {
-          clearTimeout(timeoutId); // Nettoyer le timeout
+          clearTimeout(timeoutId)
           if (err) {
-            console.error('❌ Erreur Cloudinary détaillée:', err);
+            console.error(' Erreur Cloudinary détaillée:', err);
             reject(err);
           } else {
             resolve(result);
@@ -95,25 +89,18 @@ const uploadToCloudinaryMiddleware3 = async (req, res, next) => {
     req.file.cloudinaryUrl = result.secure_url;
     req.file.cloudinaryPublicId = result.public_id;
 
-    console.log(`✅ Upload Cloudinary réussi: ${result.secure_url}`);
-    console.log(`📏 Taille uploadée: ${(result.bytes / 1024).toFixed(2)}KB`);
-    
     next();
   } catch (err) {
-    console.error('❌ Erreur Cloudinary:', err);
-    
-    
+
     if (process.env.NODE_ENV === 'development') {
-      console.log('⚠️ Mode dev: Fallback local activé');
-      
+ 
       const timestamp = Date.now();
       const originalName = req.file.originalname.replace(/\s+/g, '_');
       const fileName = `temp_${timestamp}_${originalName}`;
     
       req.file.cloudinaryUrl = `/uploads/temp/${fileName}`;
       req.file.isTemp = true;
-      
-      console.log(`📁 Fichier temporaire: ${req.file.cloudinaryUrl}`);
+  
       next();
     } else {
       

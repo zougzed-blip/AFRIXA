@@ -1,97 +1,179 @@
-const inputs = document.querySelectorAll('input');
-inputs.forEach(input => {
-    input.addEventListener('focus', function() {
-        this.style.transform = 'scale(1.01)';
-    });
-    
-    input.addEventListener('blur', function() {
-        this.style.transform = 'scale(1)';
-    });
-});
-
-document.addEventListener("DOMContentLoaded", () => {
+document.addEventListener("DOMContentLoaded", async () => {
+   
     const loginForm = document.getElementById("loginForm");
+    const emailInput = document.getElementById("email");
+    const passwordInput = document.getElementById("password");
+    const togglePassword = document.getElementById("togglePassword");
+    const rememberCheckbox = document.getElementById("remember");
+    const loginBtn = document.querySelector('.btn-login');
+    const notificationsContainer = document.querySelector('.notifications-container');
+
+    let isSubmitting = false;
+    let csrfToken = null
+    function getCSRFTokenFromCookie() {
+        try {
+            const cookieNames = [
+                'XSRF-TOKEN',
+                'csrfToken',
+                '_csrf',
+                'csrf-token'
+            ];
+            
+            const cookies = document.cookie.split('; ');
+            for (const cookie of cookies) {
+                for (const name of cookieNames) {
+                    if (cookie.startsWith(`${name}=`)) {
+                        const value = cookie.split('=')[1];
+                        csrfToken = decodeURIComponent(value);
+                        return csrfToken;
+                    }
+                }
+            }
+            
+            const metaToken = document.querySelector('meta[name="csrf-token"]');
+            if (metaToken) {
+                csrfToken = metaToken.getAttribute('content');
+                return csrfToken;
+            }
+            
+            return null;
+        } catch (error) {
+            console.error("Erreur récupération CSRF:", error);
+            return null;
+        }
+    }
+
+    csrfToken = getCSRFTokenFromCookie();
+
+    
+    togglePassword.addEventListener('click', () => {
+        const type = passwordInput.type === 'password' ? 'text' : 'password';
+        passwordInput.type = type;
+        togglePassword.innerHTML = type === 'password' ? '<i class="fas fa-eye"></i>' : '<i class="fas fa-eye-slash"></i>';
+    });
+    const inputs = [emailInput, passwordInput];
+    inputs.forEach(input => {
+        input.addEventListener('focus', function() {
+            this.parentElement.style.borderColor = 'var(--vert-fonce)';
+        });
+        
+        input.addEventListener('blur', function() {
+            this.parentElement.style.borderColor = '';
+        });
+    });
 
     loginForm.addEventListener("submit", async function (e) {
         e.preventDefault();
 
-        const submitBtn = this.querySelector('.btn-login');
-        const originalText = submitBtn.innerHTML;
-        submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Connexion...';
-        submitBtn.disabled = true;
-
-        const email = document.getElementById("email").value.trim();
-        const password = document.getElementById("password").value.trim();
-
-        if (!email || !password) {
-            showNotification("Veuillez remplir tous les champs", "warning");
-            submitBtn.innerHTML = originalText;
-            submitBtn.disabled = false;
+        if (isSubmitting) {
+            showNotification("Veuillez patienter...", "info");
             return;
         }
 
+        const email = emailInput.value.trim();
+        const password = passwordInput.value.trim();
+
+        if (!email || !password) {
+            showNotification("Veuillez remplir tous les champs", "warning");
+            return;
+        }
+
+        isSubmitting = true;
+
+        loginBtn.disabled = true;
+        const originalText = loginBtn.querySelector('.btn-text').textContent;
+        const originalIcon = loginBtn.querySelector('i').className;
+        loginBtn.querySelector('.btn-text').textContent = 'Connexion...';
+        loginBtn.querySelector('i').className = 'fas fa-spinner fa-spin';
+
         try {
-            const response = await fetch("http://localhost:3000/api/auth/login", {
+        
+            if (!csrfToken) {
+                csrfToken = getCSRFTokenFromCookie();
+            }
+            const headers = {
+                "Content-Type": "application/json",
+            };
+            if (csrfToken) {
+                headers["X-CSRF-Token"] = csrfToken;
+            }
+            const response = await fetch("/api/auth/login", {
                 method: "POST",
-                headers: {
-                    "Content-Type": "application/json",
-                },
+                headers: headers,
+                credentials: 'include', 
                 body: JSON.stringify({ email, password }),
             });
 
             const data = await response.json();
 
             if (!response.ok) {
-                showNotification(data.message || "Erreur de connexion", "error");
-                return;
+                if (response.status === 403 && data.error?.includes('CSRF')) {
+                    showNotification("Session expirée, veuillez recharger la page", "warning");
+                    window.location.reload();
+                    return;
+                }
+                throw new Error(data.message || "Email ou mot de passe incorrect");
             }
 
-            localStorage.setItem("token", data.token);
-            localStorage.setItem("role", data.role);
-            localStorage.setItem("userId", data.userId);
-
             showNotification("Connexion réussie ! Redirection en cours...", "success");
-              
-            setTimeout(() => {
-    if (data.role === "client") {
-        window.location.href = "/client/dashboard";
-    } 
-    else if (data.role === "petit_transporteur") {
-        window.location.href = "/petitTrans/dashboard";
-    }
-    else if (data.role === "grand_transporteur") {
-        window.location.href = "/grandTrans/dashboard";
-    }
-    else if (data.role === "agence") {
-        window.location.href = "/agence/dashboard";
-    }
-    else if (data.role === "admin") {
-        window.location.href = "/admin/dashboard";
-    }
-}, 1500);
+            loginBtn.querySelector('.btn-text').textContent = 'Connecté !';
+            loginBtn.querySelector('i').className = 'fas fa-check';
+            loginBtn.style.background = 'var(--success)';
 
-        
+            setTimeout(() => {
+                const redirectPaths = {
+                    "client": "/client/dashboard",
+                    "agence": "/agence/dashboard",
+                    "admin": "/admin/dashboard"
+                };
+                
+                const path = redirectPaths[data.role] || "/";
+                window.location.href = path;
+            }, 1500);
 
         } catch (error) {
             console.error("Erreur:", error);
-            showNotification("Impossible de se connecter. Vérifiez votre connexion.", "error");
+            showNotification(error.message || "Impossible de se connecter", "error");
+
+            setTimeout(() => {
+                resetButton(originalText, originalIcon);
+            }, 2000);
+            
         } finally {
-            submitBtn.innerHTML = originalText;
-            submitBtn.disabled = false;
+            setTimeout(() => {
+                isSubmitting = false;
+            }, 2000);
         }
     });
 
-   
+    function resetButton(originalText = 'Se connecter', originalIcon = 'fas fa-arrow-right') {
+        if (!loginBtn) return;
+        
+        loginBtn.disabled = false;
+        loginBtn.querySelector('.btn-text').textContent = originalText;
+        loginBtn.querySelector('i').className = originalIcon;
+        loginBtn.style.background = '';
+    }
+
     function showNotification(message, type = 'info') {
-      
-        const existingNotifications = document.querySelectorAll('.notification');
-        existingNotifications.forEach(notification => notification.remove());
+        if (!notificationsContainer) {
+            console.error('Notifications container not found');
+            return;
+        }
 
         const notification = document.createElement('div');
-        notification.className = `notification notification-${type}`;
+        notification.className = `notification ${type}`;
+        
+        const icons = {
+            success: 'check-circle',
+            error: 'exclamation-circle',
+            warning: 'exclamation-triangle',
+            info: 'info-circle'
+        };
+        
         notification.innerHTML = `
             <div class="notification-icon">
-                <i class="fas fa-${getNotificationIcon(type)}"></i>
+                <i class="fas fa-${icons[type]}"></i>
             </div>
             <div class="notification-content">
                 <p>${message}</p>
@@ -100,135 +182,27 @@ document.addEventListener("DOMContentLoaded", () => {
                 <i class="fas fa-times"></i>
             </button>
         `;
+     
+        notificationsContainer.appendChild(notification);
         
+        const autoRemove = setTimeout(() => {
+            removeNotification(notification);
+        }, 5000);
         
-        const style = document.createElement('style');
-        style.textContent = `
-            .notification {
-                position: fixed;
-                top: 20px;
-                right: 20px;
-                background: white;
-                padding: 16px 20px;
-                border-radius: 12px;
-                box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
-                display: flex;
-                align-items: center;
-                gap: 12px;
-                max-width: 400px;
-                z-index: 1000;
-                transform: translateX(400px);
-                opacity: 0;
-                transition: all 0.3s ease;
-                border-left: 4px solid #c59b33;
-            }
-            
-            .notification.show {
-                transform: translateX(0);
-                opacity: 1;
-            }
-            
-            .notification-success {
-                border-left-color: #10b981;
-            }
-            
-            .notification-error {
-                border-left-color: #ef4444;
-            }
-            
-            .notification-warning {
-                border-left-color: #f59e0b;
-            }
-            
-            .notification-info {
-                border-left-color: #3b82f6;
-            }
-            
-            .notification-icon {
-                font-size: 20px;
-                width: 24px;
-                text-align: center;
-            }
-            
-            .notification-success .notification-icon {
-                color: #10b981;
-            }
-            
-            .notification-error .notification-icon {
-                color: #ef4444;
-            }
-            
-            .notification-warning .notification-icon {
-                color: #f59e0b;
-            }
-            
-            .notification-info .notification-icon {
-                color: #3b82f6;
-            }
-            
-            .notification-content {
-                flex: 1;
-                color: #1f2937;
-                font-size: 14px;
-                font-weight: 500;
-            }
-            
-            .notification-close {
-                background: none;
-                border: none;
-                color: #9ca3af;
-                cursor: pointer;
-                padding: 4px;
-                border-radius: 4px;
-                transition: all 0.2s ease;
-            }
-            
-            .notification-close:hover {
-                background: #f3f4f6;
-                color: #374151;
-            }
-        `;
-        
-        if (!document.querySelector('#notification-styles')) {
-            style.id = 'notification-styles';
-            document.head.appendChild(style);
-        }
-        
-        document.body.appendChild(notification);
-        
-        setTimeout(() => {
-            notification.classList.add('show');
-        }, 10);
-        
-        
-        const autoClose = setTimeout(() => {
-            notification.classList.remove('show');
-            setTimeout(() => {
-                if (notification.parentNode) {
-                    notification.remove();
-                }
-            }, 300);
-        }, 4000);
-        
-
         notification.querySelector('.notification-close').addEventListener('click', () => {
-            clearTimeout(autoClose);
-            notification.classList.remove('show');
-            setTimeout(() => {
-                if (notification.parentNode) {
-                    notification.remove();
-                }
-            }, 300);
+            clearTimeout(autoRemove);
+            removeNotification(notification);
         });
     }
     
-    function getNotificationIcon(type) {
-        const icons = {
-            success: 'check-circle',
-            error: 'exclamation-circle',
-            warning: 'exclamation-triangle',
-            info: 'info-circle'
-        };
-        return icons[type] || 'info-circle';
+    function removeNotification(notification) {
+        if (!notification) return;
+        
+        notification.style.animation = 'slideOut 0.3s ease forwards';
+        setTimeout(() => {
+            if (notification.parentNode) {
+                notification.remove();
+            }
+        }, 300);
     }
 });

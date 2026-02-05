@@ -1,8 +1,7 @@
-// Emails/paymentTemplates.js
 function paiementAccepteTemplate(nomClient, codeColis) {
   return `
     <div style="font-family: Arial, sans-serif; padding: 20px;">
-      <h2 style="color: green;">✅ Paiement Confirmé</h2>
+      <h2 style="color: green;"> Paiement Confirmé</h2>
       <p>Bonjour <strong>${nomClient}</strong>,</p>
       <p>Votre paiement pour la demande <strong>${codeColis}</strong> a été confirmé.</p>
       <p>Votre colis est maintenant en cours de traitement.</p>
@@ -15,7 +14,7 @@ function paiementAccepteTemplate(nomClient, codeColis) {
 function paiementRefuseTemplate(nomClient, codeColis) {
   return `
     <div style="font-family: Arial, sans-serif; padding: 20px;">
-      <h2 style="color: red;">⚠️ Paiement Non Validé</h2>
+      <h2 style="color: red;"> Paiement Non Validé</h2>
       <p>Bonjour <strong>${nomClient}</strong>,</p>
       <p>Votre paiement pour la demande <strong>${codeColis}</strong> n'a pas été validé.</p>
       <p>Raisons possibles :</p>

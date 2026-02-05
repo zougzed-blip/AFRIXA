@@ -1,0 +1,78 @@
+.legal-container {
+            max-width: 800px;
+            margin: 120px auto 60px;
+            padding: 0 var(--spacing-md);
+        }
+        
+        .legal-header {
+            text-align: center;
+            margin-bottom: var(--spacing-xxl);
+        }
+        
+        .legal-title {
+            color: var(--primary-green);
+            font-size: 2.5rem;
+            margin-bottom: var(--spacing-md);
+        }
+        
+        .legal-subtitle {
+            color: var(--text-gray);
+            font-size: 1.1rem;
+        }
+        
+        .legal-section {
+            margin-bottom: var(--spacing-xl);
+            background: var(--white);
+            padding: var(--spacing-lg);
+            border-radius: var(--radius-lg);
+            box-shadow: var(--shadow-sm);
+        }
+        
+        .legal-section h2 {
+            color: var(--primary-green);
+            font-size: 1.5rem;
+            margin-bottom: var(--spacing-md);
+            border-bottom: 2px solid var(--primary-gold);
+            padding-bottom: var(--spacing-xs);
+        }
+        
+        .legal-section h3 {
+            color: var(--primary-green);
+            font-size: 1.2rem;
+            margin: var(--spacing-lg) 0 var(--spacing-md);
+        }
+        
+        .legal-section p {
+            margin-bottom: var(--spacing-md);
+            line-height: 1.7;
+        }
+        
+        .legal-section ul {
+            margin-left: var(--spacing-lg);
+            margin-bottom: var(--spacing-md);
+        }
+        
+        .legal-section li {
+            margin-bottom: var(--spacing-sm);
+            line-height: 1.6;
+        }
+        
+        .legal-update {
+            background: var(--light-gray);
+            padding: var(--spacing-md);
+            border-radius: var(--radius-md);
+            margin-top: var(--spacing-xl);
+            border-left: 4px solid var(--primary-gold);
+        }
+        
+        .back-btn {
+            display: inline-block;
+            margin-top: var(--spacing-xl);
+            text-decoration: none;
+            color: var(--primary-green);
+            font-weight: 500;
+        }
+        
+        .back-btn:hover {
+            text-decoration: underline;
+        }

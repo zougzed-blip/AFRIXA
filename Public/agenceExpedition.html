@@ -1,15 +1,592 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fr">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="CSS/agenceExpedition.css">
-    <title>Document</title>
+    <title>Panel Agence - AFRIXA LOGISTICS</title>
+    <link rel="stylesheet" href="/CSS/agenceExpedition.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 <body>
-    <h1>this is the expedition page</h1>
-    
+    <!-- Header -->
+    <header class="header">
+        <div class="header-content">
+            <div class="logo">
+                <img src="/images/afrixa_logo.png" alt="AFRIXA LOGISTICS" class="logo-image">
+                <div class="logo-text">
+                    <h1>AFRIXA <span>LOGISTICS</span></h1>
+                </div>
+            </div>
+            <div class="user-menu">
+                <div class="user-info" onclick="showSection('parametres')" style="cursor: pointer;">
+                    <div class="user-avatar">
+                        <img id="user-avatar" src="" alt="Agence">
+                        <span id="avatar-initials">A</span>
+                    </div>
+                    <div class="user-details">
+                        <span class="user-name" id="agence-name">Agence</span>
+                        <span class="user-status">
+                            <i class="fas fa-circle"></i> En ligne
+                        </span>
+                    </div>
+                </div>
+                <button class="menu-toggle" id="sidebarToggle">
+                    <i class="fas fa-bars"></i>
+                </button>
+            </div>
+        </div>
+    </header>
 
-    <script src="JS/agenceExpedition.js"></script>
+    <!-- Navigation -->
+    <nav class="sidebar" id="sidebar">
+        <ul class="nav-links">
+            <li class="nav-item active">
+                <a href="#demandes" onclick="showSection('demandes'); return false;">
+                    <div class="nav-text">
+                        <span class="nav-title">Mes Demandes</span>
+                        <span class="nav-subtitle">Gérer les demandes</span>
+                    </div>
+                    <span class="badge clickable-badge" id="demandes-count" onclick="clearBadge('demandes'); return false;">0</span>
+                </a>
+            </li>
+            <li class="nav-item">
+                <a href="#paiements" onclick="showSection('paiements'); return false;">
+                    <div class="nav-text">
+                        <span class="nav-title">Paiements</span>
+                        <span class="nav-subtitle">Suivi des paiements</span>
+                    </div>
+                    <span class="badge clickable-badge" id="paiements-count" onclick="clearBadge('paiements'); return false;">0</span>
+                </a>
+            </li>
+            <li class="nav-item">
+                <a href="#historique" onclick="showSection('historique'); return false;">
+                    <div class="nav-text">
+                        <span class="nav-title">Historique</span>
+                        <span class="nav-subtitle">Archives complètes</span>
+                    </div>
+                </a>
+            </li>
+        </ul>
+        
+        <div class="sidebar-footer">
+            <div class="logout-section">
+                <a href="#" id="logout-btn" class="logout-btn" onclick="logout(); return false;">
+                    <div class="logout-icon">
+                        <i class="fas fa-sign-out-alt"></i>
+                    </div>
+                    <div class="logout-text">
+                        <span>Déconnexion</span>
+                        <small>Se déconnecter du compte</small>
+                    </div>
+                </a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main class="main-content">
+        <!-- Section 1: Mes Demandes -->
+        <section id="demandes" class="content-section active">
+            <div class="section-header">
+                <div class="header-left">
+                    <h1 id="page-title">Mes Demandes</h1>
+                    <p>Gérez toutes vos demandes de transport</p>
+                </div>
+                <div class="header-actions">
+                    <div class="search-box">
+                        <i class="fas fa-search"></i>
+                        <input type="text" id="search-demandes" placeholder="Rechercher par code, client..." oninput="filterDemandes()">
+                    </div>
+                </div>
+            </div>
+
+            <div class="filter-section">
+                <div class="filter-buttons">
+                    <button class="filter-btn active" onclick="filterDemandesByStatus('all')">Toutes</button>
+                    <button class="filter-btn" onclick="filterDemandesByStatus('en_attente')">En attente</button>
+                    <button class="filter-btn" onclick="filterDemandesByStatus('accepté')">Accepté</button>
+                    <button class="filter-btn" onclick="filterDemandesByStatus('en_cours')">En cours</button>
+                    <button class="filter-btn" onclick="filterDemandesByStatus('livré')">Livré</button>
+                    <button class="filter-btn" onclick="filterDemandesByStatus('annulé')">Annulé</button>
+                </div>
+                
+                <div class="date-filters">
+                    <div class="filter-group">
+                        <label>Du:</label>
+                        <input type="date" id="demandes-date-start" class="modern-select" onchange="filterDemandes()">
+                    </div>
+                    <div class="filter-group">
+                        <label>Au:</label>
+                        <input type="date" id="demandes-date-end" class="modern-select" onchange="filterDemandes()">
+                    </div>
+                </div>
+            </div>
+
+            <div class="filter-stats-card">
+                <span class="stat-number" id="demandes-total">0</span>
+                <span class="stat-label">demandes totales</span>
+            </div>
+
+            <div class="table-container">
+                <div class="users-table-container">
+                    <table class="users-table" id="demandes-table">
+                        <thead>
+                            <tr>
+                                <th>Code</th>
+                                <th>Client</th>
+                                <th>Trajet</th>
+                                <th>Type </th>
+                                <th>Poid (kg)</th>
+                                <th>Date</th>
+                                <th>Statut</th>
+                                <th>Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody id="demandes-table-body">
+                            <tr>
+                                <td colspan="8" style="text-align: center; padding: 2rem;">
+                                    <i class="fas fa-sync fa-spin"></i>
+                                    <p>Chargement des demandes...</p>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section 2: Paiements -->
+        <section id="paiements" class="content-section">
+            <div class="section-header">
+                <div class="header-left">
+                    <h1 id="page-title">Paiements</h1>
+                    <p>Suivez vos paiements et revenus</p>
+                </div>
+                <div class="header-actions">
+                    <div class="search-box">
+                        <i class="fas fa-search"></i>
+                        <input type="text" id="search-paiements" placeholder="Rechercher par code, client..." oninput="filterPaiements()">
+                    </div>
+                </div>
+            </div>
+
+            <div class="filter-section">
+                <div class="date-filters">
+                    <div class="filter-group">
+                        <label>Du:</label>
+                        <input type="date" id="paiements-date-start" class="modern-select" onchange="filterPaiements()">
+                    </div>
+                    <div class="filter-group">
+                        <label>Au:</label>
+                        <input type="date" id="paiements-date-end" class="modern-select" onchange="filterPaiements()">
+                    </div>
+                </div>
+            </div>
+
+            <div class="table-container">
+                <div class="users-table-container">
+                    <table class="users-table" id="paiements-table">
+                        <thead>
+                            <tr>
+                                <th>Date</th>
+                                <th>Code Colis</th>
+                                <th>Client</th>
+                                <th>Montant</th>
+                                <th>Devise</th>
+                                <th>Statut</th>
+                                <th>Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody id="paiements-table-body">
+                            <tr>
+                                <td colspan="7" style="text-align: center; padding: 2rem;">
+                                    <i class="fas fa-sync fa-spin"></i>
+                                    <p>Chargement des paiements...</p>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section 3: Historique -->
+        <section id="historique" class="content-section">
+            <div class="section-header">
+                <div class="header-left">
+                    <h1 id="page-title">Historique</h1>
+                    <p>Archives de toutes vos activités</p>
+                </div>
+                <div class="header-actions">
+                    <div class="search-box">
+                        <i class="fas fa-search"></i>
+                        <input type="text" id="search-historique" placeholder="Rechercher par code, action..." oninput="filterHistorique()">
+                    </div>
+                </div>
+            </div>
+
+            <div class="filter-section">
+                <div class="filter-buttons">
+                    <button class="filter-btn active" onclick="filterHistoriqueByType('all')">Toutes</button>
+                    <button class="filter-btn" onclick="filterHistoriqueByType('demande')">Demandes</button>
+                    <button class="filter-btn" onclick="filterHistoriqueByType('paiement')">Paiements</button>
+                </div>
+                
+                <div class="date-filters">
+                    <div class="filter-group">
+                        <label>Du:</label>
+                        <input type="date" id="historique-date-start" class="modern-select" onchange="filterHistorique()">
+                    </div>
+                    <div class="filter-group">
+                        <label>Au:</label>
+                        <input type="date" id="historique-date-end" class="modern-select" onchange="filterHistorique()">
+                    </div>
+                </div>
+            </div>
+
+            <div class="table-container">
+                <div class="users-table-container">
+                    <table class="users-table" id="historique-table">
+                        <thead>
+                            <tr>
+                                <th>Type</th>
+                                <th>Code Colis</th>
+                                <th>Nom</th>
+                                <th>Date</th>
+                                <th>Montant</th>
+                                <th>Statut</th>
+                            </tr>
+                        </thead>
+                        <tbody id="historique-table-body">
+                            <tr>
+                                <td colspan="6" style="text-align: center; padding: 2rem;">
+                                    <i class="fas fa-history"></i>
+                                    <p>Chargement de l'historique...</p>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section 4: Paramètres du Compte -->
+        <section id="parametres" class="content-section">
+            <div class="section-header">
+                <div class="header-left">
+                    <h1 id="page-title">Paramètres du compte</h1>
+                    <p>Gérez votre profil et vos préférences</p>
+                </div>
+            </div>
+
+            <div class="profile-container">
+                <div class="profile-header-card">
+                    <div class="profile-avatar-section">
+                        <div class="avatar-container">
+                            <img id="profile-picture" src="" alt="Photo de profil">
+                            <div class="avatar-overlay">
+                                <button class="edit-avatar" type="button" onclick="document.getElementById('upload-avatar').click()">
+                                    <i class="fas fa-camera"></i>
+                                </button>
+                            </div>
+                        </div>
+                        <div class="avatar-info">
+                            <h2 id="agence-name-display">Nom Agence</h2>
+                            <p id="agence-email-display">Email de l'agence</p>
+                            <div class="verification-badge" id="verification-badge">
+                                <i class="fas fa-check-circle"></i>
+                                <span>Compte vérifié</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <form class="profile-form" id="profile-form">
+                    <div class="form-section">
+                        <div class="form-section-header">
+                            <div class="section-title">
+                                <h3>Informations de l'agence</h3>
+                                <p>Détails principaux de votre agence</p>
+                            </div>
+                        </div>
+                        
+                        <div class="form-grid">
+                            <div class="form-group">
+                                <label for="agenceName">
+                                  Nom de l'agence *
+                                </label>
+                                <input type="text" id="agenceName" class="modern-input" placeholder="Nom officiel de votre agence" required>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="email">
+                                     Email professionnel *
+                                </label>
+                                <input type="email" id="email" class="modern-input" placeholder="contact@votreagence.com" disabled>
+                                <div class="form-hint">Email non modifiable</div>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="telephone">
+                                  Téléphone *
+                                </label>
+                                <input type="tel" id="telephone" class="modern-input" placeholder="+243 81 234 5678" required>
+                            </div>            
+                        </div>
+                    </div>
+
+                    <div class="form-section">
+                        <div class="form-section-header">
+                            <div class="section-title">
+                                <h3>Gestion des Destinations</h3>
+                                <p>Ajoutez, modifiez ou supprimez vos destinations</p>
+                            </div>
+                        </div>
+                        
+                        <div class="destinations-list" id="destinations-list">
+                            <h4>Destinations actuelles</h4>
+                            <table class="destinations-table">
+                                <thead>
+                                    <tr>
+                                        <th>Destination</th>
+                                        <th>Depart</th>
+                                        <th>Arrivee</th>
+                                        <th>Tarif (USD)</th>
+                                        <th>Délai (jours)</th>
+                                        <th>Actions</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="destinations-table-body">
+                                    <tr>
+                                        <td colspan="6" style="text-align: center; padding: 2rem;">
+                                            <i class="fas fa-sync fa-spin"></i>
+                                            <p>Chargement des destinations...</p>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+
+                        <div class="add-destination-form">
+                            <h4 id="destination-form-title">Ajouter une nouvelle destination</h4>
+                            
+                            <div class="form-grid">
+                                <div class="form-group">
+                                    <label for="destination-pays">
+                                       Pays *
+                                    </label>
+                                    <select id="destination-pays" class="modern-select" required>
+                                        <option value="">Sélectionnez un pays</option>
+                                        <option value="RDC">République Démocratique du Congo</option>
+                                        <option value="Afrique du Sud">Afrique du Sud</option>
+                                    </select>
+                                </div>
+                                
+                                <div class="form-group">
+                                    <label for="destination-ville">
+                                        Ville de depart *
+                                    </label>
+                                    <input type="text" id="destination-ville" class="modern-input" placeholder="Nom de la ville" required>
+                                </div>
+                                
+                                <div class="form-group">
+                                    <label for="destination-nom">
+                                        ville d'Arrivee *
+                                    </label>
+                                    <input type="text" id="destination-nom" class="modern-input" placeholder="Ex: Kinshasa → Lubumbashi" required>
+                                </div>
+                                
+                                <div class="form-group">
+                                    <label for="destination-tarif">
+                                        Tarif (USD) *
+                                    </label>
+                                    <input type="number" id="destination-tarif" class="modern-input" placeholder="0.00" step="0.01" min="0" required>
+                                </div>
+                                
+                                <div class="form-group">
+                                    <label for="destination-delai">
+                                       Délai (jours) *
+                                    </label>
+                                    <input type="number" id="destination-delai" class="modern-input" placeholder="3-5" min="1" required>
+                                </div>
+                            </div>
+                            
+                            <div class="form-actions">
+                                <input type="hidden" id="destination-index" value="-1">
+                                <button type="button" class="btn btn-secondary" id="cancel-destination-btn" onclick="cancelDestinationEdit()">
+                                   Annuler
+                                </button>
+                                <button type="button" class="btn btn-primary" id="save-destination-btn" onclick="saveDestination()">
+                                   Ajouter la destination / Mettre à jour
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </section>
+    </main>
+
+    <div id="status-modal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <div class="modal-title">
+                    <h2>Changer le statut</h2>
+                    <p id="modal-demande-code">Code: Chargement...</p>
+                </div>
+                <button class="close-modal" onclick="closeModal()">&times;</button>
+            </div>
+            <div class="modal-body">
+                <form class="status-form" id="status-form">
+                    <input type="hidden" id="demande-id">
+                    
+                    <div class="current-status">
+                        <label>Statut actuel:</label>
+                        <span class="status-badge" id="current-status-badge">En attente</span>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="new-status">Nouveau statut *</label>
+                        <select id="new-status" class="modern-select" required>
+                            <option value="">Sélectionnez un statut</option>
+                            <option value="en_attente">En attente</option>
+                            <option value="accepté">Accepté</option>
+                            <option value="livré">Livré</option>
+                            <option value="annulé">Annulé</option>
+                        </select>
+                    </div>
+
+                    <div class="form-actions">
+                        <button type="button" class="btn btn-secondary cancel-btn" onclick="closeModal()">
+                            Annuler
+                        </button>
+                        <button type="button" class="btn btn-primary submit-btn" onclick="updateDemandeStatus(event)">
+                            Mettre à jour
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <div id="paiement-details-modal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2 id="modal-paiement-details-code">Détails du paiement</h2>
+                <button class="close-modal">&times;</button>
+            </div>
+            <div id="modal-paiement-details-content" class="modal-body">
+                <!-- Contenu dynamique -->
+            </div>
+        </div>
+    </div>
+
+    <div id="adjust-modal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <div class="modal-title">
+                    <h2> Ajuster le poids</h2>
+                    <p id="modal-adjust-code">Code: Chargement...</p>
+                </div>
+                <button class="close-modal" onclick="closeModal()">&times;</button>
+            </div>
+            <div class="modal-body">
+                <form class="adjust-form" id="adjust-form">
+                    <input type="hidden" id="demande-id">
+                    
+                    <div class="form-group">
+                        <label>Prix actuel/Kg:</label>
+                        <div class="current-price-display">
+                            <span id="current-price">0 $</span>
+                        </div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="adjust-price">Nouveau prix/Kg</label>
+                        <div class="input-with-currency">
+                            <input type="number" id="adjust-price" class="modern-input" placeholder="Nouveau prix" step="0.01" min="0" required disabled>
+                            <span class="currency">$</span>
+                        </div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="adjust-weight">Poids réel (optionnel)</label>
+                        <input type="number" id="adjust-weight" class="modern-input" placeholder="Poids réel en kg" step="0.01" min="0">
+                        <small class="form-hint">Si différent du poids déclaré</small>
+                    </div>
+
+                    <div class="form-actions">
+                        <button type="button" class="btn btn-secondary cancel-btn" onclick="closeModal()">
+                            Annuler
+                        </button>
+                        <button type="button" class="btn btn-primary submit-btn" onclick="adjustDemandePrice(event)">
+                            Confirmer l'ajustement
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <div id="details-modal" class="modal">
+        <div class="modal-content large">
+            <div class="modal-header">
+                <div class="modal-title">
+                    <h2><i class="fas fa-file-alt"></i> Détails de la demande</h2>
+                    <p id="modal-demande-details-code">Code: Chargement...</p>
+                </div>
+                <button class="close-modal" onclick="closeModal()">&times;</button>
+            </div>
+            <div class="modal-body" id="modal-details-content">
+                <!-- Contenu dynamique -->
+            </div>
+            <div class="modal-footer">
+                <button class="btn btn-secondary close-btn" onclick="closeModal()">
+                    Fermer
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal de confirmation de suppression -->
+    <div id="confirm-delete-modal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2><i class="fas fa-exclamation-triangle"></i> Confirmer la suppression</h2>
+                <button class="close-modal" onclick="closeModal()">&times;</button>
+            </div>
+            <div class="modal-body">
+                <p id="confirm-delete-message">Êtes-vous sûr de vouloir supprimer cette destination ?</p>
+                <div class="form-actions">
+                    <button type="button" class="btn btn-secondary" onclick="closeModal()">
+                        <i class="fas fa-times"></i> Annuler
+                    </button>
+                    <button type="button" class="btn btn-danger" id="confirm-delete-btn">
+                        <i class="fas fa-trash"></i> Supprimer
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <input type="file" id="upload-avatar" accept="image/*" hidden>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/dompurify/3.0.6/purify.min.js"></script>
+<script src="/JS/AgenceExpedition/api/agence.api.js"></script>
+<script src="/JS/AgenceExpedition/main.js"></script>
+<script src="/JS/AgenceExpedition/services/auth.service.js"></script>
+<script src="/JS/AgenceExpedition/services/badge.service.js"></script>
+<script src="/JS/AgenceExpedition/services/demande.service.js"></script>
+<script src="/JS/AgenceExpedition/ui/components/tables.js"></script>
+<script src="/JS/AgenceExpedition/ui/components/message-box.js"></script>
+<script src="/JS/AgenceExpedition/ui/components/modals.js"></script>
+<script src="/JS/AgenceExpedition/ui/navigation.js"></script>
+<script src="/JS/AgenceExpedition/ui/event-handlers.js"></script>
+<script src="/JS/AgenceExpedition/pages/demandes.js"></script>
+<script src="/JS/AgenceExpedition/pages/paiements.js"></script>
+<script src="/JS/AgenceExpedition/pages/historique.js"></script>
+<script src="/JS/AgenceExpedition/pages/tarifs.js"></script>
+<script src="/JS/AgenceExpedition/pages/parametres.js"></script>
+<script src="/JS/AgenceExpedition/config/constants.js"></script>
 </body>
 </html>

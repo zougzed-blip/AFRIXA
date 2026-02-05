@@ -17,7 +17,7 @@ const verifiedMiddleware = (req, res, next) => {
     return res.status(403).json({ message: "Votre compte n'est pas encore vérifié." });
   }
   next();
-};
+};  
 
 
 

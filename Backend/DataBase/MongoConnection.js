@@ -7,6 +7,7 @@ const MyMongoConnection = async () => {
             useUnifiedTopology: true,
         })
         console.log('Database connected successfully')
+
     }
     catch(error) {
         console.error('No database connection found:', error.message);

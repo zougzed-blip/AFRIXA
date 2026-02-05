@@ -4,31 +4,66 @@ const User = require("../Models/User");
 const authMiddleware = async (req, res, next) => {
   try {
     const token = 
-      req.cookies.authToken || 
-      req.headers.authorization?.split(" ")[1] || 
-      req.query.token;
+  req.cookies.authToken || 
+  req.headers.authorization?.split(" ")[1] || 
+  req.query.token; 
 
     if (!token) {
-      return res.status(401).json({ message: "Vous devez être connecté" });
+      return res.status(401).json({ 
+        success: false,
+        message: "Vous devez être connecté" 
+      });
     }
 
-    const decoded = jwt.verify(token, process.env.JWT_SECRET);
-    const user = await User.findById(decoded.id);
+    try {
     
-    if (!user) {
-      return res.status(401).json({ message: "Utilisateur non trouvé" });
-    }
+      const decoded = jwt.verify(token, process.env.JWT_SECRET);
+      const user = await User.findById(decoded.id).select('-password');
+      
+      if (!user) {
+        return res.status(401).json({ 
+          success: false,
+          message: "Utilisateur non trouvé" 
+        });
+      }
 
-    req.user = {
-      id: user._id,
-      _id: user._id,
-      role: user.role,
-      isVerified: user.isVerified
-    }
+      if (user.role !== 'client' && !user.isVerified) {
+        return res.status(403).json({ 
+          success: false,
+          message: "Compte en attente de vérification" 
+        });
+      }
 
-    next();
+      if (user.isSuspended) {
+        return res.status(403).json({ 
+          success: false,
+          message: "Compte suspendu" 
+        });
+      }
+
+      req.user = user;
+      next();
+
+    } catch (jwtError) {
+
+      if (jwtError.name === 'TokenExpiredError') {
+
+        return res.status(401).json({ 
+          success: false,
+          message: "Session expirée",
+          code: "TOKEN_EXPIRED"
+        });
+      }
+      throw jwtError; 
+    }
+    
   } catch (error) {
-    return res.status(401).json({ message: "Token invalide ou expiré" });
+    if (res.headersSent) return;
+    
+    return res.status(401).json({ 
+      success: false,
+      message: "Authentification échouée"
+    });
   }
 };
 

@@ -9,8 +9,7 @@ const confirmationClientTemplate = (nom, codeColis) => `
     <hr>
     <p style="color:#666;">Cordialement,<br/>L'équipe AFRIXA Transport</p>
   </div>
-`;
-
+`
 const notificationAgenceTemplate = (agenceName, clientName, clientPhone, codeColis, linkToDashboard) => `
   <div style="font-family: Arial, sans-serif; padding:20px;">
     <h3>Nouvelle demande reçue</h3>

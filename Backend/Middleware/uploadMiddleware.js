@@ -5,7 +5,7 @@ const storage = multer.memoryStorage();
 
 const upload2 = multer({
   storage,
-  limits: { fileSize: 5 * 1024 * 1024 }, // 5MB
+  limits: { fileSize: 5 * 1024 * 1024 }, 
   fileFilter: function (req, file, cb) {
     if (file.mimetype.startsWith('image/')) {
       cb(null, true);
@@ -15,15 +15,14 @@ const upload2 = multer({
   }
 });
 
-// Middleware pour upload vers Cloudinary
 const uploadToCloudinaryMiddleware2 = async (req, res, next) => {
   try {
     if (!req.file) {
-      return next(); // Pas de fichier, on continue
+      return next(); 
     }
 
     const buffer = req.file.buffer;
-    const folder = 'afrixa/transportRequests'; // ✅ CHANGER LE DOSSIER
+    const folder = 'afrixa/transportRequests'; 
     
     const result = await new Promise((resolve, reject) => {
       cloudinary.uploader.upload_stream(
@@ -40,7 +39,6 @@ const uploadToCloudinaryMiddleware2 = async (req, res, next) => {
 
     next();
   } catch (err) {
-    console.error('Erreur Cloudinary:', err);
     return res.status(500).json({ message: 'Erreur lors de l\'upload de l\'image' });
   }
 };

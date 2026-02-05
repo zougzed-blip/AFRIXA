@@ -18,6 +18,18 @@ const paymentProofSchema = new mongoose.Schema({
         type: Number,
         required: true
     },
+    devise: {
+        type: String,
+        required: true,
+        enum: ['USD', 'ZAR', 'FC'],
+        default: 'USD'
+    },
+    method: {
+        type: String,
+        required: true,
+        enum: ['agencemethod', 'mpsa', 'orange', 'bank'],
+        default: 'agencemethod'
+    },
     proofUrl: {
         type: String,
         required: true
@@ -29,6 +41,16 @@ const paymentProofSchema = new mongoose.Schema({
     uploadedAt: {
         type: Date,
         default: Date.now
+    },
+    destinataireId: {
+        type: mongoose.Schema.Types.ObjectId,
+        ref: 'User',
+        required: true
+    },
+    status: {
+        type: String,
+        enum: ['en_attente', 'accepté', 'refusé'],
+        default: 'en_attente'
     }
 }, { timestamps: true });
 
