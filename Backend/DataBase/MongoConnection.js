@@ -6,18 +6,20 @@ const MongoConnection =  async() => {
         console.log('🔗 URI:', process.env.MONGO_URI ? process.env.MONGO_URI.replace(/:[^:]*@/, ':****@') : 'NON DÉFINIE');
         
         await mongoose.connect(process.env.MONGO_URI, {
-            serverSelectionTimeoutMS: 5000, // Timeout après 5 secondes
+            serverSelectionTimeoutMS: 5000,
             connectTimeoutMS: 10000,
+            socketTimeoutMS: 45000,
         })
         
-        console.log('🟢 DATABASE CONNECTED SUCCESSFULLY');
+        console.log('🟢 DATABASE CONNECTED SUCCESSFULLY ✅');
+        return true;
     }
     catch(error){
         console.error('🔴🔴🔴 DATABASE ERROR:', error.message);
         console.error('🔴 STACK:', error.stack);
         console.error('🔴 NAME:', error.name);
         console.error('🔴 CODE:', error.code);
-        // Ne pas exit, laisse le serveur démarrer quand même pour voir les logs
+        throw error; // ← IMPORTANT: Relance l'erreur pour que server.js la capture !
     }
 }
 
