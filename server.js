@@ -22,18 +22,14 @@ const { logRequest } = require('./Backend/config/logger');
 const cors = require('cors');
 const csrf = require('csurf');
 const { businessLogger } = require('./Backend/config/logger');
-
-console.log('🚀 Démarrage du serveur...');
-console.log('📡 Avant tentative de connexion MongoDB');
-
 const { validateEnv } = require('./Backend/config/envValidators');
+
 validateEnv();
-MyMongoConnection()
-  .then(() => console.log('✅ MongoDB connecté avec succès'))
-  .catch(err => console.error('❌ MongoDB connection error:', err))
-  .finally(() => {
-    startServer();
-  });
+
+(async () => {
+  try {
+    await MyMongoConnection();
+    console.log('✅ MongoDB connecté, démarrage du serveur...');
     
     const app = express();
 
@@ -143,6 +139,22 @@ MyMongoConnection()
       res.sendFile(path.join(__dirname, 'Public', 'index.html'));
     });
 
+    app.get('/forgot-password', (req, res) => {
+      res.sendFile(path.join(__dirname, 'Public', 'forgot-password.html'));
+    });
+
+    app.get('/reset-password', (req, res) => {
+      res.sendFile(path.join(__dirname, 'Public', 'reset-password.html'));
+    });
+
+    app.get('/waitingVerification', (req, res) => {
+      res.sendFile(path.join(__dirname, 'Public', 'waitingVerification.html'));
+    });
+
+    app.get('/authorization', (req, res) => {
+      res.sendFile(path.join(__dirname, 'Public', 'authorization.html'));
+    });
+
     // ==================== DASHBOARDS ====================
     app.get('/admin/dashboard', authMiddleware, async (req, res) => {
       if (req.user.role !== 'admin') return res.redirect('/authorization.html');
@@ -181,13 +193,13 @@ MyMongoConnection()
     // ==================== DÉMARRAGE ====================
     const port = process.env.PORT || 3000;
     app.listen(port, () => {
-      console.log(` Serveur lancé sur le port ${port}`);
-      console.log(`Environnement: ${process.env.NODE_ENV || 'production'}`);
-      console.log(` CORS: ${process.env.FRONTEND_URL || 'http://localhost:3000'}`);
+      console.log(`✅ Serveur lancé sur le port ${port}`);
+      console.log(`🌍 Environnement: ${process.env.NODE_ENV || 'production'}`);
+      console.log(`🔗 CORS: ${process.env.FRONTEND_URL || 'http://localhost:3000'}`);
     });
 
   } catch (error) {
-    console.error('ERREUR FATALE AU DÉMARRAGE:', error.message);
+    console.error('❌ ERREUR FATALE AU DÉMARRAGE:', error.message);
     process.exit(1);
   }
-})();
+})(); // <-- IL MANQUAIT CETTE PARENTHÈSE !
