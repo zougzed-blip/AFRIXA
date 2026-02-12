@@ -23,12 +23,17 @@ const cors = require('cors');
 const csrf = require('csurf');
 const { businessLogger } = require('./Backend/config/logger');
 
+console.log('🚀 Démarrage du serveur...');
+console.log('📡 Avant tentative de connexion MongoDB');
+
 const { validateEnv } = require('./Backend/config/envValidators');
 validateEnv();
-(async () => {
-  try {
-    await MyMongoConnection();
-    console.log('MongoDB connecté, démarrage du serveur...');
+MyMongoConnection()
+  .then(() => console.log('✅ MongoDB connecté avec succès'))
+  .catch(err => console.error('❌ MongoDB connection error:', err))
+  .finally(() => {
+    startServer();
+  });
     
     const app = express();
 
