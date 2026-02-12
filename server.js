@@ -25,7 +25,10 @@ const cors = require('cors');
 const csrf = require('csurf');
 const { businessLogger } = require('./Backend/config/logger');
 
-MyMongoConnection();
+MyMongoConnection().catch(err => {
+  console.error(' MONGODB FATAL:', err.message);
+  process.exit(1);
+});
 const app = express();
 
 // ==================== CORS ====================
