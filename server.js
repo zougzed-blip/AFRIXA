@@ -25,20 +25,12 @@ const { businessLogger } = require('./Backend/config/logger');
 const { validateEnv } = require('./Backend/config/envValidators');
 
 console.log('📋 1️⃣ Validation des variables d\'environnement...');
-try {
-  validateEnv();
-  console.log('✅ Variables validées avec succès');
-} catch (error) {
-  console.error('❌ ERREUR lors de validateEnv():', error.message);
-  console.error('Stack:', error.stack);
-  process.exit(1);
-}
+validateEnv();
+console.log('✅ Variables validées avec succès');
 
 (async () => {
   try {
     console.log('🚀 2️⃣ Connexion à MongoDB...');
-    console.log('   URI (début):', process.env.MONGO_URI?.substring(0, 25) + '...');
-    
     await MyMongoConnection();
     console.log('✅ 3️⃣ MongoDB connecté avec succès');
     
@@ -227,11 +219,8 @@ try {
     });
 
   } catch (error) {
-    console.error('❌ ========================================');
-    console.error('❌ ERREUR FATALE AU DÉMARRAGE');
-    console.error('❌ Message:', error.message);
-    console.error('❌ Stack:', error.stack);
-    console.error('❌ ========================================');
+    console.error('❌ ERREUR FATALE AU DÉMARRAGE:', error.message);
+    console.error('Stack:', error.stack);
     process.exit(1);
   }
 })();
