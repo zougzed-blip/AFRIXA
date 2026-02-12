@@ -1,18 +1,14 @@
 const mongoose = require('mongoose')
 
-const MyMongoConnection = async () => {
+const MongoConnection =  async() => {
     try{
-        await mongoose.connect(process.env.MONGO_URI, {
-            useNewUrlParser: true,
-            useUnifiedTopology: true,
-        })
-        console.log('Database connected successfully')
-
+        await mongoose.connect(process.env.MONGO_URI)
+        console.log('database connected')
     }
-    catch(error) {
-        console.error('No database connection found:', error.message);
-        process.exit(1)
+    catch(error){
+        console.error('DATABASE ERROR:', error.message)
+        console.error('Stack:', error.stack)
     }
 }
 
-module.exports = MyMongoConnection         
+module.exports = MongoConnection
