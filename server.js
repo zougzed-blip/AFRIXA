@@ -1,4 +1,6 @@
-require('dotenv').config();
+require('dotenv').config({ debug: true });
+console.log('🔥 MONGO_URI =', process.env.MONGO_URI ? '✅' : '❌');
+console.log('🔥 JWT_SECRET =', process.env.JWT_SECRET ? '✅' : '❌');
 
 const express = require('express');
 const path = require('path');
