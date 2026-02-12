@@ -24,16 +24,30 @@ const csrf = require('csurf');
 const { businessLogger } = require('./Backend/config/logger');
 const { validateEnv } = require('./Backend/config/envValidators');
 
-validateEnv();
+console.log('📋 1️⃣ Validation des variables d\'environnement...');
+try {
+  validateEnv();
+  console.log('✅ Variables validées avec succès');
+} catch (error) {
+  console.error('❌ ERREUR lors de validateEnv():', error.message);
+  console.error('Stack:', error.stack);
+  process.exit(1);
+}
 
 (async () => {
   try {
-    await MyMongoConnection();
-    console.log('✅ MongoDB connecté, démarrage du serveur...');
+    console.log('🚀 2️⃣ Connexion à MongoDB...');
+    console.log('   URI (début):', process.env.MONGO_URI?.substring(0, 25) + '...');
     
+    await MyMongoConnection();
+    console.log('✅ 3️⃣ MongoDB connecté avec succès');
+    
+    console.log('🔧 4️⃣ Création de l\'application Express...');
     const app = express();
+    console.log('✅ 5️⃣ Express initialisé');
 
     // ==================== CORS ====================
+    console.log('🌐 6️⃣ Configuration CORS...');
     const corsOptions = {
       origin: process.env.FRONTEND_URL || 'http://localhost:3000',
       credentials: true,
@@ -41,8 +55,10 @@ validateEnv();
       allowedHeaders: ['Content-Type', 'Authorization', 'X-CSRF-Token']
     };
     app.use(cors(corsOptions));
+    console.log('✅ CORS configuré');
 
     // ==================== SÉCURITÉ ====================
+    console.log('🛡️ 7️⃣ Configuration Helmet...');
     app.use(helmet({
       contentSecurityPolicy: {
         directives: {
@@ -61,10 +77,12 @@ validateEnv();
         }
       }
     }));
+    console.log('✅ Helmet configuré');
 
     app.use(cookieParser());
 
     // ==================== CSRF ====================
+    console.log('🔐 8️⃣ Configuration CSRF...');
     const csrfProtection = csrf({
       cookie: {
         httpOnly: true,
@@ -76,13 +94,17 @@ validateEnv();
     app.get('/api/csrf-token', csrfProtection, (req, res) => {
       res.json({ csrfToken: req.csrfToken() });
     });
+    console.log('✅ CSRF configuré');
 
     // ==================== MIDDLEWARE ====================
+    console.log('⚙️ 9️⃣ Configuration middlewares...');
     app.use(logRequest);
     app.use(express.json({ limit: '10mb' }));
     app.use(express.urlencoded({ extended: true, limit: '10mb' }));
+    console.log('✅ Middlewares configurés');
 
     // ==================== RATE LIMITING ====================
+    console.log('⏱️ 🔟 Configuration rate limiting...');
     const adminLimiter = rateLimit({
       windowMs: parseInt(process.env.RATE_LIMIT_WINDOW_MS) || 900000,
       max: parseInt(process.env.RATE_LIMIT_MAX_ADMIN) || 1000,
@@ -111,12 +133,15 @@ validateEnv();
     app.use('/api/auth/login', loginLimiter);
     app.use('/api/client', clientLimiter);
     app.use('/api/', agenceLimiter);
+    console.log('✅ Rate limiting configuré');
 
     // ==================== STATIC FILES ====================
+    console.log('📁 Configuration fichiers statiques...');
     app.use(express.static(path.join(__dirname, 'Public')));
     app.use(express.static(path.join(__dirname, 'images')));
 
     // ==================== ROUTES ====================
+    console.log('🛣️ Configuration des routes...');
     app.use('/api/auth', authenticationRoute);
     app.use('/api/admin', adminRoutes);
     app.use('/api/client', clientrisquestRouter);
@@ -192,14 +217,21 @@ validateEnv();
 
     // ==================== DÉMARRAGE ====================
     const port = process.env.PORT || 3000;
+    console.log(`🎯 Démarrage du serveur sur le port ${port}...`);
     app.listen(port, () => {
-      console.log(`✅ Serveur lancé sur le port ${port}`);
+      console.log(`✅ ========================================`);
+      console.log(`✅ Serveur lancé avec succès sur le port ${port}`);
       console.log(`🌍 Environnement: ${process.env.NODE_ENV || 'production'}`);
       console.log(`🔗 CORS: ${process.env.FRONTEND_URL || 'http://localhost:3000'}`);
+      console.log(`✅ ========================================`);
     });
 
   } catch (error) {
-    console.error('❌ ERREUR FATALE AU DÉMARRAGE:', error.message);
+    console.error('❌ ========================================');
+    console.error('❌ ERREUR FATALE AU DÉMARRAGE');
+    console.error('❌ Message:', error.message);
+    console.error('❌ Stack:', error.stack);
+    console.error('❌ ========================================');
     process.exit(1);
   }
-})(); // <-- IL MANQUAIT CETTE PARENTHÈSE !
+})();
