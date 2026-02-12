@@ -1,6 +1,4 @@
-require('dotenv').config({ debug: true });
-console.log('🔥 MONGO_URI =', process.env.MONGO_URI ? '✅' : '❌');
-console.log('🔥 JWT_SECRET =', process.env.JWT_SECRET ? '✅' : '❌');
+require('dotenv').config();
 
 const express = require('express');
 const path = require('path');
@@ -18,28 +16,20 @@ const agenceRoutes = require('./Backend/Routes/agenceRoutes');
 const User = require('./Backend/Models/User');
 const helmet = require('helmet');
 const rateLimit = require('express-rate-limit');
-const { logRequest } = require('./Backend/config/logger');
+const { logRequest, businessLogger } = require('./Backend/config/logger');
 const cors = require('cors');
 const csrf = require('csurf');
-const { businessLogger } = require('./Backend/config/logger');
 const { validateEnv } = require('./Backend/config/envValidators');
 
-console.log('📋 1️⃣ Validation des variables d\'environnement...');
 validateEnv();
-console.log('✅ Variables validées avec succès');
 
 (async () => {
   try {
-    console.log('🚀 2️⃣ Connexion à MongoDB...');
     await MyMongoConnection();
-    console.log('✅ 3️⃣ MongoDB connecté avec succès');
     
-    console.log('🔧 4️⃣ Création de l\'application Express...');
     const app = express();
-    console.log('✅ 5️⃣ Express initialisé');
 
     // ==================== CORS ====================
-    console.log('🌐 6️⃣ Configuration CORS...');
     const corsOptions = {
       origin: process.env.FRONTEND_URL || 'http://localhost:3000',
       credentials: true,
@@ -47,10 +37,8 @@ console.log('✅ Variables validées avec succès');
       allowedHeaders: ['Content-Type', 'Authorization', 'X-CSRF-Token']
     };
     app.use(cors(corsOptions));
-    console.log('✅ CORS configuré');
 
     // ==================== SÉCURITÉ ====================
-    console.log('🛡️ 7️⃣ Configuration Helmet...');
     app.use(helmet({
       contentSecurityPolicy: {
         directives: {
@@ -69,12 +57,10 @@ console.log('✅ Variables validées avec succès');
         }
       }
     }));
-    console.log('✅ Helmet configuré');
 
     app.use(cookieParser());
 
     // ==================== CSRF ====================
-    console.log('🔐 8️⃣ Configuration CSRF...');
     const csrfProtection = csrf({
       cookie: {
         httpOnly: true,
@@ -86,54 +72,59 @@ console.log('✅ Variables validées avec succès');
     app.get('/api/csrf-token', csrfProtection, (req, res) => {
       res.json({ csrfToken: req.csrfToken() });
     });
-    console.log('✅ CSRF configuré');
 
     // ==================== MIDDLEWARE ====================
-    console.log('⚙️ 9️⃣ Configuration middlewares...');
     app.use(logRequest);
     app.use(express.json({ limit: '10mb' }));
     app.use(express.urlencoded({ extended: true, limit: '10mb' }));
-    console.log('✅ Middlewares configurés');
 
     // ==================== RATE LIMITING ====================
-    console.log('⏱️ 🔟 Configuration rate limiting...');
     const adminLimiter = rateLimit({
       windowMs: parseInt(process.env.RATE_LIMIT_WINDOW_MS) || 900000,
-      max: parseInt(process.env.RATE_LIMIT_MAX_ADMIN) || 1000,
-      message: { error: 'Trop de requêtes admin' }
+      max: parseInt(process.env.RATE_LIMIT_MAX_ADMIN) || 5000,
+      message: { success: false, error: 'Trop de requêtes admin. Veuillez patienter quelques minutes.' },
+      standardHeaders: true,
+      legacyHeaders: false,
+      keyGenerator: (req) => req.user?.id || req.ip
     });
 
     const clientLimiter = rateLimit({
       windowMs: parseInt(process.env.RATE_LIMIT_WINDOW_MS) || 900000,
-      max: parseInt(process.env.RATE_LIMIT_MAX_CLIENT) || 500,
-      message: { error: 'Trop de requêtes client' }
+      max: parseInt(process.env.RATE_LIMIT_MAX_CLIENT) || 2000,
+      message: { success: false, error: 'Trop de requêtes client. Veuillez patienter quelques minutes.' },
+      standardHeaders: true,
+      legacyHeaders: false,
+      keyGenerator: (req) => req.user?.id || req.ip
     });
 
     const agenceLimiter = rateLimit({
       windowMs: parseInt(process.env.RATE_LIMIT_WINDOW_MS) || 900000,
-      max: parseInt(process.env.RATE_LIMIT_MAX_AGENCE) || 300,
-      message: { error: 'Trop de requêtes agence' }
+      max: parseInt(process.env.RATE_LIMIT_MAX_AGENCE) || 1500,
+      message: { success: false, error: 'Trop de requêtes agence. Veuillez patienter quelques minutes.' },
+      standardHeaders: true,
+      legacyHeaders: false,
+      keyGenerator: (req) => req.user?.id || req.ip
     });
 
     const loginLimiter = rateLimit({
       windowMs: parseInt(process.env.RATE_LIMIT_WINDOW_MS) || 900000,
       max: parseInt(process.env.RATE_LIMIT_MAX_LOGIN) || 5,
-      message: { error: 'Trop de tentatives de connexion' }
+      message: { success: false, error: 'Trop de tentatives de connexion. Réessayez dans 15 minutes.' },
+      standardHeaders: true,
+      legacyHeaders: false,
+      skipSuccessfulRequests: true
     });
 
     app.use('/api/admin', adminLimiter);
     app.use('/api/auth/login', loginLimiter);
     app.use('/api/client', clientLimiter);
     app.use('/api/', agenceLimiter);
-    console.log('✅ Rate limiting configuré');
 
     // ==================== STATIC FILES ====================
-    console.log('📁 Configuration fichiers statiques...');
     app.use(express.static(path.join(__dirname, 'Public')));
     app.use(express.static(path.join(__dirname, 'images')));
 
     // ==================== ROUTES ====================
-    console.log('🛣️ Configuration des routes...');
     app.use('/api/auth', authenticationRoute);
     app.use('/api/admin', adminRoutes);
     app.use('/api/client', clientrisquestRouter);
@@ -197,6 +188,14 @@ console.log('✅ Variables validées avec succès');
       if (err.code === 'EBADCSRFTOKEN') {
         return res.status(403).json({ success: false, message: 'Invalid CSRF token' });
       }
+      
+      businessLogger.error('Server error:', {
+        message: err.message,
+        stack: err.stack,
+        path: req.path,
+        method: req.method
+      });
+
       res.status(err.status || 500).json({
         success: false,
         message: process.env.NODE_ENV === 'production' ? 'Internal server error' : err.message
@@ -209,18 +208,18 @@ console.log('✅ Variables validées avec succès');
 
     // ==================== DÉMARRAGE ====================
     const port = process.env.PORT || 3000;
-    console.log(`🎯 Démarrage du serveur sur le port ${port}...`);
     app.listen(port, () => {
-      console.log(`✅ ========================================`);
-      console.log(`✅ Serveur lancé avec succès sur le port ${port}`);
-      console.log(`🌍 Environnement: ${process.env.NODE_ENV || 'production'}`);
-      console.log(`🔗 CORS: ${process.env.FRONTEND_URL || 'http://localhost:3000'}`);
-      console.log(`✅ ========================================`);
+      businessLogger.info(`Server started successfully on port ${port}`, {
+        environment: process.env.NODE_ENV || 'production',
+        corsOrigin: process.env.FRONTEND_URL || 'http://localhost:3000'
+      });
     });
 
   } catch (error) {
-    console.error('❌ ERREUR FATALE AU DÉMARRAGE:', error.message);
-    console.error('Stack:', error.stack);
+    businessLogger.error('Fatal error during startup:', {
+      message: error.message,
+      stack: error.stack
+    });
     process.exit(1);
   }
 })();
