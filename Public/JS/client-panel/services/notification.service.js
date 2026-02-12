@@ -74,7 +74,6 @@ function displayNotifications(notifications) {
                     <i class="fas ${escapeHtml(icon)}"></i>
                 </div>
                 <div class="notification-content">
-                    <div class="notification-title">${escapeHtml(notif.title || 'Notification')}</div>
                     <div class="notification-message">${escapeHtml(notif.message)}</div>
                     ${details}
                     <div class="notification-time">${escapeHtml(formatNotificationTime(notif.date))}</div>

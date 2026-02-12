@@ -1,5 +1,5 @@
 document.addEventListener('DOMContentLoaded', function() {
-    // Éléments DOM
+  
     const typeCards = document.querySelectorAll('.type-card-wrapper');
     const forms = document.querySelectorAll('.inscription-form');
     const typeSelectionSection = document.getElementById('typeSelection');
@@ -8,16 +8,12 @@ document.addEventListener('DOMContentLoaded', function() {
     const modalClose = document.getElementById('modal-close');
     const steps = document.querySelectorAll('.step');
 
-    // Variables d'état
     let currentForm = null;
     let currentFormType = null;
 
-    // Configuration des étapes par formulaire
     const FORM_STEPS = {
         'client': 3,
         'agence': 5,
-        'transporteur-grand': 5,
-        'transporteur-petit': 5
     };
 
     init();
@@ -33,7 +29,6 @@ document.addEventListener('DOMContentLoaded', function() {
         setupModal();
     }
 
-    // 2. Sélection du type de compte
     function setupTypeSelection() {
         typeCards.forEach(card => {
             card.addEventListener('click', function() {
@@ -46,14 +41,11 @@ document.addEventListener('DOMContentLoaded', function() {
     function selectAccountType(type) {
         currentFormType = type;
         
-        // Mettre à jour les étapes
         updateSteps(2);
         
-        // Cacher la sélection, montrer le formulaire
         typeSelectionSection.classList.remove('active');
         formsContainer.style.display = 'block';
         
-        // Cacher tous les formulaires, montrer le bon
         forms.forEach(form => form.classList.add('hidden'));
         currentForm = document.getElementById(`${type}-form`);
         
@@ -63,7 +55,6 @@ document.addEventListener('DOMContentLoaded', function() {
             updateTotalSteps(FORM_STEPS[type] || 3);
         }
         
-        // Scroll vers le formulaire
         formsContainer.scrollIntoView({ behavior: 'smooth', block: 'start' });
     }
 
@@ -76,7 +67,6 @@ document.addEventListener('DOMContentLoaded', function() {
             }
         });
         
-        // Reset navigation
         updateFormNavigation(form, 1);
     }
 
@@ -94,7 +84,6 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 
     function updateTotalSteps(totalSteps) {
-        // Mettre à jour l'indicateur de progression dans le formulaire
         if (currentForm) {
             const progressFill = currentForm.querySelector('.progress-fill');
             const stepText = currentForm.querySelector('.form-progress span');
@@ -110,9 +99,7 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     }
 
-    // 3. Navigation dans le formulaire
     function setupFormNavigation() {
-        // Retour à la sélection
         document.querySelectorAll('.back-to-selection').forEach(btn => {
             btn.addEventListener('click', () => {
                 formsContainer.style.display = 'none';
@@ -122,7 +109,6 @@ document.addEventListener('DOMContentLoaded', function() {
             });
         });
 
-        // Navigation Next/Previous
         document.addEventListener('click', function(e) {
             if (!currentForm) return;
             
@@ -139,20 +125,16 @@ document.addEventListener('DOMContentLoaded', function() {
         const nextSection = activeSection.nextElementSibling;
         
         if (nextSection && nextSection.classList.contains('form-section')) {
-            // Validation
             if (!validateSection(activeSection)) return;
             
-            // Transition
             activeSection.classList.remove('active');
             nextSection.classList.add('active');
             
-            // Update progress
             const sections = currentForm.querySelectorAll('.form-section');
             const sectionIndex = Array.from(sections).indexOf(nextSection) + 1;
             const totalSteps = sections.length;
             updateFormNavigation(currentForm, sectionIndex, totalSteps);
             
-            // Scroll
             nextSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
         }
     }
@@ -185,7 +167,6 @@ document.addEventListener('DOMContentLoaded', function() {
             } else {
                 removeInputError(input);
                 
-                // Validation spécifique
                 if (input.type === 'email' && !isValidEmail(input.value)) {
                     showInputError(input, 'Email invalide');
                     isValid = false;
@@ -216,7 +197,6 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 
     function isValidPhone(phone) {
-        // Validation simple pour numéros internationaux
         return /^[+\d\s\-()]{10,}$/.test(phone);
     }
 
@@ -237,7 +217,6 @@ document.addEventListener('DOMContentLoaded', function() {
         }
         errorMsg.textContent = message;
         
-        // Ajouter bordure rouge
         input.style.borderColor = 'var(--rouge-terre)';
     }
 
@@ -250,7 +229,6 @@ document.addEventListener('DOMContentLoaded', function() {
         const errorMsg = wrapper.querySelector('.error-message');
         if (errorMsg) errorMsg.remove();
         
-        // Réinitialiser la bordure
         input.style.borderColor = '';
     }
 
@@ -260,19 +238,16 @@ document.addEventListener('DOMContentLoaded', function() {
         const submitBtn = form.querySelector('.submit-form');
         const progressFill = form.querySelector('.progress-fill');
         
-        // Update progress bar
         if (progressFill) {
             const progressPercent = (currentSection / totalSections) * 100;
             progressFill.style.width = `${progressPercent}%`;
         }
         
-        // Update step text
         const stepText = form.querySelector('.form-progress span');
         if (stepText) {
             stepText.textContent = `Étape ${currentSection} sur ${totalSections}`;
         }
         
-        // Update buttons visibility
         if (currentSection === 1) {
             prevBtn.classList.add('hidden');
         } else {
@@ -288,13 +263,10 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     }
 
-    // 4. Upload de photos
     function setupPhotoUploads() {
         const uploads = [
             { id: 'client-upload-area', input: 'client-photo', preview: 'client-preview' },
-            { id: 'agence-upload-area', input: 'agence-logo', preview: 'agence-preview' },
-            { id: 'grand-upload-area', input: 'grand-logo', preview: 'grand-preview' },
-            { id: 'petit-upload-area', input: 'petit-logo', preview: 'petit-preview' }
+            { id: 'agence-upload-area', input: 'agence-logo', preview: 'agence-preview' }
         ];
 
         uploads.forEach(upload => {
@@ -314,12 +286,12 @@ document.addEventListener('DOMContentLoaded', function() {
             });
 
             if (preview) {
-                preview.querySelector('.remove-photo')?.addEventListener('click', () => {
+                preview.querySelector('.remove-photo')?.addEventListener('click', function(e) {
+                    e.stopPropagation();
                     resetUpload(preview, uploadArea, fileInput);
                 });
             }
             
-            // Drag and drop
             uploadArea.addEventListener('dragover', (e) => {
                 e.preventDefault();
                 uploadArea.style.backgroundColor = 'rgba(0, 71, 50, 0.1)';
@@ -346,13 +318,12 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 
     function handleFileUpload(file, preview, uploadArea) {
-        // Validation
         if (file.size > 2 * 1024 * 1024) {
             showError('Le fichier est trop volumineux (max 2MB)');
             return;
         }
 
-        if (!file.type.match(/image\/(jpeg|jpg|png)/)) {
+        if (!file.type.match(/image\/(jpeg|jpg|png)/i)) {
             showError('Format de fichier non supporté (JPG, PNG uniquement)');
             return;
         }
@@ -360,7 +331,10 @@ document.addEventListener('DOMContentLoaded', function() {
         const reader = new FileReader();
         reader.onload = function(e) {
             if (preview) {
-                preview.querySelector('img').src = e.target.result;
+                const img = preview.querySelector('img');
+                if (img) {
+                    img.src = e.target.result;
+                }
                 preview.classList.remove('hidden');
                 uploadArea.style.display = 'none';
             }
@@ -372,17 +346,18 @@ document.addEventListener('DOMContentLoaded', function() {
         fileInput.value = '';
         if (preview) {
             preview.classList.add('hidden');
-            preview.querySelector('img').src = '';
+            const img = preview.querySelector('img');
+            if (img) {
+                img.src = '';
+            }
         }
         if (uploadArea) {
             uploadArea.style.display = 'block';
         }
     }
 
-    // 5. Champs dynamiques
     function setupDynamicFields() {
         document.addEventListener('click', function(e) {
-            // Ajouter un champ
             if (e.target.closest('.btn-add-field')) {
                 const addBtn = e.target.closest('.btn-add-field');
                 const container = addBtn.previousElementSibling;
@@ -394,7 +369,6 @@ document.addEventListener('DOMContentLoaded', function() {
                     container.appendChild(clone);
                     setupFieldGroupEvents(clone);
                     
-                    // Animation d'ajout
                     clone.style.opacity = '0';
                     clone.style.transform = 'translateY(10px)';
                     setTimeout(() => {
@@ -405,14 +379,12 @@ document.addEventListener('DOMContentLoaded', function() {
                 }
             }
 
-            // Supprimer un champ
             if (e.target.closest('.btn-remove-field')) {
                 const removeBtn = e.target.closest('.btn-remove-field');
                 const fieldGroup = removeBtn.closest('.field-group');
                 const container = fieldGroup.closest('.dynamic-fields');
                 
                 if (container.children.length > 1) {
-                    // Animation de suppression
                     fieldGroup.style.opacity = '0';
                     fieldGroup.style.transform = 'translateX(-20px)';
                     setTimeout(() => {
@@ -437,10 +409,10 @@ document.addEventListener('DOMContentLoaded', function() {
     function setupFieldGroupEvents(group) {
         const removeBtn = group.querySelector('.btn-remove-field');
         if (removeBtn) {
-            removeBtn.addEventListener('click', function() {
+            removeBtn.addEventListener('click', function(e) {
+                e.stopPropagation();
                 const container = this.closest('.dynamic-fields');
                 if (container.children.length > 1) {
-                    // Animation de suppression
                     group.style.opacity = '0';
                     group.style.transform = 'translateX(-20px)';
                     setTimeout(() => {
@@ -451,7 +423,6 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     }
 
-    // 6. Setup checkboxes
     function setupCheckboxes() {
         document.addEventListener('change', function(e) {
             if (e.target.type === 'checkbox') {
@@ -471,7 +442,6 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
 
-    // 7. Toggle password visibility
     function setupPasswordToggle() {
         document.addEventListener('click', function(e) {
             if (e.target.closest('.toggle-password')) {
@@ -492,13 +462,11 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
 
-    // 8. Soumission du formulaire
     function setupFormSubmission() {
         forms.forEach(form => {
             form.addEventListener('submit', async function(e) {
                 e.preventDefault();
                 
-                // Validation de toutes les sections
                 const sections = this.querySelectorAll('.form-section');
                 let allValid = true;
                 
@@ -517,25 +485,17 @@ document.addEventListener('DOMContentLoaded', function() {
                 const originalText = submitBtn.innerHTML;
                 submitBtn.disabled = true;
                 submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Création...';
-
-                // Préparer FormData
                 const formData = new FormData(this);
-                
-                // Ajouter le rôle
+
                 const formId = this.id;
                 const roleMap = {
                     'client-form': 'client',
-                    'agence-form': 'agence',
-                    'transporteur-grand-form': 'grand_transporteur',
-                    'transporteur-petit-form': 'petit_transporteur'
+                    'agence-form': 'agence'
                 };
                 formData.append('role', roleMap[formId] || 'client');
 
-                // Traitement spécifique pour chaque formulaire
-                processFormData(formId, formData, this);
-
                 try {
-                    const response = await fetch('http://localhost:3000/api/auth/register', {
+                    const response = await fetch('/api/auth/register', {
                         method: 'POST',
                         body: formData
                     });
@@ -543,21 +503,19 @@ document.addEventListener('DOMContentLoaded', function() {
                     const data = await response.json();
 
                     if (response.ok) {
-                        // Succès
                         updateSteps(3);
                         showSuccessModal();
                         this.reset();
                         
-                        // Reset previews
                         this.querySelectorAll('.photo-preview').forEach(p => {
                             p.classList.add('hidden');
-                            p.querySelector('img').src = '';
+                            const img = p.querySelector('img');
+                            if (img) img.src = '';
                         });
                         this.querySelectorAll('.upload-area').forEach(u => {
                             u.style.display = 'block';
                         });
                         
-                        // Reset checkboxes
                         this.querySelectorAll('input[type="checkbox"]').forEach(cb => {
                             cb.checked = false;
                             const checkmark = cb.nextElementSibling;
@@ -581,62 +539,12 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
 
-    function processFormData(formId, formData, formElement) {
-        switch(formId) {
-            case 'agence-form':
-               
-                const destCheckboxes = formElement.querySelectorAll('input[name="destinations"]:checked');
-                const destinations = Array.from(destCheckboxes).map(cb => cb.value);
-                destinations.forEach((d, i) => formData.append(`destinations[${i}]`, d));
-
-                const tarifGroups = formElement.querySelectorAll('.field-group');
-                tarifGroups.forEach((group, i) => {
-                    const depart = group.querySelector('select[name="ville-depart[]"]');
-                    const arrivee = group.querySelector('select[name="ville-arrivee[]"]');
-                    const prix = group.querySelector('input[name="prix-trajet[]"]');
-                    const delai = group.querySelector('input[name="delai-trajet[]"]');
-
-                    if (depart?.value && arrivee?.value && prix?.value) {
-                        formData.append(`tarifs[${i}][villeDepart]`, depart.value);
-                        formData.append(`tarifs[${i}][villeArrivee]`, arrivee.value);
-                        formData.append(`tarifs[${i}][prix]`, prix.value);
-                        if (delai?.value) formData.append(`tarifs[${i}][delai]`, delai.value);
-                    }
-                });
-                break;
-
-            case 'transporteur-grand-form':
-                const typeTransportCheckboxes = formElement.querySelectorAll('input[name="type-transport"]:checked');
-                const typeTransport = Array.from(typeTransportCheckboxes).map(cb => cb.value);
-                typeTransport.forEach((v, i) => formData.append(`vehicules[${i}]`, v));
-                break;
-
-           case 'transporteur-petit-form':
-    const modeTransportCheckboxes = formElement.querySelectorAll('input[name="mode-transport[]"]:checked');
-    const modeTransport = Array.from(modeTransportCheckboxes).map(cb => cb.value);
-    modeTransport.forEach((v, i) => formData.append(`modeTransport[${i}]`, v));
-
-    const fieldGroups = formElement.querySelectorAll('.field-group');
-    fieldGroups.forEach((group, i) => {
-        const depart = group.querySelector('input[name="ville-depart[]"]');
-        const arrivee = group.querySelector('input[name="ville-arrivee[]"]');
-        const prix = group.querySelector('input[name="prix-trajet[]"]');
-        const delai = group.querySelector('input[name="delai-trajet[]"]');
-
-        if (depart?.value && arrivee?.value && prix?.value) {
-            formData.append(`destinations[${i}][villeDepart]`, depart.value);
-            formData.append(`destinations[${i}][villeArrivee]`, arrivee.value);
-            formData.append(`destinations[${i}][prix]`, prix.value);
-            if (delai?.value) formData.append(`destinations[${i}][delai]`, delai.value);
-        }
-    });
-    break;
-
-        }
-    }
-
     function showError(message) {
+        const existingError = document.querySelector('.error-toast');
+        if (existingError) existingError.remove();
+
         const errorDiv = document.createElement('div');
+        errorDiv.className = 'error-toast';
         errorDiv.style.cssText = `
             position: fixed;
             top: 20px;
@@ -665,13 +573,11 @@ document.addEventListener('DOMContentLoaded', function() {
         
         document.body.appendChild(errorDiv);
         
-        // Fermer après 5 secondes
         const timeout = setTimeout(() => {
             errorDiv.style.animation = 'slideOut 0.3s ease';
             setTimeout(() => errorDiv.remove(), 300);
         }, 5000);
         
-        // Fermeture manuelle
         const closeBtn = errorDiv.querySelector('button');
         closeBtn.addEventListener('click', () => {
             clearTimeout(timeout);
@@ -679,7 +585,6 @@ document.addEventListener('DOMContentLoaded', function() {
             setTimeout(() => errorDiv.remove(), 300);
         });
         
-        // Ajouter les animations CSS
         if (!document.querySelector('#error-animations')) {
             const style = document.createElement('style');
             style.id = 'error-animations';
@@ -697,14 +602,14 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     }
 
-    // 9. Modal de succès
     function setupModal() {
+        if (!modalClose || !successModal) return;
+        
         modalClose.addEventListener('click', () => {
             successModal.classList.add('hidden');
             window.location.href = 'connexion.html';
         });
 
-        // Fermer en cliquant à l'extérieur
         successModal.addEventListener('click', (e) => {
             if (e.target === successModal || e.target.classList.contains('modal-overlay')) {
                 successModal.classList.add('hidden');
@@ -712,7 +617,6 @@ document.addEventListener('DOMContentLoaded', function() {
             }
         });
 
-        // Fermer avec ESC
         document.addEventListener('keydown', (e) => {
             if (e.key === 'Escape' && !successModal.classList.contains('hidden')) {
                 successModal.classList.add('hidden');
@@ -722,11 +626,12 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 
     function showSuccessModal() {
-        successModal.classList.remove('hidden');
-        successModal.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        if (successModal) {
+            successModal.classList.remove('hidden');
+            successModal.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        }
     }
 
-    // 10. Gestion des erreurs CSS
     const errorStyles = document.createElement('style');
     errorStyles.textContent = `
         .input-wrapper.error input,
@@ -739,6 +644,10 @@ document.addEventListener('DOMContentLoaded', function() {
             font-size: 12px !important;
             margin-top: 5px !important;
             display: block !important;
+        }
+        
+        .hidden {
+            display: none !important;
         }
     `;
     document.head.appendChild(errorStyles);

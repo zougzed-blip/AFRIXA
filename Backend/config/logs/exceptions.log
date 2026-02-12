@@ -8407,3 +8407,6223 @@ TypeError: argument handler must be a function
     }
   ]
 }
+2026-02-12 09:52:43 [ERROR] uncaughtException: Unexpected identifier 'user'
+C:\Users\zougz\Desktop\AFRIXA\Backend\Models\agenceModel.js:9
+  user: {
+  ^^^^
+
+SyntaxError: Unexpected identifier 'user'
+    at wrapSafe (node:internal/modules/cjs/loader:1692:18)
+    at Module._compile (node:internal/modules/cjs/loader:1735:20)
+    at Object..js (node:internal/modules/cjs/loader:1893:10)
+    at Module.load (node:internal/modules/cjs/loader:1481:32)
+    at Module._load (node:internal/modules/cjs/loader:1300:12)
+    at TracingChannel.traceSync (node:diagnostics_channel:328:14)
+    at wrapModuleLoad (node:internal/modules/cjs/loader:245:24)
+    at Module.require (node:internal/modules/cjs/loader:1504:12)
+    at require (node:internal/modules/helpers:152:16)
+    at Object.<anonymous> (C:\Users\zougz\Desktop\AFRIXA\Backend\Controllers\adminController.js:5:23)
+C:\Users\zougz\Desktop\AFRIXA\Backend\Models\agenceModel.js:9
+  user: {
+  ^^^^
+
+SyntaxError: Unexpected identifier 'user'
+    at wrapSafe (node:internal/modules/cjs/loader:1692:18)
+    at Module._compile (node:internal/modules/cjs/loader:1735:20)
+    at Object..js (node:internal/modules/cjs/loader:1893:10)
+    at Module.load (node:internal/modules/cjs/loader:1481:32)
+    at Module._load (node:internal/modules/cjs/loader:1300:12)
+    at TracingChannel.traceSync (node:diagnostics_channel:328:14)
+    at wrapModuleLoad (node:internal/modules/cjs/loader:245:24)
+    at Module.require (node:internal/modules/cjs/loader:1504:12)
+    at require (node:internal/modules/helpers:152:16)
+    at Object.<anonymous> (C:\Users\zougz\Desktop\AFRIXA\Backend\Controllers\adminController.js:5:23)
+{
+  "error": {},
+  "exception": true,
+  "date": "Thu Feb 12 2026 09:52:43 GMT+0200 (South Africa Standard Time)",
+  "process": {
+    "pid": 15408,
+    "uid": null,
+    "gid": null,
+    "cwd": "C:\\Users\\zougz\\Desktop\\AFRIXA",
+    "execPath": "C:\\Program Files\\nodejs\\node.exe",
+    "version": "v24.12.0",
+    "argv": [
+      "C:\\Program Files\\nodejs\\node.exe",
+      "C:\\Users\\zougz\\Desktop\\AFRIXA\\server.js"
+    ],
+    "memoryUsage": {
+      "rss": 99844096,
+      "heapTotal": 58966016,
+      "heapUsed": 32834328,
+      "external": 20787808,
+      "arrayBuffers": 18264743
+    }
+  },
+  "os": {
+    "loadavg": [
+      0,
+      0,
+      0
+    ],
+    "uptime": 418194.937
+  },
+  "trace": [
+    {
+      "column": 18,
+      "file": "node:internal/modules/cjs/loader",
+      "function": "wrapSafe",
+      "line": 1692,
+      "method": null,
+      "native": false
+    },
+    {
+      "column": 20,
+      "file": "node:internal/modules/cjs/loader",
+      "function": "Module._compile",
+      "line": 1735,
+      "method": "_compile",
+      "native": false
+    },
+    {
+      "column": 10,
+      "file": "node:internal/modules/cjs/loader",
+      "function": "Object..js",
+      "line": 1893,
+      "method": ".js",
+      "native": false
+    },
+    {
+      "column": 32,
+      "file": "node:internal/modules/cjs/loader",
+      "function": "Module.load",
+      "line": 1481,
+      "method": "load",
+      "native": false
+    },
+    {
+      "column": 12,
+      "file": "node:internal/modules/cjs/loader",
+      "function": "Module._load",
+      "line": 1300,
+      "method": "_load",
+      "native": false
+    },
+    {
+      "column": 14,
+      "file": "node:diagnostics_channel",
+      "function": "TracingChannel.traceSync",
+      "line": 328,
+      "method": "traceSync",
+      "native": false
+    },
+    {
+      "column": 24,
+      "file": "node:internal/modules/cjs/loader",
+      "function": "wrapModuleLoad",
+      "line": 245,
+      "method": null,
+      "native": false
+    },
+    {
+      "column": 12,
+      "file": "node:internal/modules/cjs/loader",
+      "function": "Module.require",
+      "line": 1504,
+      "method": "require",
+      "native": false
+    },
+    {
+      "column": 16,
+      "file": "node:internal/modules/helpers",
+      "function": "require",
+      "line": 152,
+      "method": null,
+      "native": false
+    },
+    {
+      "column": 23,
+      "file": "C:\\Users\\zougz\\Desktop\\AFRIXA\\Backend\\Controllers\\adminController.js",
+      "function": null,
+      "line": 5,
+      "method": null,
+      "native": false
+    }
+  ]
+}
+2026-02-12 09:52:47 [ERROR] uncaughtException: Unexpected token ':'
+C:\Users\zougz\Desktop\AFRIXA\Backend\Models\agenceModel.js:9
+  user: {
+      ^
+
+SyntaxError: Unexpected token ':'
+    at wrapSafe (node:internal/modules/cjs/loader:1692:18)
+    at Module._compile (node:internal/modules/cjs/loader:1735:20)
+    at Object..js (node:internal/modules/cjs/loader:1893:10)
+    at Module.load (node:internal/modules/cjs/loader:1481:32)
+    at Module._load (node:internal/modules/cjs/loader:1300:12)
+    at TracingChannel.traceSync (node:diagnostics_channel:328:14)
+    at wrapModuleLoad (node:internal/modules/cjs/loader:245:24)
+    at Module.require (node:internal/modules/cjs/loader:1504:12)
+    at require (node:internal/modules/helpers:152:16)
+    at Object.<anonymous> (C:\Users\zougz\Desktop\AFRIXA\Backend\Controllers\adminController.js:5:23)
+C:\Users\zougz\Desktop\AFRIXA\Backend\Models\agenceModel.js:9
+  user: {
+      ^
+
+SyntaxError: Unexpected token ':'
+    at wrapSafe (node:internal/modules/cjs/loader:1692:18)
+    at Module._compile (node:internal/modules/cjs/loader:1735:20)
+    at Object..js (node:internal/modules/cjs/loader:1893:10)
+    at Module.load (node:internal/modules/cjs/loader:1481:32)
+    at Module._load (node:internal/modules/cjs/loader:1300:12)
+    at TracingChannel.traceSync (node:diagnostics_channel:328:14)
+    at wrapModuleLoad (node:internal/modules/cjs/loader:245:24)
+    at Module.require (node:internal/modules/cjs/loader:1504:12)
+    at require (node:internal/modules/helpers:152:16)
+    at Object.<anonymous> (C:\Users\zougz\Desktop\AFRIXA\Backend\Controllers\adminController.js:5:23)
+{
+  "error": {},
+  "exception": true,
+  "date": "Thu Feb 12 2026 09:52:47 GMT+0200 (South Africa Standard Time)",
+  "process": {
+    "pid": 9244,
+    "uid": null,
+    "gid": null,
+    "cwd": "C:\\Users\\zougz\\Desktop\\AFRIXA",
+    "execPath": "C:\\Program Files\\nodejs\\node.exe",
+    "version": "v24.12.0",
+    "argv": [
+      "C:\\Program Files\\nodejs\\node.exe",
+      "C:\\Users\\zougz\\Desktop\\AFRIXA\\server.js"
+    ],
+    "memoryUsage": {
+      "rss": 101502976,
+      "heapTotal": 61849600,
+      "heapUsed": 29949800,
+      "external": 20787808,
+      "arrayBuffers": 18264743
+    }
+  },
+  "os": {
+    "loadavg": [
+      0,
+      0,
+      0
+    ],
+    "uptime": 418199.25
+  },
+  "trace": [
+    {
+      "column": 18,
+      "file": "node:internal/modules/cjs/loader",
+      "function": "wrapSafe",
+      "line": 1692,
+      "method": null,
+      "native": false
+    },
+    {
+      "column": 20,
+      "file": "node:internal/modules/cjs/loader",
+      "function": "Module._compile",
+      "line": 1735,
+      "method": "_compile",
+      "native": false
+    },
+    {
+      "column": 10,
+      "file": "node:internal/modules/cjs/loader",
+      "function": "Object..js",
+      "line": 1893,
+      "method": ".js",
+      "native": false
+    },
+    {
+      "column": 32,
+      "file": "node:internal/modules/cjs/loader",
+      "function": "Module.load",
+      "line": 1481,
+      "method": "load",
+      "native": false
+    },
+    {
+      "column": 12,
+      "file": "node:internal/modules/cjs/loader",
+      "function": "Module._load",
+      "line": 1300,
+      "method": "_load",
+      "native": false
+    },
+    {
+      "column": 14,
+      "file": "node:diagnostics_channel",
+      "function": "TracingChannel.traceSync",
+      "line": 328,
+      "method": "traceSync",
+      "native": false
+    },
+    {
+      "column": 24,
+      "file": "node:internal/modules/cjs/loader",
+      "function": "wrapModuleLoad",
+      "line": 245,
+      "method": null,
+      "native": false
+    },
+    {
+      "column": 12,
+      "file": "node:internal/modules/cjs/loader",
+      "function": "Module.require",
+      "line": 1504,
+      "method": "require",
+      "native": false
+    },
+    {
+      "column": 16,
+      "file": "node:internal/modules/helpers",
+      "function": "require",
+      "line": 152,
+      "method": null,
+      "native": false
+    },
+    {
+      "column": 23,
+      "file": "C:\\Users\\zougz\\Desktop\\AFRIXA\\Backend\\Controllers\\adminController.js",
+      "function": null,
+      "line": 5,
+      "method": null,
+      "native": false
+    }
+  ]
+}
+2026-02-12 09:52:49 [ERROR] uncaughtException: Unexpected identifier 'user'
+C:\Users\zougz\Desktop\AFRIXA\Backend\Models\agenceModel.js:9
+  user: {
+  ^^^^
+
+SyntaxError: Unexpected identifier 'user'
+    at wrapSafe (node:internal/modules/cjs/loader:1692:18)
+    at Module._compile (node:internal/modules/cjs/loader:1735:20)
+    at Object..js (node:internal/modules/cjs/loader:1893:10)
+    at Module.load (node:internal/modules/cjs/loader:1481:32)
+    at Module._load (node:internal/modules/cjs/loader:1300:12)
+    at TracingChannel.traceSync (node:diagnostics_channel:328:14)
+    at wrapModuleLoad (node:internal/modules/cjs/loader:245:24)
+    at Module.require (node:internal/modules/cjs/loader:1504:12)
+    at require (node:internal/modules/helpers:152:16)
+    at Object.<anonymous> (C:\Users\zougz\Desktop\AFRIXA\Backend\Controllers\adminController.js:5:23)
+C:\Users\zougz\Desktop\AFRIXA\Backend\Models\agenceModel.js:9
+  user: {
+  ^^^^
+
+SyntaxError: Unexpected identifier 'user'
+    at wrapSafe (node:internal/modules/cjs/loader:1692:18)
+    at Module._compile (node:internal/modules/cjs/loader:1735:20)
+    at Object..js (node:internal/modules/cjs/loader:1893:10)
+    at Module.load (node:internal/modules/cjs/loader:1481:32)
+    at Module._load (node:internal/modules/cjs/loader:1300:12)
+    at TracingChannel.traceSync (node:diagnostics_channel:328:14)
+    at wrapModuleLoad (node:internal/modules/cjs/loader:245:24)
+    at Module.require (node:internal/modules/cjs/loader:1504:12)
+    at require (node:internal/modules/helpers:152:16)
+    at Object.<anonymous> (C:\Users\zougz\Desktop\AFRIXA\Backend\Controllers\adminController.js:5:23)
+{
+  "error": {},
+  "exception": true,
+  "date": "Thu Feb 12 2026 09:52:49 GMT+0200 (South Africa Standard Time)",
+  "process": {
+    "pid": 27108,
+    "uid": null,
+    "gid": null,
+    "cwd": "C:\\Users\\zougz\\Desktop\\AFRIXA",
+    "execPath": "C:\\Program Files\\nodejs\\node.exe",
+    "version": "v24.12.0",
+    "argv": [
+      "C:\\Program Files\\nodejs\\node.exe",
+      "C:\\Users\\zougz\\Desktop\\AFRIXA\\server.js"
+    ],
+    "memoryUsage": {
+      "rss": 92794880,
+      "heapTotal": 59416576,
+      "heapUsed": 34834000,
+      "external": 20787808,
+      "arrayBuffers": 18264743
+    }
+  },
+  "os": {
+    "loadavg": [
+      0,
+      0,
+      0
+    ],
+    "uptime": 418201.453
+  },
+  "trace": [
+    {
+      "column": 18,
+      "file": "node:internal/modules/cjs/loader",
+      "function": "wrapSafe",
+      "line": 1692,
+      "method": null,
+      "native": false
+    },
+    {
+      "column": 20,
+      "file": "node:internal/modules/cjs/loader",
+      "function": "Module._compile",
+      "line": 1735,
+      "method": "_compile",
+      "native": false
+    },
+    {
+      "column": 10,
+      "file": "node:internal/modules/cjs/loader",
+      "function": "Object..js",
+      "line": 1893,
+      "method": ".js",
+      "native": false
+    },
+    {
+      "column": 32,
+      "file": "node:internal/modules/cjs/loader",
+      "function": "Module.load",
+      "line": 1481,
+      "method": "load",
+      "native": false
+    },
+    {
+      "column": 12,
+      "file": "node:internal/modules/cjs/loader",
+      "function": "Module._load",
+      "line": 1300,
+      "method": "_load",
+      "native": false
+    },
+    {
+      "column": 14,
+      "file": "node:diagnostics_channel",
+      "function": "TracingChannel.traceSync",
+      "line": 328,
+      "method": "traceSync",
+      "native": false
+    },
+    {
+      "column": 24,
+      "file": "node:internal/modules/cjs/loader",
+      "function": "wrapModuleLoad",
+      "line": 245,
+      "method": null,
+      "native": false
+    },
+    {
+      "column": 12,
+      "file": "node:internal/modules/cjs/loader",
+      "function": "Module.require",
+      "line": 1504,
+      "method": "require",
+      "native": false
+    },
+    {
+      "column": 16,
+      "file": "node:internal/modules/helpers",
+      "function": "require",
+      "line": 152,
+      "method": null,
+      "native": false
+    },
+    {
+      "column": 23,
+      "file": "C:\\Users\\zougz\\Desktop\\AFRIXA\\Backend\\Controllers\\adminController.js",
+      "function": null,
+      "line": 5,
+      "method": null,
+      "native": false
+    }
+  ]
+}
+2026-02-12 09:56:44 [ERROR] uncaughtException: Unexpected identifier 'user'
+C:\Users\zougz\Desktop\AFRIXA\Backend\Controllers\clientController.js:175
+        user: userId,
+        ^^^^
+
+SyntaxError: Unexpected identifier 'user'
+    at wrapSafe (node:internal/modules/cjs/loader:1692:18)
+    at Module._compile (node:internal/modules/cjs/loader:1735:20)
+    at Object..js (node:internal/modules/cjs/loader:1893:10)
+    at Module.load (node:internal/modules/cjs/loader:1481:32)
+    at Module._load (node:internal/modules/cjs/loader:1300:12)
+    at TracingChannel.traceSync (node:diagnostics_channel:328:14)
+    at wrapModuleLoad (node:internal/modules/cjs/loader:245:24)
+    at Module.require (node:internal/modules/cjs/loader:1504:12)
+    at require (node:internal/modules/helpers:152:16)
+    at Object.<anonymous> (C:\Users\zougz\Desktop\AFRIXA\Backend\Routes\clientRoutes.js:5:26)
+C:\Users\zougz\Desktop\AFRIXA\Backend\Controllers\clientController.js:175
+        user: userId,
+        ^^^^
+
+SyntaxError: Unexpected identifier 'user'
+    at wrapSafe (node:internal/modules/cjs/loader:1692:18)
+    at Module._compile (node:internal/modules/cjs/loader:1735:20)
+    at Object..js (node:internal/modules/cjs/loader:1893:10)
+    at Module.load (node:internal/modules/cjs/loader:1481:32)
+    at Module._load (node:internal/modules/cjs/loader:1300:12)
+    at TracingChannel.traceSync (node:diagnostics_channel:328:14)
+    at wrapModuleLoad (node:internal/modules/cjs/loader:245:24)
+    at Module.require (node:internal/modules/cjs/loader:1504:12)
+    at require (node:internal/modules/helpers:152:16)
+    at Object.<anonymous> (C:\Users\zougz\Desktop\AFRIXA\Backend\Routes\clientRoutes.js:5:26)
+{
+  "error": {},
+  "exception": true,
+  "date": "Thu Feb 12 2026 09:56:44 GMT+0200 (South Africa Standard Time)",
+  "process": {
+    "pid": 27900,
+    "uid": null,
+    "gid": null,
+    "cwd": "C:\\Users\\zougz\\Desktop\\AFRIXA",
+    "execPath": "C:\\Program Files\\nodejs\\node.exe",
+    "version": "v24.12.0",
+    "argv": [
+      "C:\\Program Files\\nodejs\\node.exe",
+      "C:\\Users\\zougz\\Desktop\\AFRIXA\\server.js"
+    ],
+    "memoryUsage": {
+      "rss": 111824896,
+      "heapTotal": 65327104,
+      "heapUsed": 44392392,
+      "external": 21922193,
+      "arrayBuffers": 18265165
+    }
+  },
+  "os": {
+    "loadavg": [
+      0,
+      0,
+      0
+    ],
+    "uptime": 418435.937
+  },
+  "trace": [
+    {
+      "column": 18,
+      "file": "node:internal/modules/cjs/loader",
+      "function": "wrapSafe",
+      "line": 1692,
+      "method": null,
+      "native": false
+    },
+    {
+      "column": 20,
+      "file": "node:internal/modules/cjs/loader",
+      "function": "Module._compile",
+      "line": 1735,
+      "method": "_compile",
+      "native": false
+    },
+    {
+      "column": 10,
+      "file": "node:internal/modules/cjs/loader",
+      "function": "Object..js",
+      "line": 1893,
+      "method": ".js",
+      "native": false
+    },
+    {
+      "column": 32,
+      "file": "node:internal/modules/cjs/loader",
+      "function": "Module.load",
+      "line": 1481,
+      "method": "load",
+      "native": false
+    },
+    {
+      "column": 12,
+      "file": "node:internal/modules/cjs/loader",
+      "function": "Module._load",
+      "line": 1300,
+      "method": "_load",
+      "native": false
+    },
+    {
+      "column": 14,
+      "file": "node:diagnostics_channel",
+      "function": "TracingChannel.traceSync",
+      "line": 328,
+      "method": "traceSync",
+      "native": false
+    },
+    {
+      "column": 24,
+      "file": "node:internal/modules/cjs/loader",
+      "function": "wrapModuleLoad",
+      "line": 245,
+      "method": null,
+      "native": false
+    },
+    {
+      "column": 12,
+      "file": "node:internal/modules/cjs/loader",
+      "function": "Module.require",
+      "line": 1504,
+      "method": "require",
+      "native": false
+    },
+    {
+      "column": 16,
+      "file": "node:internal/modules/helpers",
+      "function": "require",
+      "line": 152,
+      "method": null,
+      "native": false
+    },
+    {
+      "column": 26,
+      "file": "C:\\Users\\zougz\\Desktop\\AFRIXA\\Backend\\Routes\\clientRoutes.js",
+      "function": null,
+      "line": 5,
+      "method": null,
+      "native": false
+    }
+  ]
+}
+2026-02-12 09:57:00 [ERROR] uncaughtException: Unexpected identifier 'destination'
+C:\Users\zougz\Desktop\AFRIXA\Backend\Controllers\clientController.js:206
+          destination: newDemande.destination,
+          ^^^^^^^^^^^
+
+SyntaxError: Unexpected identifier 'destination'
+    at wrapSafe (node:internal/modules/cjs/loader:1692:18)
+    at Module._compile (node:internal/modules/cjs/loader:1735:20)
+    at Object..js (node:internal/modules/cjs/loader:1893:10)
+    at Module.load (node:internal/modules/cjs/loader:1481:32)
+    at Module._load (node:internal/modules/cjs/loader:1300:12)
+    at TracingChannel.traceSync (node:diagnostics_channel:328:14)
+    at wrapModuleLoad (node:internal/modules/cjs/loader:245:24)
+    at Module.require (node:internal/modules/cjs/loader:1504:12)
+    at require (node:internal/modules/helpers:152:16)
+    at Object.<anonymous> (C:\Users\zougz\Desktop\AFRIXA\Backend\Routes\clientRoutes.js:5:26)
+C:\Users\zougz\Desktop\AFRIXA\Backend\Controllers\clientController.js:206
+          destination: newDemande.destination,
+          ^^^^^^^^^^^
+
+SyntaxError: Unexpected identifier 'destination'
+    at wrapSafe (node:internal/modules/cjs/loader:1692:18)
+    at Module._compile (node:internal/modules/cjs/loader:1735:20)
+    at Object..js (node:internal/modules/cjs/loader:1893:10)
+    at Module.load (node:internal/modules/cjs/loader:1481:32)
+    at Module._load (node:internal/modules/cjs/loader:1300:12)
+    at TracingChannel.traceSync (node:diagnostics_channel:328:14)
+    at wrapModuleLoad (node:internal/modules/cjs/loader:245:24)
+    at Module.require (node:internal/modules/cjs/loader:1504:12)
+    at require (node:internal/modules/helpers:152:16)
+    at Object.<anonymous> (C:\Users\zougz\Desktop\AFRIXA\Backend\Routes\clientRoutes.js:5:26)
+{
+  "error": {},
+  "exception": true,
+  "date": "Thu Feb 12 2026 09:57:00 GMT+0200 (South Africa Standard Time)",
+  "process": {
+    "pid": 36204,
+    "uid": null,
+    "gid": null,
+    "cwd": "C:\\Users\\zougz\\Desktop\\AFRIXA",
+    "execPath": "C:\\Program Files\\nodejs\\node.exe",
+    "version": "v24.12.0",
+    "argv": [
+      "C:\\Program Files\\nodejs\\node.exe",
+      "C:\\Users\\zougz\\Desktop\\AFRIXA\\server.js"
+    ],
+    "memoryUsage": {
+      "rss": 120733696,
+      "heapTotal": 101576704,
+      "heapUsed": 39933048,
+      "external": 21922193,
+      "arrayBuffers": 18265157
+    }
+  },
+  "os": {
+    "loadavg": [
+      0,
+      0,
+      0
+    ],
+    "uptime": 418452.812
+  },
+  "trace": [
+    {
+      "column": 18,
+      "file": "node:internal/modules/cjs/loader",
+      "function": "wrapSafe",
+      "line": 1692,
+      "method": null,
+      "native": false
+    },
+    {
+      "column": 20,
+      "file": "node:internal/modules/cjs/loader",
+      "function": "Module._compile",
+      "line": 1735,
+      "method": "_compile",
+      "native": false
+    },
+    {
+      "column": 10,
+      "file": "node:internal/modules/cjs/loader",
+      "function": "Object..js",
+      "line": 1893,
+      "method": ".js",
+      "native": false
+    },
+    {
+      "column": 32,
+      "file": "node:internal/modules/cjs/loader",
+      "function": "Module.load",
+      "line": 1481,
+      "method": "load",
+      "native": false
+    },
+    {
+      "column": 12,
+      "file": "node:internal/modules/cjs/loader",
+      "function": "Module._load",
+      "line": 1300,
+      "method": "_load",
+      "native": false
+    },
+    {
+      "column": 14,
+      "file": "node:diagnostics_channel",
+      "function": "TracingChannel.traceSync",
+      "line": 328,
+      "method": "traceSync",
+      "native": false
+    },
+    {
+      "column": 24,
+      "file": "node:internal/modules/cjs/loader",
+      "function": "wrapModuleLoad",
+      "line": 245,
+      "method": null,
+      "native": false
+    },
+    {
+      "column": 12,
+      "file": "node:internal/modules/cjs/loader",
+      "function": "Module.require",
+      "line": 1504,
+      "method": "require",
+      "native": false
+    },
+    {
+      "column": 16,
+      "file": "node:internal/modules/helpers",
+      "function": "require",
+      "line": 152,
+      "method": null,
+      "native": false
+    },
+    {
+      "column": 26,
+      "file": "C:\\Users\\zougz\\Desktop\\AFRIXA\\Backend\\Routes\\clientRoutes.js",
+      "function": null,
+      "line": 5,
+      "method": null,
+      "native": false
+    }
+  ]
+}
+2026-02-12 09:57:02 [ERROR] uncaughtException: Unexpected token ':'
+C:\Users\zougz\Desktop\AFRIXA\Backend\Controllers\clientController.js:206
+          destination: newDemande.destination,
+                     ^
+
+SyntaxError: Unexpected token ':'
+    at wrapSafe (node:internal/modules/cjs/loader:1692:18)
+    at Module._compile (node:internal/modules/cjs/loader:1735:20)
+    at Object..js (node:internal/modules/cjs/loader:1893:10)
+    at Module.load (node:internal/modules/cjs/loader:1481:32)
+    at Module._load (node:internal/modules/cjs/loader:1300:12)
+    at TracingChannel.traceSync (node:diagnostics_channel:328:14)
+    at wrapModuleLoad (node:internal/modules/cjs/loader:245:24)
+    at Module.require (node:internal/modules/cjs/loader:1504:12)
+    at require (node:internal/modules/helpers:152:16)
+    at Object.<anonymous> (C:\Users\zougz\Desktop\AFRIXA\Backend\Routes\clientRoutes.js:5:26)
+C:\Users\zougz\Desktop\AFRIXA\Backend\Controllers\clientController.js:206
+          destination: newDemande.destination,
+                     ^
+
+SyntaxError: Unexpected token ':'
+    at wrapSafe (node:internal/modules/cjs/loader:1692:18)
+    at Module._compile (node:internal/modules/cjs/loader:1735:20)
+    at Object..js (node:internal/modules/cjs/loader:1893:10)
+    at Module.load (node:internal/modules/cjs/loader:1481:32)
+    at Module._load (node:internal/modules/cjs/loader:1300:12)
+    at TracingChannel.traceSync (node:diagnostics_channel:328:14)
+    at wrapModuleLoad (node:internal/modules/cjs/loader:245:24)
+    at Module.require (node:internal/modules/cjs/loader:1504:12)
+    at require (node:internal/modules/helpers:152:16)
+    at Object.<anonymous> (C:\Users\zougz\Desktop\AFRIXA\Backend\Routes\clientRoutes.js:5:26)
+{
+  "error": {},
+  "exception": true,
+  "date": "Thu Feb 12 2026 09:57:02 GMT+0200 (South Africa Standard Time)",
+  "process": {
+    "pid": 32504,
+    "uid": null,
+    "gid": null,
+    "cwd": "C:\\Users\\zougz\\Desktop\\AFRIXA",
+    "execPath": "C:\\Program Files\\nodejs\\node.exe",
+    "version": "v24.12.0",
+    "argv": [
+      "C:\\Program Files\\nodejs\\node.exe",
+      "C:\\Users\\zougz\\Desktop\\AFRIXA\\server.js"
+    ],
+    "memoryUsage": {
+      "rss": 111828992,
+      "heapTotal": 65327104,
+      "heapUsed": 44437456,
+      "external": 21922193,
+      "arrayBuffers": 18265165
+    }
+  },
+  "os": {
+    "loadavg": [
+      0,
+      0,
+      0
+    ],
+    "uptime": 418454.765
+  },
+  "trace": [
+    {
+      "column": 18,
+      "file": "node:internal/modules/cjs/loader",
+      "function": "wrapSafe",
+      "line": 1692,
+      "method": null,
+      "native": false
+    },
+    {
+      "column": 20,
+      "file": "node:internal/modules/cjs/loader",
+      "function": "Module._compile",
+      "line": 1735,
+      "method": "_compile",
+      "native": false
+    },
+    {
+      "column": 10,
+      "file": "node:internal/modules/cjs/loader",
+      "function": "Object..js",
+      "line": 1893,
+      "method": ".js",
+      "native": false
+    },
+    {
+      "column": 32,
+      "file": "node:internal/modules/cjs/loader",
+      "function": "Module.load",
+      "line": 1481,
+      "method": "load",
+      "native": false
+    },
+    {
+      "column": 12,
+      "file": "node:internal/modules/cjs/loader",
+      "function": "Module._load",
+      "line": 1300,
+      "method": "_load",
+      "native": false
+    },
+    {
+      "column": 14,
+      "file": "node:diagnostics_channel",
+      "function": "TracingChannel.traceSync",
+      "line": 328,
+      "method": "traceSync",
+      "native": false
+    },
+    {
+      "column": 24,
+      "file": "node:internal/modules/cjs/loader",
+      "function": "wrapModuleLoad",
+      "line": 245,
+      "method": null,
+      "native": false
+    },
+    {
+      "column": 12,
+      "file": "node:internal/modules/cjs/loader",
+      "function": "Module.require",
+      "line": 1504,
+      "method": "require",
+      "native": false
+    },
+    {
+      "column": 16,
+      "file": "node:internal/modules/helpers",
+      "function": "require",
+      "line": 152,
+      "method": null,
+      "native": false
+    },
+    {
+      "column": 26,
+      "file": "C:\\Users\\zougz\\Desktop\\AFRIXA\\Backend\\Routes\\clientRoutes.js",
+      "function": null,
+      "line": 5,
+      "method": null,
+      "native": false
+    }
+  ]
+}
+2026-02-12 09:57:04 [ERROR] uncaughtException: Unexpected identifier 'destination'
+C:\Users\zougz\Desktop\AFRIXA\Backend\Controllers\clientController.js:206
+          destination: newDemande.destination,
+          ^^^^^^^^^^^
+
+SyntaxError: Unexpected identifier 'destination'
+    at wrapSafe (node:internal/modules/cjs/loader:1692:18)
+    at Module._compile (node:internal/modules/cjs/loader:1735:20)
+    at Object..js (node:internal/modules/cjs/loader:1893:10)
+    at Module.load (node:internal/modules/cjs/loader:1481:32)
+    at Module._load (node:internal/modules/cjs/loader:1300:12)
+    at TracingChannel.traceSync (node:diagnostics_channel:328:14)
+    at wrapModuleLoad (node:internal/modules/cjs/loader:245:24)
+    at Module.require (node:internal/modules/cjs/loader:1504:12)
+    at require (node:internal/modules/helpers:152:16)
+    at Object.<anonymous> (C:\Users\zougz\Desktop\AFRIXA\Backend\Routes\clientRoutes.js:5:26)
+C:\Users\zougz\Desktop\AFRIXA\Backend\Controllers\clientController.js:206
+          destination: newDemande.destination,
+          ^^^^^^^^^^^
+
+SyntaxError: Unexpected identifier 'destination'
+    at wrapSafe (node:internal/modules/cjs/loader:1692:18)
+    at Module._compile (node:internal/modules/cjs/loader:1735:20)
+    at Object..js (node:internal/modules/cjs/loader:1893:10)
+    at Module.load (node:internal/modules/cjs/loader:1481:32)
+    at Module._load (node:internal/modules/cjs/loader:1300:12)
+    at TracingChannel.traceSync (node:diagnostics_channel:328:14)
+    at wrapModuleLoad (node:internal/modules/cjs/loader:245:24)
+    at Module.require (node:internal/modules/cjs/loader:1504:12)
+    at require (node:internal/modules/helpers:152:16)
+    at Object.<anonymous> (C:\Users\zougz\Desktop\AFRIXA\Backend\Routes\clientRoutes.js:5:26)
+{
+  "error": {},
+  "exception": true,
+  "date": "Thu Feb 12 2026 09:57:04 GMT+0200 (South Africa Standard Time)",
+  "process": {
+    "pid": 19868,
+    "uid": null,
+    "gid": null,
+    "cwd": "C:\\Users\\zougz\\Desktop\\AFRIXA",
+    "execPath": "C:\\Program Files\\nodejs\\node.exe",
+    "version": "v24.12.0",
+    "argv": [
+      "C:\\Program Files\\nodejs\\node.exe",
+      "C:\\Users\\zougz\\Desktop\\AFRIXA\\server.js"
+    ],
+    "memoryUsage": {
+      "rss": 111067136,
+      "heapTotal": 65327104,
+      "heapUsed": 44484528,
+      "external": 21922193,
+      "arrayBuffers": 18265165
+    }
+  },
+  "os": {
+    "loadavg": [
+      0,
+      0,
+      0
+    ],
+    "uptime": 418456.656
+  },
+  "trace": [
+    {
+      "column": 18,
+      "file": "node:internal/modules/cjs/loader",
+      "function": "wrapSafe",
+      "line": 1692,
+      "method": null,
+      "native": false
+    },
+    {
+      "column": 20,
+      "file": "node:internal/modules/cjs/loader",
+      "function": "Module._compile",
+      "line": 1735,
+      "method": "_compile",
+      "native": false
+    },
+    {
+      "column": 10,
+      "file": "node:internal/modules/cjs/loader",
+      "function": "Object..js",
+      "line": 1893,
+      "method": ".js",
+      "native": false
+    },
+    {
+      "column": 32,
+      "file": "node:internal/modules/cjs/loader",
+      "function": "Module.load",
+      "line": 1481,
+      "method": "load",
+      "native": false
+    },
+    {
+      "column": 12,
+      "file": "node:internal/modules/cjs/loader",
+      "function": "Module._load",
+      "line": 1300,
+      "method": "_load",
+      "native": false
+    },
+    {
+      "column": 14,
+      "file": "node:diagnostics_channel",
+      "function": "TracingChannel.traceSync",
+      "line": 328,
+      "method": "traceSync",
+      "native": false
+    },
+    {
+      "column": 24,
+      "file": "node:internal/modules/cjs/loader",
+      "function": "wrapModuleLoad",
+      "line": 245,
+      "method": null,
+      "native": false
+    },
+    {
+      "column": 12,
+      "file": "node:internal/modules/cjs/loader",
+      "function": "Module.require",
+      "line": 1504,
+      "method": "require",
+      "native": false
+    },
+    {
+      "column": 16,
+      "file": "node:internal/modules/helpers",
+      "function": "require",
+      "line": 152,
+      "method": null,
+      "native": false
+    },
+    {
+      "column": 26,
+      "file": "C:\\Users\\zougz\\Desktop\\AFRIXA\\Backend\\Routes\\clientRoutes.js",
+      "function": null,
+      "line": 5,
+      "method": null,
+      "native": false
+    }
+  ]
+}
+2026-02-12 09:57:08 [ERROR] uncaughtException: Unexpected token ':'
+C:\Users\zougz\Desktop\AFRIXA\Backend\Controllers\clientController.js:206
+          destination: newDemande.destination,
+                     ^
+
+SyntaxError: Unexpected token ':'
+    at wrapSafe (node:internal/modules/cjs/loader:1692:18)
+    at Module._compile (node:internal/modules/cjs/loader:1735:20)
+    at Object..js (node:internal/modules/cjs/loader:1893:10)
+    at Module.load (node:internal/modules/cjs/loader:1481:32)
+    at Module._load (node:internal/modules/cjs/loader:1300:12)
+    at TracingChannel.traceSync (node:diagnostics_channel:328:14)
+    at wrapModuleLoad (node:internal/modules/cjs/loader:245:24)
+    at Module.require (node:internal/modules/cjs/loader:1504:12)
+    at require (node:internal/modules/helpers:152:16)
+    at Object.<anonymous> (C:\Users\zougz\Desktop\AFRIXA\Backend\Routes\clientRoutes.js:5:26)
+C:\Users\zougz\Desktop\AFRIXA\Backend\Controllers\clientController.js:206
+          destination: newDemande.destination,
+                     ^
+
+SyntaxError: Unexpected token ':'
+    at wrapSafe (node:internal/modules/cjs/loader:1692:18)
+    at Module._compile (node:internal/modules/cjs/loader:1735:20)
+    at Object..js (node:internal/modules/cjs/loader:1893:10)
+    at Module.load (node:internal/modules/cjs/loader:1481:32)
+    at Module._load (node:internal/modules/cjs/loader:1300:12)
+    at TracingChannel.traceSync (node:diagnostics_channel:328:14)
+    at wrapModuleLoad (node:internal/modules/cjs/loader:245:24)
+    at Module.require (node:internal/modules/cjs/loader:1504:12)
+    at require (node:internal/modules/helpers:152:16)
+    at Object.<anonymous> (C:\Users\zougz\Desktop\AFRIXA\Backend\Routes\clientRoutes.js:5:26)
+{
+  "error": {},
+  "exception": true,
+  "date": "Thu Feb 12 2026 09:57:08 GMT+0200 (South Africa Standard Time)",
+  "process": {
+    "pid": 37496,
+    "uid": null,
+    "gid": null,
+    "cwd": "C:\\Users\\zougz\\Desktop\\AFRIXA",
+    "execPath": "C:\\Program Files\\nodejs\\node.exe",
+    "version": "v24.12.0",
+    "argv": [
+      "C:\\Program Files\\nodejs\\node.exe",
+      "C:\\Users\\zougz\\Desktop\\AFRIXA\\server.js"
+    ],
+    "memoryUsage": {
+      "rss": 111407104,
+      "heapTotal": 65327104,
+      "heapUsed": 44396096,
+      "external": 21922193,
+      "arrayBuffers": 18265165
+    }
+  },
+  "os": {
+    "loadavg": [
+      0,
+      0,
+      0
+    ],
+    "uptime": 418459.953
+  },
+  "trace": [
+    {
+      "column": 18,
+      "file": "node:internal/modules/cjs/loader",
+      "function": "wrapSafe",
+      "line": 1692,
+      "method": null,
+      "native": false
+    },
+    {
+      "column": 20,
+      "file": "node:internal/modules/cjs/loader",
+      "function": "Module._compile",
+      "line": 1735,
+      "method": "_compile",
+      "native": false
+    },
+    {
+      "column": 10,
+      "file": "node:internal/modules/cjs/loader",
+      "function": "Object..js",
+      "line": 1893,
+      "method": ".js",
+      "native": false
+    },
+    {
+      "column": 32,
+      "file": "node:internal/modules/cjs/loader",
+      "function": "Module.load",
+      "line": 1481,
+      "method": "load",
+      "native": false
+    },
+    {
+      "column": 12,
+      "file": "node:internal/modules/cjs/loader",
+      "function": "Module._load",
+      "line": 1300,
+      "method": "_load",
+      "native": false
+    },
+    {
+      "column": 14,
+      "file": "node:diagnostics_channel",
+      "function": "TracingChannel.traceSync",
+      "line": 328,
+      "method": "traceSync",
+      "native": false
+    },
+    {
+      "column": 24,
+      "file": "node:internal/modules/cjs/loader",
+      "function": "wrapModuleLoad",
+      "line": 245,
+      "method": null,
+      "native": false
+    },
+    {
+      "column": 12,
+      "file": "node:internal/modules/cjs/loader",
+      "function": "Module.require",
+      "line": 1504,
+      "method": "require",
+      "native": false
+    },
+    {
+      "column": 16,
+      "file": "node:internal/modules/helpers",
+      "function": "require",
+      "line": 152,
+      "method": null,
+      "native": false
+    },
+    {
+      "column": 26,
+      "file": "C:\\Users\\zougz\\Desktop\\AFRIXA\\Backend\\Routes\\clientRoutes.js",
+      "function": null,
+      "line": 5,
+      "method": null,
+      "native": false
+    }
+  ]
+}
+2026-02-12 09:57:12 [ERROR] uncaughtException: Unexpected identifier 'destination'
+C:\Users\zougz\Desktop\AFRIXA\Backend\Controllers\clientController.js:206
+          destination: newDemande.destination,
+          ^^^^^^^^^^^
+
+SyntaxError: Unexpected identifier 'destination'
+    at wrapSafe (node:internal/modules/cjs/loader:1692:18)
+    at Module._compile (node:internal/modules/cjs/loader:1735:20)
+    at Object..js (node:internal/modules/cjs/loader:1893:10)
+    at Module.load (node:internal/modules/cjs/loader:1481:32)
+    at Module._load (node:internal/modules/cjs/loader:1300:12)
+    at TracingChannel.traceSync (node:diagnostics_channel:328:14)
+    at wrapModuleLoad (node:internal/modules/cjs/loader:245:24)
+    at Module.require (node:internal/modules/cjs/loader:1504:12)
+    at require (node:internal/modules/helpers:152:16)
+    at Object.<anonymous> (C:\Users\zougz\Desktop\AFRIXA\Backend\Routes\clientRoutes.js:5:26)
+C:\Users\zougz\Desktop\AFRIXA\Backend\Controllers\clientController.js:206
+          destination: newDemande.destination,
+          ^^^^^^^^^^^
+
+SyntaxError: Unexpected identifier 'destination'
+    at wrapSafe (node:internal/modules/cjs/loader:1692:18)
+    at Module._compile (node:internal/modules/cjs/loader:1735:20)
+    at Object..js (node:internal/modules/cjs/loader:1893:10)
+    at Module.load (node:internal/modules/cjs/loader:1481:32)
+    at Module._load (node:internal/modules/cjs/loader:1300:12)
+    at TracingChannel.traceSync (node:diagnostics_channel:328:14)
+    at wrapModuleLoad (node:internal/modules/cjs/loader:245:24)
+    at Module.require (node:internal/modules/cjs/loader:1504:12)
+    at require (node:internal/modules/helpers:152:16)
+    at Object.<anonymous> (C:\Users\zougz\Desktop\AFRIXA\Backend\Routes\clientRoutes.js:5:26)
+{
+  "error": {},
+  "exception": true,
+  "date": "Thu Feb 12 2026 09:57:12 GMT+0200 (South Africa Standard Time)",
+  "process": {
+    "pid": 6980,
+    "uid": null,
+    "gid": null,
+    "cwd": "C:\\Users\\zougz\\Desktop\\AFRIXA",
+    "execPath": "C:\\Program Files\\nodejs\\node.exe",
+    "version": "v24.12.0",
+    "argv": [
+      "C:\\Program Files\\nodejs\\node.exe",
+      "C:\\Users\\zougz\\Desktop\\AFRIXA\\server.js"
+    ],
+    "memoryUsage": {
+      "rss": 108376064,
+      "heapTotal": 63041536,
+      "heapUsed": 38985384,
+      "external": 21922193,
+      "arrayBuffers": 18265157
+    }
+  },
+  "os": {
+    "loadavg": [
+      0,
+      0,
+      0
+    ],
+    "uptime": 418463.921
+  },
+  "trace": [
+    {
+      "column": 18,
+      "file": "node:internal/modules/cjs/loader",
+      "function": "wrapSafe",
+      "line": 1692,
+      "method": null,
+      "native": false
+    },
+    {
+      "column": 20,
+      "file": "node:internal/modules/cjs/loader",
+      "function": "Module._compile",
+      "line": 1735,
+      "method": "_compile",
+      "native": false
+    },
+    {
+      "column": 10,
+      "file": "node:internal/modules/cjs/loader",
+      "function": "Object..js",
+      "line": 1893,
+      "method": ".js",
+      "native": false
+    },
+    {
+      "column": 32,
+      "file": "node:internal/modules/cjs/loader",
+      "function": "Module.load",
+      "line": 1481,
+      "method": "load",
+      "native": false
+    },
+    {
+      "column": 12,
+      "file": "node:internal/modules/cjs/loader",
+      "function": "Module._load",
+      "line": 1300,
+      "method": "_load",
+      "native": false
+    },
+    {
+      "column": 14,
+      "file": "node:diagnostics_channel",
+      "function": "TracingChannel.traceSync",
+      "line": 328,
+      "method": "traceSync",
+      "native": false
+    },
+    {
+      "column": 24,
+      "file": "node:internal/modules/cjs/loader",
+      "function": "wrapModuleLoad",
+      "line": 245,
+      "method": null,
+      "native": false
+    },
+    {
+      "column": 12,
+      "file": "node:internal/modules/cjs/loader",
+      "function": "Module.require",
+      "line": 1504,
+      "method": "require",
+      "native": false
+    },
+    {
+      "column": 16,
+      "file": "node:internal/modules/helpers",
+      "function": "require",
+      "line": 152,
+      "method": null,
+      "native": false
+    },
+    {
+      "column": 26,
+      "file": "C:\\Users\\zougz\\Desktop\\AFRIXA\\Backend\\Routes\\clientRoutes.js",
+      "function": null,
+      "line": 5,
+      "method": null,
+      "native": false
+    }
+  ]
+}
+2026-02-12 09:57:39 [ERROR] uncaughtException: Unexpected identifier 'destination'
+C:\Users\zougz\Desktop\AFRIXA\Backend\Controllers\clientController.js:206
+          destination: newDemande.destination,
+          ^^^^^^^^^^^
+
+SyntaxError: Unexpected identifier 'destination'
+    at wrapSafe (node:internal/modules/cjs/loader:1692:18)
+    at Module._compile (node:internal/modules/cjs/loader:1735:20)
+    at Object..js (node:internal/modules/cjs/loader:1893:10)
+    at Module.load (node:internal/modules/cjs/loader:1481:32)
+    at Module._load (node:internal/modules/cjs/loader:1300:12)
+    at TracingChannel.traceSync (node:diagnostics_channel:328:14)
+    at wrapModuleLoad (node:internal/modules/cjs/loader:245:24)
+    at Module.require (node:internal/modules/cjs/loader:1504:12)
+    at require (node:internal/modules/helpers:152:16)
+    at Object.<anonymous> (C:\Users\zougz\Desktop\AFRIXA\Backend\Routes\clientRoutes.js:5:26)
+C:\Users\zougz\Desktop\AFRIXA\Backend\Controllers\clientController.js:206
+          destination: newDemande.destination,
+          ^^^^^^^^^^^
+
+SyntaxError: Unexpected identifier 'destination'
+    at wrapSafe (node:internal/modules/cjs/loader:1692:18)
+    at Module._compile (node:internal/modules/cjs/loader:1735:20)
+    at Object..js (node:internal/modules/cjs/loader:1893:10)
+    at Module.load (node:internal/modules/cjs/loader:1481:32)
+    at Module._load (node:internal/modules/cjs/loader:1300:12)
+    at TracingChannel.traceSync (node:diagnostics_channel:328:14)
+    at wrapModuleLoad (node:internal/modules/cjs/loader:245:24)
+    at Module.require (node:internal/modules/cjs/loader:1504:12)
+    at require (node:internal/modules/helpers:152:16)
+    at Object.<anonymous> (C:\Users\zougz\Desktop\AFRIXA\Backend\Routes\clientRoutes.js:5:26)
+{
+  "error": {},
+  "exception": true,
+  "date": "Thu Feb 12 2026 09:57:39 GMT+0200 (South Africa Standard Time)",
+  "process": {
+    "pid": 13256,
+    "uid": null,
+    "gid": null,
+    "cwd": "C:\\Users\\zougz\\Desktop\\AFRIXA",
+    "execPath": "C:\\Program Files\\nodejs\\node.exe",
+    "version": "v24.12.0",
+    "argv": [
+      "C:\\Program Files\\nodejs\\node.exe",
+      "C:\\Users\\zougz\\Desktop\\AFRIXA\\server.js"
+    ],
+    "memoryUsage": {
+      "rss": 110653440,
+      "heapTotal": 65327104,
+      "heapUsed": 44386328,
+      "external": 21922193,
+      "arrayBuffers": 18265165
+    }
+  },
+  "os": {
+    "loadavg": [
+      0,
+      0,
+      0
+    ],
+    "uptime": 418491.281
+  },
+  "trace": [
+    {
+      "column": 18,
+      "file": "node:internal/modules/cjs/loader",
+      "function": "wrapSafe",
+      "line": 1692,
+      "method": null,
+      "native": false
+    },
+    {
+      "column": 20,
+      "file": "node:internal/modules/cjs/loader",
+      "function": "Module._compile",
+      "line": 1735,
+      "method": "_compile",
+      "native": false
+    },
+    {
+      "column": 10,
+      "file": "node:internal/modules/cjs/loader",
+      "function": "Object..js",
+      "line": 1893,
+      "method": ".js",
+      "native": false
+    },
+    {
+      "column": 32,
+      "file": "node:internal/modules/cjs/loader",
+      "function": "Module.load",
+      "line": 1481,
+      "method": "load",
+      "native": false
+    },
+    {
+      "column": 12,
+      "file": "node:internal/modules/cjs/loader",
+      "function": "Module._load",
+      "line": 1300,
+      "method": "_load",
+      "native": false
+    },
+    {
+      "column": 14,
+      "file": "node:diagnostics_channel",
+      "function": "TracingChannel.traceSync",
+      "line": 328,
+      "method": "traceSync",
+      "native": false
+    },
+    {
+      "column": 24,
+      "file": "node:internal/modules/cjs/loader",
+      "function": "wrapModuleLoad",
+      "line": 245,
+      "method": null,
+      "native": false
+    },
+    {
+      "column": 12,
+      "file": "node:internal/modules/cjs/loader",
+      "function": "Module.require",
+      "line": 1504,
+      "method": "require",
+      "native": false
+    },
+    {
+      "column": 16,
+      "file": "node:internal/modules/helpers",
+      "function": "require",
+      "line": 152,
+      "method": null,
+      "native": false
+    },
+    {
+      "column": 26,
+      "file": "C:\\Users\\zougz\\Desktop\\AFRIXA\\Backend\\Routes\\clientRoutes.js",
+      "function": null,
+      "line": 5,
+      "method": null,
+      "native": false
+    }
+  ]
+}
+2026-02-12 09:57:41 [ERROR] uncaughtException: Unexpected identifier 'destination'
+C:\Users\zougz\Desktop\AFRIXA\Backend\Controllers\clientController.js:206
+          destination: newDemande.destination,
+          ^^^^^^^^^^^
+
+SyntaxError: Unexpected identifier 'destination'
+    at wrapSafe (node:internal/modules/cjs/loader:1692:18)
+    at Module._compile (node:internal/modules/cjs/loader:1735:20)
+    at Object..js (node:internal/modules/cjs/loader:1893:10)
+    at Module.load (node:internal/modules/cjs/loader:1481:32)
+    at Module._load (node:internal/modules/cjs/loader:1300:12)
+    at TracingChannel.traceSync (node:diagnostics_channel:328:14)
+    at wrapModuleLoad (node:internal/modules/cjs/loader:245:24)
+    at Module.require (node:internal/modules/cjs/loader:1504:12)
+    at require (node:internal/modules/helpers:152:16)
+    at Object.<anonymous> (C:\Users\zougz\Desktop\AFRIXA\Backend\Routes\clientRoutes.js:5:26)
+C:\Users\zougz\Desktop\AFRIXA\Backend\Controllers\clientController.js:206
+          destination: newDemande.destination,
+          ^^^^^^^^^^^
+
+SyntaxError: Unexpected identifier 'destination'
+    at wrapSafe (node:internal/modules/cjs/loader:1692:18)
+    at Module._compile (node:internal/modules/cjs/loader:1735:20)
+    at Object..js (node:internal/modules/cjs/loader:1893:10)
+    at Module.load (node:internal/modules/cjs/loader:1481:32)
+    at Module._load (node:internal/modules/cjs/loader:1300:12)
+    at TracingChannel.traceSync (node:diagnostics_channel:328:14)
+    at wrapModuleLoad (node:internal/modules/cjs/loader:245:24)
+    at Module.require (node:internal/modules/cjs/loader:1504:12)
+    at require (node:internal/modules/helpers:152:16)
+    at Object.<anonymous> (C:\Users\zougz\Desktop\AFRIXA\Backend\Routes\clientRoutes.js:5:26)
+{
+  "error": {},
+  "exception": true,
+  "date": "Thu Feb 12 2026 09:57:41 GMT+0200 (South Africa Standard Time)",
+  "process": {
+    "pid": 39564,
+    "uid": null,
+    "gid": null,
+    "cwd": "C:\\Users\\zougz\\Desktop\\AFRIXA",
+    "execPath": "C:\\Program Files\\nodejs\\node.exe",
+    "version": "v24.12.0",
+    "argv": [
+      "C:\\Program Files\\nodejs\\node.exe",
+      "C:\\Users\\zougz\\Desktop\\AFRIXA\\server.js"
+    ],
+    "memoryUsage": {
+      "rss": 110780416,
+      "heapTotal": 65327104,
+      "heapUsed": 44519352,
+      "external": 21922193,
+      "arrayBuffers": 18265165
+    }
+  },
+  "os": {
+    "loadavg": [
+      0,
+      0,
+      0
+    ],
+    "uptime": 418493.031
+  },
+  "trace": [
+    {
+      "column": 18,
+      "file": "node:internal/modules/cjs/loader",
+      "function": "wrapSafe",
+      "line": 1692,
+      "method": null,
+      "native": false
+    },
+    {
+      "column": 20,
+      "file": "node:internal/modules/cjs/loader",
+      "function": "Module._compile",
+      "line": 1735,
+      "method": "_compile",
+      "native": false
+    },
+    {
+      "column": 10,
+      "file": "node:internal/modules/cjs/loader",
+      "function": "Object..js",
+      "line": 1893,
+      "method": ".js",
+      "native": false
+    },
+    {
+      "column": 32,
+      "file": "node:internal/modules/cjs/loader",
+      "function": "Module.load",
+      "line": 1481,
+      "method": "load",
+      "native": false
+    },
+    {
+      "column": 12,
+      "file": "node:internal/modules/cjs/loader",
+      "function": "Module._load",
+      "line": 1300,
+      "method": "_load",
+      "native": false
+    },
+    {
+      "column": 14,
+      "file": "node:diagnostics_channel",
+      "function": "TracingChannel.traceSync",
+      "line": 328,
+      "method": "traceSync",
+      "native": false
+    },
+    {
+      "column": 24,
+      "file": "node:internal/modules/cjs/loader",
+      "function": "wrapModuleLoad",
+      "line": 245,
+      "method": null,
+      "native": false
+    },
+    {
+      "column": 12,
+      "file": "node:internal/modules/cjs/loader",
+      "function": "Module.require",
+      "line": 1504,
+      "method": "require",
+      "native": false
+    },
+    {
+      "column": 16,
+      "file": "node:internal/modules/helpers",
+      "function": "require",
+      "line": 152,
+      "method": null,
+      "native": false
+    },
+    {
+      "column": 26,
+      "file": "C:\\Users\\zougz\\Desktop\\AFRIXA\\Backend\\Routes\\clientRoutes.js",
+      "function": null,
+      "line": 5,
+      "method": null,
+      "native": false
+    }
+  ]
+}
+2026-02-12 09:57:42 [ERROR] uncaughtException: Unexpected identifier 'destination'
+C:\Users\zougz\Desktop\AFRIXA\Backend\Controllers\clientController.js:206
+          destination: newDemande.destination,
+          ^^^^^^^^^^^
+
+SyntaxError: Unexpected identifier 'destination'
+    at wrapSafe (node:internal/modules/cjs/loader:1692:18)
+    at Module._compile (node:internal/modules/cjs/loader:1735:20)
+    at Object..js (node:internal/modules/cjs/loader:1893:10)
+    at Module.load (node:internal/modules/cjs/loader:1481:32)
+    at Module._load (node:internal/modules/cjs/loader:1300:12)
+    at TracingChannel.traceSync (node:diagnostics_channel:328:14)
+    at wrapModuleLoad (node:internal/modules/cjs/loader:245:24)
+    at Module.require (node:internal/modules/cjs/loader:1504:12)
+    at require (node:internal/modules/helpers:152:16)
+    at Object.<anonymous> (C:\Users\zougz\Desktop\AFRIXA\Backend\Routes\clientRoutes.js:5:26)
+C:\Users\zougz\Desktop\AFRIXA\Backend\Controllers\clientController.js:206
+          destination: newDemande.destination,
+          ^^^^^^^^^^^
+
+SyntaxError: Unexpected identifier 'destination'
+    at wrapSafe (node:internal/modules/cjs/loader:1692:18)
+    at Module._compile (node:internal/modules/cjs/loader:1735:20)
+    at Object..js (node:internal/modules/cjs/loader:1893:10)
+    at Module.load (node:internal/modules/cjs/loader:1481:32)
+    at Module._load (node:internal/modules/cjs/loader:1300:12)
+    at TracingChannel.traceSync (node:diagnostics_channel:328:14)
+    at wrapModuleLoad (node:internal/modules/cjs/loader:245:24)
+    at Module.require (node:internal/modules/cjs/loader:1504:12)
+    at require (node:internal/modules/helpers:152:16)
+    at Object.<anonymous> (C:\Users\zougz\Desktop\AFRIXA\Backend\Routes\clientRoutes.js:5:26)
+{
+  "error": {},
+  "exception": true,
+  "date": "Thu Feb 12 2026 09:57:42 GMT+0200 (South Africa Standard Time)",
+  "process": {
+    "pid": 38956,
+    "uid": null,
+    "gid": null,
+    "cwd": "C:\\Users\\zougz\\Desktop\\AFRIXA",
+    "execPath": "C:\\Program Files\\nodejs\\node.exe",
+    "version": "v24.12.0",
+    "argv": [
+      "C:\\Program Files\\nodejs\\node.exe",
+      "C:\\Users\\zougz\\Desktop\\AFRIXA\\server.js"
+    ],
+    "memoryUsage": {
+      "rss": 121651200,
+      "heapTotal": 102887424,
+      "heapUsed": 39858208,
+      "external": 21922185,
+      "arrayBuffers": 18265157
+    }
+  },
+  "os": {
+    "loadavg": [
+      0,
+      0,
+      0
+    ],
+    "uptime": 418494.765
+  },
+  "trace": [
+    {
+      "column": 18,
+      "file": "node:internal/modules/cjs/loader",
+      "function": "wrapSafe",
+      "line": 1692,
+      "method": null,
+      "native": false
+    },
+    {
+      "column": 20,
+      "file": "node:internal/modules/cjs/loader",
+      "function": "Module._compile",
+      "line": 1735,
+      "method": "_compile",
+      "native": false
+    },
+    {
+      "column": 10,
+      "file": "node:internal/modules/cjs/loader",
+      "function": "Object..js",
+      "line": 1893,
+      "method": ".js",
+      "native": false
+    },
+    {
+      "column": 32,
+      "file": "node:internal/modules/cjs/loader",
+      "function": "Module.load",
+      "line": 1481,
+      "method": "load",
+      "native": false
+    },
+    {
+      "column": 12,
+      "file": "node:internal/modules/cjs/loader",
+      "function": "Module._load",
+      "line": 1300,
+      "method": "_load",
+      "native": false
+    },
+    {
+      "column": 14,
+      "file": "node:diagnostics_channel",
+      "function": "TracingChannel.traceSync",
+      "line": 328,
+      "method": "traceSync",
+      "native": false
+    },
+    {
+      "column": 24,
+      "file": "node:internal/modules/cjs/loader",
+      "function": "wrapModuleLoad",
+      "line": 245,
+      "method": null,
+      "native": false
+    },
+    {
+      "column": 12,
+      "file": "node:internal/modules/cjs/loader",
+      "function": "Module.require",
+      "line": 1504,
+      "method": "require",
+      "native": false
+    },
+    {
+      "column": 16,
+      "file": "node:internal/modules/helpers",
+      "function": "require",
+      "line": 152,
+      "method": null,
+      "native": false
+    },
+    {
+      "column": 26,
+      "file": "C:\\Users\\zougz\\Desktop\\AFRIXA\\Backend\\Routes\\clientRoutes.js",
+      "function": null,
+      "line": 5,
+      "method": null,
+      "native": false
+    }
+  ]
+}
+2026-02-12 09:57:44 [ERROR] uncaughtException: Unexpected identifier 'destination'
+C:\Users\zougz\Desktop\AFRIXA\Backend\Controllers\clientController.js:206
+          destination: newDemande.destination,
+          ^^^^^^^^^^^
+
+SyntaxError: Unexpected identifier 'destination'
+    at wrapSafe (node:internal/modules/cjs/loader:1692:18)
+    at Module._compile (node:internal/modules/cjs/loader:1735:20)
+    at Object..js (node:internal/modules/cjs/loader:1893:10)
+    at Module.load (node:internal/modules/cjs/loader:1481:32)
+    at Module._load (node:internal/modules/cjs/loader:1300:12)
+    at TracingChannel.traceSync (node:diagnostics_channel:328:14)
+    at wrapModuleLoad (node:internal/modules/cjs/loader:245:24)
+    at Module.require (node:internal/modules/cjs/loader:1504:12)
+    at require (node:internal/modules/helpers:152:16)
+    at Object.<anonymous> (C:\Users\zougz\Desktop\AFRIXA\Backend\Routes\clientRoutes.js:5:26)
+C:\Users\zougz\Desktop\AFRIXA\Backend\Controllers\clientController.js:206
+          destination: newDemande.destination,
+          ^^^^^^^^^^^
+
+SyntaxError: Unexpected identifier 'destination'
+    at wrapSafe (node:internal/modules/cjs/loader:1692:18)
+    at Module._compile (node:internal/modules/cjs/loader:1735:20)
+    at Object..js (node:internal/modules/cjs/loader:1893:10)
+    at Module.load (node:internal/modules/cjs/loader:1481:32)
+    at Module._load (node:internal/modules/cjs/loader:1300:12)
+    at TracingChannel.traceSync (node:diagnostics_channel:328:14)
+    at wrapModuleLoad (node:internal/modules/cjs/loader:245:24)
+    at Module.require (node:internal/modules/cjs/loader:1504:12)
+    at require (node:internal/modules/helpers:152:16)
+    at Object.<anonymous> (C:\Users\zougz\Desktop\AFRIXA\Backend\Routes\clientRoutes.js:5:26)
+{
+  "error": {},
+  "exception": true,
+  "date": "Thu Feb 12 2026 09:57:44 GMT+0200 (South Africa Standard Time)",
+  "process": {
+    "pid": 2676,
+    "uid": null,
+    "gid": null,
+    "cwd": "C:\\Users\\zougz\\Desktop\\AFRIXA",
+    "execPath": "C:\\Program Files\\nodejs\\node.exe",
+    "version": "v24.12.0",
+    "argv": [
+      "C:\\Program Files\\nodejs\\node.exe",
+      "C:\\Users\\zougz\\Desktop\\AFRIXA\\server.js"
+    ],
+    "memoryUsage": {
+      "rss": 109850624,
+      "heapTotal": 62779392,
+      "heapUsed": 40237448,
+      "external": 21922193,
+      "arrayBuffers": 18265157
+    }
+  },
+  "os": {
+    "loadavg": [
+      0,
+      0,
+      0
+    ],
+    "uptime": 418496.531
+  },
+  "trace": [
+    {
+      "column": 18,
+      "file": "node:internal/modules/cjs/loader",
+      "function": "wrapSafe",
+      "line": 1692,
+      "method": null,
+      "native": false
+    },
+    {
+      "column": 20,
+      "file": "node:internal/modules/cjs/loader",
+      "function": "Module._compile",
+      "line": 1735,
+      "method": "_compile",
+      "native": false
+    },
+    {
+      "column": 10,
+      "file": "node:internal/modules/cjs/loader",
+      "function": "Object..js",
+      "line": 1893,
+      "method": ".js",
+      "native": false
+    },
+    {
+      "column": 32,
+      "file": "node:internal/modules/cjs/loader",
+      "function": "Module.load",
+      "line": 1481,
+      "method": "load",
+      "native": false
+    },
+    {
+      "column": 12,
+      "file": "node:internal/modules/cjs/loader",
+      "function": "Module._load",
+      "line": 1300,
+      "method": "_load",
+      "native": false
+    },
+    {
+      "column": 14,
+      "file": "node:diagnostics_channel",
+      "function": "TracingChannel.traceSync",
+      "line": 328,
+      "method": "traceSync",
+      "native": false
+    },
+    {
+      "column": 24,
+      "file": "node:internal/modules/cjs/loader",
+      "function": "wrapModuleLoad",
+      "line": 245,
+      "method": null,
+      "native": false
+    },
+    {
+      "column": 12,
+      "file": "node:internal/modules/cjs/loader",
+      "function": "Module.require",
+      "line": 1504,
+      "method": "require",
+      "native": false
+    },
+    {
+      "column": 16,
+      "file": "node:internal/modules/helpers",
+      "function": "require",
+      "line": 152,
+      "method": null,
+      "native": false
+    },
+    {
+      "column": 26,
+      "file": "C:\\Users\\zougz\\Desktop\\AFRIXA\\Backend\\Routes\\clientRoutes.js",
+      "function": null,
+      "line": 5,
+      "method": null,
+      "native": false
+    }
+  ]
+}
+2026-02-12 09:57:47 [ERROR] uncaughtException: Unexpected identifier 'destination'
+C:\Users\zougz\Desktop\AFRIXA\Backend\Controllers\clientController.js:206
+          destination: newDemande.destination,
+          ^^^^^^^^^^^
+
+SyntaxError: Unexpected identifier 'destination'
+    at wrapSafe (node:internal/modules/cjs/loader:1692:18)
+    at Module._compile (node:internal/modules/cjs/loader:1735:20)
+    at Object..js (node:internal/modules/cjs/loader:1893:10)
+    at Module.load (node:internal/modules/cjs/loader:1481:32)
+    at Module._load (node:internal/modules/cjs/loader:1300:12)
+    at TracingChannel.traceSync (node:diagnostics_channel:328:14)
+    at wrapModuleLoad (node:internal/modules/cjs/loader:245:24)
+    at Module.require (node:internal/modules/cjs/loader:1504:12)
+    at require (node:internal/modules/helpers:152:16)
+    at Object.<anonymous> (C:\Users\zougz\Desktop\AFRIXA\Backend\Routes\clientRoutes.js:5:26)
+C:\Users\zougz\Desktop\AFRIXA\Backend\Controllers\clientController.js:206
+          destination: newDemande.destination,
+          ^^^^^^^^^^^
+
+SyntaxError: Unexpected identifier 'destination'
+    at wrapSafe (node:internal/modules/cjs/loader:1692:18)
+    at Module._compile (node:internal/modules/cjs/loader:1735:20)
+    at Object..js (node:internal/modules/cjs/loader:1893:10)
+    at Module.load (node:internal/modules/cjs/loader:1481:32)
+    at Module._load (node:internal/modules/cjs/loader:1300:12)
+    at TracingChannel.traceSync (node:diagnostics_channel:328:14)
+    at wrapModuleLoad (node:internal/modules/cjs/loader:245:24)
+    at Module.require (node:internal/modules/cjs/loader:1504:12)
+    at require (node:internal/modules/helpers:152:16)
+    at Object.<anonymous> (C:\Users\zougz\Desktop\AFRIXA\Backend\Routes\clientRoutes.js:5:26)
+{
+  "error": {},
+  "exception": true,
+  "date": "Thu Feb 12 2026 09:57:47 GMT+0200 (South Africa Standard Time)",
+  "process": {
+    "pid": 13396,
+    "uid": null,
+    "gid": null,
+    "cwd": "C:\\Users\\zougz\\Desktop\\AFRIXA",
+    "execPath": "C:\\Program Files\\nodejs\\node.exe",
+    "version": "v24.12.0",
+    "argv": [
+      "C:\\Program Files\\nodejs\\node.exe",
+      "C:\\Users\\zougz\\Desktop\\AFRIXA\\server.js"
+    ],
+    "memoryUsage": {
+      "rss": 109891584,
+      "heapTotal": 62517248,
+      "heapUsed": 40319896,
+      "external": 21922193,
+      "arrayBuffers": 18265157
+    }
+  },
+  "os": {
+    "loadavg": [
+      0,
+      0,
+      0
+    ],
+    "uptime": 418499.687
+  },
+  "trace": [
+    {
+      "column": 18,
+      "file": "node:internal/modules/cjs/loader",
+      "function": "wrapSafe",
+      "line": 1692,
+      "method": null,
+      "native": false
+    },
+    {
+      "column": 20,
+      "file": "node:internal/modules/cjs/loader",
+      "function": "Module._compile",
+      "line": 1735,
+      "method": "_compile",
+      "native": false
+    },
+    {
+      "column": 10,
+      "file": "node:internal/modules/cjs/loader",
+      "function": "Object..js",
+      "line": 1893,
+      "method": ".js",
+      "native": false
+    },
+    {
+      "column": 32,
+      "file": "node:internal/modules/cjs/loader",
+      "function": "Module.load",
+      "line": 1481,
+      "method": "load",
+      "native": false
+    },
+    {
+      "column": 12,
+      "file": "node:internal/modules/cjs/loader",
+      "function": "Module._load",
+      "line": 1300,
+      "method": "_load",
+      "native": false
+    },
+    {
+      "column": 14,
+      "file": "node:diagnostics_channel",
+      "function": "TracingChannel.traceSync",
+      "line": 328,
+      "method": "traceSync",
+      "native": false
+    },
+    {
+      "column": 24,
+      "file": "node:internal/modules/cjs/loader",
+      "function": "wrapModuleLoad",
+      "line": 245,
+      "method": null,
+      "native": false
+    },
+    {
+      "column": 12,
+      "file": "node:internal/modules/cjs/loader",
+      "function": "Module.require",
+      "line": 1504,
+      "method": "require",
+      "native": false
+    },
+    {
+      "column": 16,
+      "file": "node:internal/modules/helpers",
+      "function": "require",
+      "line": 152,
+      "method": null,
+      "native": false
+    },
+    {
+      "column": 26,
+      "file": "C:\\Users\\zougz\\Desktop\\AFRIXA\\Backend\\Routes\\clientRoutes.js",
+      "function": null,
+      "line": 5,
+      "method": null,
+      "native": false
+    }
+  ]
+}
+2026-02-12 09:57:57 [ERROR] uncaughtException: Unexpected identifier 'destination'
+C:\Users\zougz\Desktop\AFRIXA\Backend\Controllers\clientController.js:206
+          destination: newDemande.destination,
+          ^^^^^^^^^^^
+
+SyntaxError: Unexpected identifier 'destination'
+    at wrapSafe (node:internal/modules/cjs/loader:1692:18)
+    at Module._compile (node:internal/modules/cjs/loader:1735:20)
+    at Object..js (node:internal/modules/cjs/loader:1893:10)
+    at Module.load (node:internal/modules/cjs/loader:1481:32)
+    at Module._load (node:internal/modules/cjs/loader:1300:12)
+    at TracingChannel.traceSync (node:diagnostics_channel:328:14)
+    at wrapModuleLoad (node:internal/modules/cjs/loader:245:24)
+    at Module.require (node:internal/modules/cjs/loader:1504:12)
+    at require (node:internal/modules/helpers:152:16)
+    at Object.<anonymous> (C:\Users\zougz\Desktop\AFRIXA\Backend\Routes\clientRoutes.js:5:26)
+C:\Users\zougz\Desktop\AFRIXA\Backend\Controllers\clientController.js:206
+          destination: newDemande.destination,
+          ^^^^^^^^^^^
+
+SyntaxError: Unexpected identifier 'destination'
+    at wrapSafe (node:internal/modules/cjs/loader:1692:18)
+    at Module._compile (node:internal/modules/cjs/loader:1735:20)
+    at Object..js (node:internal/modules/cjs/loader:1893:10)
+    at Module.load (node:internal/modules/cjs/loader:1481:32)
+    at Module._load (node:internal/modules/cjs/loader:1300:12)
+    at TracingChannel.traceSync (node:diagnostics_channel:328:14)
+    at wrapModuleLoad (node:internal/modules/cjs/loader:245:24)
+    at Module.require (node:internal/modules/cjs/loader:1504:12)
+    at require (node:internal/modules/helpers:152:16)
+    at Object.<anonymous> (C:\Users\zougz\Desktop\AFRIXA\Backend\Routes\clientRoutes.js:5:26)
+{
+  "error": {},
+  "exception": true,
+  "date": "Thu Feb 12 2026 09:57:57 GMT+0200 (South Africa Standard Time)",
+  "process": {
+    "pid": 36488,
+    "uid": null,
+    "gid": null,
+    "cwd": "C:\\Users\\zougz\\Desktop\\AFRIXA",
+    "execPath": "C:\\Program Files\\nodejs\\node.exe",
+    "version": "v24.12.0",
+    "argv": [
+      "C:\\Program Files\\nodejs\\node.exe",
+      "C:\\Users\\zougz\\Desktop\\AFRIXA\\server.js"
+    ],
+    "memoryUsage": {
+      "rss": 111300608,
+      "heapTotal": 65589248,
+      "heapUsed": 44358488,
+      "external": 21922193,
+      "arrayBuffers": 18265165
+    }
+  },
+  "os": {
+    "loadavg": [
+      0,
+      0,
+      0
+    ],
+    "uptime": 418509.812
+  },
+  "trace": [
+    {
+      "column": 18,
+      "file": "node:internal/modules/cjs/loader",
+      "function": "wrapSafe",
+      "line": 1692,
+      "method": null,
+      "native": false
+    },
+    {
+      "column": 20,
+      "file": "node:internal/modules/cjs/loader",
+      "function": "Module._compile",
+      "line": 1735,
+      "method": "_compile",
+      "native": false
+    },
+    {
+      "column": 10,
+      "file": "node:internal/modules/cjs/loader",
+      "function": "Object..js",
+      "line": 1893,
+      "method": ".js",
+      "native": false
+    },
+    {
+      "column": 32,
+      "file": "node:internal/modules/cjs/loader",
+      "function": "Module.load",
+      "line": 1481,
+      "method": "load",
+      "native": false
+    },
+    {
+      "column": 12,
+      "file": "node:internal/modules/cjs/loader",
+      "function": "Module._load",
+      "line": 1300,
+      "method": "_load",
+      "native": false
+    },
+    {
+      "column": 14,
+      "file": "node:diagnostics_channel",
+      "function": "TracingChannel.traceSync",
+      "line": 328,
+      "method": "traceSync",
+      "native": false
+    },
+    {
+      "column": 24,
+      "file": "node:internal/modules/cjs/loader",
+      "function": "wrapModuleLoad",
+      "line": 245,
+      "method": null,
+      "native": false
+    },
+    {
+      "column": 12,
+      "file": "node:internal/modules/cjs/loader",
+      "function": "Module.require",
+      "line": 1504,
+      "method": "require",
+      "native": false
+    },
+    {
+      "column": 16,
+      "file": "node:internal/modules/helpers",
+      "function": "require",
+      "line": 152,
+      "method": null,
+      "native": false
+    },
+    {
+      "column": 26,
+      "file": "C:\\Users\\zougz\\Desktop\\AFRIXA\\Backend\\Routes\\clientRoutes.js",
+      "function": null,
+      "line": 5,
+      "method": null,
+      "native": false
+    }
+  ]
+}
+2026-02-12 09:57:59 [ERROR] uncaughtException: Unexpected identifier 'destination'
+C:\Users\zougz\Desktop\AFRIXA\Backend\Controllers\clientController.js:206
+          destination: newDemande.destination,
+          ^^^^^^^^^^^
+
+SyntaxError: Unexpected identifier 'destination'
+    at wrapSafe (node:internal/modules/cjs/loader:1692:18)
+    at Module._compile (node:internal/modules/cjs/loader:1735:20)
+    at Object..js (node:internal/modules/cjs/loader:1893:10)
+    at Module.load (node:internal/modules/cjs/loader:1481:32)
+    at Module._load (node:internal/modules/cjs/loader:1300:12)
+    at TracingChannel.traceSync (node:diagnostics_channel:328:14)
+    at wrapModuleLoad (node:internal/modules/cjs/loader:245:24)
+    at Module.require (node:internal/modules/cjs/loader:1504:12)
+    at require (node:internal/modules/helpers:152:16)
+    at Object.<anonymous> (C:\Users\zougz\Desktop\AFRIXA\Backend\Routes\clientRoutes.js:5:26)
+C:\Users\zougz\Desktop\AFRIXA\Backend\Controllers\clientController.js:206
+          destination: newDemande.destination,
+          ^^^^^^^^^^^
+
+SyntaxError: Unexpected identifier 'destination'
+    at wrapSafe (node:internal/modules/cjs/loader:1692:18)
+    at Module._compile (node:internal/modules/cjs/loader:1735:20)
+    at Object..js (node:internal/modules/cjs/loader:1893:10)
+    at Module.load (node:internal/modules/cjs/loader:1481:32)
+    at Module._load (node:internal/modules/cjs/loader:1300:12)
+    at TracingChannel.traceSync (node:diagnostics_channel:328:14)
+    at wrapModuleLoad (node:internal/modules/cjs/loader:245:24)
+    at Module.require (node:internal/modules/cjs/loader:1504:12)
+    at require (node:internal/modules/helpers:152:16)
+    at Object.<anonymous> (C:\Users\zougz\Desktop\AFRIXA\Backend\Routes\clientRoutes.js:5:26)
+{
+  "error": {},
+  "exception": true,
+  "date": "Thu Feb 12 2026 09:57:59 GMT+0200 (South Africa Standard Time)",
+  "process": {
+    "pid": 29224,
+    "uid": null,
+    "gid": null,
+    "cwd": "C:\\Users\\zougz\\Desktop\\AFRIXA",
+    "execPath": "C:\\Program Files\\nodejs\\node.exe",
+    "version": "v24.12.0",
+    "argv": [
+      "C:\\Program Files\\nodejs\\node.exe",
+      "C:\\Users\\zougz\\Desktop\\AFRIXA\\server.js"
+    ],
+    "memoryUsage": {
+      "rss": 111751168,
+      "heapTotal": 65851392,
+      "heapUsed": 44212056,
+      "external": 21922193,
+      "arrayBuffers": 18265165
+    }
+  },
+  "os": {
+    "loadavg": [
+      0,
+      0,
+      0
+    ],
+    "uptime": 418511.5
+  },
+  "trace": [
+    {
+      "column": 18,
+      "file": "node:internal/modules/cjs/loader",
+      "function": "wrapSafe",
+      "line": 1692,
+      "method": null,
+      "native": false
+    },
+    {
+      "column": 20,
+      "file": "node:internal/modules/cjs/loader",
+      "function": "Module._compile",
+      "line": 1735,
+      "method": "_compile",
+      "native": false
+    },
+    {
+      "column": 10,
+      "file": "node:internal/modules/cjs/loader",
+      "function": "Object..js",
+      "line": 1893,
+      "method": ".js",
+      "native": false
+    },
+    {
+      "column": 32,
+      "file": "node:internal/modules/cjs/loader",
+      "function": "Module.load",
+      "line": 1481,
+      "method": "load",
+      "native": false
+    },
+    {
+      "column": 12,
+      "file": "node:internal/modules/cjs/loader",
+      "function": "Module._load",
+      "line": 1300,
+      "method": "_load",
+      "native": false
+    },
+    {
+      "column": 14,
+      "file": "node:diagnostics_channel",
+      "function": "TracingChannel.traceSync",
+      "line": 328,
+      "method": "traceSync",
+      "native": false
+    },
+    {
+      "column": 24,
+      "file": "node:internal/modules/cjs/loader",
+      "function": "wrapModuleLoad",
+      "line": 245,
+      "method": null,
+      "native": false
+    },
+    {
+      "column": 12,
+      "file": "node:internal/modules/cjs/loader",
+      "function": "Module.require",
+      "line": 1504,
+      "method": "require",
+      "native": false
+    },
+    {
+      "column": 16,
+      "file": "node:internal/modules/helpers",
+      "function": "require",
+      "line": 152,
+      "method": null,
+      "native": false
+    },
+    {
+      "column": 26,
+      "file": "C:\\Users\\zougz\\Desktop\\AFRIXA\\Backend\\Routes\\clientRoutes.js",
+      "function": null,
+      "line": 5,
+      "method": null,
+      "native": false
+    }
+  ]
+}
+2026-02-12 09:58:01 [ERROR] uncaughtException: Unexpected identifier 'destination'
+C:\Users\zougz\Desktop\AFRIXA\Backend\Controllers\clientController.js:206
+          destination: newDemande.destination,
+          ^^^^^^^^^^^
+
+SyntaxError: Unexpected identifier 'destination'
+    at wrapSafe (node:internal/modules/cjs/loader:1692:18)
+    at Module._compile (node:internal/modules/cjs/loader:1735:20)
+    at Object..js (node:internal/modules/cjs/loader:1893:10)
+    at Module.load (node:internal/modules/cjs/loader:1481:32)
+    at Module._load (node:internal/modules/cjs/loader:1300:12)
+    at TracingChannel.traceSync (node:diagnostics_channel:328:14)
+    at wrapModuleLoad (node:internal/modules/cjs/loader:245:24)
+    at Module.require (node:internal/modules/cjs/loader:1504:12)
+    at require (node:internal/modules/helpers:152:16)
+    at Object.<anonymous> (C:\Users\zougz\Desktop\AFRIXA\Backend\Routes\clientRoutes.js:5:26)
+C:\Users\zougz\Desktop\AFRIXA\Backend\Controllers\clientController.js:206
+          destination: newDemande.destination,
+          ^^^^^^^^^^^
+
+SyntaxError: Unexpected identifier 'destination'
+    at wrapSafe (node:internal/modules/cjs/loader:1692:18)
+    at Module._compile (node:internal/modules/cjs/loader:1735:20)
+    at Object..js (node:internal/modules/cjs/loader:1893:10)
+    at Module.load (node:internal/modules/cjs/loader:1481:32)
+    at Module._load (node:internal/modules/cjs/loader:1300:12)
+    at TracingChannel.traceSync (node:diagnostics_channel:328:14)
+    at wrapModuleLoad (node:internal/modules/cjs/loader:245:24)
+    at Module.require (node:internal/modules/cjs/loader:1504:12)
+    at require (node:internal/modules/helpers:152:16)
+    at Object.<anonymous> (C:\Users\zougz\Desktop\AFRIXA\Backend\Routes\clientRoutes.js:5:26)
+{
+  "error": {},
+  "exception": true,
+  "date": "Thu Feb 12 2026 09:58:01 GMT+0200 (South Africa Standard Time)",
+  "process": {
+    "pid": 9744,
+    "uid": null,
+    "gid": null,
+    "cwd": "C:\\Users\\zougz\\Desktop\\AFRIXA",
+    "execPath": "C:\\Program Files\\nodejs\\node.exe",
+    "version": "v24.12.0",
+    "argv": [
+      "C:\\Program Files\\nodejs\\node.exe",
+      "C:\\Users\\zougz\\Desktop\\AFRIXA\\server.js"
+    ],
+    "memoryUsage": {
+      "rss": 110137344,
+      "heapTotal": 62779392,
+      "heapUsed": 40350976,
+      "external": 21922193,
+      "arrayBuffers": 18265157
+    }
+  },
+  "os": {
+    "loadavg": [
+      0,
+      0,
+      0
+    ],
+    "uptime": 418513.265
+  },
+  "trace": [
+    {
+      "column": 18,
+      "file": "node:internal/modules/cjs/loader",
+      "function": "wrapSafe",
+      "line": 1692,
+      "method": null,
+      "native": false
+    },
+    {
+      "column": 20,
+      "file": "node:internal/modules/cjs/loader",
+      "function": "Module._compile",
+      "line": 1735,
+      "method": "_compile",
+      "native": false
+    },
+    {
+      "column": 10,
+      "file": "node:internal/modules/cjs/loader",
+      "function": "Object..js",
+      "line": 1893,
+      "method": ".js",
+      "native": false
+    },
+    {
+      "column": 32,
+      "file": "node:internal/modules/cjs/loader",
+      "function": "Module.load",
+      "line": 1481,
+      "method": "load",
+      "native": false
+    },
+    {
+      "column": 12,
+      "file": "node:internal/modules/cjs/loader",
+      "function": "Module._load",
+      "line": 1300,
+      "method": "_load",
+      "native": false
+    },
+    {
+      "column": 14,
+      "file": "node:diagnostics_channel",
+      "function": "TracingChannel.traceSync",
+      "line": 328,
+      "method": "traceSync",
+      "native": false
+    },
+    {
+      "column": 24,
+      "file": "node:internal/modules/cjs/loader",
+      "function": "wrapModuleLoad",
+      "line": 245,
+      "method": null,
+      "native": false
+    },
+    {
+      "column": 12,
+      "file": "node:internal/modules/cjs/loader",
+      "function": "Module.require",
+      "line": 1504,
+      "method": "require",
+      "native": false
+    },
+    {
+      "column": 16,
+      "file": "node:internal/modules/helpers",
+      "function": "require",
+      "line": 152,
+      "method": null,
+      "native": false
+    },
+    {
+      "column": 26,
+      "file": "C:\\Users\\zougz\\Desktop\\AFRIXA\\Backend\\Routes\\clientRoutes.js",
+      "function": null,
+      "line": 5,
+      "method": null,
+      "native": false
+    }
+  ]
+}
+2026-02-12 09:58:04 [ERROR] uncaughtException: Unexpected identifier 'destination'
+C:\Users\zougz\Desktop\AFRIXA\Backend\Controllers\clientController.js:206
+          destination: newDemande.destination,
+          ^^^^^^^^^^^
+
+SyntaxError: Unexpected identifier 'destination'
+    at wrapSafe (node:internal/modules/cjs/loader:1692:18)
+    at Module._compile (node:internal/modules/cjs/loader:1735:20)
+    at Object..js (node:internal/modules/cjs/loader:1893:10)
+    at Module.load (node:internal/modules/cjs/loader:1481:32)
+    at Module._load (node:internal/modules/cjs/loader:1300:12)
+    at TracingChannel.traceSync (node:diagnostics_channel:328:14)
+    at wrapModuleLoad (node:internal/modules/cjs/loader:245:24)
+    at Module.require (node:internal/modules/cjs/loader:1504:12)
+    at require (node:internal/modules/helpers:152:16)
+    at Object.<anonymous> (C:\Users\zougz\Desktop\AFRIXA\Backend\Routes\clientRoutes.js:5:26)
+C:\Users\zougz\Desktop\AFRIXA\Backend\Controllers\clientController.js:206
+          destination: newDemande.destination,
+          ^^^^^^^^^^^
+
+SyntaxError: Unexpected identifier 'destination'
+    at wrapSafe (node:internal/modules/cjs/loader:1692:18)
+    at Module._compile (node:internal/modules/cjs/loader:1735:20)
+    at Object..js (node:internal/modules/cjs/loader:1893:10)
+    at Module.load (node:internal/modules/cjs/loader:1481:32)
+    at Module._load (node:internal/modules/cjs/loader:1300:12)
+    at TracingChannel.traceSync (node:diagnostics_channel:328:14)
+    at wrapModuleLoad (node:internal/modules/cjs/loader:245:24)
+    at Module.require (node:internal/modules/cjs/loader:1504:12)
+    at require (node:internal/modules/helpers:152:16)
+    at Object.<anonymous> (C:\Users\zougz\Desktop\AFRIXA\Backend\Routes\clientRoutes.js:5:26)
+{
+  "error": {},
+  "exception": true,
+  "date": "Thu Feb 12 2026 09:58:04 GMT+0200 (South Africa Standard Time)",
+  "process": {
+    "pid": 38476,
+    "uid": null,
+    "gid": null,
+    "cwd": "C:\\Users\\zougz\\Desktop\\AFRIXA",
+    "execPath": "C:\\Program Files\\nodejs\\node.exe",
+    "version": "v24.12.0",
+    "argv": [
+      "C:\\Program Files\\nodejs\\node.exe",
+      "C:\\Users\\zougz\\Desktop\\AFRIXA\\server.js"
+    ],
+    "memoryUsage": {
+      "rss": 111501312,
+      "heapTotal": 65327104,
+      "heapUsed": 44337568,
+      "external": 21922193,
+      "arrayBuffers": 18265165
+    }
+  },
+  "os": {
+    "loadavg": [
+      0,
+      0,
+      0
+    ],
+    "uptime": 418516.39
+  },
+  "trace": [
+    {
+      "column": 18,
+      "file": "node:internal/modules/cjs/loader",
+      "function": "wrapSafe",
+      "line": 1692,
+      "method": null,
+      "native": false
+    },
+    {
+      "column": 20,
+      "file": "node:internal/modules/cjs/loader",
+      "function": "Module._compile",
+      "line": 1735,
+      "method": "_compile",
+      "native": false
+    },
+    {
+      "column": 10,
+      "file": "node:internal/modules/cjs/loader",
+      "function": "Object..js",
+      "line": 1893,
+      "method": ".js",
+      "native": false
+    },
+    {
+      "column": 32,
+      "file": "node:internal/modules/cjs/loader",
+      "function": "Module.load",
+      "line": 1481,
+      "method": "load",
+      "native": false
+    },
+    {
+      "column": 12,
+      "file": "node:internal/modules/cjs/loader",
+      "function": "Module._load",
+      "line": 1300,
+      "method": "_load",
+      "native": false
+    },
+    {
+      "column": 14,
+      "file": "node:diagnostics_channel",
+      "function": "TracingChannel.traceSync",
+      "line": 328,
+      "method": "traceSync",
+      "native": false
+    },
+    {
+      "column": 24,
+      "file": "node:internal/modules/cjs/loader",
+      "function": "wrapModuleLoad",
+      "line": 245,
+      "method": null,
+      "native": false
+    },
+    {
+      "column": 12,
+      "file": "node:internal/modules/cjs/loader",
+      "function": "Module.require",
+      "line": 1504,
+      "method": "require",
+      "native": false
+    },
+    {
+      "column": 16,
+      "file": "node:internal/modules/helpers",
+      "function": "require",
+      "line": 152,
+      "method": null,
+      "native": false
+    },
+    {
+      "column": 26,
+      "file": "C:\\Users\\zougz\\Desktop\\AFRIXA\\Backend\\Routes\\clientRoutes.js",
+      "function": null,
+      "line": 5,
+      "method": null,
+      "native": false
+    }
+  ]
+}
+2026-02-12 09:58:06 [ERROR] uncaughtException: Unexpected identifier 'destination'
+C:\Users\zougz\Desktop\AFRIXA\Backend\Controllers\clientController.js:206
+          destination: newDemande.destination,
+          ^^^^^^^^^^^
+
+SyntaxError: Unexpected identifier 'destination'
+    at wrapSafe (node:internal/modules/cjs/loader:1692:18)
+    at Module._compile (node:internal/modules/cjs/loader:1735:20)
+    at Object..js (node:internal/modules/cjs/loader:1893:10)
+    at Module.load (node:internal/modules/cjs/loader:1481:32)
+    at Module._load (node:internal/modules/cjs/loader:1300:12)
+    at TracingChannel.traceSync (node:diagnostics_channel:328:14)
+    at wrapModuleLoad (node:internal/modules/cjs/loader:245:24)
+    at Module.require (node:internal/modules/cjs/loader:1504:12)
+    at require (node:internal/modules/helpers:152:16)
+    at Object.<anonymous> (C:\Users\zougz\Desktop\AFRIXA\Backend\Routes\clientRoutes.js:5:26)
+C:\Users\zougz\Desktop\AFRIXA\Backend\Controllers\clientController.js:206
+          destination: newDemande.destination,
+          ^^^^^^^^^^^
+
+SyntaxError: Unexpected identifier 'destination'
+    at wrapSafe (node:internal/modules/cjs/loader:1692:18)
+    at Module._compile (node:internal/modules/cjs/loader:1735:20)
+    at Object..js (node:internal/modules/cjs/loader:1893:10)
+    at Module.load (node:internal/modules/cjs/loader:1481:32)
+    at Module._load (node:internal/modules/cjs/loader:1300:12)
+    at TracingChannel.traceSync (node:diagnostics_channel:328:14)
+    at wrapModuleLoad (node:internal/modules/cjs/loader:245:24)
+    at Module.require (node:internal/modules/cjs/loader:1504:12)
+    at require (node:internal/modules/helpers:152:16)
+    at Object.<anonymous> (C:\Users\zougz\Desktop\AFRIXA\Backend\Routes\clientRoutes.js:5:26)
+{
+  "error": {},
+  "exception": true,
+  "date": "Thu Feb 12 2026 09:58:06 GMT+0200 (South Africa Standard Time)",
+  "process": {
+    "pid": 35436,
+    "uid": null,
+    "gid": null,
+    "cwd": "C:\\Users\\zougz\\Desktop\\AFRIXA",
+    "execPath": "C:\\Program Files\\nodejs\\node.exe",
+    "version": "v24.12.0",
+    "argv": [
+      "C:\\Program Files\\nodejs\\node.exe",
+      "C:\\Users\\zougz\\Desktop\\AFRIXA\\server.js"
+    ],
+    "memoryUsage": {
+      "rss": 111366144,
+      "heapTotal": 65064960,
+      "heapUsed": 44625752,
+      "external": 21922193,
+      "arrayBuffers": 18265165
+    }
+  },
+  "os": {
+    "loadavg": [
+      0,
+      0,
+      0
+    ],
+    "uptime": 418518.203
+  },
+  "trace": [
+    {
+      "column": 18,
+      "file": "node:internal/modules/cjs/loader",
+      "function": "wrapSafe",
+      "line": 1692,
+      "method": null,
+      "native": false
+    },
+    {
+      "column": 20,
+      "file": "node:internal/modules/cjs/loader",
+      "function": "Module._compile",
+      "line": 1735,
+      "method": "_compile",
+      "native": false
+    },
+    {
+      "column": 10,
+      "file": "node:internal/modules/cjs/loader",
+      "function": "Object..js",
+      "line": 1893,
+      "method": ".js",
+      "native": false
+    },
+    {
+      "column": 32,
+      "file": "node:internal/modules/cjs/loader",
+      "function": "Module.load",
+      "line": 1481,
+      "method": "load",
+      "native": false
+    },
+    {
+      "column": 12,
+      "file": "node:internal/modules/cjs/loader",
+      "function": "Module._load",
+      "line": 1300,
+      "method": "_load",
+      "native": false
+    },
+    {
+      "column": 14,
+      "file": "node:diagnostics_channel",
+      "function": "TracingChannel.traceSync",
+      "line": 328,
+      "method": "traceSync",
+      "native": false
+    },
+    {
+      "column": 24,
+      "file": "node:internal/modules/cjs/loader",
+      "function": "wrapModuleLoad",
+      "line": 245,
+      "method": null,
+      "native": false
+    },
+    {
+      "column": 12,
+      "file": "node:internal/modules/cjs/loader",
+      "function": "Module.require",
+      "line": 1504,
+      "method": "require",
+      "native": false
+    },
+    {
+      "column": 16,
+      "file": "node:internal/modules/helpers",
+      "function": "require",
+      "line": 152,
+      "method": null,
+      "native": false
+    },
+    {
+      "column": 26,
+      "file": "C:\\Users\\zougz\\Desktop\\AFRIXA\\Backend\\Routes\\clientRoutes.js",
+      "function": null,
+      "line": 5,
+      "method": null,
+      "native": false
+    }
+  ]
+}
+2026-02-12 09:58:10 [ERROR] uncaughtException: Unexpected identifier 'destination'
+C:\Users\zougz\Desktop\AFRIXA\Backend\Controllers\clientController.js:206
+          destination: newDemande.destination,
+          ^^^^^^^^^^^
+
+SyntaxError: Unexpected identifier 'destination'
+    at wrapSafe (node:internal/modules/cjs/loader:1692:18)
+    at Module._compile (node:internal/modules/cjs/loader:1735:20)
+    at Object..js (node:internal/modules/cjs/loader:1893:10)
+    at Module.load (node:internal/modules/cjs/loader:1481:32)
+    at Module._load (node:internal/modules/cjs/loader:1300:12)
+    at TracingChannel.traceSync (node:diagnostics_channel:328:14)
+    at wrapModuleLoad (node:internal/modules/cjs/loader:245:24)
+    at Module.require (node:internal/modules/cjs/loader:1504:12)
+    at require (node:internal/modules/helpers:152:16)
+    at Object.<anonymous> (C:\Users\zougz\Desktop\AFRIXA\Backend\Routes\clientRoutes.js:5:26)
+C:\Users\zougz\Desktop\AFRIXA\Backend\Controllers\clientController.js:206
+          destination: newDemande.destination,
+          ^^^^^^^^^^^
+
+SyntaxError: Unexpected identifier 'destination'
+    at wrapSafe (node:internal/modules/cjs/loader:1692:18)
+    at Module._compile (node:internal/modules/cjs/loader:1735:20)
+    at Object..js (node:internal/modules/cjs/loader:1893:10)
+    at Module.load (node:internal/modules/cjs/loader:1481:32)
+    at Module._load (node:internal/modules/cjs/loader:1300:12)
+    at TracingChannel.traceSync (node:diagnostics_channel:328:14)
+    at wrapModuleLoad (node:internal/modules/cjs/loader:245:24)
+    at Module.require (node:internal/modules/cjs/loader:1504:12)
+    at require (node:internal/modules/helpers:152:16)
+    at Object.<anonymous> (C:\Users\zougz\Desktop\AFRIXA\Backend\Routes\clientRoutes.js:5:26)
+{
+  "error": {},
+  "exception": true,
+  "date": "Thu Feb 12 2026 09:58:10 GMT+0200 (South Africa Standard Time)",
+  "process": {
+    "pid": 37572,
+    "uid": null,
+    "gid": null,
+    "cwd": "C:\\Users\\zougz\\Desktop\\AFRIXA",
+    "execPath": "C:\\Program Files\\nodejs\\node.exe",
+    "version": "v24.12.0",
+    "argv": [
+      "C:\\Program Files\\nodejs\\node.exe",
+      "C:\\Users\\zougz\\Desktop\\AFRIXA\\server.js"
+    ],
+    "memoryUsage": {
+      "rss": 111153152,
+      "heapTotal": 65064960,
+      "heapUsed": 44367592,
+      "external": 21922193,
+      "arrayBuffers": 18265165
+    }
+  },
+  "os": {
+    "loadavg": [
+      0,
+      0,
+      0
+    ],
+    "uptime": 418522
+  },
+  "trace": [
+    {
+      "column": 18,
+      "file": "node:internal/modules/cjs/loader",
+      "function": "wrapSafe",
+      "line": 1692,
+      "method": null,
+      "native": false
+    },
+    {
+      "column": 20,
+      "file": "node:internal/modules/cjs/loader",
+      "function": "Module._compile",
+      "line": 1735,
+      "method": "_compile",
+      "native": false
+    },
+    {
+      "column": 10,
+      "file": "node:internal/modules/cjs/loader",
+      "function": "Object..js",
+      "line": 1893,
+      "method": ".js",
+      "native": false
+    },
+    {
+      "column": 32,
+      "file": "node:internal/modules/cjs/loader",
+      "function": "Module.load",
+      "line": 1481,
+      "method": "load",
+      "native": false
+    },
+    {
+      "column": 12,
+      "file": "node:internal/modules/cjs/loader",
+      "function": "Module._load",
+      "line": 1300,
+      "method": "_load",
+      "native": false
+    },
+    {
+      "column": 14,
+      "file": "node:diagnostics_channel",
+      "function": "TracingChannel.traceSync",
+      "line": 328,
+      "method": "traceSync",
+      "native": false
+    },
+    {
+      "column": 24,
+      "file": "node:internal/modules/cjs/loader",
+      "function": "wrapModuleLoad",
+      "line": 245,
+      "method": null,
+      "native": false
+    },
+    {
+      "column": 12,
+      "file": "node:internal/modules/cjs/loader",
+      "function": "Module.require",
+      "line": 1504,
+      "method": "require",
+      "native": false
+    },
+    {
+      "column": 16,
+      "file": "node:internal/modules/helpers",
+      "function": "require",
+      "line": 152,
+      "method": null,
+      "native": false
+    },
+    {
+      "column": 26,
+      "file": "C:\\Users\\zougz\\Desktop\\AFRIXA\\Backend\\Routes\\clientRoutes.js",
+      "function": null,
+      "line": 5,
+      "method": null,
+      "native": false
+    }
+  ]
+}
+2026-02-12 09:58:20 [ERROR] uncaughtException: Unexpected identifier 'destination'
+C:\Users\zougz\Desktop\AFRIXA\Backend\Controllers\clientController.js:206
+          destination: newDemande.destination,
+          ^^^^^^^^^^^
+
+SyntaxError: Unexpected identifier 'destination'
+    at wrapSafe (node:internal/modules/cjs/loader:1692:18)
+    at Module._compile (node:internal/modules/cjs/loader:1735:20)
+    at Object..js (node:internal/modules/cjs/loader:1893:10)
+    at Module.load (node:internal/modules/cjs/loader:1481:32)
+    at Module._load (node:internal/modules/cjs/loader:1300:12)
+    at TracingChannel.traceSync (node:diagnostics_channel:328:14)
+    at wrapModuleLoad (node:internal/modules/cjs/loader:245:24)
+    at Module.require (node:internal/modules/cjs/loader:1504:12)
+    at require (node:internal/modules/helpers:152:16)
+    at Object.<anonymous> (C:\Users\zougz\Desktop\AFRIXA\Backend\Routes\clientRoutes.js:5:26)
+C:\Users\zougz\Desktop\AFRIXA\Backend\Controllers\clientController.js:206
+          destination: newDemande.destination,
+          ^^^^^^^^^^^
+
+SyntaxError: Unexpected identifier 'destination'
+    at wrapSafe (node:internal/modules/cjs/loader:1692:18)
+    at Module._compile (node:internal/modules/cjs/loader:1735:20)
+    at Object..js (node:internal/modules/cjs/loader:1893:10)
+    at Module.load (node:internal/modules/cjs/loader:1481:32)
+    at Module._load (node:internal/modules/cjs/loader:1300:12)
+    at TracingChannel.traceSync (node:diagnostics_channel:328:14)
+    at wrapModuleLoad (node:internal/modules/cjs/loader:245:24)
+    at Module.require (node:internal/modules/cjs/loader:1504:12)
+    at require (node:internal/modules/helpers:152:16)
+    at Object.<anonymous> (C:\Users\zougz\Desktop\AFRIXA\Backend\Routes\clientRoutes.js:5:26)
+{
+  "error": {},
+  "exception": true,
+  "date": "Thu Feb 12 2026 09:58:20 GMT+0200 (South Africa Standard Time)",
+  "process": {
+    "pid": 7888,
+    "uid": null,
+    "gid": null,
+    "cwd": "C:\\Users\\zougz\\Desktop\\AFRIXA",
+    "execPath": "C:\\Program Files\\nodejs\\node.exe",
+    "version": "v24.12.0",
+    "argv": [
+      "C:\\Program Files\\nodejs\\node.exe",
+      "C:\\Users\\zougz\\Desktop\\AFRIXA\\server.js"
+    ],
+    "memoryUsage": {
+      "rss": 104820736,
+      "heapTotal": 66637824,
+      "heapUsed": 43369240,
+      "external": 21922193,
+      "arrayBuffers": 18265165
+    }
+  },
+  "os": {
+    "loadavg": [
+      0,
+      0,
+      0
+    ],
+    "uptime": 418532.031
+  },
+  "trace": [
+    {
+      "column": 18,
+      "file": "node:internal/modules/cjs/loader",
+      "function": "wrapSafe",
+      "line": 1692,
+      "method": null,
+      "native": false
+    },
+    {
+      "column": 20,
+      "file": "node:internal/modules/cjs/loader",
+      "function": "Module._compile",
+      "line": 1735,
+      "method": "_compile",
+      "native": false
+    },
+    {
+      "column": 10,
+      "file": "node:internal/modules/cjs/loader",
+      "function": "Object..js",
+      "line": 1893,
+      "method": ".js",
+      "native": false
+    },
+    {
+      "column": 32,
+      "file": "node:internal/modules/cjs/loader",
+      "function": "Module.load",
+      "line": 1481,
+      "method": "load",
+      "native": false
+    },
+    {
+      "column": 12,
+      "file": "node:internal/modules/cjs/loader",
+      "function": "Module._load",
+      "line": 1300,
+      "method": "_load",
+      "native": false
+    },
+    {
+      "column": 14,
+      "file": "node:diagnostics_channel",
+      "function": "TracingChannel.traceSync",
+      "line": 328,
+      "method": "traceSync",
+      "native": false
+    },
+    {
+      "column": 24,
+      "file": "node:internal/modules/cjs/loader",
+      "function": "wrapModuleLoad",
+      "line": 245,
+      "method": null,
+      "native": false
+    },
+    {
+      "column": 12,
+      "file": "node:internal/modules/cjs/loader",
+      "function": "Module.require",
+      "line": 1504,
+      "method": "require",
+      "native": false
+    },
+    {
+      "column": 16,
+      "file": "node:internal/modules/helpers",
+      "function": "require",
+      "line": 152,
+      "method": null,
+      "native": false
+    },
+    {
+      "column": 26,
+      "file": "C:\\Users\\zougz\\Desktop\\AFRIXA\\Backend\\Routes\\clientRoutes.js",
+      "function": null,
+      "line": 5,
+      "method": null,
+      "native": false
+    }
+  ]
+}
+2026-02-12 10:14:16 [ERROR] uncaughtException: Unexpected identifier 'destination'
+C:\Users\zougz\Desktop\AFRIXA\Backend\Controllers\clientController.js:121
+        destination,
+        ^^^^^^^^^^^
+
+SyntaxError: Unexpected identifier 'destination'
+    at wrapSafe (node:internal/modules/cjs/loader:1692:18)
+    at Module._compile (node:internal/modules/cjs/loader:1735:20)
+    at Object..js (node:internal/modules/cjs/loader:1893:10)
+    at Module.load (node:internal/modules/cjs/loader:1481:32)
+    at Module._load (node:internal/modules/cjs/loader:1300:12)
+    at TracingChannel.traceSync (node:diagnostics_channel:328:14)
+    at wrapModuleLoad (node:internal/modules/cjs/loader:245:24)
+    at Module.require (node:internal/modules/cjs/loader:1504:12)
+    at require (node:internal/modules/helpers:152:16)
+    at Object.<anonymous> (C:\Users\zougz\Desktop\AFRIXA\Backend\Routes\clientRoutes.js:5:26)
+C:\Users\zougz\Desktop\AFRIXA\Backend\Controllers\clientController.js:121
+        destination,
+        ^^^^^^^^^^^
+
+SyntaxError: Unexpected identifier 'destination'
+    at wrapSafe (node:internal/modules/cjs/loader:1692:18)
+    at Module._compile (node:internal/modules/cjs/loader:1735:20)
+    at Object..js (node:internal/modules/cjs/loader:1893:10)
+    at Module.load (node:internal/modules/cjs/loader:1481:32)
+    at Module._load (node:internal/modules/cjs/loader:1300:12)
+    at TracingChannel.traceSync (node:diagnostics_channel:328:14)
+    at wrapModuleLoad (node:internal/modules/cjs/loader:245:24)
+    at Module.require (node:internal/modules/cjs/loader:1504:12)
+    at require (node:internal/modules/helpers:152:16)
+    at Object.<anonymous> (C:\Users\zougz\Desktop\AFRIXA\Backend\Routes\clientRoutes.js:5:26)
+{
+  "error": {},
+  "exception": true,
+  "date": "Thu Feb 12 2026 10:14:16 GMT+0200 (South Africa Standard Time)",
+  "process": {
+    "pid": 38396,
+    "uid": null,
+    "gid": null,
+    "cwd": "C:\\Users\\zougz\\Desktop\\AFRIXA",
+    "execPath": "C:\\Program Files\\nodejs\\node.exe",
+    "version": "v24.12.0",
+    "argv": [
+      "C:\\Program Files\\nodejs\\node.exe",
+      "C:\\Users\\zougz\\Desktop\\AFRIXA\\server.js"
+    ],
+    "memoryUsage": {
+      "rss": 111529984,
+      "heapTotal": 65327104,
+      "heapUsed": 44406512,
+      "external": 21922193,
+      "arrayBuffers": 18265165
+    }
+  },
+  "os": {
+    "loadavg": [
+      0,
+      0,
+      0
+    ],
+    "uptime": 419488.312
+  },
+  "trace": [
+    {
+      "column": 18,
+      "file": "node:internal/modules/cjs/loader",
+      "function": "wrapSafe",
+      "line": 1692,
+      "method": null,
+      "native": false
+    },
+    {
+      "column": 20,
+      "file": "node:internal/modules/cjs/loader",
+      "function": "Module._compile",
+      "line": 1735,
+      "method": "_compile",
+      "native": false
+    },
+    {
+      "column": 10,
+      "file": "node:internal/modules/cjs/loader",
+      "function": "Object..js",
+      "line": 1893,
+      "method": ".js",
+      "native": false
+    },
+    {
+      "column": 32,
+      "file": "node:internal/modules/cjs/loader",
+      "function": "Module.load",
+      "line": 1481,
+      "method": "load",
+      "native": false
+    },
+    {
+      "column": 12,
+      "file": "node:internal/modules/cjs/loader",
+      "function": "Module._load",
+      "line": 1300,
+      "method": "_load",
+      "native": false
+    },
+    {
+      "column": 14,
+      "file": "node:diagnostics_channel",
+      "function": "TracingChannel.traceSync",
+      "line": 328,
+      "method": "traceSync",
+      "native": false
+    },
+    {
+      "column": 24,
+      "file": "node:internal/modules/cjs/loader",
+      "function": "wrapModuleLoad",
+      "line": 245,
+      "method": null,
+      "native": false
+    },
+    {
+      "column": 12,
+      "file": "node:internal/modules/cjs/loader",
+      "function": "Module.require",
+      "line": 1504,
+      "method": "require",
+      "native": false
+    },
+    {
+      "column": 16,
+      "file": "node:internal/modules/helpers",
+      "function": "require",
+      "line": 152,
+      "method": null,
+      "native": false
+    },
+    {
+      "column": 26,
+      "file": "C:\\Users\\zougz\\Desktop\\AFRIXA\\Backend\\Routes\\clientRoutes.js",
+      "function": null,
+      "line": 5,
+      "method": null,
+      "native": false
+    }
+  ]
+}
+2026-02-12 10:15:15 [ERROR] uncaughtException: createGrandTransportRequestSchema is not defined
+ReferenceError: createGrandTransportRequestSchema is not defined
+    at Object.<anonymous> (C:\Users\zougz\Desktop\AFRIXA\Backend\validation\demandeAgenceValidation.js:173:3)
+    at Module._compile (node:internal/modules/cjs/loader:1761:14)
+    at Object..js (node:internal/modules/cjs/loader:1893:10)
+    at Module.load (node:internal/modules/cjs/loader:1481:32)
+    at Module._load (node:internal/modules/cjs/loader:1300:12)
+    at TracingChannel.traceSync (node:diagnostics_channel:328:14)
+    at wrapModuleLoad (node:internal/modules/cjs/loader:245:24)
+    at Module.require (node:internal/modules/cjs/loader:1504:12)
+    at require (node:internal/modules/helpers:152:16)
+    at Object.<anonymous> (C:\Users\zougz\Desktop\AFRIXA\Backend\Controllers\clientController.js:12:5)
+ReferenceError: createGrandTransportRequestSchema is not defined
+    at Object.<anonymous> (C:\Users\zougz\Desktop\AFRIXA\Backend\validation\demandeAgenceValidation.js:173:3)
+    at Module._compile (node:internal/modules/cjs/loader:1761:14)
+    at Object..js (node:internal/modules/cjs/loader:1893:10)
+    at Module.load (node:internal/modules/cjs/loader:1481:32)
+    at Module._load (node:internal/modules/cjs/loader:1300:12)
+    at TracingChannel.traceSync (node:diagnostics_channel:328:14)
+    at wrapModuleLoad (node:internal/modules/cjs/loader:245:24)
+    at Module.require (node:internal/modules/cjs/loader:1504:12)
+    at require (node:internal/modules/helpers:152:16)
+    at Object.<anonymous> (C:\Users\zougz\Desktop\AFRIXA\Backend\Controllers\clientController.js:12:5)
+{
+  "error": {},
+  "exception": true,
+  "date": "Thu Feb 12 2026 10:15:15 GMT+0200 (South Africa Standard Time)",
+  "process": {
+    "pid": 12104,
+    "uid": null,
+    "gid": null,
+    "cwd": "C:\\Users\\zougz\\Desktop\\AFRIXA",
+    "execPath": "C:\\Program Files\\nodejs\\node.exe",
+    "version": "v24.12.0",
+    "argv": [
+      "C:\\Program Files\\nodejs\\node.exe",
+      "C:\\Users\\zougz\\Desktop\\AFRIXA\\server.js"
+    ],
+    "memoryUsage": {
+      "rss": 105484288,
+      "heapTotal": 67162112,
+      "heapUsed": 45130992,
+      "external": 21922193,
+      "arrayBuffers": 18265165
+    }
+  },
+  "os": {
+    "loadavg": [
+      0,
+      0,
+      0
+    ],
+    "uptime": 419547.546
+  },
+  "trace": [
+    {
+      "column": 3,
+      "file": "C:\\Users\\zougz\\Desktop\\AFRIXA\\Backend\\validation\\demandeAgenceValidation.js",
+      "function": null,
+      "line": 173,
+      "method": null,
+      "native": false
+    },
+    {
+      "column": 14,
+      "file": "node:internal/modules/cjs/loader",
+      "function": "Module._compile",
+      "line": 1761,
+      "method": "_compile",
+      "native": false
+    },
+    {
+      "column": 10,
+      "file": "node:internal/modules/cjs/loader",
+      "function": "Object..js",
+      "line": 1893,
+      "method": ".js",
+      "native": false
+    },
+    {
+      "column": 32,
+      "file": "node:internal/modules/cjs/loader",
+      "function": "Module.load",
+      "line": 1481,
+      "method": "load",
+      "native": false
+    },
+    {
+      "column": 12,
+      "file": "node:internal/modules/cjs/loader",
+      "function": "Module._load",
+      "line": 1300,
+      "method": "_load",
+      "native": false
+    },
+    {
+      "column": 14,
+      "file": "node:diagnostics_channel",
+      "function": "TracingChannel.traceSync",
+      "line": 328,
+      "method": "traceSync",
+      "native": false
+    },
+    {
+      "column": 24,
+      "file": "node:internal/modules/cjs/loader",
+      "function": "wrapModuleLoad",
+      "line": 245,
+      "method": null,
+      "native": false
+    },
+    {
+      "column": 12,
+      "file": "node:internal/modules/cjs/loader",
+      "function": "Module.require",
+      "line": 1504,
+      "method": "require",
+      "native": false
+    },
+    {
+      "column": 16,
+      "file": "node:internal/modules/helpers",
+      "function": "require",
+      "line": 152,
+      "method": null,
+      "native": false
+    },
+    {
+      "column": 5,
+      "file": "C:\\Users\\zougz\\Desktop\\AFRIXA\\Backend\\Controllers\\clientController.js",
+      "function": null,
+      "line": 12,
+      "method": null,
+      "native": false
+    }
+  ]
+}
+2026-02-12 10:15:28 [ERROR] uncaughtException: createGrandTransportRequestSchema is not defined
+ReferenceError: createGrandTransportRequestSchema is not defined
+    at Object.<anonymous> (C:\Users\zougz\Desktop\AFRIXA\Backend\validation\demandeAgenceValidation.js:175:3)
+    at Module._compile (node:internal/modules/cjs/loader:1761:14)
+    at Object..js (node:internal/modules/cjs/loader:1893:10)
+    at Module.load (node:internal/modules/cjs/loader:1481:32)
+    at Module._load (node:internal/modules/cjs/loader:1300:12)
+    at TracingChannel.traceSync (node:diagnostics_channel:328:14)
+    at wrapModuleLoad (node:internal/modules/cjs/loader:245:24)
+    at Module.require (node:internal/modules/cjs/loader:1504:12)
+    at require (node:internal/modules/helpers:152:16)
+    at Object.<anonymous> (C:\Users\zougz\Desktop\AFRIXA\Backend\Controllers\clientController.js:12:5)
+ReferenceError: createGrandTransportRequestSchema is not defined
+    at Object.<anonymous> (C:\Users\zougz\Desktop\AFRIXA\Backend\validation\demandeAgenceValidation.js:175:3)
+    at Module._compile (node:internal/modules/cjs/loader:1761:14)
+    at Object..js (node:internal/modules/cjs/loader:1893:10)
+    at Module.load (node:internal/modules/cjs/loader:1481:32)
+    at Module._load (node:internal/modules/cjs/loader:1300:12)
+    at TracingChannel.traceSync (node:diagnostics_channel:328:14)
+    at wrapModuleLoad (node:internal/modules/cjs/loader:245:24)
+    at Module.require (node:internal/modules/cjs/loader:1504:12)
+    at require (node:internal/modules/helpers:152:16)
+    at Object.<anonymous> (C:\Users\zougz\Desktop\AFRIXA\Backend\Controllers\clientController.js:12:5)
+{
+  "error": {},
+  "exception": true,
+  "date": "Thu Feb 12 2026 10:15:28 GMT+0200 (South Africa Standard Time)",
+  "process": {
+    "pid": 37868,
+    "uid": null,
+    "gid": null,
+    "cwd": "C:\\Users\\zougz\\Desktop\\AFRIXA",
+    "execPath": "C:\\Program Files\\nodejs\\node.exe",
+    "version": "v24.12.0",
+    "argv": [
+      "C:\\Program Files\\nodejs\\node.exe",
+      "C:\\Users\\zougz\\Desktop\\AFRIXA\\server.js"
+    ],
+    "memoryUsage": {
+      "rss": 113012736,
+      "heapTotal": 65589248,
+      "heapUsed": 46144952,
+      "external": 21922193,
+      "arrayBuffers": 18265165
+    }
+  },
+  "os": {
+    "loadavg": [
+      0,
+      0,
+      0
+    ],
+    "uptime": 419560.453
+  },
+  "trace": [
+    {
+      "column": 3,
+      "file": "C:\\Users\\zougz\\Desktop\\AFRIXA\\Backend\\validation\\demandeAgenceValidation.js",
+      "function": null,
+      "line": 175,
+      "method": null,
+      "native": false
+    },
+    {
+      "column": 14,
+      "file": "node:internal/modules/cjs/loader",
+      "function": "Module._compile",
+      "line": 1761,
+      "method": "_compile",
+      "native": false
+    },
+    {
+      "column": 10,
+      "file": "node:internal/modules/cjs/loader",
+      "function": "Object..js",
+      "line": 1893,
+      "method": ".js",
+      "native": false
+    },
+    {
+      "column": 32,
+      "file": "node:internal/modules/cjs/loader",
+      "function": "Module.load",
+      "line": 1481,
+      "method": "load",
+      "native": false
+    },
+    {
+      "column": 12,
+      "file": "node:internal/modules/cjs/loader",
+      "function": "Module._load",
+      "line": 1300,
+      "method": "_load",
+      "native": false
+    },
+    {
+      "column": 14,
+      "file": "node:diagnostics_channel",
+      "function": "TracingChannel.traceSync",
+      "line": 328,
+      "method": "traceSync",
+      "native": false
+    },
+    {
+      "column": 24,
+      "file": "node:internal/modules/cjs/loader",
+      "function": "wrapModuleLoad",
+      "line": 245,
+      "method": null,
+      "native": false
+    },
+    {
+      "column": 12,
+      "file": "node:internal/modules/cjs/loader",
+      "function": "Module.require",
+      "line": 1504,
+      "method": "require",
+      "native": false
+    },
+    {
+      "column": 16,
+      "file": "node:internal/modules/helpers",
+      "function": "require",
+      "line": 152,
+      "method": null,
+      "native": false
+    },
+    {
+      "column": 5,
+      "file": "C:\\Users\\zougz\\Desktop\\AFRIXA\\Backend\\Controllers\\clientController.js",
+      "function": null,
+      "line": 12,
+      "method": null,
+      "native": false
+    }
+  ]
+}
+2026-02-12 10:15:30 [ERROR] uncaughtException: createGrandTransportRequestSchema is not defined
+ReferenceError: createGrandTransportRequestSchema is not defined
+    at Object.<anonymous> (C:\Users\zougz\Desktop\AFRIXA\Backend\validation\demandeAgenceValidation.js:177:3)
+    at Module._compile (node:internal/modules/cjs/loader:1761:14)
+    at Object..js (node:internal/modules/cjs/loader:1893:10)
+    at Module.load (node:internal/modules/cjs/loader:1481:32)
+    at Module._load (node:internal/modules/cjs/loader:1300:12)
+    at TracingChannel.traceSync (node:diagnostics_channel:328:14)
+    at wrapModuleLoad (node:internal/modules/cjs/loader:245:24)
+    at Module.require (node:internal/modules/cjs/loader:1504:12)
+    at require (node:internal/modules/helpers:152:16)
+    at Object.<anonymous> (C:\Users\zougz\Desktop\AFRIXA\Backend\Controllers\clientController.js:12:5)
+ReferenceError: createGrandTransportRequestSchema is not defined
+    at Object.<anonymous> (C:\Users\zougz\Desktop\AFRIXA\Backend\validation\demandeAgenceValidation.js:177:3)
+    at Module._compile (node:internal/modules/cjs/loader:1761:14)
+    at Object..js (node:internal/modules/cjs/loader:1893:10)
+    at Module.load (node:internal/modules/cjs/loader:1481:32)
+    at Module._load (node:internal/modules/cjs/loader:1300:12)
+    at TracingChannel.traceSync (node:diagnostics_channel:328:14)
+    at wrapModuleLoad (node:internal/modules/cjs/loader:245:24)
+    at Module.require (node:internal/modules/cjs/loader:1504:12)
+    at require (node:internal/modules/helpers:152:16)
+    at Object.<anonymous> (C:\Users\zougz\Desktop\AFRIXA\Backend\Controllers\clientController.js:12:5)
+{
+  "error": {},
+  "exception": true,
+  "date": "Thu Feb 12 2026 10:15:30 GMT+0200 (South Africa Standard Time)",
+  "process": {
+    "pid": 3588,
+    "uid": null,
+    "gid": null,
+    "cwd": "C:\\Users\\zougz\\Desktop\\AFRIXA",
+    "execPath": "C:\\Program Files\\nodejs\\node.exe",
+    "version": "v24.12.0",
+    "argv": [
+      "C:\\Program Files\\nodejs\\node.exe",
+      "C:\\Users\\zougz\\Desktop\\AFRIXA\\server.js"
+    ],
+    "memoryUsage": {
+      "rss": 112934912,
+      "heapTotal": 65851392,
+      "heapUsed": 46130672,
+      "external": 21922193,
+      "arrayBuffers": 18265165
+    }
+  },
+  "os": {
+    "loadavg": [
+      0,
+      0,
+      0
+    ],
+    "uptime": 419562.312
+  },
+  "trace": [
+    {
+      "column": 3,
+      "file": "C:\\Users\\zougz\\Desktop\\AFRIXA\\Backend\\validation\\demandeAgenceValidation.js",
+      "function": null,
+      "line": 177,
+      "method": null,
+      "native": false
+    },
+    {
+      "column": 14,
+      "file": "node:internal/modules/cjs/loader",
+      "function": "Module._compile",
+      "line": 1761,
+      "method": "_compile",
+      "native": false
+    },
+    {
+      "column": 10,
+      "file": "node:internal/modules/cjs/loader",
+      "function": "Object..js",
+      "line": 1893,
+      "method": ".js",
+      "native": false
+    },
+    {
+      "column": 32,
+      "file": "node:internal/modules/cjs/loader",
+      "function": "Module.load",
+      "line": 1481,
+      "method": "load",
+      "native": false
+    },
+    {
+      "column": 12,
+      "file": "node:internal/modules/cjs/loader",
+      "function": "Module._load",
+      "line": 1300,
+      "method": "_load",
+      "native": false
+    },
+    {
+      "column": 14,
+      "file": "node:diagnostics_channel",
+      "function": "TracingChannel.traceSync",
+      "line": 328,
+      "method": "traceSync",
+      "native": false
+    },
+    {
+      "column": 24,
+      "file": "node:internal/modules/cjs/loader",
+      "function": "wrapModuleLoad",
+      "line": 245,
+      "method": null,
+      "native": false
+    },
+    {
+      "column": 12,
+      "file": "node:internal/modules/cjs/loader",
+      "function": "Module.require",
+      "line": 1504,
+      "method": "require",
+      "native": false
+    },
+    {
+      "column": 16,
+      "file": "node:internal/modules/helpers",
+      "function": "require",
+      "line": 152,
+      "method": null,
+      "native": false
+    },
+    {
+      "column": 5,
+      "file": "C:\\Users\\zougz\\Desktop\\AFRIXA\\Backend\\Controllers\\clientController.js",
+      "function": null,
+      "line": 12,
+      "method": null,
+      "native": false
+    }
+  ]
+}
+2026-02-12 10:15:36 [ERROR] uncaughtException: createGrandTransportRequestSchema is not defined
+ReferenceError: createGrandTransportRequestSchema is not defined
+    at Object.<anonymous> (C:\Users\zougz\Desktop\AFRIXA\Backend\validation\demandeAgenceValidation.js:177:3)
+    at Module._compile (node:internal/modules/cjs/loader:1761:14)
+    at Object..js (node:internal/modules/cjs/loader:1893:10)
+    at Module.load (node:internal/modules/cjs/loader:1481:32)
+    at Module._load (node:internal/modules/cjs/loader:1300:12)
+    at TracingChannel.traceSync (node:diagnostics_channel:328:14)
+    at wrapModuleLoad (node:internal/modules/cjs/loader:245:24)
+    at Module.require (node:internal/modules/cjs/loader:1504:12)
+    at require (node:internal/modules/helpers:152:16)
+    at Object.<anonymous> (C:\Users\zougz\Desktop\AFRIXA\Backend\Controllers\clientController.js:12:5)
+ReferenceError: createGrandTransportRequestSchema is not defined
+    at Object.<anonymous> (C:\Users\zougz\Desktop\AFRIXA\Backend\validation\demandeAgenceValidation.js:177:3)
+    at Module._compile (node:internal/modules/cjs/loader:1761:14)
+    at Object..js (node:internal/modules/cjs/loader:1893:10)
+    at Module.load (node:internal/modules/cjs/loader:1481:32)
+    at Module._load (node:internal/modules/cjs/loader:1300:12)
+    at TracingChannel.traceSync (node:diagnostics_channel:328:14)
+    at wrapModuleLoad (node:internal/modules/cjs/loader:245:24)
+    at Module.require (node:internal/modules/cjs/loader:1504:12)
+    at require (node:internal/modules/helpers:152:16)
+    at Object.<anonymous> (C:\Users\zougz\Desktop\AFRIXA\Backend\Controllers\clientController.js:12:5)
+{
+  "error": {},
+  "exception": true,
+  "date": "Thu Feb 12 2026 10:15:36 GMT+0200 (South Africa Standard Time)",
+  "process": {
+    "pid": 24828,
+    "uid": null,
+    "gid": null,
+    "cwd": "C:\\Users\\zougz\\Desktop\\AFRIXA",
+    "execPath": "C:\\Program Files\\nodejs\\node.exe",
+    "version": "v24.12.0",
+    "argv": [
+      "C:\\Program Files\\nodejs\\node.exe",
+      "C:\\Users\\zougz\\Desktop\\AFRIXA\\server.js"
+    ],
+    "memoryUsage": {
+      "rss": 121077760,
+      "heapTotal": 101838848,
+      "heapUsed": 41899056,
+      "external": 21922193,
+      "arrayBuffers": 18265157
+    }
+  },
+  "os": {
+    "loadavg": [
+      0,
+      0,
+      0
+    ],
+    "uptime": 419568.25
+  },
+  "trace": [
+    {
+      "column": 3,
+      "file": "C:\\Users\\zougz\\Desktop\\AFRIXA\\Backend\\validation\\demandeAgenceValidation.js",
+      "function": null,
+      "line": 177,
+      "method": null,
+      "native": false
+    },
+    {
+      "column": 14,
+      "file": "node:internal/modules/cjs/loader",
+      "function": "Module._compile",
+      "line": 1761,
+      "method": "_compile",
+      "native": false
+    },
+    {
+      "column": 10,
+      "file": "node:internal/modules/cjs/loader",
+      "function": "Object..js",
+      "line": 1893,
+      "method": ".js",
+      "native": false
+    },
+    {
+      "column": 32,
+      "file": "node:internal/modules/cjs/loader",
+      "function": "Module.load",
+      "line": 1481,
+      "method": "load",
+      "native": false
+    },
+    {
+      "column": 12,
+      "file": "node:internal/modules/cjs/loader",
+      "function": "Module._load",
+      "line": 1300,
+      "method": "_load",
+      "native": false
+    },
+    {
+      "column": 14,
+      "file": "node:diagnostics_channel",
+      "function": "TracingChannel.traceSync",
+      "line": 328,
+      "method": "traceSync",
+      "native": false
+    },
+    {
+      "column": 24,
+      "file": "node:internal/modules/cjs/loader",
+      "function": "wrapModuleLoad",
+      "line": 245,
+      "method": null,
+      "native": false
+    },
+    {
+      "column": 12,
+      "file": "node:internal/modules/cjs/loader",
+      "function": "Module.require",
+      "line": 1504,
+      "method": "require",
+      "native": false
+    },
+    {
+      "column": 16,
+      "file": "node:internal/modules/helpers",
+      "function": "require",
+      "line": 152,
+      "method": null,
+      "native": false
+    },
+    {
+      "column": 5,
+      "file": "C:\\Users\\zougz\\Desktop\\AFRIXA\\Backend\\Controllers\\clientController.js",
+      "function": null,
+      "line": 12,
+      "method": null,
+      "native": false
+    }
+  ]
+}
+2026-02-12 10:15:56 [ERROR] uncaughtException: createGrandTransportRequestSchema is not defined
+ReferenceError: createGrandTransportRequestSchema is not defined
+    at Object.<anonymous> (C:\Users\zougz\Desktop\AFRIXA\Backend\validation\demandeAgenceValidation.js:172:3)
+    at Module._compile (node:internal/modules/cjs/loader:1761:14)
+    at Object..js (node:internal/modules/cjs/loader:1893:10)
+    at Module.load (node:internal/modules/cjs/loader:1481:32)
+    at Module._load (node:internal/modules/cjs/loader:1300:12)
+    at TracingChannel.traceSync (node:diagnostics_channel:328:14)
+    at wrapModuleLoad (node:internal/modules/cjs/loader:245:24)
+    at Module.require (node:internal/modules/cjs/loader:1504:12)
+    at require (node:internal/modules/helpers:152:16)
+    at Object.<anonymous> (C:\Users\zougz\Desktop\AFRIXA\Backend\Controllers\clientController.js:12:5)
+ReferenceError: createGrandTransportRequestSchema is not defined
+    at Object.<anonymous> (C:\Users\zougz\Desktop\AFRIXA\Backend\validation\demandeAgenceValidation.js:172:3)
+    at Module._compile (node:internal/modules/cjs/loader:1761:14)
+    at Object..js (node:internal/modules/cjs/loader:1893:10)
+    at Module.load (node:internal/modules/cjs/loader:1481:32)
+    at Module._load (node:internal/modules/cjs/loader:1300:12)
+    at TracingChannel.traceSync (node:diagnostics_channel:328:14)
+    at wrapModuleLoad (node:internal/modules/cjs/loader:245:24)
+    at Module.require (node:internal/modules/cjs/loader:1504:12)
+    at require (node:internal/modules/helpers:152:16)
+    at Object.<anonymous> (C:\Users\zougz\Desktop\AFRIXA\Backend\Controllers\clientController.js:12:5)
+{
+  "error": {},
+  "exception": true,
+  "date": "Thu Feb 12 2026 10:15:56 GMT+0200 (South Africa Standard Time)",
+  "process": {
+    "pid": 25124,
+    "uid": null,
+    "gid": null,
+    "cwd": "C:\\Users\\zougz\\Desktop\\AFRIXA",
+    "execPath": "C:\\Program Files\\nodejs\\node.exe",
+    "version": "v24.12.0",
+    "argv": [
+      "C:\\Program Files\\nodejs\\node.exe",
+      "C:\\Users\\zougz\\Desktop\\AFRIXA\\server.js"
+    ],
+    "memoryUsage": {
+      "rss": 112680960,
+      "heapTotal": 65851392,
+      "heapUsed": 46371016,
+      "external": 21922193,
+      "arrayBuffers": 18265165
+    }
+  },
+  "os": {
+    "loadavg": [
+      0,
+      0,
+      0
+    ],
+    "uptime": 419588.234
+  },
+  "trace": [
+    {
+      "column": 3,
+      "file": "C:\\Users\\zougz\\Desktop\\AFRIXA\\Backend\\validation\\demandeAgenceValidation.js",
+      "function": null,
+      "line": 172,
+      "method": null,
+      "native": false
+    },
+    {
+      "column": 14,
+      "file": "node:internal/modules/cjs/loader",
+      "function": "Module._compile",
+      "line": 1761,
+      "method": "_compile",
+      "native": false
+    },
+    {
+      "column": 10,
+      "file": "node:internal/modules/cjs/loader",
+      "function": "Object..js",
+      "line": 1893,
+      "method": ".js",
+      "native": false
+    },
+    {
+      "column": 32,
+      "file": "node:internal/modules/cjs/loader",
+      "function": "Module.load",
+      "line": 1481,
+      "method": "load",
+      "native": false
+    },
+    {
+      "column": 12,
+      "file": "node:internal/modules/cjs/loader",
+      "function": "Module._load",
+      "line": 1300,
+      "method": "_load",
+      "native": false
+    },
+    {
+      "column": 14,
+      "file": "node:diagnostics_channel",
+      "function": "TracingChannel.traceSync",
+      "line": 328,
+      "method": "traceSync",
+      "native": false
+    },
+    {
+      "column": 24,
+      "file": "node:internal/modules/cjs/loader",
+      "function": "wrapModuleLoad",
+      "line": 245,
+      "method": null,
+      "native": false
+    },
+    {
+      "column": 12,
+      "file": "node:internal/modules/cjs/loader",
+      "function": "Module.require",
+      "line": 1504,
+      "method": "require",
+      "native": false
+    },
+    {
+      "column": 16,
+      "file": "node:internal/modules/helpers",
+      "function": "require",
+      "line": 152,
+      "method": null,
+      "native": false
+    },
+    {
+      "column": 5,
+      "file": "C:\\Users\\zougz\\Desktop\\AFRIXA\\Backend\\Controllers\\clientController.js",
+      "function": null,
+      "line": 12,
+      "method": null,
+      "native": false
+    }
+  ]
+}
+2026-02-12 10:16:03 [ERROR] uncaughtException: createGrandTransportRequestSchema is not defined
+ReferenceError: createGrandTransportRequestSchema is not defined
+    at Object.<anonymous> (C:\Users\zougz\Desktop\AFRIXA\Backend\validation\demandeAgenceValidation.js:172:3)
+    at Module._compile (node:internal/modules/cjs/loader:1761:14)
+    at Object..js (node:internal/modules/cjs/loader:1893:10)
+    at Module.load (node:internal/modules/cjs/loader:1481:32)
+    at Module._load (node:internal/modules/cjs/loader:1300:12)
+    at TracingChannel.traceSync (node:diagnostics_channel:328:14)
+    at wrapModuleLoad (node:internal/modules/cjs/loader:245:24)
+    at Module.require (node:internal/modules/cjs/loader:1504:12)
+    at require (node:internal/modules/helpers:152:16)
+    at Object.<anonymous> (C:\Users\zougz\Desktop\AFRIXA\Backend\Controllers\clientController.js:12:5)
+ReferenceError: createGrandTransportRequestSchema is not defined
+    at Object.<anonymous> (C:\Users\zougz\Desktop\AFRIXA\Backend\validation\demandeAgenceValidation.js:172:3)
+    at Module._compile (node:internal/modules/cjs/loader:1761:14)
+    at Object..js (node:internal/modules/cjs/loader:1893:10)
+    at Module.load (node:internal/modules/cjs/loader:1481:32)
+    at Module._load (node:internal/modules/cjs/loader:1300:12)
+    at TracingChannel.traceSync (node:diagnostics_channel:328:14)
+    at wrapModuleLoad (node:internal/modules/cjs/loader:245:24)
+    at Module.require (node:internal/modules/cjs/loader:1504:12)
+    at require (node:internal/modules/helpers:152:16)
+    at Object.<anonymous> (C:\Users\zougz\Desktop\AFRIXA\Backend\Controllers\clientController.js:12:5)
+{
+  "error": {},
+  "exception": true,
+  "date": "Thu Feb 12 2026 10:16:03 GMT+0200 (South Africa Standard Time)",
+  "process": {
+    "pid": 23192,
+    "uid": null,
+    "gid": null,
+    "cwd": "C:\\Users\\zougz\\Desktop\\AFRIXA",
+    "execPath": "C:\\Program Files\\nodejs\\node.exe",
+    "version": "v24.12.0",
+    "argv": [
+      "C:\\Program Files\\nodejs\\node.exe",
+      "C:\\Users\\zougz\\Desktop\\AFRIXA\\server.js"
+    ],
+    "memoryUsage": {
+      "rss": 112762880,
+      "heapTotal": 65589248,
+      "heapUsed": 46164136,
+      "external": 21922193,
+      "arrayBuffers": 18265165
+    }
+  },
+  "os": {
+    "loadavg": [
+      0,
+      0,
+      0
+    ],
+    "uptime": 419595.078
+  },
+  "trace": [
+    {
+      "column": 3,
+      "file": "C:\\Users\\zougz\\Desktop\\AFRIXA\\Backend\\validation\\demandeAgenceValidation.js",
+      "function": null,
+      "line": 172,
+      "method": null,
+      "native": false
+    },
+    {
+      "column": 14,
+      "file": "node:internal/modules/cjs/loader",
+      "function": "Module._compile",
+      "line": 1761,
+      "method": "_compile",
+      "native": false
+    },
+    {
+      "column": 10,
+      "file": "node:internal/modules/cjs/loader",
+      "function": "Object..js",
+      "line": 1893,
+      "method": ".js",
+      "native": false
+    },
+    {
+      "column": 32,
+      "file": "node:internal/modules/cjs/loader",
+      "function": "Module.load",
+      "line": 1481,
+      "method": "load",
+      "native": false
+    },
+    {
+      "column": 12,
+      "file": "node:internal/modules/cjs/loader",
+      "function": "Module._load",
+      "line": 1300,
+      "method": "_load",
+      "native": false
+    },
+    {
+      "column": 14,
+      "file": "node:diagnostics_channel",
+      "function": "TracingChannel.traceSync",
+      "line": 328,
+      "method": "traceSync",
+      "native": false
+    },
+    {
+      "column": 24,
+      "file": "node:internal/modules/cjs/loader",
+      "function": "wrapModuleLoad",
+      "line": 245,
+      "method": null,
+      "native": false
+    },
+    {
+      "column": 12,
+      "file": "node:internal/modules/cjs/loader",
+      "function": "Module.require",
+      "line": 1504,
+      "method": "require",
+      "native": false
+    },
+    {
+      "column": 16,
+      "file": "node:internal/modules/helpers",
+      "function": "require",
+      "line": 152,
+      "method": null,
+      "native": false
+    },
+    {
+      "column": 5,
+      "file": "C:\\Users\\zougz\\Desktop\\AFRIXA\\Backend\\Controllers\\clientController.js",
+      "function": null,
+      "line": 12,
+      "method": null,
+      "native": false
+    }
+  ]
+}
+2026-02-12 10:16:04 [ERROR] uncaughtException: createGrandTransportRequestSchema is not defined
+ReferenceError: createGrandTransportRequestSchema is not defined
+    at Object.<anonymous> (C:\Users\zougz\Desktop\AFRIXA\Backend\validation\demandeAgenceValidation.js:172:3)
+    at Module._compile (node:internal/modules/cjs/loader:1761:14)
+    at Object..js (node:internal/modules/cjs/loader:1893:10)
+    at Module.load (node:internal/modules/cjs/loader:1481:32)
+    at Module._load (node:internal/modules/cjs/loader:1300:12)
+    at TracingChannel.traceSync (node:diagnostics_channel:328:14)
+    at wrapModuleLoad (node:internal/modules/cjs/loader:245:24)
+    at Module.require (node:internal/modules/cjs/loader:1504:12)
+    at require (node:internal/modules/helpers:152:16)
+    at Object.<anonymous> (C:\Users\zougz\Desktop\AFRIXA\Backend\Controllers\clientController.js:12:5)
+ReferenceError: createGrandTransportRequestSchema is not defined
+    at Object.<anonymous> (C:\Users\zougz\Desktop\AFRIXA\Backend\validation\demandeAgenceValidation.js:172:3)
+    at Module._compile (node:internal/modules/cjs/loader:1761:14)
+    at Object..js (node:internal/modules/cjs/loader:1893:10)
+    at Module.load (node:internal/modules/cjs/loader:1481:32)
+    at Module._load (node:internal/modules/cjs/loader:1300:12)
+    at TracingChannel.traceSync (node:diagnostics_channel:328:14)
+    at wrapModuleLoad (node:internal/modules/cjs/loader:245:24)
+    at Module.require (node:internal/modules/cjs/loader:1504:12)
+    at require (node:internal/modules/helpers:152:16)
+    at Object.<anonymous> (C:\Users\zougz\Desktop\AFRIXA\Backend\Controllers\clientController.js:12:5)
+{
+  "error": {},
+  "exception": true,
+  "date": "Thu Feb 12 2026 10:16:04 GMT+0200 (South Africa Standard Time)",
+  "process": {
+    "pid": 6568,
+    "uid": null,
+    "gid": null,
+    "cwd": "C:\\Users\\zougz\\Desktop\\AFRIXA",
+    "execPath": "C:\\Program Files\\nodejs\\node.exe",
+    "version": "v24.12.0",
+    "argv": [
+      "C:\\Program Files\\nodejs\\node.exe",
+      "C:\\Users\\zougz\\Desktop\\AFRIXA\\server.js"
+    ],
+    "memoryUsage": {
+      "rss": 112553984,
+      "heapTotal": 65589248,
+      "heapUsed": 46141224,
+      "external": 21922193,
+      "arrayBuffers": 18265165
+    }
+  },
+  "os": {
+    "loadavg": [
+      0,
+      0,
+      0
+    ],
+    "uptime": 419596.578
+  },
+  "trace": [
+    {
+      "column": 3,
+      "file": "C:\\Users\\zougz\\Desktop\\AFRIXA\\Backend\\validation\\demandeAgenceValidation.js",
+      "function": null,
+      "line": 172,
+      "method": null,
+      "native": false
+    },
+    {
+      "column": 14,
+      "file": "node:internal/modules/cjs/loader",
+      "function": "Module._compile",
+      "line": 1761,
+      "method": "_compile",
+      "native": false
+    },
+    {
+      "column": 10,
+      "file": "node:internal/modules/cjs/loader",
+      "function": "Object..js",
+      "line": 1893,
+      "method": ".js",
+      "native": false
+    },
+    {
+      "column": 32,
+      "file": "node:internal/modules/cjs/loader",
+      "function": "Module.load",
+      "line": 1481,
+      "method": "load",
+      "native": false
+    },
+    {
+      "column": 12,
+      "file": "node:internal/modules/cjs/loader",
+      "function": "Module._load",
+      "line": 1300,
+      "method": "_load",
+      "native": false
+    },
+    {
+      "column": 14,
+      "file": "node:diagnostics_channel",
+      "function": "TracingChannel.traceSync",
+      "line": 328,
+      "method": "traceSync",
+      "native": false
+    },
+    {
+      "column": 24,
+      "file": "node:internal/modules/cjs/loader",
+      "function": "wrapModuleLoad",
+      "line": 245,
+      "method": null,
+      "native": false
+    },
+    {
+      "column": 12,
+      "file": "node:internal/modules/cjs/loader",
+      "function": "Module.require",
+      "line": 1504,
+      "method": "require",
+      "native": false
+    },
+    {
+      "column": 16,
+      "file": "node:internal/modules/helpers",
+      "function": "require",
+      "line": 152,
+      "method": null,
+      "native": false
+    },
+    {
+      "column": 5,
+      "file": "C:\\Users\\zougz\\Desktop\\AFRIXA\\Backend\\Controllers\\clientController.js",
+      "function": null,
+      "line": 12,
+      "method": null,
+      "native": false
+    }
+  ]
+}
+2026-02-12 10:16:10 [ERROR] uncaughtException: createGrandTransportRequestSchema is not defined
+ReferenceError: createGrandTransportRequestSchema is not defined
+    at Object.<anonymous> (C:\Users\zougz\Desktop\AFRIXA\Backend\validation\demandeAgenceValidation.js:171:3)
+    at Module._compile (node:internal/modules/cjs/loader:1761:14)
+    at Object..js (node:internal/modules/cjs/loader:1893:10)
+    at Module.load (node:internal/modules/cjs/loader:1481:32)
+    at Module._load (node:internal/modules/cjs/loader:1300:12)
+    at TracingChannel.traceSync (node:diagnostics_channel:328:14)
+    at wrapModuleLoad (node:internal/modules/cjs/loader:245:24)
+    at Module.require (node:internal/modules/cjs/loader:1504:12)
+    at require (node:internal/modules/helpers:152:16)
+    at Object.<anonymous> (C:\Users\zougz\Desktop\AFRIXA\Backend\Controllers\clientController.js:12:5)
+ReferenceError: createGrandTransportRequestSchema is not defined
+    at Object.<anonymous> (C:\Users\zougz\Desktop\AFRIXA\Backend\validation\demandeAgenceValidation.js:171:3)
+    at Module._compile (node:internal/modules/cjs/loader:1761:14)
+    at Object..js (node:internal/modules/cjs/loader:1893:10)
+    at Module.load (node:internal/modules/cjs/loader:1481:32)
+    at Module._load (node:internal/modules/cjs/loader:1300:12)
+    at TracingChannel.traceSync (node:diagnostics_channel:328:14)
+    at wrapModuleLoad (node:internal/modules/cjs/loader:245:24)
+    at Module.require (node:internal/modules/cjs/loader:1504:12)
+    at require (node:internal/modules/helpers:152:16)
+    at Object.<anonymous> (C:\Users\zougz\Desktop\AFRIXA\Backend\Controllers\clientController.js:12:5)
+{
+  "error": {},
+  "exception": true,
+  "date": "Thu Feb 12 2026 10:16:10 GMT+0200 (South Africa Standard Time)",
+  "process": {
+    "pid": 28764,
+    "uid": null,
+    "gid": null,
+    "cwd": "C:\\Users\\zougz\\Desktop\\AFRIXA",
+    "execPath": "C:\\Program Files\\nodejs\\node.exe",
+    "version": "v24.12.0",
+    "argv": [
+      "C:\\Program Files\\nodejs\\node.exe",
+      "C:\\Users\\zougz\\Desktop\\AFRIXA\\server.js"
+    ],
+    "memoryUsage": {
+      "rss": 112549888,
+      "heapTotal": 65589248,
+      "heapUsed": 46137400,
+      "external": 21922193,
+      "arrayBuffers": 18265165
+    }
+  },
+  "os": {
+    "loadavg": [
+      0,
+      0,
+      0
+    ],
+    "uptime": 419602.078
+  },
+  "trace": [
+    {
+      "column": 3,
+      "file": "C:\\Users\\zougz\\Desktop\\AFRIXA\\Backend\\validation\\demandeAgenceValidation.js",
+      "function": null,
+      "line": 171,
+      "method": null,
+      "native": false
+    },
+    {
+      "column": 14,
+      "file": "node:internal/modules/cjs/loader",
+      "function": "Module._compile",
+      "line": 1761,
+      "method": "_compile",
+      "native": false
+    },
+    {
+      "column": 10,
+      "file": "node:internal/modules/cjs/loader",
+      "function": "Object..js",
+      "line": 1893,
+      "method": ".js",
+      "native": false
+    },
+    {
+      "column": 32,
+      "file": "node:internal/modules/cjs/loader",
+      "function": "Module.load",
+      "line": 1481,
+      "method": "load",
+      "native": false
+    },
+    {
+      "column": 12,
+      "file": "node:internal/modules/cjs/loader",
+      "function": "Module._load",
+      "line": 1300,
+      "method": "_load",
+      "native": false
+    },
+    {
+      "column": 14,
+      "file": "node:diagnostics_channel",
+      "function": "TracingChannel.traceSync",
+      "line": 328,
+      "method": "traceSync",
+      "native": false
+    },
+    {
+      "column": 24,
+      "file": "node:internal/modules/cjs/loader",
+      "function": "wrapModuleLoad",
+      "line": 245,
+      "method": null,
+      "native": false
+    },
+    {
+      "column": 12,
+      "file": "node:internal/modules/cjs/loader",
+      "function": "Module.require",
+      "line": 1504,
+      "method": "require",
+      "native": false
+    },
+    {
+      "column": 16,
+      "file": "node:internal/modules/helpers",
+      "function": "require",
+      "line": 152,
+      "method": null,
+      "native": false
+    },
+    {
+      "column": 5,
+      "file": "C:\\Users\\zougz\\Desktop\\AFRIXA\\Backend\\Controllers\\clientController.js",
+      "function": null,
+      "line": 12,
+      "method": null,
+      "native": false
+    }
+  ]
+}
+2026-02-12 10:16:14 [ERROR] uncaughtException: getPetitTransportRequestByIdSchema is not defined
+ReferenceError: getPetitTransportRequestByIdSchema is not defined
+    at Object.<anonymous> (C:\Users\zougz\Desktop\AFRIXA\Backend\validation\demandeAgenceValidation.js:184:3)
+    at Module._compile (node:internal/modules/cjs/loader:1761:14)
+    at Object..js (node:internal/modules/cjs/loader:1893:10)
+    at Module.load (node:internal/modules/cjs/loader:1481:32)
+    at Module._load (node:internal/modules/cjs/loader:1300:12)
+    at TracingChannel.traceSync (node:diagnostics_channel:328:14)
+    at wrapModuleLoad (node:internal/modules/cjs/loader:245:24)
+    at Module.require (node:internal/modules/cjs/loader:1504:12)
+    at require (node:internal/modules/helpers:152:16)
+    at Object.<anonymous> (C:\Users\zougz\Desktop\AFRIXA\Backend\Controllers\clientController.js:12:5)
+ReferenceError: getPetitTransportRequestByIdSchema is not defined
+    at Object.<anonymous> (C:\Users\zougz\Desktop\AFRIXA\Backend\validation\demandeAgenceValidation.js:184:3)
+    at Module._compile (node:internal/modules/cjs/loader:1761:14)
+    at Object..js (node:internal/modules/cjs/loader:1893:10)
+    at Module.load (node:internal/modules/cjs/loader:1481:32)
+    at Module._load (node:internal/modules/cjs/loader:1300:12)
+    at TracingChannel.traceSync (node:diagnostics_channel:328:14)
+    at wrapModuleLoad (node:internal/modules/cjs/loader:245:24)
+    at Module.require (node:internal/modules/cjs/loader:1504:12)
+    at require (node:internal/modules/helpers:152:16)
+    at Object.<anonymous> (C:\Users\zougz\Desktop\AFRIXA\Backend\Controllers\clientController.js:12:5)
+{
+  "error": {},
+  "exception": true,
+  "date": "Thu Feb 12 2026 10:16:14 GMT+0200 (South Africa Standard Time)",
+  "process": {
+    "pid": 39908,
+    "uid": null,
+    "gid": null,
+    "cwd": "C:\\Users\\zougz\\Desktop\\AFRIXA",
+    "execPath": "C:\\Program Files\\nodejs\\node.exe",
+    "version": "v24.12.0",
+    "argv": [
+      "C:\\Program Files\\nodejs\\node.exe",
+      "C:\\Users\\zougz\\Desktop\\AFRIXA\\server.js"
+    ],
+    "memoryUsage": {
+      "rss": 121290752,
+      "heapTotal": 102100992,
+      "heapUsed": 41677640,
+      "external": 21922193,
+      "arrayBuffers": 18265157
+    }
+  },
+  "os": {
+    "loadavg": [
+      0,
+      0,
+      0
+    ],
+    "uptime": 419606.421
+  },
+  "trace": [
+    {
+      "column": 3,
+      "file": "C:\\Users\\zougz\\Desktop\\AFRIXA\\Backend\\validation\\demandeAgenceValidation.js",
+      "function": null,
+      "line": 184,
+      "method": null,
+      "native": false
+    },
+    {
+      "column": 14,
+      "file": "node:internal/modules/cjs/loader",
+      "function": "Module._compile",
+      "line": 1761,
+      "method": "_compile",
+      "native": false
+    },
+    {
+      "column": 10,
+      "file": "node:internal/modules/cjs/loader",
+      "function": "Object..js",
+      "line": 1893,
+      "method": ".js",
+      "native": false
+    },
+    {
+      "column": 32,
+      "file": "node:internal/modules/cjs/loader",
+      "function": "Module.load",
+      "line": 1481,
+      "method": "load",
+      "native": false
+    },
+    {
+      "column": 12,
+      "file": "node:internal/modules/cjs/loader",
+      "function": "Module._load",
+      "line": 1300,
+      "method": "_load",
+      "native": false
+    },
+    {
+      "column": 14,
+      "file": "node:diagnostics_channel",
+      "function": "TracingChannel.traceSync",
+      "line": 328,
+      "method": "traceSync",
+      "native": false
+    },
+    {
+      "column": 24,
+      "file": "node:internal/modules/cjs/loader",
+      "function": "wrapModuleLoad",
+      "line": 245,
+      "method": null,
+      "native": false
+    },
+    {
+      "column": 12,
+      "file": "node:internal/modules/cjs/loader",
+      "function": "Module.require",
+      "line": 1504,
+      "method": "require",
+      "native": false
+    },
+    {
+      "column": 16,
+      "file": "node:internal/modules/helpers",
+      "function": "require",
+      "line": 152,
+      "method": null,
+      "native": false
+    },
+    {
+      "column": 5,
+      "file": "C:\\Users\\zougz\\Desktop\\AFRIXA\\Backend\\Controllers\\clientController.js",
+      "function": null,
+      "line": 12,
+      "method": null,
+      "native": false
+    }
+  ]
+}
+2026-02-12 11:50:47 [ERROR] uncaughtException: argument handler must be a function
+TypeError: argument handler must be a function
+    at router.use (C:\Users\zougz\Desktop\AFRIXA\node_modules\router\index.js:392:13)
+    at app.<anonymous> (C:\Users\zougz\Desktop\AFRIXA\node_modules\express\lib\application.js:222:21)
+    at Array.forEach (<anonymous>)
+    at app.use (C:\Users\zougz\Desktop\AFRIXA\node_modules\express\lib\application.js:219:7)
+    at Object.<anonymous> (C:\Users\zougz\Desktop\AFRIXA\server.js:280:5)
+    at Module._compile (node:internal/modules/cjs/loader:1761:14)
+    at Object..js (node:internal/modules/cjs/loader:1893:10)
+    at Module.load (node:internal/modules/cjs/loader:1481:32)
+    at Module._load (node:internal/modules/cjs/loader:1300:12)
+    at TracingChannel.traceSync (node:diagnostics_channel:328:14)
+TypeError: argument handler must be a function
+    at router.use (C:\Users\zougz\Desktop\AFRIXA\node_modules\router\index.js:392:13)
+    at app.<anonymous> (C:\Users\zougz\Desktop\AFRIXA\node_modules\express\lib\application.js:222:21)
+    at Array.forEach (<anonymous>)
+    at app.use (C:\Users\zougz\Desktop\AFRIXA\node_modules\express\lib\application.js:219:7)
+    at Object.<anonymous> (C:\Users\zougz\Desktop\AFRIXA\server.js:280:5)
+    at Module._compile (node:internal/modules/cjs/loader:1761:14)
+    at Object..js (node:internal/modules/cjs/loader:1893:10)
+    at Module.load (node:internal/modules/cjs/loader:1481:32)
+    at Module._load (node:internal/modules/cjs/loader:1300:12)
+    at TracingChannel.traceSync (node:diagnostics_channel:328:14)
+{
+  "error": {},
+  "exception": true,
+  "date": "Thu Feb 12 2026 11:50:47 GMT+0200 (South Africa Standard Time)",
+  "process": {
+    "pid": 18888,
+    "uid": null,
+    "gid": null,
+    "cwd": "C:\\Users\\zougz\\Desktop\\AFRIXA",
+    "execPath": "C:\\Program Files\\nodejs\\node.exe",
+    "version": "v24.12.0",
+    "argv": [
+      "C:\\Program Files\\nodejs\\node.exe",
+      "C:\\Users\\zougz\\Desktop\\AFRIXA\\server.js"
+    ],
+    "memoryUsage": {
+      "rss": 128581632,
+      "heapTotal": 107606016,
+      "heapUsed": 43668064,
+      "external": 21933327,
+      "arrayBuffers": 18265357
+    }
+  },
+  "os": {
+    "loadavg": [
+      0,
+      0,
+      0
+    ],
+    "uptime": 425279
+  },
+  "trace": [
+    {
+      "column": 13,
+      "file": "C:\\Users\\zougz\\Desktop\\AFRIXA\\node_modules\\router\\index.js",
+      "function": "router.use",
+      "line": 392,
+      "method": "use",
+      "native": false
+    },
+    {
+      "column": 21,
+      "file": "C:\\Users\\zougz\\Desktop\\AFRIXA\\node_modules\\express\\lib\\application.js",
+      "function": null,
+      "line": 222,
+      "method": null,
+      "native": false
+    },
+    {
+      "column": null,
+      "file": null,
+      "function": "Array.forEach",
+      "line": null,
+      "method": "forEach",
+      "native": false
+    },
+    {
+      "column": 7,
+      "file": "C:\\Users\\zougz\\Desktop\\AFRIXA\\node_modules\\express\\lib\\application.js",
+      "function": "app.use",
+      "line": 219,
+      "method": "use",
+      "native": false
+    },
+    {
+      "column": 5,
+      "file": "C:\\Users\\zougz\\Desktop\\AFRIXA\\server.js",
+      "function": null,
+      "line": 280,
+      "method": null,
+      "native": false
+    },
+    {
+      "column": 14,
+      "file": "node:internal/modules/cjs/loader",
+      "function": "Module._compile",
+      "line": 1761,
+      "method": "_compile",
+      "native": false
+    },
+    {
+      "column": 10,
+      "file": "node:internal/modules/cjs/loader",
+      "function": "Object..js",
+      "line": 1893,
+      "method": ".js",
+      "native": false
+    },
+    {
+      "column": 32,
+      "file": "node:internal/modules/cjs/loader",
+      "function": "Module.load",
+      "line": 1481,
+      "method": "load",
+      "native": false
+    },
+    {
+      "column": 12,
+      "file": "node:internal/modules/cjs/loader",
+      "function": "Module._load",
+      "line": 1300,
+      "method": "_load",
+      "native": false
+    },
+    {
+      "column": 14,
+      "file": "node:diagnostics_channel",
+      "function": "TracingChannel.traceSync",
+      "line": 328,
+      "method": "traceSync",
+      "native": false
+    }
+  ]
+}
+2026-02-12 11:54:39 [ERROR] uncaughtException: argument handler must be a function
+TypeError: argument handler must be a function
+    at router.use (C:\Users\zougz\Desktop\AFRIXA\node_modules\router\index.js:392:13)
+    at app.<anonymous> (C:\Users\zougz\Desktop\AFRIXA\node_modules\express\lib\application.js:222:21)
+    at Array.forEach (<anonymous>)
+    at app.use (C:\Users\zougz\Desktop\AFRIXA\node_modules\express\lib\application.js:219:7)
+    at Object.<anonymous> (C:\Users\zougz\Desktop\AFRIXA\server.js:326:5)
+    at Module._compile (node:internal/modules/cjs/loader:1761:14)
+    at Object..js (node:internal/modules/cjs/loader:1893:10)
+    at Module.load (node:internal/modules/cjs/loader:1481:32)
+    at Module._load (node:internal/modules/cjs/loader:1300:12)
+    at TracingChannel.traceSync (node:diagnostics_channel:328:14)
+TypeError: argument handler must be a function
+    at router.use (C:\Users\zougz\Desktop\AFRIXA\node_modules\router\index.js:392:13)
+    at app.<anonymous> (C:\Users\zougz\Desktop\AFRIXA\node_modules\express\lib\application.js:222:21)
+    at Array.forEach (<anonymous>)
+    at app.use (C:\Users\zougz\Desktop\AFRIXA\node_modules\express\lib\application.js:219:7)
+    at Object.<anonymous> (C:\Users\zougz\Desktop\AFRIXA\server.js:326:5)
+    at Module._compile (node:internal/modules/cjs/loader:1761:14)
+    at Object..js (node:internal/modules/cjs/loader:1893:10)
+    at Module.load (node:internal/modules/cjs/loader:1481:32)
+    at Module._load (node:internal/modules/cjs/loader:1300:12)
+    at TracingChannel.traceSync (node:diagnostics_channel:328:14)
+{
+  "error": {},
+  "exception": true,
+  "date": "Thu Feb 12 2026 11:54:39 GMT+0200 (South Africa Standard Time)",
+  "process": {
+    "pid": 22964,
+    "uid": null,
+    "gid": null,
+    "cwd": "C:\\Users\\zougz\\Desktop\\AFRIXA",
+    "execPath": "C:\\Program Files\\nodejs\\node.exe",
+    "version": "v24.12.0",
+    "argv": [
+      "C:\\Program Files\\nodejs\\node.exe",
+      "C:\\Users\\zougz\\Desktop\\AFRIXA\\server.js"
+    ],
+    "memoryUsage": {
+      "rss": 115769344,
+      "heapTotal": 103936000,
+      "heapUsed": 44059808,
+      "external": 21933327,
+      "arrayBuffers": 18265407
+    }
+  },
+  "os": {
+    "loadavg": [
+      0,
+      0,
+      0
+    ],
+    "uptime": 425511.484
+  },
+  "trace": [
+    {
+      "column": 13,
+      "file": "C:\\Users\\zougz\\Desktop\\AFRIXA\\node_modules\\router\\index.js",
+      "function": "router.use",
+      "line": 392,
+      "method": "use",
+      "native": false
+    },
+    {
+      "column": 21,
+      "file": "C:\\Users\\zougz\\Desktop\\AFRIXA\\node_modules\\express\\lib\\application.js",
+      "function": null,
+      "line": 222,
+      "method": null,
+      "native": false
+    },
+    {
+      "column": null,
+      "file": null,
+      "function": "Array.forEach",
+      "line": null,
+      "method": "forEach",
+      "native": false
+    },
+    {
+      "column": 7,
+      "file": "C:\\Users\\zougz\\Desktop\\AFRIXA\\node_modules\\express\\lib\\application.js",
+      "function": "app.use",
+      "line": 219,
+      "method": "use",
+      "native": false
+    },
+    {
+      "column": 5,
+      "file": "C:\\Users\\zougz\\Desktop\\AFRIXA\\server.js",
+      "function": null,
+      "line": 326,
+      "method": null,
+      "native": false
+    },
+    {
+      "column": 14,
+      "file": "node:internal/modules/cjs/loader",
+      "function": "Module._compile",
+      "line": 1761,
+      "method": "_compile",
+      "native": false
+    },
+    {
+      "column": 10,
+      "file": "node:internal/modules/cjs/loader",
+      "function": "Object..js",
+      "line": 1893,
+      "method": ".js",
+      "native": false
+    },
+    {
+      "column": 32,
+      "file": "node:internal/modules/cjs/loader",
+      "function": "Module.load",
+      "line": 1481,
+      "method": "load",
+      "native": false
+    },
+    {
+      "column": 12,
+      "file": "node:internal/modules/cjs/loader",
+      "function": "Module._load",
+      "line": 1300,
+      "method": "_load",
+      "native": false
+    },
+    {
+      "column": 14,
+      "file": "node:diagnostics_channel",
+      "function": "TracingChannel.traceSync",
+      "line": 328,
+      "method": "traceSync",
+      "native": false
+    }
+  ]
+}
+2026-02-12 11:54:57 [ERROR] uncaughtException: argument handler must be a function
+TypeError: argument handler must be a function
+    at router.use (C:\Users\zougz\Desktop\AFRIXA\node_modules\router\index.js:392:13)
+    at app.<anonymous> (C:\Users\zougz\Desktop\AFRIXA\node_modules\express\lib\application.js:222:21)
+    at Array.forEach (<anonymous>)
+    at app.use (C:\Users\zougz\Desktop\AFRIXA\node_modules\express\lib\application.js:219:7)
+    at Object.<anonymous> (C:\Users\zougz\Desktop\AFRIXA\server.js:326:5)
+    at Module._compile (node:internal/modules/cjs/loader:1761:14)
+    at Object..js (node:internal/modules/cjs/loader:1893:10)
+    at Module.load (node:internal/modules/cjs/loader:1481:32)
+    at Module._load (node:internal/modules/cjs/loader:1300:12)
+    at TracingChannel.traceSync (node:diagnostics_channel:328:14)
+TypeError: argument handler must be a function
+    at router.use (C:\Users\zougz\Desktop\AFRIXA\node_modules\router\index.js:392:13)
+    at app.<anonymous> (C:\Users\zougz\Desktop\AFRIXA\node_modules\express\lib\application.js:222:21)
+    at Array.forEach (<anonymous>)
+    at app.use (C:\Users\zougz\Desktop\AFRIXA\node_modules\express\lib\application.js:219:7)
+    at Object.<anonymous> (C:\Users\zougz\Desktop\AFRIXA\server.js:326:5)
+    at Module._compile (node:internal/modules/cjs/loader:1761:14)
+    at Object..js (node:internal/modules/cjs/loader:1893:10)
+    at Module.load (node:internal/modules/cjs/loader:1481:32)
+    at Module._load (node:internal/modules/cjs/loader:1300:12)
+    at TracingChannel.traceSync (node:diagnostics_channel:328:14)
+{
+  "error": {},
+  "exception": true,
+  "date": "Thu Feb 12 2026 11:54:57 GMT+0200 (South Africa Standard Time)",
+  "process": {
+    "pid": 31696,
+    "uid": null,
+    "gid": null,
+    "cwd": "C:\\Users\\zougz\\Desktop\\AFRIXA",
+    "execPath": "C:\\Program Files\\nodejs\\node.exe",
+    "version": "v24.12.0",
+    "argv": [
+      "C:\\Program Files\\nodejs\\node.exe",
+      "C:\\Users\\zougz\\Desktop\\AFRIXA\\server.js"
+    ],
+    "memoryUsage": {
+      "rss": 120086528,
+      "heapTotal": 68284416,
+      "heapUsed": 47816928,
+      "external": 21933327,
+      "arrayBuffers": 18265407
+    }
+  },
+  "os": {
+    "loadavg": [
+      0,
+      0,
+      0
+    ],
+    "uptime": 425529.687
+  },
+  "trace": [
+    {
+      "column": 13,
+      "file": "C:\\Users\\zougz\\Desktop\\AFRIXA\\node_modules\\router\\index.js",
+      "function": "router.use",
+      "line": 392,
+      "method": "use",
+      "native": false
+    },
+    {
+      "column": 21,
+      "file": "C:\\Users\\zougz\\Desktop\\AFRIXA\\node_modules\\express\\lib\\application.js",
+      "function": null,
+      "line": 222,
+      "method": null,
+      "native": false
+    },
+    {
+      "column": null,
+      "file": null,
+      "function": "Array.forEach",
+      "line": null,
+      "method": "forEach",
+      "native": false
+    },
+    {
+      "column": 7,
+      "file": "C:\\Users\\zougz\\Desktop\\AFRIXA\\node_modules\\express\\lib\\application.js",
+      "function": "app.use",
+      "line": 219,
+      "method": "use",
+      "native": false
+    },
+    {
+      "column": 5,
+      "file": "C:\\Users\\zougz\\Desktop\\AFRIXA\\server.js",
+      "function": null,
+      "line": 326,
+      "method": null,
+      "native": false
+    },
+    {
+      "column": 14,
+      "file": "node:internal/modules/cjs/loader",
+      "function": "Module._compile",
+      "line": 1761,
+      "method": "_compile",
+      "native": false
+    },
+    {
+      "column": 10,
+      "file": "node:internal/modules/cjs/loader",
+      "function": "Object..js",
+      "line": 1893,
+      "method": ".js",
+      "native": false
+    },
+    {
+      "column": 32,
+      "file": "node:internal/modules/cjs/loader",
+      "function": "Module.load",
+      "line": 1481,
+      "method": "load",
+      "native": false
+    },
+    {
+      "column": 12,
+      "file": "node:internal/modules/cjs/loader",
+      "function": "Module._load",
+      "line": 1300,
+      "method": "_load",
+      "native": false
+    },
+    {
+      "column": 14,
+      "file": "node:diagnostics_channel",
+      "function": "TracingChannel.traceSync",
+      "line": 328,
+      "method": "traceSync",
+      "native": false
+    }
+  ]
+}
+2026-02-12 11:55:03 [ERROR] uncaughtException: argument handler must be a function
+TypeError: argument handler must be a function
+    at router.use (C:\Users\zougz\Desktop\AFRIXA\node_modules\router\index.js:392:13)
+    at app.<anonymous> (C:\Users\zougz\Desktop\AFRIXA\node_modules\express\lib\application.js:222:21)
+    at Array.forEach (<anonymous>)
+    at app.use (C:\Users\zougz\Desktop\AFRIXA\node_modules\express\lib\application.js:219:7)
+    at Object.<anonymous> (C:\Users\zougz\Desktop\AFRIXA\server.js:322:5)
+    at Module._compile (node:internal/modules/cjs/loader:1761:14)
+    at Object..js (node:internal/modules/cjs/loader:1893:10)
+    at Module.load (node:internal/modules/cjs/loader:1481:32)
+    at Module._load (node:internal/modules/cjs/loader:1300:12)
+    at TracingChannel.traceSync (node:diagnostics_channel:328:14)
+TypeError: argument handler must be a function
+    at router.use (C:\Users\zougz\Desktop\AFRIXA\node_modules\router\index.js:392:13)
+    at app.<anonymous> (C:\Users\zougz\Desktop\AFRIXA\node_modules\express\lib\application.js:222:21)
+    at Array.forEach (<anonymous>)
+    at app.use (C:\Users\zougz\Desktop\AFRIXA\node_modules\express\lib\application.js:219:7)
+    at Object.<anonymous> (C:\Users\zougz\Desktop\AFRIXA\server.js:322:5)
+    at Module._compile (node:internal/modules/cjs/loader:1761:14)
+    at Object..js (node:internal/modules/cjs/loader:1893:10)
+    at Module.load (node:internal/modules/cjs/loader:1481:32)
+    at Module._load (node:internal/modules/cjs/loader:1300:12)
+    at TracingChannel.traceSync (node:diagnostics_channel:328:14)
+{
+  "error": {},
+  "exception": true,
+  "date": "Thu Feb 12 2026 11:55:03 GMT+0200 (South Africa Standard Time)",
+  "process": {
+    "pid": 36876,
+    "uid": null,
+    "gid": null,
+    "cwd": "C:\\Users\\zougz\\Desktop\\AFRIXA",
+    "execPath": "C:\\Program Files\\nodejs\\node.exe",
+    "version": "v24.12.0",
+    "argv": [
+      "C:\\Program Files\\nodejs\\node.exe",
+      "C:\\Users\\zougz\\Desktop\\AFRIXA\\server.js"
+    ],
+    "memoryUsage": {
+      "rss": 119345152,
+      "heapTotal": 68022272,
+      "heapUsed": 48335504,
+      "external": 21933327,
+      "arrayBuffers": 18265407
+    }
+  },
+  "os": {
+    "loadavg": [
+      0,
+      0,
+      0
+    ],
+    "uptime": 425535.375
+  },
+  "trace": [
+    {
+      "column": 13,
+      "file": "C:\\Users\\zougz\\Desktop\\AFRIXA\\node_modules\\router\\index.js",
+      "function": "router.use",
+      "line": 392,
+      "method": "use",
+      "native": false
+    },
+    {
+      "column": 21,
+      "file": "C:\\Users\\zougz\\Desktop\\AFRIXA\\node_modules\\express\\lib\\application.js",
+      "function": null,
+      "line": 222,
+      "method": null,
+      "native": false
+    },
+    {
+      "column": null,
+      "file": null,
+      "function": "Array.forEach",
+      "line": null,
+      "method": "forEach",
+      "native": false
+    },
+    {
+      "column": 7,
+      "file": "C:\\Users\\zougz\\Desktop\\AFRIXA\\node_modules\\express\\lib\\application.js",
+      "function": "app.use",
+      "line": 219,
+      "method": "use",
+      "native": false
+    },
+    {
+      "column": 5,
+      "file": "C:\\Users\\zougz\\Desktop\\AFRIXA\\server.js",
+      "function": null,
+      "line": 322,
+      "method": null,
+      "native": false
+    },
+    {
+      "column": 14,
+      "file": "node:internal/modules/cjs/loader",
+      "function": "Module._compile",
+      "line": 1761,
+      "method": "_compile",
+      "native": false
+    },
+    {
+      "column": 10,
+      "file": "node:internal/modules/cjs/loader",
+      "function": "Object..js",
+      "line": 1893,
+      "method": ".js",
+      "native": false
+    },
+    {
+      "column": 32,
+      "file": "node:internal/modules/cjs/loader",
+      "function": "Module.load",
+      "line": 1481,
+      "method": "load",
+      "native": false
+    },
+    {
+      "column": 12,
+      "file": "node:internal/modules/cjs/loader",
+      "function": "Module._load",
+      "line": 1300,
+      "method": "_load",
+      "native": false
+    },
+    {
+      "column": 14,
+      "file": "node:diagnostics_channel",
+      "function": "TracingChannel.traceSync",
+      "line": 328,
+      "method": "traceSync",
+      "native": false
+    }
+  ]
+}
+2026-02-12 11:55:08 [ERROR] uncaughtException: argument handler must be a function
+TypeError: argument handler must be a function
+    at router.use (C:\Users\zougz\Desktop\AFRIXA\node_modules\router\index.js:392:13)
+    at app.<anonymous> (C:\Users\zougz\Desktop\AFRIXA\node_modules\express\lib\application.js:222:21)
+    at Array.forEach (<anonymous>)
+    at app.use (C:\Users\zougz\Desktop\AFRIXA\node_modules\express\lib\application.js:219:7)
+    at Object.<anonymous> (C:\Users\zougz\Desktop\AFRIXA\server.js:321:5)
+    at Module._compile (node:internal/modules/cjs/loader:1761:14)
+    at Object..js (node:internal/modules/cjs/loader:1893:10)
+    at Module.load (node:internal/modules/cjs/loader:1481:32)
+    at Module._load (node:internal/modules/cjs/loader:1300:12)
+    at TracingChannel.traceSync (node:diagnostics_channel:328:14)
+TypeError: argument handler must be a function
+    at router.use (C:\Users\zougz\Desktop\AFRIXA\node_modules\router\index.js:392:13)
+    at app.<anonymous> (C:\Users\zougz\Desktop\AFRIXA\node_modules\express\lib\application.js:222:21)
+    at Array.forEach (<anonymous>)
+    at app.use (C:\Users\zougz\Desktop\AFRIXA\node_modules\express\lib\application.js:219:7)
+    at Object.<anonymous> (C:\Users\zougz\Desktop\AFRIXA\server.js:321:5)
+    at Module._compile (node:internal/modules/cjs/loader:1761:14)
+    at Object..js (node:internal/modules/cjs/loader:1893:10)
+    at Module.load (node:internal/modules/cjs/loader:1481:32)
+    at Module._load (node:internal/modules/cjs/loader:1300:12)
+    at TracingChannel.traceSync (node:diagnostics_channel:328:14)
+{
+  "error": {},
+  "exception": true,
+  "date": "Thu Feb 12 2026 11:55:08 GMT+0200 (South Africa Standard Time)",
+  "process": {
+    "pid": 18532,
+    "uid": null,
+    "gid": null,
+    "cwd": "C:\\Users\\zougz\\Desktop\\AFRIXA",
+    "execPath": "C:\\Program Files\\nodejs\\node.exe",
+    "version": "v24.12.0",
+    "argv": [
+      "C:\\Program Files\\nodejs\\node.exe",
+      "C:\\Users\\zougz\\Desktop\\AFRIXA\\server.js"
+    ],
+    "memoryUsage": {
+      "rss": 120016896,
+      "heapTotal": 68284416,
+      "heapUsed": 47704368,
+      "external": 21933327,
+      "arrayBuffers": 18265407
+    }
+  },
+  "os": {
+    "loadavg": [
+      0,
+      0,
+      0
+    ],
+    "uptime": 425540.656
+  },
+  "trace": [
+    {
+      "column": 13,
+      "file": "C:\\Users\\zougz\\Desktop\\AFRIXA\\node_modules\\router\\index.js",
+      "function": "router.use",
+      "line": 392,
+      "method": "use",
+      "native": false
+    },
+    {
+      "column": 21,
+      "file": "C:\\Users\\zougz\\Desktop\\AFRIXA\\node_modules\\express\\lib\\application.js",
+      "function": null,
+      "line": 222,
+      "method": null,
+      "native": false
+    },
+    {
+      "column": null,
+      "file": null,
+      "function": "Array.forEach",
+      "line": null,
+      "method": "forEach",
+      "native": false
+    },
+    {
+      "column": 7,
+      "file": "C:\\Users\\zougz\\Desktop\\AFRIXA\\node_modules\\express\\lib\\application.js",
+      "function": "app.use",
+      "line": 219,
+      "method": "use",
+      "native": false
+    },
+    {
+      "column": 5,
+      "file": "C:\\Users\\zougz\\Desktop\\AFRIXA\\server.js",
+      "function": null,
+      "line": 321,
+      "method": null,
+      "native": false
+    },
+    {
+      "column": 14,
+      "file": "node:internal/modules/cjs/loader",
+      "function": "Module._compile",
+      "line": 1761,
+      "method": "_compile",
+      "native": false
+    },
+    {
+      "column": 10,
+      "file": "node:internal/modules/cjs/loader",
+      "function": "Object..js",
+      "line": 1893,
+      "method": ".js",
+      "native": false
+    },
+    {
+      "column": 32,
+      "file": "node:internal/modules/cjs/loader",
+      "function": "Module.load",
+      "line": 1481,
+      "method": "load",
+      "native": false
+    },
+    {
+      "column": 12,
+      "file": "node:internal/modules/cjs/loader",
+      "function": "Module._load",
+      "line": 1300,
+      "method": "_load",
+      "native": false
+    },
+    {
+      "column": 14,
+      "file": "node:diagnostics_channel",
+      "function": "TracingChannel.traceSync",
+      "line": 328,
+      "method": "traceSync",
+      "native": false
+    }
+  ]
+}
+2026-02-12 11:55:14 [ERROR] uncaughtException: argument handler must be a function
+TypeError: argument handler must be a function
+    at router.use (C:\Users\zougz\Desktop\AFRIXA\node_modules\router\index.js:392:13)
+    at app.<anonymous> (C:\Users\zougz\Desktop\AFRIXA\node_modules\express\lib\application.js:222:21)
+    at Array.forEach (<anonymous>)
+    at app.use (C:\Users\zougz\Desktop\AFRIXA\node_modules\express\lib\application.js:219:7)
+    at Object.<anonymous> (C:\Users\zougz\Desktop\AFRIXA\server.js:320:5)
+    at Module._compile (node:internal/modules/cjs/loader:1761:14)
+    at Object..js (node:internal/modules/cjs/loader:1893:10)
+    at Module.load (node:internal/modules/cjs/loader:1481:32)
+    at Module._load (node:internal/modules/cjs/loader:1300:12)
+    at TracingChannel.traceSync (node:diagnostics_channel:328:14)
+TypeError: argument handler must be a function
+    at router.use (C:\Users\zougz\Desktop\AFRIXA\node_modules\router\index.js:392:13)
+    at app.<anonymous> (C:\Users\zougz\Desktop\AFRIXA\node_modules\express\lib\application.js:222:21)
+    at Array.forEach (<anonymous>)
+    at app.use (C:\Users\zougz\Desktop\AFRIXA\node_modules\express\lib\application.js:219:7)
+    at Object.<anonymous> (C:\Users\zougz\Desktop\AFRIXA\server.js:320:5)
+    at Module._compile (node:internal/modules/cjs/loader:1761:14)
+    at Object..js (node:internal/modules/cjs/loader:1893:10)
+    at Module.load (node:internal/modules/cjs/loader:1481:32)
+    at Module._load (node:internal/modules/cjs/loader:1300:12)
+    at TracingChannel.traceSync (node:diagnostics_channel:328:14)
+{
+  "error": {},
+  "exception": true,
+  "date": "Thu Feb 12 2026 11:55:14 GMT+0200 (South Africa Standard Time)",
+  "process": {
+    "pid": 5128,
+    "uid": null,
+    "gid": null,
+    "cwd": "C:\\Users\\zougz\\Desktop\\AFRIXA",
+    "execPath": "C:\\Program Files\\nodejs\\node.exe",
+    "version": "v24.12.0",
+    "argv": [
+      "C:\\Program Files\\nodejs\\node.exe",
+      "C:\\Users\\zougz\\Desktop\\AFRIXA\\server.js"
+    ],
+    "memoryUsage": {
+      "rss": 119582720,
+      "heapTotal": 68022272,
+      "heapUsed": 48055552,
+      "external": 21933327,
+      "arrayBuffers": 18265407
+    }
+  },
+  "os": {
+    "loadavg": [
+      0,
+      0,
+      0
+    ],
+    "uptime": 425546.453
+  },
+  "trace": [
+    {
+      "column": 13,
+      "file": "C:\\Users\\zougz\\Desktop\\AFRIXA\\node_modules\\router\\index.js",
+      "function": "router.use",
+      "line": 392,
+      "method": "use",
+      "native": false
+    },
+    {
+      "column": 21,
+      "file": "C:\\Users\\zougz\\Desktop\\AFRIXA\\node_modules\\express\\lib\\application.js",
+      "function": null,
+      "line": 222,
+      "method": null,
+      "native": false
+    },
+    {
+      "column": null,
+      "file": null,
+      "function": "Array.forEach",
+      "line": null,
+      "method": "forEach",
+      "native": false
+    },
+    {
+      "column": 7,
+      "file": "C:\\Users\\zougz\\Desktop\\AFRIXA\\node_modules\\express\\lib\\application.js",
+      "function": "app.use",
+      "line": 219,
+      "method": "use",
+      "native": false
+    },
+    {
+      "column": 5,
+      "file": "C:\\Users\\zougz\\Desktop\\AFRIXA\\server.js",
+      "function": null,
+      "line": 320,
+      "method": null,
+      "native": false
+    },
+    {
+      "column": 14,
+      "file": "node:internal/modules/cjs/loader",
+      "function": "Module._compile",
+      "line": 1761,
+      "method": "_compile",
+      "native": false
+    },
+    {
+      "column": 10,
+      "file": "node:internal/modules/cjs/loader",
+      "function": "Object..js",
+      "line": 1893,
+      "method": ".js",
+      "native": false
+    },
+    {
+      "column": 32,
+      "file": "node:internal/modules/cjs/loader",
+      "function": "Module.load",
+      "line": 1481,
+      "method": "load",
+      "native": false
+    },
+    {
+      "column": 12,
+      "file": "node:internal/modules/cjs/loader",
+      "function": "Module._load",
+      "line": 1300,
+      "method": "_load",
+      "native": false
+    },
+    {
+      "column": 14,
+      "file": "node:diagnostics_channel",
+      "function": "TracingChannel.traceSync",
+      "line": 328,
+      "method": "traceSync",
+      "native": false
+    }
+  ]
+}
+2026-02-12 11:57:57 [ERROR] uncaughtException: argument handler must be a function
+TypeError: argument handler must be a function
+    at router.use (C:\Users\zougz\Desktop\AFRIXA\node_modules\router\index.js:392:13)
+    at app.<anonymous> (C:\Users\zougz\Desktop\AFRIXA\node_modules\express\lib\application.js:222:21)
+    at Array.forEach (<anonymous>)
+    at app.use (C:\Users\zougz\Desktop\AFRIXA\node_modules\express\lib\application.js:219:7)
+    at Object.<anonymous> (C:\Users\zougz\Desktop\AFRIXA\server.js:326:5)
+    at Module._compile (node:internal/modules/cjs/loader:1761:14)
+    at Object..js (node:internal/modules/cjs/loader:1893:10)
+    at Module.load (node:internal/modules/cjs/loader:1481:32)
+    at Module._load (node:internal/modules/cjs/loader:1300:12)
+    at TracingChannel.traceSync (node:diagnostics_channel:328:14)
+TypeError: argument handler must be a function
+    at router.use (C:\Users\zougz\Desktop\AFRIXA\node_modules\router\index.js:392:13)
+    at app.<anonymous> (C:\Users\zougz\Desktop\AFRIXA\node_modules\express\lib\application.js:222:21)
+    at Array.forEach (<anonymous>)
+    at app.use (C:\Users\zougz\Desktop\AFRIXA\node_modules\express\lib\application.js:219:7)
+    at Object.<anonymous> (C:\Users\zougz\Desktop\AFRIXA\server.js:326:5)
+    at Module._compile (node:internal/modules/cjs/loader:1761:14)
+    at Object..js (node:internal/modules/cjs/loader:1893:10)
+    at Module.load (node:internal/modules/cjs/loader:1481:32)
+    at Module._load (node:internal/modules/cjs/loader:1300:12)
+    at TracingChannel.traceSync (node:diagnostics_channel:328:14)
+{
+  "error": {},
+  "exception": true,
+  "date": "Thu Feb 12 2026 11:57:57 GMT+0200 (South Africa Standard Time)",
+  "process": {
+    "pid": 32540,
+    "uid": null,
+    "gid": null,
+    "cwd": "C:\\Users\\zougz\\Desktop\\AFRIXA",
+    "execPath": "C:\\Program Files\\nodejs\\node.exe",
+    "version": "v24.12.0",
+    "argv": [
+      "C:\\Program Files\\nodejs\\node.exe",
+      "C:\\Users\\zougz\\Desktop\\AFRIXA\\server.js"
+    ],
+    "memoryUsage": {
+      "rss": 120233984,
+      "heapTotal": 68022272,
+      "heapUsed": 47834144,
+      "external": 21933327,
+      "arrayBuffers": 18265407
+    }
+  },
+  "os": {
+    "loadavg": [
+      0,
+      0,
+      0
+    ],
+    "uptime": 425709.343
+  },
+  "trace": [
+    {
+      "column": 13,
+      "file": "C:\\Users\\zougz\\Desktop\\AFRIXA\\node_modules\\router\\index.js",
+      "function": "router.use",
+      "line": 392,
+      "method": "use",
+      "native": false
+    },
+    {
+      "column": 21,
+      "file": "C:\\Users\\zougz\\Desktop\\AFRIXA\\node_modules\\express\\lib\\application.js",
+      "function": null,
+      "line": 222,
+      "method": null,
+      "native": false
+    },
+    {
+      "column": null,
+      "file": null,
+      "function": "Array.forEach",
+      "line": null,
+      "method": "forEach",
+      "native": false
+    },
+    {
+      "column": 7,
+      "file": "C:\\Users\\zougz\\Desktop\\AFRIXA\\node_modules\\express\\lib\\application.js",
+      "function": "app.use",
+      "line": 219,
+      "method": "use",
+      "native": false
+    },
+    {
+      "column": 5,
+      "file": "C:\\Users\\zougz\\Desktop\\AFRIXA\\server.js",
+      "function": null,
+      "line": 326,
+      "method": null,
+      "native": false
+    },
+    {
+      "column": 14,
+      "file": "node:internal/modules/cjs/loader",
+      "function": "Module._compile",
+      "line": 1761,
+      "method": "_compile",
+      "native": false
+    },
+    {
+      "column": 10,
+      "file": "node:internal/modules/cjs/loader",
+      "function": "Object..js",
+      "line": 1893,
+      "method": ".js",
+      "native": false
+    },
+    {
+      "column": 32,
+      "file": "node:internal/modules/cjs/loader",
+      "function": "Module.load",
+      "line": 1481,
+      "method": "load",
+      "native": false
+    },
+    {
+      "column": 12,
+      "file": "node:internal/modules/cjs/loader",
+      "function": "Module._load",
+      "line": 1300,
+      "method": "_load",
+      "native": false
+    },
+    {
+      "column": 14,
+      "file": "node:diagnostics_channel",
+      "function": "TracingChannel.traceSync",
+      "line": 328,
+      "method": "traceSync",
+      "native": false
+    }
+  ]
+}
+2026-02-12 11:57:59 [ERROR] uncaughtException: argument handler must be a function
+TypeError: argument handler must be a function
+    at router.use (C:\Users\zougz\Desktop\AFRIXA\node_modules\router\index.js:392:13)
+    at app.<anonymous> (C:\Users\zougz\Desktop\AFRIXA\node_modules\express\lib\application.js:222:21)
+    at Array.forEach (<anonymous>)
+    at app.use (C:\Users\zougz\Desktop\AFRIXA\node_modules\express\lib\application.js:219:7)
+    at Object.<anonymous> (C:\Users\zougz\Desktop\AFRIXA\server.js:280:5)
+    at Module._compile (node:internal/modules/cjs/loader:1761:14)
+    at Object..js (node:internal/modules/cjs/loader:1893:10)
+    at Module.load (node:internal/modules/cjs/loader:1481:32)
+    at Module._load (node:internal/modules/cjs/loader:1300:12)
+    at TracingChannel.traceSync (node:diagnostics_channel:328:14)
+TypeError: argument handler must be a function
+    at router.use (C:\Users\zougz\Desktop\AFRIXA\node_modules\router\index.js:392:13)
+    at app.<anonymous> (C:\Users\zougz\Desktop\AFRIXA\node_modules\express\lib\application.js:222:21)
+    at Array.forEach (<anonymous>)
+    at app.use (C:\Users\zougz\Desktop\AFRIXA\node_modules\express\lib\application.js:219:7)
+    at Object.<anonymous> (C:\Users\zougz\Desktop\AFRIXA\server.js:280:5)
+    at Module._compile (node:internal/modules/cjs/loader:1761:14)
+    at Object..js (node:internal/modules/cjs/loader:1893:10)
+    at Module.load (node:internal/modules/cjs/loader:1481:32)
+    at Module._load (node:internal/modules/cjs/loader:1300:12)
+    at TracingChannel.traceSync (node:diagnostics_channel:328:14)
+{
+  "error": {},
+  "exception": true,
+  "date": "Thu Feb 12 2026 11:57:59 GMT+0200 (South Africa Standard Time)",
+  "process": {
+    "pid": 16480,
+    "uid": null,
+    "gid": null,
+    "cwd": "C:\\Users\\zougz\\Desktop\\AFRIXA",
+    "execPath": "C:\\Program Files\\nodejs\\node.exe",
+    "version": "v24.12.0",
+    "argv": [
+      "C:\\Program Files\\nodejs\\node.exe",
+      "C:\\Users\\zougz\\Desktop\\AFRIXA\\server.js"
+    ],
+    "memoryUsage": {
+      "rss": 119418880,
+      "heapTotal": 68022272,
+      "heapUsed": 48028736,
+      "external": 21933327,
+      "arrayBuffers": 18265407
+    }
+  },
+  "os": {
+    "loadavg": [
+      0,
+      0,
+      0
+    ],
+    "uptime": 425711.546
+  },
+  "trace": [
+    {
+      "column": 13,
+      "file": "C:\\Users\\zougz\\Desktop\\AFRIXA\\node_modules\\router\\index.js",
+      "function": "router.use",
+      "line": 392,
+      "method": "use",
+      "native": false
+    },
+    {
+      "column": 21,
+      "file": "C:\\Users\\zougz\\Desktop\\AFRIXA\\node_modules\\express\\lib\\application.js",
+      "function": null,
+      "line": 222,
+      "method": null,
+      "native": false
+    },
+    {
+      "column": null,
+      "file": null,
+      "function": "Array.forEach",
+      "line": null,
+      "method": "forEach",
+      "native": false
+    },
+    {
+      "column": 7,
+      "file": "C:\\Users\\zougz\\Desktop\\AFRIXA\\node_modules\\express\\lib\\application.js",
+      "function": "app.use",
+      "line": 219,
+      "method": "use",
+      "native": false
+    },
+    {
+      "column": 5,
+      "file": "C:\\Users\\zougz\\Desktop\\AFRIXA\\server.js",
+      "function": null,
+      "line": 280,
+      "method": null,
+      "native": false
+    },
+    {
+      "column": 14,
+      "file": "node:internal/modules/cjs/loader",
+      "function": "Module._compile",
+      "line": 1761,
+      "method": "_compile",
+      "native": false
+    },
+    {
+      "column": 10,
+      "file": "node:internal/modules/cjs/loader",
+      "function": "Object..js",
+      "line": 1893,
+      "method": ".js",
+      "native": false
+    },
+    {
+      "column": 32,
+      "file": "node:internal/modules/cjs/loader",
+      "function": "Module.load",
+      "line": 1481,
+      "method": "load",
+      "native": false
+    },
+    {
+      "column": 12,
+      "file": "node:internal/modules/cjs/loader",
+      "function": "Module._load",
+      "line": 1300,
+      "method": "_load",
+      "native": false
+    },
+    {
+      "column": 14,
+      "file": "node:diagnostics_channel",
+      "function": "TracingChannel.traceSync",
+      "line": 328,
+      "method": "traceSync",
+      "native": false
+    }
+  ]
+}
+2026-02-12 11:59:53 [ERROR] uncaughtException: argument handler must be a function
+TypeError: argument handler must be a function
+    at router.use (C:\Users\zougz\Desktop\AFRIXA\node_modules\router\index.js:392:13)
+    at app.<anonymous> (C:\Users\zougz\Desktop\AFRIXA\node_modules\express\lib\application.js:222:21)
+    at Array.forEach (<anonymous>)
+    at app.use (C:\Users\zougz\Desktop\AFRIXA\node_modules\express\lib\application.js:219:7)
+    at Object.<anonymous> (C:\Users\zougz\Desktop\AFRIXA\server.js:280:5)
+    at Module._compile (node:internal/modules/cjs/loader:1761:14)
+    at Object..js (node:internal/modules/cjs/loader:1893:10)
+    at Module.load (node:internal/modules/cjs/loader:1481:32)
+    at Module._load (node:internal/modules/cjs/loader:1300:12)
+    at TracingChannel.traceSync (node:diagnostics_channel:328:14)
+TypeError: argument handler must be a function
+    at router.use (C:\Users\zougz\Desktop\AFRIXA\node_modules\router\index.js:392:13)
+    at app.<anonymous> (C:\Users\zougz\Desktop\AFRIXA\node_modules\express\lib\application.js:222:21)
+    at Array.forEach (<anonymous>)
+    at app.use (C:\Users\zougz\Desktop\AFRIXA\node_modules\express\lib\application.js:219:7)
+    at Object.<anonymous> (C:\Users\zougz\Desktop\AFRIXA\server.js:280:5)
+    at Module._compile (node:internal/modules/cjs/loader:1761:14)
+    at Object..js (node:internal/modules/cjs/loader:1893:10)
+    at Module.load (node:internal/modules/cjs/loader:1481:32)
+    at Module._load (node:internal/modules/cjs/loader:1300:12)
+    at TracingChannel.traceSync (node:diagnostics_channel:328:14)
+{
+  "error": {},
+  "exception": true,
+  "date": "Thu Feb 12 2026 11:59:53 GMT+0200 (South Africa Standard Time)",
+  "process": {
+    "pid": 2124,
+    "uid": null,
+    "gid": null,
+    "cwd": "C:\\Users\\zougz\\Desktop\\AFRIXA",
+    "execPath": "C:\\Program Files\\nodejs\\node.exe",
+    "version": "v24.12.0",
+    "argv": [
+      "C:\\Program Files\\nodejs\\node.exe",
+      "C:\\Users\\zougz\\Desktop\\AFRIXA\\server.js"
+    ],
+    "memoryUsage": {
+      "rss": 119279616,
+      "heapTotal": 68022272,
+      "heapUsed": 48348432,
+      "external": 21933327,
+      "arrayBuffers": 18265407
+    }
+  },
+  "os": {
+    "loadavg": [
+      0,
+      0,
+      0
+    ],
+    "uptime": 425825
+  },
+  "trace": [
+    {
+      "column": 13,
+      "file": "C:\\Users\\zougz\\Desktop\\AFRIXA\\node_modules\\router\\index.js",
+      "function": "router.use",
+      "line": 392,
+      "method": "use",
+      "native": false
+    },
+    {
+      "column": 21,
+      "file": "C:\\Users\\zougz\\Desktop\\AFRIXA\\node_modules\\express\\lib\\application.js",
+      "function": null,
+      "line": 222,
+      "method": null,
+      "native": false
+    },
+    {
+      "column": null,
+      "file": null,
+      "function": "Array.forEach",
+      "line": null,
+      "method": "forEach",
+      "native": false
+    },
+    {
+      "column": 7,
+      "file": "C:\\Users\\zougz\\Desktop\\AFRIXA\\node_modules\\express\\lib\\application.js",
+      "function": "app.use",
+      "line": 219,
+      "method": "use",
+      "native": false
+    },
+    {
+      "column": 5,
+      "file": "C:\\Users\\zougz\\Desktop\\AFRIXA\\server.js",
+      "function": null,
+      "line": 280,
+      "method": null,
+      "native": false
+    },
+    {
+      "column": 14,
+      "file": "node:internal/modules/cjs/loader",
+      "function": "Module._compile",
+      "line": 1761,
+      "method": "_compile",
+      "native": false
+    },
+    {
+      "column": 10,
+      "file": "node:internal/modules/cjs/loader",
+      "function": "Object..js",
+      "line": 1893,
+      "method": ".js",
+      "native": false
+    },
+    {
+      "column": 32,
+      "file": "node:internal/modules/cjs/loader",
+      "function": "Module.load",
+      "line": 1481,
+      "method": "load",
+      "native": false
+    },
+    {
+      "column": 12,
+      "file": "node:internal/modules/cjs/loader",
+      "function": "Module._load",
+      "line": 1300,
+      "method": "_load",
+      "native": false
+    },
+    {
+      "column": 14,
+      "file": "node:diagnostics_channel",
+      "function": "TracingChannel.traceSync",
+      "line": 328,
+      "method": "traceSync",
+      "native": false
+    }
+  ]
+}
+2026-02-12 12:00:03 [ERROR] uncaughtException: argument handler must be a function
+TypeError: argument handler must be a function
+    at router.use (C:\Users\zougz\Desktop\AFRIXA\node_modules\router\index.js:392:13)
+    at app.<anonymous> (C:\Users\zougz\Desktop\AFRIXA\node_modules\express\lib\application.js:222:21)
+    at Array.forEach (<anonymous>)
+    at app.use (C:\Users\zougz\Desktop\AFRIXA\node_modules\express\lib\application.js:219:7)
+    at Object.<anonymous> (C:\Users\zougz\Desktop\AFRIXA\server.js:280:5)
+    at Module._compile (node:internal/modules/cjs/loader:1761:14)
+    at Object..js (node:internal/modules/cjs/loader:1893:10)
+    at Module.load (node:internal/modules/cjs/loader:1481:32)
+    at Module._load (node:internal/modules/cjs/loader:1300:12)
+    at TracingChannel.traceSync (node:diagnostics_channel:328:14)
+TypeError: argument handler must be a function
+    at router.use (C:\Users\zougz\Desktop\AFRIXA\node_modules\router\index.js:392:13)
+    at app.<anonymous> (C:\Users\zougz\Desktop\AFRIXA\node_modules\express\lib\application.js:222:21)
+    at Array.forEach (<anonymous>)
+    at app.use (C:\Users\zougz\Desktop\AFRIXA\node_modules\express\lib\application.js:219:7)
+    at Object.<anonymous> (C:\Users\zougz\Desktop\AFRIXA\server.js:280:5)
+    at Module._compile (node:internal/modules/cjs/loader:1761:14)
+    at Object..js (node:internal/modules/cjs/loader:1893:10)
+    at Module.load (node:internal/modules/cjs/loader:1481:32)
+    at Module._load (node:internal/modules/cjs/loader:1300:12)
+    at TracingChannel.traceSync (node:diagnostics_channel:328:14)
+{
+  "error": {},
+  "exception": true,
+  "date": "Thu Feb 12 2026 12:00:03 GMT+0200 (South Africa Standard Time)",
+  "process": {
+    "pid": 17668,
+    "uid": null,
+    "gid": null,
+    "cwd": "C:\\Users\\zougz\\Desktop\\AFRIXA",
+    "execPath": "C:\\Program Files\\nodejs\\node.exe",
+    "version": "v24.12.0",
+    "argv": [
+      "C:\\Program Files\\nodejs\\node.exe",
+      "C:\\Users\\zougz\\Desktop\\AFRIXA\\server.js"
+    ],
+    "memoryUsage": {
+      "rss": 119955456,
+      "heapTotal": 68284416,
+      "heapUsed": 47898872,
+      "external": 21933327,
+      "arrayBuffers": 18265407
+    }
+  },
+  "os": {
+    "loadavg": [
+      0,
+      0,
+      0
+    ],
+    "uptime": 425835.515
+  },
+  "trace": [
+    {
+      "column": 13,
+      "file": "C:\\Users\\zougz\\Desktop\\AFRIXA\\node_modules\\router\\index.js",
+      "function": "router.use",
+      "line": 392,
+      "method": "use",
+      "native": false
+    },
+    {
+      "column": 21,
+      "file": "C:\\Users\\zougz\\Desktop\\AFRIXA\\node_modules\\express\\lib\\application.js",
+      "function": null,
+      "line": 222,
+      "method": null,
+      "native": false
+    },
+    {
+      "column": null,
+      "file": null,
+      "function": "Array.forEach",
+      "line": null,
+      "method": "forEach",
+      "native": false
+    },
+    {
+      "column": 7,
+      "file": "C:\\Users\\zougz\\Desktop\\AFRIXA\\node_modules\\express\\lib\\application.js",
+      "function": "app.use",
+      "line": 219,
+      "method": "use",
+      "native": false
+    },
+    {
+      "column": 5,
+      "file": "C:\\Users\\zougz\\Desktop\\AFRIXA\\server.js",
+      "function": null,
+      "line": 280,
+      "method": null,
+      "native": false
+    },
+    {
+      "column": 14,
+      "file": "node:internal/modules/cjs/loader",
+      "function": "Module._compile",
+      "line": 1761,
+      "method": "_compile",
+      "native": false
+    },
+    {
+      "column": 10,
+      "file": "node:internal/modules/cjs/loader",
+      "function": "Object..js",
+      "line": 1893,
+      "method": ".js",
+      "native": false
+    },
+    {
+      "column": 32,
+      "file": "node:internal/modules/cjs/loader",
+      "function": "Module.load",
+      "line": 1481,
+      "method": "load",
+      "native": false
+    },
+    {
+      "column": 12,
+      "file": "node:internal/modules/cjs/loader",
+      "function": "Module._load",
+      "line": 1300,
+      "method": "_load",
+      "native": false
+    },
+    {
+      "column": 14,
+      "file": "node:diagnostics_channel",
+      "function": "TracingChannel.traceSync",
+      "line": 328,
+      "method": "traceSync",
+      "native": false
+    }
+  ]
+}
+2026-02-12 12:00:20 [ERROR] uncaughtException: argument handler must be a function
+TypeError: argument handler must be a function
+    at router.use (C:\Users\zougz\Desktop\AFRIXA\node_modules\router\index.js:392:13)
+    at app.<anonymous> (C:\Users\zougz\Desktop\AFRIXA\node_modules\express\lib\application.js:222:21)
+    at Array.forEach (<anonymous>)
+    at app.use (C:\Users\zougz\Desktop\AFRIXA\node_modules\express\lib\application.js:219:7)
+    at Object.<anonymous> (C:\Users\zougz\Desktop\AFRIXA\server.js:280:5)
+    at Module._compile (node:internal/modules/cjs/loader:1761:14)
+    at Object..js (node:internal/modules/cjs/loader:1893:10)
+    at Module.load (node:internal/modules/cjs/loader:1481:32)
+    at Module._load (node:internal/modules/cjs/loader:1300:12)
+    at TracingChannel.traceSync (node:diagnostics_channel:328:14)
+TypeError: argument handler must be a function
+    at router.use (C:\Users\zougz\Desktop\AFRIXA\node_modules\router\index.js:392:13)
+    at app.<anonymous> (C:\Users\zougz\Desktop\AFRIXA\node_modules\express\lib\application.js:222:21)
+    at Array.forEach (<anonymous>)
+    at app.use (C:\Users\zougz\Desktop\AFRIXA\node_modules\express\lib\application.js:219:7)
+    at Object.<anonymous> (C:\Users\zougz\Desktop\AFRIXA\server.js:280:5)
+    at Module._compile (node:internal/modules/cjs/loader:1761:14)
+    at Object..js (node:internal/modules/cjs/loader:1893:10)
+    at Module.load (node:internal/modules/cjs/loader:1481:32)
+    at Module._load (node:internal/modules/cjs/loader:1300:12)
+    at TracingChannel.traceSync (node:diagnostics_channel:328:14)
+{
+  "error": {},
+  "exception": true,
+  "date": "Thu Feb 12 2026 12:00:20 GMT+0200 (South Africa Standard Time)",
+  "process": {
+    "pid": 31412,
+    "uid": null,
+    "gid": null,
+    "cwd": "C:\\Users\\zougz\\Desktop\\AFRIXA",
+    "execPath": "C:\\Program Files\\nodejs\\node.exe",
+    "version": "v24.12.0",
+    "argv": [
+      "C:\\Program Files\\nodejs\\node.exe",
+      "C:\\Users\\zougz\\Desktop\\AFRIXA\\server.js"
+    ],
+    "memoryUsage": {
+      "rss": 120082432,
+      "heapTotal": 68284416,
+      "heapUsed": 47742848,
+      "external": 21933327,
+      "arrayBuffers": 18265407
+    }
+  },
+  "os": {
+    "loadavg": [
+      0,
+      0,
+      0
+    ],
+    "uptime": 425852.296
+  },
+  "trace": [
+    {
+      "column": 13,
+      "file": "C:\\Users\\zougz\\Desktop\\AFRIXA\\node_modules\\router\\index.js",
+      "function": "router.use",
+      "line": 392,
+      "method": "use",
+      "native": false
+    },
+    {
+      "column": 21,
+      "file": "C:\\Users\\zougz\\Desktop\\AFRIXA\\node_modules\\express\\lib\\application.js",
+      "function": null,
+      "line": 222,
+      "method": null,
+      "native": false
+    },
+    {
+      "column": null,
+      "file": null,
+      "function": "Array.forEach",
+      "line": null,
+      "method": "forEach",
+      "native": false
+    },
+    {
+      "column": 7,
+      "file": "C:\\Users\\zougz\\Desktop\\AFRIXA\\node_modules\\express\\lib\\application.js",
+      "function": "app.use",
+      "line": 219,
+      "method": "use",
+      "native": false
+    },
+    {
+      "column": 5,
+      "file": "C:\\Users\\zougz\\Desktop\\AFRIXA\\server.js",
+      "function": null,
+      "line": 280,
+      "method": null,
+      "native": false
+    },
+    {
+      "column": 14,
+      "file": "node:internal/modules/cjs/loader",
+      "function": "Module._compile",
+      "line": 1761,
+      "method": "_compile",
+      "native": false
+    },
+    {
+      "column": 10,
+      "file": "node:internal/modules/cjs/loader",
+      "function": "Object..js",
+      "line": 1893,
+      "method": ".js",
+      "native": false
+    },
+    {
+      "column": 32,
+      "file": "node:internal/modules/cjs/loader",
+      "function": "Module.load",
+      "line": 1481,
+      "method": "load",
+      "native": false
+    },
+    {
+      "column": 12,
+      "file": "node:internal/modules/cjs/loader",
+      "function": "Module._load",
+      "line": 1300,
+      "method": "_load",
+      "native": false
+    },
+    {
+      "column": 14,
+      "file": "node:diagnostics_channel",
+      "function": "TracingChannel.traceSync",
+      "line": 328,
+      "method": "traceSync",
+      "native": false
+    }
+  ]
+}
+2026-02-12 12:33:26 [ERROR] uncaughtException: Invalid or unexpected token
+C:\Users\zougz\Desktop\AFRIXA\Backend\Controllers\AuthenticationController.js:38
+    console.log('Files reçus);
+                ^^^^^^^^^^^^^^
+
+SyntaxError: Invalid or unexpected token
+    at wrapSafe (node:internal/modules/cjs/loader:1692:18)
+    at Module._compile (node:internal/modules/cjs/loader:1735:20)
+    at Object..js (node:internal/modules/cjs/loader:1893:10)
+    at Module.load (node:internal/modules/cjs/loader:1481:32)
+    at Module._load (node:internal/modules/cjs/loader:1300:12)
+    at TracingChannel.traceSync (node:diagnostics_channel:328:14)
+    at wrapModuleLoad (node:internal/modules/cjs/loader:245:24)
+    at Module.require (node:internal/modules/cjs/loader:1504:12)
+    at require (node:internal/modules/helpers:152:16)
+    at Object.<anonymous> (C:\Users\zougz\Desktop\AFRIXA\Backend\Routes\authenticationRoute.js:12:5)
+C:\Users\zougz\Desktop\AFRIXA\Backend\Controllers\AuthenticationController.js:38
+    console.log('Files reçus);
+                ^^^^^^^^^^^^^^
+
+SyntaxError: Invalid or unexpected token
+    at wrapSafe (node:internal/modules/cjs/loader:1692:18)
+    at Module._compile (node:internal/modules/cjs/loader:1735:20)
+    at Object..js (node:internal/modules/cjs/loader:1893:10)
+    at Module.load (node:internal/modules/cjs/loader:1481:32)
+    at Module._load (node:internal/modules/cjs/loader:1300:12)
+    at TracingChannel.traceSync (node:diagnostics_channel:328:14)
+    at wrapModuleLoad (node:internal/modules/cjs/loader:245:24)
+    at Module.require (node:internal/modules/cjs/loader:1504:12)
+    at require (node:internal/modules/helpers:152:16)
+    at Object.<anonymous> (C:\Users\zougz\Desktop\AFRIXA\Backend\Routes\authenticationRoute.js:12:5)
+{
+  "error": {},
+  "exception": true,
+  "date": "Thu Feb 12 2026 12:33:26 GMT+0200 (South Africa Standard Time)",
+  "process": {
+    "pid": 3612,
+    "uid": null,
+    "gid": null,
+    "cwd": "C:\\Users\\zougz\\Desktop\\AFRIXA",
+    "execPath": "C:\\Program Files\\nodejs\\node.exe",
+    "version": "v24.12.0",
+    "argv": [
+      "C:\\Program Files\\nodejs\\node.exe",
+      "C:\\Users\\zougz\\Desktop\\AFRIXA\\server.js"
+    ],
+    "memoryUsage": {
+      "rss": 80211968,
+      "heapTotal": 35086336,
+      "heapUsed": 25049048,
+      "external": 21188302,
+      "arrayBuffers": 18264735
+    }
+  },
+  "os": {
+    "loadavg": [
+      0,
+      0,
+      0
+    ],
+    "uptime": 427838.046
+  },
+  "trace": [
+    {
+      "column": 18,
+      "file": "node:internal/modules/cjs/loader",
+      "function": "wrapSafe",
+      "line": 1692,
+      "method": null,
+      "native": false
+    },
+    {
+      "column": 20,
+      "file": "node:internal/modules/cjs/loader",
+      "function": "Module._compile",
+      "line": 1735,
+      "method": "_compile",
+      "native": false
+    },
+    {
+      "column": 10,
+      "file": "node:internal/modules/cjs/loader",
+      "function": "Object..js",
+      "line": 1893,
+      "method": ".js",
+      "native": false
+    },
+    {
+      "column": 32,
+      "file": "node:internal/modules/cjs/loader",
+      "function": "Module.load",
+      "line": 1481,
+      "method": "load",
+      "native": false
+    },
+    {
+      "column": 12,
+      "file": "node:internal/modules/cjs/loader",
+      "function": "Module._load",
+      "line": 1300,
+      "method": "_load",
+      "native": false
+    },
+    {
+      "column": 14,
+      "file": "node:diagnostics_channel",
+      "function": "TracingChannel.traceSync",
+      "line": 328,
+      "method": "traceSync",
+      "native": false
+    },
+    {
+      "column": 24,
+      "file": "node:internal/modules/cjs/loader",
+      "function": "wrapModuleLoad",
+      "line": 245,
+      "method": null,
+      "native": false
+    },
+    {
+      "column": 12,
+      "file": "node:internal/modules/cjs/loader",
+      "function": "Module.require",
+      "line": 1504,
+      "method": "require",
+      "native": false
+    },
+    {
+      "column": 16,
+      "file": "node:internal/modules/helpers",
+      "function": "require",
+      "line": 152,
+      "method": null,
+      "native": false
+    },
+    {
+      "column": 5,
+      "file": "C:\\Users\\zougz\\Desktop\\AFRIXA\\Backend\\Routes\\authenticationRoute.js",
+      "function": null,
+      "line": 12,
+      "method": null,
+      "native": false
+    }
+  ]
+}
+2026-02-12 12:33:30 [ERROR] uncaughtException: Invalid or unexpected token
+C:\Users\zougz\Desktop\AFRIXA\Backend\Controllers\AuthenticationController.js:37
+    console.log('Body reçu:);
+                ^^^^^^^^^^^^^
+
+SyntaxError: Invalid or unexpected token
+    at wrapSafe (node:internal/modules/cjs/loader:1692:18)
+    at Module._compile (node:internal/modules/cjs/loader:1735:20)
+    at Object..js (node:internal/modules/cjs/loader:1893:10)
+    at Module.load (node:internal/modules/cjs/loader:1481:32)
+    at Module._load (node:internal/modules/cjs/loader:1300:12)
+    at TracingChannel.traceSync (node:diagnostics_channel:328:14)
+    at wrapModuleLoad (node:internal/modules/cjs/loader:245:24)
+    at Module.require (node:internal/modules/cjs/loader:1504:12)
+    at require (node:internal/modules/helpers:152:16)
+    at Object.<anonymous> (C:\Users\zougz\Desktop\AFRIXA\Backend\Routes\authenticationRoute.js:12:5)
+C:\Users\zougz\Desktop\AFRIXA\Backend\Controllers\AuthenticationController.js:37
+    console.log('Body reçu:);
+                ^^^^^^^^^^^^^
+
+SyntaxError: Invalid or unexpected token
+    at wrapSafe (node:internal/modules/cjs/loader:1692:18)
+    at Module._compile (node:internal/modules/cjs/loader:1735:20)
+    at Object..js (node:internal/modules/cjs/loader:1893:10)
+    at Module.load (node:internal/modules/cjs/loader:1481:32)
+    at Module._load (node:internal/modules/cjs/loader:1300:12)
+    at TracingChannel.traceSync (node:diagnostics_channel:328:14)
+    at wrapModuleLoad (node:internal/modules/cjs/loader:245:24)
+    at Module.require (node:internal/modules/cjs/loader:1504:12)
+    at require (node:internal/modules/helpers:152:16)
+    at Object.<anonymous> (C:\Users\zougz\Desktop\AFRIXA\Backend\Routes\authenticationRoute.js:12:5)
+{
+  "error": {},
+  "exception": true,
+  "date": "Thu Feb 12 2026 12:33:30 GMT+0200 (South Africa Standard Time)",
+  "process": {
+    "pid": 24636,
+    "uid": null,
+    "gid": null,
+    "cwd": "C:\\Users\\zougz\\Desktop\\AFRIXA",
+    "execPath": "C:\\Program Files\\nodejs\\node.exe",
+    "version": "v24.12.0",
+    "argv": [
+      "C:\\Program Files\\nodejs\\node.exe",
+      "C:\\Users\\zougz\\Desktop\\AFRIXA\\server.js"
+    ],
+    "memoryUsage": {
+      "rss": 79687680,
+      "heapTotal": 35086336,
+      "heapUsed": 24903608,
+      "external": 21188302,
+      "arrayBuffers": 18264735
+    }
+  },
+  "os": {
+    "loadavg": [
+      0,
+      0,
+      0
+    ],
+    "uptime": 427842.531
+  },
+  "trace": [
+    {
+      "column": 18,
+      "file": "node:internal/modules/cjs/loader",
+      "function": "wrapSafe",
+      "line": 1692,
+      "method": null,
+      "native": false
+    },
+    {
+      "column": 20,
+      "file": "node:internal/modules/cjs/loader",
+      "function": "Module._compile",
+      "line": 1735,
+      "method": "_compile",
+      "native": false
+    },
+    {
+      "column": 10,
+      "file": "node:internal/modules/cjs/loader",
+      "function": "Object..js",
+      "line": 1893,
+      "method": ".js",
+      "native": false
+    },
+    {
+      "column": 32,
+      "file": "node:internal/modules/cjs/loader",
+      "function": "Module.load",
+      "line": 1481,
+      "method": "load",
+      "native": false
+    },
+    {
+      "column": 12,
+      "file": "node:internal/modules/cjs/loader",
+      "function": "Module._load",
+      "line": 1300,
+      "method": "_load",
+      "native": false
+    },
+    {
+      "column": 14,
+      "file": "node:diagnostics_channel",
+      "function": "TracingChannel.traceSync",
+      "line": 328,
+      "method": "traceSync",
+      "native": false
+    },
+    {
+      "column": 24,
+      "file": "node:internal/modules/cjs/loader",
+      "function": "wrapModuleLoad",
+      "line": 245,
+      "method": null,
+      "native": false
+    },
+    {
+      "column": 12,
+      "file": "node:internal/modules/cjs/loader",
+      "function": "Module.require",
+      "line": 1504,
+      "method": "require",
+      "native": false
+    },
+    {
+      "column": 16,
+      "file": "node:internal/modules/helpers",
+      "function": "require",
+      "line": 152,
+      "method": null,
+      "native": false
+    },
+    {
+      "column": 5,
+      "file": "C:\\Users\\zougz\\Desktop\\AFRIXA\\Backend\\Routes\\authenticationRoute.js",
+      "function": null,
+      "line": 12,
+      "method": null,
+      "native": false
+    }
+  ]
+}

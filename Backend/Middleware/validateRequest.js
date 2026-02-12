@@ -12,7 +12,6 @@ const validateRequest = (schema) => {
       const result = schema.safeParse(dataToValidate);
       
       if (!result.success) {
-        // Vérifier si errors existe avant d'utiliser map
         if (result.error && result.error.errors && Array.isArray(result.error.errors)) {
           const errors = result.error.errors.map(err => ({
             field: err.path.join('.'),
@@ -25,7 +24,6 @@ const validateRequest = (schema) => {
             errors
           });
         } else {
-          // Si errors n'est pas disponible, retourner un message générique
           return res.status(400).json({
             success: false,
             message: 'Validation échouée',

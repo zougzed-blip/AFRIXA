@@ -27,6 +27,7 @@ async function handleAgenceSubmit(e) {
 
     const formData = {
         fullName: escapeHtml(document.getElementById('as-nom').value),
+        receveur: escapeHtml(document.getElementById('as-receveur').value),
         email: escapeHtml(document.getElementById('as-email').value),
         telephone: escapeHtml(document.getElementById('as-telephone').value),
         typeColis: escapeHtml(document.getElementById('as-typeColis').value),

@@ -117,7 +117,7 @@ exports.createDemandeAgence = [
   async (req, res) => {
     try {
       const {
-        fullName, email, telephone,
+        fullName, email, telephone,receveur,
         destination,
         typeColis, poidOuTaille,
         description
@@ -171,6 +171,7 @@ exports.createDemandeAgence = [
         fullName,
         email,
         telephone,
+        receveur,
         user: userId,
         agence: agence._id,
         destination: tarifTrouve.destination,
@@ -201,6 +202,7 @@ exports.createDemandeAgence = [
           _id: newDemande._id,
           codeColis: newDemande.codeColis,
           fullName: newDemande.fullName,
+          receveur: newDemande.receveur,
           destination: newDemande.destination,
           prix: newDemande.prix,
           delai: newDemande.delai,
@@ -251,6 +253,7 @@ exports.getAllClientRequests = async (req, res) => {
                 prix: request.prix || 0,
                 fullName: request.fullName,
                 email: request.email,
+                receveur: request.receveur,
                 telephone: request.telephone,
                 destination: request.destination,
                 typeColis: request.typeColis,
@@ -311,6 +314,7 @@ exports.getAllClientHistory = async (req, res) => {
                 rating: request.rating || null,
                 fullName: request.fullName,
                 email: request.email,
+                receveur: request.receveur,
                 telephone: request.telephone,
                 destination: request.destination,
                 typeColis: request.typeColis,

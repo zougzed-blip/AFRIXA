@@ -12,12 +12,6 @@ const {
 } = require('../Controllers/AuthenticationController');
 router.post(
   '/register',
-  upload.fields([
-    { name: 'clientPhoto', maxCount: 1 },
-    { name: 'petitLogo', maxCount: 1 },
-    { name: 'grandLogo', maxCount: 1 },
-    { name: 'agenceLogo', maxCount: 1 }
-  ]),
   register
 )
 router.post('/login', login);

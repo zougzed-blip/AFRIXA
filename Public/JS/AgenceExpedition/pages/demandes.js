@@ -68,6 +68,10 @@ async function viewDemandeDetails(demandeId) {
                                 <label>Téléphone:</label>
                                 <span>${escapeHtml(demande.telephone || 'N/A')}</span>
                             </div>
+                            <div class="detail-item">
+                              <label>Receveur:</label>
+                          <span>${escapeHtml(demande.receveur || 'N/A')}</span>
+                          </div>
                         </div>
                     </div>
                     

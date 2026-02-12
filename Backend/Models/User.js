@@ -32,7 +32,7 @@ const userSchema = new mongoose.Schema(
       type: String, 
       required: true, 
       unique: true,
-      lowercase: true, // ← AJOUT IMPORTANT
+      lowercase: true, 
       trim: true 
     },
     
@@ -91,19 +91,12 @@ const userSchema = new mongoose.Schema(
   }
 )
 
-// SUPPRIME cette ligne car email a déjà unique: true
-// userSchema.index({ email: 1 }) ← SUPPRIME
-
-// Index pour les recherches par rôle (optionnel mais utile)
 userSchema.index({ role: 1, isVerified: 1 });
 
-// Index pour les tokens de reset (bien)
 userSchema.index({ resetPasswordToken: 1 }, { 
   sparse: true,
   unique: false 
 });
-
-// Index pour recherche d'agences (si besoin)
 userSchema.index({ "agence.agenceName": "text", "agence.pays": 1 });
 
 // ==================== VIRTUELS/METHODS UTILES ====================
@@ -129,12 +122,11 @@ userSchema.virtual('phoneNumber').get(function() {
 
 // ==================== MIDDLEWARE ====================
 userSchema.pre('save', function(next) {
-  // Normaliser l'email avant sauvegarde
+
   if (this.email) {
     this.email = this.email.toLowerCase().trim();
   }
   
-  // Mettre à jour lastLogin si besoin
   if (this.isModified('lastLogin')) {
     this.lastLogin = new Date();
   }

@@ -619,3 +619,73 @@
   },
   "userId": null
 }
+2026-02-12 10:09:20 [ERROR] ERROR DemandeAgenceV2 validation failed: receveur: Path `receveur` is required.
+{
+  "context": {
+    "context": "createDemandeAgence",
+    "userId": "6946d19b5ceea999b8715c14"
+  },
+  "userId": null
+}
+2026-02-12 10:12:07 [ERROR] ERROR receveur is not defined
+{
+  "context": {
+    "context": "createDemandeAgence",
+    "userId": "6946d19b5ceea999b8715c14"
+  },
+  "userId": null
+}
+2026-02-12 11:11:02 [ERROR] ERROR Unexpected end of form
+{
+  "context": {
+    "context": "server_error",
+    "ip": "::1",
+    "url": "/api/auth/register"
+  },
+  "userId": null
+}
+2026-02-12 11:19:28 [ERROR] ERROR Unexpected end of form
+{
+  "context": {
+    "context": "server_error",
+    "ip": "::1",
+    "url": "/api/auth/register"
+  },
+  "userId": null
+}
+2026-02-12 11:24:53 [ERROR] ERROR Unexpected end of form
+{
+  "context": {
+    "context": "server_error",
+    "ip": "::1",
+    "url": "/api/auth/register"
+  },
+  "userId": null
+}
+2026-02-12 11:35:53 [ERROR] ERROR Unexpected end of form
+{
+  "context": {
+    "context": "server_error",
+    "ip": "::1",
+    "url": "/api/auth/register"
+  },
+  "userId": null
+}
+2026-02-12 11:36:42 [ERROR] ERROR Unexpected end of form
+{
+  "context": {
+    "context": "server_error",
+    "ip": "::1",
+    "url": "/api/auth/register"
+  },
+  "userId": null
+}
+2026-02-12 11:37:31 [ERROR] ERROR Unexpected end of form
+{
+  "context": {
+    "context": "server_error",
+    "ip": "::1",
+    "url": "/api/auth/register"
+  },
+  "userId": null
+}

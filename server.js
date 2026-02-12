@@ -254,6 +254,8 @@ const csrfExcludedPaths = [
   '/api/auth/login',
   '/api/auth/register',
   '/api/auth/refresh',
+  '/api/auth/forgot-password', 
+  '/api/auth/reset-password',
   '/api/csrf-token'
 ];
 
@@ -380,7 +382,7 @@ const port = process.env.PORT || 3000;
 
 app.listen(port, () => {
   console.log(` Serveur lancé sur le port ${port}`);
-  console.log(` Environnement: ${process.env.NODE_ENV || 'development'}`);
+  console.log(` Environnement: ${process.env.NODE_ENV || 'production'}`);
   console.log(` CORS activé pour: ${process.env.FRONTEND_URL || 'http://localhost:3000'}`);
   console.log(` CSRF Protection: Activée`);
   console.log(` Sanitization: Activée`);

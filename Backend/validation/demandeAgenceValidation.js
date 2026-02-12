@@ -55,106 +55,6 @@ const acceptRejectOfferSchema = z.object({
   })
 });
 
-// ==================== GRAND TRANSPORT REQUEST VALIDATION ====================
-const createGrandTransportRequestSchema = z.object({
-  body: z.object({
-    nom: z.string()
-      .min(2, { message: "Le nom doit contenir au moins 2 caractères" })
-      .max(100, { message: "Le nom est trop long" }),
-    
-    email: z.string()
-      .email({ message: "Format d'email invalide" }),
-    
-    telephone: phoneSchema,
-    
-    ville: z.string()
-      .min(2, { message: "La ville doit contenir au moins 2 caractères" })
-      .max(50, { message: "La ville est trop longue" }),
-    
-    commune: z.string()
-      .min(2, { message: "La commune doit contenir au moins 2 caractères" })
-      .max(50, { message: "La commune est trop longue" }),
-    
-    adress: z.string()
-      .min(5, { message: "L'adresse doit contenir au moins 5 caractères" })
-      .max(200, { message: "L'adresse est trop longue" }),
-    
-    villeDepart: z.string()
-      .min(2, { message: "La ville de départ doit contenir au moins 2 caractères" })
-      .max(50, { message: "La ville de départ est trop longue" }),
-    
-    villeArrivee: z.string()
-      .min(2, { message: "La ville d'arrivée doit contenir au moins 2 caractères" })
-      .max(50, { message: "La ville d'arrivée est trop longue" }),
-    
-    poidsVolume: z.string()
-      .min(1, { message: "Le poids/volume est requis" })
-      .max(50, { message: "Le poids/volume est trop long" }),
-    
-    typeMarchandise: z.string()
-      .min(2, { message: "Le type de marchandise doit contenir au moins 2 caractères" })
-      .max(50, { message: "Le type de marchandise est trop long" }),
-    
-    typeCamion: z.string()
-      .min(2, { message: "Le type de camion doit contenir au moins 2 caractères" })
-      .max(50, { message: "Le type de camion est trop long" }),
-    
-    description: z.string()
-      .max(500, { message: "La description ne peut pas dépasser 500 caractères" })
-      .optional()
-  })
-});
-
-// ==================== PETIT TRANSPORT REQUEST VALIDATION ====================
-const createPetitTransportRequestSchema = z.object({
-  body: z.object({
-    fullName: z.string()
-      .min(2, { message: "Le nom complet doit contenir au moins 2 caractères" })
-      .max(100, { message: "Le nom complet est trop long" }),
-    
-    email: z.string()
-      .email({ message: "Format d'email invalide" }),
-    
-    telephone: phoneSchema,
-    
-    country: z.string()
-      .min(2, { message: "Le pays doit contenir au moins 2 caractères" })
-      .max(50, { message: "Le pays est trop long" })
-      .default("RDC"),
-    
-    communedeDepart: z.string()
-      .min(2, { message: "La commune de départ doit contenir au moins 2 caractères" })
-      .max(50, { message: "La commune de départ est trop longue" }),
-    
-    communeArrivee: z.string()
-      .min(2, { message: "La commune d'arrivée doit contenir au moins 2 caractères" })
-      .max(50, { message: "La commune d'arrivée est trop longue" }),
-    
-    adressdeDepart: z.string()
-      .min(5, { message: "L'adresse de départ doit contenir au moins 5 caractères" })
-      .max(200, { message: "L'adresse de départ est trop longue" }),
-    
-    adressArrivee: z.string()
-      .min(5, { message: "L'adresse d'arrivée doit contenir au moins 5 caractères" })
-      .max(200, { message: "L'adresse d'arrivée est trop longue" }),
-    
-    typeColis: z.string()
-      .min(2, { message: "Le type de colis doit contenir au moins 2 caractères" })
-      .max(50, { message: "Le type de colis est trop long" }),
-    
-    poidOuTaille: z.string()
-      .min(1, { message: "Le poids/taille est requis" })
-      .max(50, { message: "Le poids/taille est trop long" }),
-    
-    urgent: z.enum(['oui', 'non', 'true', 'false'])
-      .transform(val => val === 'oui' || val === 'true')
-      .default('non'),
-    
-    description: z.string()
-      .max(500, { message: "La description ne peut pas dépasser 500 caractères" })
-      .optional()
-  })
-});
 
 // ==================== AGENCE REQUEST VALIDATION ====================
 const createDemandeAgenceSchema = z.object({
@@ -162,6 +62,10 @@ const createDemandeAgenceSchema = z.object({
     fullName: z.string()
       .min(2, { message: "Le nom complet doit contenir au moins 2 caractères" })
       .max(100, { message: "Le nom complet est trop long" }),
+
+    receveur: z.string()
+      .min(2, { message: "Le nom complet doit contenir au moins 2 caractères" })
+      .max(100, { message: "Le nom complet est trop long" }),  
     
     email: z.string()
       .email({ message: "Format d'email invalide" }),
@@ -227,11 +131,6 @@ const getAgenceRequestByIdSchema = z.object({
   })
 });
 
-const getPetitTransportRequestByIdSchema = z.object({
-  params: z.object({
-    id: objectIdSchema
-  })
-});
 
 const checkForUpdatesSchema = z.object({
   query: z.object({
@@ -264,28 +163,21 @@ const paginationQuerySchema = z.object({
 });
 
 module.exports = {
-  // Profile
+
   updateProfileSchema,
   
-  // Requests
   getRequestDetailsSchema,
   getOffersByRequestSchema,
-  createGrandTransportRequestSchema,
-  createPetitTransportRequestSchema,
   createDemandeAgenceSchema,
   
-  // Offers
   acceptRejectOfferSchema,
   
-  // Ratings
   rateRequestSchema,
   rateAgenceRequestSchema,
   ratePetitTransportRequestSchema,
   
-  // Queries
   getRequestByIdSchema,
   getAgenceRequestByIdSchema,
-  getPetitTransportRequestByIdSchema,
   checkForUpdatesSchema,
   getAgenceUpdatesSchema,
   paginationQuerySchema

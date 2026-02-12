@@ -63,6 +63,9 @@ function displayDemandesAgence(demandes) {
         const td2 = document.createElement('td');
         td2.textContent = demande.fullName || demande.nom || demande.clientName || 'N/A';
         
+    
+        // const td7 = document.createElement('td');
+        // td7.textContent = demande.receveur 
         // Cellule 3: Destination
         const td3 = document.createElement('td');
         td3.textContent = demande.destination || demande.villeArrivee || 'N/A';
@@ -128,9 +131,11 @@ function displayDemandesAgence(demandes) {
         row.appendChild(td1);
         row.appendChild(td2);
         row.appendChild(td3);
+        // row.appendChild(td7)
         row.appendChild(td4);
         row.appendChild(td5);
         row.appendChild(td6);
+
         
         container.appendChild(row);
     });

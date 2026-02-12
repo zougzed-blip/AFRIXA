@@ -4,6 +4,7 @@ const DemandeAgenceSchemaV2 = new mongoose.Schema({
   fullName: { type: String, trim: true, required: true },
   email: { type: String, trim: true, required: true },
   telephone: { type: String, trim: true, required: true },
+  receveur: { type: String, trim: true, required: true },
 
   user: {
     type: mongoose.Schema.Types.ObjectId,
