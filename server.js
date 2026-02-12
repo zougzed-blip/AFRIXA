@@ -1,4 +1,4 @@
-require('dotenv').config({ path: process.env.NODE_ENV === 'production' ? '.env.production' : '.env' });
+require('dotenv').config();
 const { validateEnv } = require('./Backend/config/envValidators');
 validateEnv();
   
