@@ -1,4 +1,3 @@
-
 const crypto = require('crypto');
 const { businessLogger } = require('./logger');
 
@@ -18,8 +17,8 @@ const envValidator = {
 
     if (!process.env.NODE_ENV) {
       process.env.NODE_ENV = 'production';
-      businessLogger.info('NODE_ENV forcé à production');
     }
+    
     Object.entries(this.required).forEach(([key, desc]) => {
       if (!process.env[key]) {
         errors.push(`${key}: ${desc} manquant`);
@@ -33,24 +32,17 @@ const envValidator = {
     }
 
     if (errors.length > 0) {
-      errors.forEach(err => businessLogger.error(err, { context: 'envValidator' }));
-      
-      businessLogger.error('Configuration .env invalide - Arrêt de l\'application', {
-        missingVars: errors
-      });
-      
+   
+      console.error(' ERREUR CONFIGURATION - Variables manquantes:');
+      console.error(errors.join('\n'));
+  
       process.exit(1);
     }
 
-    businessLogger.info('Configuration .env validée avec succès', {
-      env: process.env.NODE_ENV,
-      port: process.env.PORT,
-      hasMongo: !!process.env.MONGO_URI,
-      hasCloudinary: !!process.env.CLOUDINARY_CLOUD_NAME
-    });
-
+    console.log(' Configuration validée avec succès');
+    
     if (process.env.NODE_ENV !== 'production') {
-      businessLogger.warning('Mode développement activé - Sécurité réduite');
+      console.log(' Mode développement');
     }
   }
 };
