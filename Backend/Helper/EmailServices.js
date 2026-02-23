@@ -1,36 +1,32 @@
-const nodemailer = require('nodemailer')
+const nodemailer = require('nodemailer');
 
 const transporter = nodemailer.createTransport({
-    service : 'gmail',
-    auth:{
-        user : process.env.EMAIL_USER,
-        pass : process.env.EMAIL_PASS
-    },
-    tls: {
-        rejectUnauthorized: false
+    host: "smtp-relay.brevo.com", 
+    port: 587,
+    secure: false, 
+    auth: {
+        user: "apikey", 
+        pass: process.env.BREVO_API_KEY
     }
-})
+});
 
-
-const sendEmail =  async({to, subject, text, html})=>{
-    try{
+const sendEmail = async ({ to, subject, text, html }) => {
+    try {
         const info = await transporter.sendMail({
-            from : process.env.EMAIL_USER,
+            from: process.env.BREVO_EMAIL_USER,
             to,
             subject,
             text: text || undefined,
             html: html || undefined
-        })
+        });
 
-        console.log("Email envoyé: ",  info.response)
-        return {success: true, info}
+        console.log("Email envoyé: ", info.response);
+        return { success: true, info };
 
-    }catch(error){
-        console.error("Erreur lors de l'envoi de l'email: ", error)
-        return {success: false, error}
+    } catch (error) {
+        console.error("Erreur lors de l'envoi de l'email: ", error);
+        return { success: false, error };
     }
-}
+};
 
-module.exports = {
-    sendEmail
-}
+module.exports = { sendEmail };
