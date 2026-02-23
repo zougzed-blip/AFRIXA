@@ -1,30 +1,28 @@
-const nodemailer = require('nodemailer');
+const Brevo = require('@getbrevo/brevo');
 
-const transporter = nodemailer.createTransport({
-    host: "smtp-relay.brevo.com", 
-    port: 587,
-    secure: false, 
-    auth: {
-        user: "a3180f001@smtp-brevo.com", 
-        pass: process.env.BREVO_API_KEY
-    }
-});
+const apiInstance = new Brevo.TransactionalEmailsApi();
+apiInstance.setApiKey(
+    Brevo.TransactionalEmailsApiApiKeys.apiKey, 
+    process.env.BREVO_API_KEY
+);
 
 const sendEmail = async ({ to, subject, text, html }) => {
     try {
-        const info = await transporter.sendMail({
-            from: process.env.BREVO_EMAIL_USER,
-            to,
-            subject,
-            text: text || undefined,
-            html: html || undefined
-        });
+        const sendSmtpEmail = new Brevo.SendSmtpEmail();
+        sendSmtpEmail.sender = { 
+            email: process.env.BREVO_EMAIL_USER, 
+            name: "Afrixa" 
+        };
+        sendSmtpEmail.to = [{ email: to }];
+        sendSmtpEmail.subject = subject;
+        sendSmtpEmail.htmlContent = html || `<p>${text}</p>`;
+        sendSmtpEmail.textContent = text;
 
-        console.log("Email envoyé: ", info.response);
-        return { success: true, info };
-
+        const result = await apiInstance.sendTransacEmail(sendSmtpEmail);
+        console.log("Email envoyé:", result.body);
+        return { success: true, info: result.body };
     } catch (error) {
-        console.error("Erreur lors de l'envoi de l'email: ", error);
+        console.error("Erreur lors de l'envoi de l'email:", error);
         return { success: false, error };
     }
 };
