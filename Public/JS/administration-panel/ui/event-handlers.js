@@ -5,6 +5,62 @@ import * as MessageBox from './components/message-box.js';
 import * as NotificationService from '../services/notification.service.js';
 import * as Utils from '../utils/helpers.js';
 
+// ==================== LOADER SIMPLE ====================
+let simpleLoader = null;
+
+function showSimpleLoader() {
+    if (!simpleLoader) {
+        simpleLoader = document.createElement('div');
+        simpleLoader.id = 'simple-loader';
+        simpleLoader.style.cssText = `
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.3);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 99999;
+            backdrop-filter: blur(2px);
+        `;
+        
+        const spinner = document.createElement('div');
+        spinner.style.cssText = `
+            width: 50px;
+            height: 50px;
+            border: 4px solid #f3f3f3;
+            border-top: 4px solid #004732;
+            border-right: 4px solid #C59B33;
+            border-bottom: 4px solid #A43E2A;
+            border-radius: 50%;
+            animation: spin 0.8s linear infinite;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+        `;
+        
+        const style = document.createElement('style');
+        style.textContent = `
+            @keyframes spin {
+                0% { transform: rotate(0deg); }
+                100% { transform: rotate(360deg); }
+            }
+        `;
+        document.head.appendChild(style);
+        
+        simpleLoader.appendChild(spinner);
+        document.body.appendChild(simpleLoader);
+    } else {
+        simpleLoader.style.display = 'flex';
+    }
+}
+
+function hideSimpleLoader() {
+    if (simpleLoader) {
+        simpleLoader.style.display = 'none';
+    }
+}
+
 // ==================== GESTIONNAIRES D'ÉVÉNEMENTS SÉCURISÉS ====================
 export function setupSecureEventHandlers() {
     document.addEventListener('click', function(event) {
@@ -240,6 +296,7 @@ export async function toggleUserStatus(userId, suspend, userName) {
 }
 
 export async function updateProofStatus(proofId, newStatus) {
+    showSimpleLoader();
     try {
         const result = await API.updateProofStatusAPI(proofId, newStatus);
         
@@ -249,6 +306,8 @@ export async function updateProofStatus(proofId, newStatus) {
         }
     } catch {
         MessageBox.showMessageBox('Erreur lors de la mise à jour', 'error');
+    } finally {
+        hideSimpleLoader();
     }
 }
 
@@ -268,6 +327,7 @@ export async function adjustDemandeAgenceWeight(event) {
         return;
     }
     
+    showSimpleLoader();
     try {
         const response = await API.apiFetch(`/api/admin/agence/demandes/${demandeId}/adjust-weight`, {
             method: 'PUT',
@@ -289,6 +349,8 @@ export async function adjustDemandeAgenceWeight(event) {
         
     } catch {
         showMessage('Erreur lors de l\'ajustement du poids', 'error');
+    } finally {
+        hideSimpleLoader();
     }
 }
 
@@ -460,6 +522,7 @@ export async function updateDemandeAgenceStatus(event) {
         return;
     }
     
+    showSimpleLoader();
     try {
         const response = await API.apiFetch(`/api/admin/agence/demandes/${demandeId}/status`, {
             method: 'PUT',
@@ -468,7 +531,6 @@ export async function updateDemandeAgenceStatus(event) {
         
         if (response && response.ok) {
             const data = await response.json();
-            
             closeModal();
             showMessage(`Statut mis à jour: ${Utils.getAgenceStatusText(newStatus)}`, 'success');
             
@@ -483,6 +545,8 @@ export async function updateDemandeAgenceStatus(event) {
         
     } catch {
         showMessage('Erreur lors de la mise à jour', 'error');
+    } finally {
+        hideSimpleLoader();
     }
 }
 
@@ -1009,6 +1073,7 @@ async function executeValidateCompany(companyId, accept, companyName) {
 }
 
 async function executeToggleUserStatus(userId, suspend, userNameDisplay) {
+    showSimpleLoader();
     try {
         const result = await API.toggleUserStatusAPI(userId, suspend);
         
@@ -1018,6 +1083,8 @@ async function executeToggleUserStatus(userId, suspend, userNameDisplay) {
         }
     } catch {
         MessageBox.showMessageBox('Erreur lors du changement de statut', 'error');
+    } finally {
+        hideSimpleLoader();
     }
 }
 
