@@ -614,6 +614,7 @@ export async function sendProofToCompany() {
         return;
     }
     
+    showSimpleLoader();
     try {
         const formData = new FormData();
         formData.append('codeColis', code);
@@ -652,9 +653,10 @@ export async function sendProofToCompany() {
         
     } catch {
         MessageBox.showMessageBox('Erreur lors de l\'envoi', 'error');
+    } finally {
+        hideSimpleLoader(); 
     }
 }
-
 // ==================== FONCTIONS UTILITAIRES ================================
 
 export function filterCompanies() {
