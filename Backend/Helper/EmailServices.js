@@ -1,14 +1,14 @@
-const Brevo = require('@getbrevo/brevo');
+const { TransactionalEmailsApi, SendSmtpEmail, TransactionalEmailsApiApiKeys } = require('@getbrevo/brevo');
 
-const apiInstance = new Brevo.TransactionalEmailsApi();
+const apiInstance = new TransactionalEmailsApi();
 apiInstance.setApiKey(
-    Brevo.TransactionalEmailsApiApiKeys.apiKey, 
+    TransactionalEmailsApiApiKeys.apiKey,
     process.env.BREVO_API_KEY
 );
 
 const sendEmail = async ({ to, subject, text, html }) => {
     try {
-        const sendSmtpEmail = new Brevo.SendSmtpEmail();
+        const sendSmtpEmail = new SendSmtpEmail();
         sendSmtpEmail.sender = { 
             email: process.env.BREVO_EMAIL_USER, 
             name: "Afrixa" 
@@ -27,4 +27,4 @@ const sendEmail = async ({ to, subject, text, html }) => {
     }
 };
 
-module.exports = { sendEmail }
+module.exports = { sendEmail };
