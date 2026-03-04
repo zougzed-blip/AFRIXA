@@ -119,17 +119,30 @@ export function sleep(ms) {
     return new Promise(resolve => setTimeout(resolve, ms));
 }
 
-export async function loadAllRatingsAPI() {
+// ==================== RATINGS AVEC PAGINATION =========================================
+export async function loadAllRatingsAPI(page = 1, limit = 30) {
     try {
-        const response = await apiFetch('/api/admin/agence/all-ratings'); 
+        const response = await apiFetch(`/api/admin/agence/all-ratings?page=${page}&limit=${limit}`);
         if (!response) {
-            return [];
+            return { ratings: [], total: 0, hasMore: false };
         }
         
         const data = await response.json();
-        return data.success ? data.data : [];
+        
+        if (data.success && data.data) {
+            if (data.data.ratings) {
+                currentRatings = data.data.ratings;
+                return data.data;
+            }
+            currentRatings = data.data;
+            return { ratings: data.data, total: data.data.length, hasMore: false };
+        }
+        
+        currentRatings = data.data || [];
+        return { ratings: data.data || [], total: (data.data || []).length, hasMore: false };
+        
     } catch (error) {
-        return [];
+        return { ratings: [], total: 0, hasMore: false };
     }
 }
 // ==================== ADMIN PROFILE ===========================================
@@ -176,19 +189,30 @@ export async function validateCompanyAPI(companyId, accept) {
 }
 
 // ==================== USERS ===================================================
-export async function loadUsersDataAPI() {
+export async function loadUsersDataAPI(page = 1, limit = 30) {
     try {
-        const response = await apiFetch('/api/admin/users');
+        const response = await apiFetch(`/api/admin/users?page=${page}&limit=${limit}`);
         if (!response) {
-            return [];
+            return { users: [], total: 0, hasMore: false };
         }
         
         const data = await response.json();
+        
+        if (data.users) {
+            currentUsers = data.users; 
+            return data; 
+        }
+        
         currentUsers = data;
-        return data;
+        return { users: data, total: data.length, hasMore: false };
+        
     } catch (error) {
-        return [];
+        return { users: [], total: 0, hasMore: false };
     }
+}
+
+export async function loadMoreUsersAPI(page) {
+    return await loadUsersDataAPI(page, 3);
 }
 
 export async function toggleUserStatusAPI(userId, suspend) {
@@ -204,20 +228,28 @@ export async function toggleUserStatusAPI(userId, suspend) {
 }
 
 // ==================== PAYMENT PROOFS ==========================================
-export async function loadProofsDataAPI() {
+export async function loadProofsDataAPI(page = 1, limit = 30) {
     try {
-        const response = await apiFetch('/api/admin/payment-proofs');
+        const response = await apiFetch(`/api/admin/payment-proofs?page=${page}&limit=${limit}`);
         if (!response) {
-            return [];
+            return { proofs: [], total: 0, hasMore: false };
         }
         
         const data = await response.json();
+        
+        if (data.proofs) {
+            currentProofs = data.proofs;
+            return data;
+        }
+        
         currentProofs = data;
-        return data;
+        return { proofs: data, total: data.length, hasMore: false };
     } catch (error) {
-        return [];
+        return { proofs: [], total: 0, hasMore: false };
     }
 }
+
+
 
 export async function updateProofStatusAPI(proofId, newStatus) {
     const response = await apiFetch(`/api/admin/payment-proofs/${proofId}/status`, {
@@ -232,19 +264,32 @@ export async function updateProofStatusAPI(proofId, newStatus) {
 }
 
 // ==================== AGENCE DEMANDES =========================================
-export async function loadDemandesAgenceDataAPI() {
+export async function loadDemandesAgenceDataAPI(page = 1, limit = 30) {
     try {
-        const response = await apiFetch('/api/admin/agence/demandes');
+        const response = await apiFetch(`/api/admin/agence/demandes?page=${page}&limit=${limit}`);
         if (!response) {
-            return [];
+            return { demandes: [], total: 0, hasMore: false };
         }
         
         const result = await response.json();
-        const data = result.success ? result.data : result;
+        
+        if (result.success && result.data) {
+         
+            if (result.data.demandes) {
+                currentDemandesAgence = result.data.demandes;
+                return result.data;
+            }
+           
+            currentDemandesAgence = result.data;
+            return { demandes: result.data, total: result.data.length, hasMore: false };
+        }
+        
+        const data = result.data || result;
         currentDemandesAgence = data;
-        return data;
+        return { demandes: data, total: data.length, hasMore: false };
+        
     } catch (error) {
-        return [];
+        return { demandes: [], total: 0, hasMore: false };
     }
 }
 

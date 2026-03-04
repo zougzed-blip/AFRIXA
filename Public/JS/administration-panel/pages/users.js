@@ -1,6 +1,11 @@
 import * as API from '../api/admin.api.js';
 
 let currentUsers = [];
+// ==================== AJOUT PAGINATION ====================
+let currentPage = 1;
+let isLoading = false;
+let hasMore = true;
+let allUsers = [];
 
 function escapeHtml(text) {
     if (!text) return '';
@@ -242,14 +247,29 @@ function closeModal() {
 
 // ==================== FONCTIONS PRINCIPALES ====================
 export async function loadUsersPage() {
-  
+    // ==================== AJOUT PAGINATION ====================
+    currentPage = 1;
+    hasMore = true;
+    allUsers = [];
+    
     try {
-        const users = await API.loadUsersDataAPI();
-        currentUsers = users || [];
+        // ==================== MODIFICATION ====================
+        const data = await API.loadUsersDataAPI(currentPage, 30);
         
-        displayUsers(currentUsers);
+        if (data && data.users) {
+            allUsers = data.users;
+            currentUsers = allUsers;
+            hasMore = data.hasMore;
+        } else {
+            allUsers = data || [];
+            currentUsers = allUsers;
+        }
+        
+        displayUsers(allUsers);
         updateUsersCount();
         setupFilters();
+        // ==================== AJOUT ====================
+        setupInfiniteScroll();
 
     } catch (error) {
         const container = document.getElementById('users-table-body');
@@ -393,6 +413,33 @@ function filterUsers() {
     }
 }
 
+// ==================== AJOUT PAGINATION ====================
+function setupInfiniteScroll() {
+    window.addEventListener('scroll', () => {
+        if ((window.innerHeight + window.scrollY) >= document.body.offsetHeight - 500) {
+            loadMoreUsers();
+        }
+    });
+}
+
+async function loadMoreUsers() {
+    if (isLoading || !hasMore) return;
+    
+    isLoading = true;
+    currentPage++;
+    
+    const data = await API.loadUsersDataAPI(currentPage, 30);
+    
+    if (data.users && data.users.length > 0) {
+        allUsers = [...allUsers, ...data.users];
+        currentUsers = allUsers;
+        displayUsers(allUsers);
+        hasMore = data.hasMore;
+    }
+    
+    isLoading = false;
+}
+
 export async function executeToggleUserStatus(userId, suspend, userNameDisplay) {
     try {
         const response = await API.toggleUserStatusAPI(userId, suspend);
@@ -451,3 +498,5 @@ window.executeToggleUserStatus = executeToggleUserStatus;
 window.filterUsers = filterUsers;
 window.loadUsersPage = loadUsersPage;
 window.closeModal = closeModal;
+// ==================== AJOUT ====================
+window.loadMoreUsers = loadMoreUsers;

@@ -1,5 +1,10 @@
 import * as API from '../api/admin.api.js';
 
+// ==================== AJOUT PAGINATION ====================
+let currentPage = 1;
+let isLoading = false;
+let hasMore = true;
+let allRatings = [];
 let currentRatings = [];
 
 function escapeHtml(text) {
@@ -52,35 +57,54 @@ function getStarRating(rating) {
 }
 
 export async function loadRatingsPage() {
+    // ==================== RESET PAGINATION ====================
+    currentPage = 1;
+    hasMore = true;
+    allRatings = [];
+    isLoading = false;
+    
     try {
-        const response = await API.loadAllRatingsAPI();
+        const response = await API.loadAllRatingsAPI(currentPage, 30);
         
-        if (Array.isArray(response)) {
-            currentRatings = response;
+        if (response && response.ratings) {
+            allRatings = response.ratings;
+            currentRatings = allRatings;
+            hasMore = response.hasMore;
+        } else if (Array.isArray(response)) {
+            allRatings = response;
+            currentRatings = allRatings;
+            hasMore = false;
         } else if (response && response.data && Array.isArray(response.data)) {
-            currentRatings = response.data;
-        } else if (response && response.ratings && Array.isArray(response.ratings)) {
-            currentRatings = response.ratings;
+            allRatings = response.data;
+            currentRatings = allRatings;
+            hasMore = false;
         } else {
+            allRatings = [];
             currentRatings = [];
         }
         
-        displayRatings(currentRatings);
+        displayRatings(allRatings, false);
         updateRatingsCount();
         setupFilters();
+        setupInfiniteScroll();
+        
     } catch (error) {
         showEmptyStateWithRetry();
     }
 }
 
-function displayRatings(ratings) {
+function displayRatings(ratings, append = false) {
     const container = document.getElementById('ratings-table-body');
     if (!container) return;
     
-    container.innerHTML = '';
+    if (!append) {
+        container.innerHTML = '';
+    }
 
     if (!ratings || ratings.length === 0) {
-        showEmptyState();
+        if (!append) {
+            showEmptyState();
+        }
         return;
     }
 
@@ -158,7 +182,7 @@ function showEmptyStateWithRetry() {
 function updateRatingsCount() {
     const totalRatings = document.getElementById('total-ratings');
     if (totalRatings) {
-        totalRatings.textContent = currentRatings.length;
+        totalRatings.textContent = allRatings.length;
     }
 }
 
@@ -230,6 +254,58 @@ function filterRatings() {
     }
 }
 
+// ==================== INFINITE SCROLL ====================
+function setupInfiniteScroll() {
+    function checkScroll() {
+        const scrollY = window.scrollY;
+        const windowHeight = window.innerHeight;
+        const documentHeight = document.documentElement.scrollHeight;
+        
+        const scrollPosition = scrollY + windowHeight;
+        const distanceFromBottom = documentHeight - scrollPosition;
+        
+        if (distanceFromBottom < 200 && !isLoading && hasMore) {
+            loadMoreRatings();
+        }
+    }
+    
+    window.addEventListener('scroll', checkScroll);
+    setTimeout(checkScroll, 500);
+}
+
+async function loadMoreRatings() {
+    if (isLoading || !hasMore) return;
+    
+    isLoading = true;
+    currentPage++;
+    
+    const response = await API.loadAllRatingsAPI(currentPage, 30);
+    
+    let newRatings = [];
+    
+    if (response && response.ratings) {
+        newRatings = response.ratings;
+        hasMore = response.hasMore;
+    } else if (Array.isArray(response)) {
+        newRatings = response;
+        hasMore = false;
+    } else if (response && response.data && Array.isArray(response.data)) {
+        newRatings = response.data;
+        hasMore = false;
+    }
+    
+    if (newRatings.length > 0) {
+        allRatings = [...allRatings, ...newRatings];
+        currentRatings = allRatings;
+        displayRatings(newRatings, true);
+        updateRatingsCount();
+    } else {
+        hasMore = false;
+    }
+    
+    isLoading = false;
+}
+
 document.addEventListener('DOMContentLoaded', function() {
     const ratingsSection = document.getElementById('ratings');
     if (ratingsSection && ratingsSection.classList.contains('active')) {
@@ -239,3 +315,4 @@ document.addEventListener('DOMContentLoaded', function() {
 
 window.filterRatings = filterRatings;
 window.loadRatingsPage = loadRatingsPage;
+window.loadMoreRatings = loadMoreRatings;

@@ -1,27 +1,54 @@
-async function loadPaiements() {
+let paiementsPage = 1;
+let paiementsLoading = false;
+let paiementsHasMore = true;
+let allPaiements = [];
+let paiementsIsLoading = false;
+
+async function fetchPaiements() {
+    if (paiementsIsLoading) return;
+    
+    paiementsIsLoading = true;
+    
     try {
-        const response = await apiFetch('/api/agence/paiements');
+        const response = await apiFetch(`/api/agence/paiements?page=${paiementsPage}&limit=30`);
         if (!response || !response.ok) {
             showMessage('Erreur lors du chargement des paiements', 'error');
+            paiementsIsLoading = false;
             return;
         }
         
         const result = await response.json();
         
-        if (result.success && Array.isArray(result.data)) {
-            currentPaiements = result.data;
+        let newPaiements = [];
+        
+        if (result.success && result.data) {
+            if (result.data.paiements) {
+                newPaiements = result.data.paiements;
+                paiementsHasMore = result.data.hasMore;
+            } else if (Array.isArray(result.data)) {
+                newPaiements = result.data;
+                paiementsHasMore = false;
+            }
         } else if (Array.isArray(result)) {
-            currentPaiements = result;
-        } else {
-            currentPaiements = [];
+            newPaiements = result;
+            paiementsHasMore = false;
         }
         
+        if (paiementsPage === 1) {
+            allPaiements = newPaiements;
+        } else {
+            allPaiements = [...allPaiements, ...newPaiements];
+        }
+        
+        currentPaiements = allPaiements;
         filterPaiements();
         
     } catch (error) {
         showMessage('Erreur lors du chargement des paiements', 'error');
         currentPaiements = [];
         displayPaiements([]);
+    } finally {
+        paiementsIsLoading = false;
     }
 }
 
@@ -30,7 +57,7 @@ function filterPaiements() {
     const endDate = document.getElementById('paiements-date-end')?.value;
     const searchTerm = document.getElementById('search-paiements')?.value?.toLowerCase() || '';
     
-    let filtered = [...currentPaiements];
+    let filtered = [...allPaiements];
     
     if (searchTerm) {
         filtered = filtered.filter(paiement => {
@@ -181,7 +208,7 @@ async function updatePaiementStatus(paiementId, newStatus) {
         showMessage(`Paiement ${newStatus === 'accepté' ? 'accepté' : 'refusé'} avec succès`, 'success');
         
         setTimeout(() => {
-            loadPaiements();
+            fetchPaiements(); // Changé ici
             loadHistorique();
             loadBadgeCounts();
         }, 1000);
@@ -191,7 +218,42 @@ async function updatePaiementStatus(paiementId, newStatus) {
     }
 }
 
-window.loadPaiements = loadPaiements;
+// ==================== INFINITE SCROLL PAIEMENTS ====================
+function handlePaiementsScroll() {
+    const scrollY = window.scrollY;
+    const windowHeight = window.innerHeight;
+    const documentHeight = document.documentElement.scrollHeight;
+    
+    const scrollPosition = scrollY + windowHeight;
+    const distanceFromBottom = documentHeight - scrollPosition;
+    
+    if (distanceFromBottom < 200 && !paiementsLoading && paiementsHasMore && !paiementsIsLoading) {
+        loadMorePaiements();
+    }
+}
+
+async function loadMorePaiements() {
+    if (paiementsLoading || !paiementsHasMore || paiementsIsLoading) return;
+    
+    paiementsLoading = true;
+    paiementsPage++;
+    await fetchPaiements(); 
+    paiementsLoading = false;
+}
+
+// ==================== INITIALISATION ====================
+window.loadPaiements = function() {
+    if (paiementsIsLoading) return;
+    
+    paiementsPage = 1;
+    paiementsHasMore = true;
+    allPaiements = [];
+    window.removeEventListener('scroll', handlePaiementsScroll);
+    window.addEventListener('scroll', handlePaiementsScroll);
+    fetchPaiements(); 
+};
+
 window.filterPaiements = filterPaiements;
 window.viewPaiementDetails = viewPaiementDetails;
 window.updatePaiementStatus = updatePaiementStatus;
+window.loadMorePaiements = loadMorePaiements;

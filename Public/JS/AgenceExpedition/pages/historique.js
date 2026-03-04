@@ -1,27 +1,42 @@
-async function loadHistorique() {
+let historiquePage = 1;
+let historiqueLoading = false;
+let historiqueHasMore = true;
+let allHistorique = [];
+let historiqueIsLoading = false;
+
+// ==================== FONCTION PRINCIPALE RENOMMÉE ====================
+async function fetchHistorique() {
+    if (historiqueIsLoading) return;
+    
+    historiqueIsLoading = true;
+    
     try {
         const [demandesResponse, paiementsResponse] = await Promise.all([
-            apiFetch('/api/agence/demandes'),
-            apiFetch('/api/agence/paiements')
+            apiFetch(`/api/agence/demandes?page=${historiquePage}&limit=30`),
+            apiFetch(`/api/agence/paiements?page=${historiquePage}&limit=30`)
         ]);
         
-        currentHistorique = [];
+        let newHistorique = [];
 
         if (demandesResponse && demandesResponse.ok) {
             const result = await demandesResponse.json();
-            const demandes = result.success ? result.data : result;
+            let demandes = [];
+            
+            if (result.success && result.data) {
+                if (result.data.demandes) {
+                    demandes = result.data.demandes;
+                    historiqueHasMore = result.data.hasMore;
+                } else if (Array.isArray(result.data)) {
+                    demandes = result.data;
+                }
+            } else if (Array.isArray(result)) {
+                demandes = result;
+            }
             
             if (Array.isArray(demandes)) {
                 demandes.forEach(demande => {
                     if (demande.status === 'accepté' || demande.status === 'annulé' || demande.status === 'livré') {
-                        const date = new Date(demande.date || demande.createdAt);
-                        const formattedDate = date.toLocaleDateString('fr-FR', {
-                            day: 'numeric',
-                            month: 'short',
-                            year: 'numeric'
-                        });
-                        
-                        currentHistorique.push({
+                        newHistorique.push({
                             type: 'demande',
                             date: demande.date || demande.createdAt,
                             codeColis: demande.codeColis,
@@ -37,21 +52,25 @@ async function loadHistorique() {
 
         if (paiementsResponse && paiementsResponse.ok) {
             const result = await paiementsResponse.json();
-            const paiements = result.success ? result.data : result;
+            let paiements = [];
+            
+            if (result.success && result.data) {
+                if (result.data.paiements) {
+                    paiements = result.data.paiements;
+                    historiqueHasMore = result.data.hasMore;
+                } else if (Array.isArray(result.data)) {
+                    paiements = result.data;
+                }
+            } else if (Array.isArray(result)) {
+                paiements = result;
+            }
             
             if (Array.isArray(paiements)) {
                 paiements.forEach(paiement => {
                     const statut = paiement.statut || paiement.status;
                     
                     if (statut === 'accepté' || statut === 'refusé') {
-                        const date = new Date(paiement.uploadedAt || paiement.createdAt);
-                        const formattedDate = date.toLocaleDateString('fr-FR', {
-                            day: 'numeric',
-                            month: 'short',
-                            year: 'numeric'
-                        });
-                        
-                        currentHistorique.push({
+                        newHistorique.push({
                             type: 'paiement',
                             date: paiement.uploadedAt || paiement.createdAt,
                             codeColis: paiement.codeColis,
@@ -66,14 +85,23 @@ async function loadHistorique() {
             }
         }
         
-        currentHistorique.sort((a, b) => new Date(b.date) - new Date(a.date));
+        if (historiquePage === 1) {
+            allHistorique = newHistorique;
+        } else {
+            allHistorique = [...allHistorique, ...newHistorique];
+        }
         
+        allHistorique.sort((a, b) => new Date(b.date) - new Date(a.date));
+        
+        currentHistorique = allHistorique;
         filterHistorique();
         
     } catch (error) {
         showMessage('Erreur lors du chargement de l\'historique', 'error');
         currentHistorique = [];
         displayHistorique([]);
+    } finally {
+        historiqueIsLoading = false;
     }
 }
 
@@ -83,7 +111,7 @@ function filterHistorique() {
     const searchTerm = document.getElementById('search-historique')?.value?.toLowerCase() || '';
     const activeFilter = document.querySelector('#historique .filter-btn.active');
     
-    let filtered = [...currentHistorique];
+    let filtered = [...allHistorique];
 
     if (activeFilter) {
         const filterType = activeFilter.getAttribute('onclick')?.match(/'([^']+)'/)?.[1];
@@ -126,6 +154,41 @@ function filterHistoriqueByType(type) {
     filterHistorique();
 }
 
-window.loadHistorique = loadHistorique;
+// ==================== INFINITE SCROLL HISTORIQUE ====================
+function handleHistoriqueScroll() {
+    const scrollY = window.scrollY;
+    const windowHeight = window.innerHeight;
+    const documentHeight = document.documentElement.scrollHeight;
+    
+    const scrollPosition = scrollY + windowHeight;
+    const distanceFromBottom = documentHeight - scrollPosition;
+    
+    if (distanceFromBottom < 200 && !historiqueLoading && historiqueHasMore && !historiqueIsLoading) {
+        loadMoreHistorique();
+    }
+}
+
+async function loadMoreHistorique() {
+    if (historiqueLoading || !historiqueHasMore || historiqueIsLoading) return;
+    
+    historiqueLoading = true;
+    historiquePage++;
+    await fetchHistorique(); 
+    historiqueLoading = false;
+}
+
+// ==================== INITIALISATION ====================
+window.loadHistorique = function() {
+    if (historiqueIsLoading) return;
+    
+    historiquePage = 1;
+    historiqueHasMore = true;
+    allHistorique = [];
+    window.removeEventListener('scroll', handleHistoriqueScroll);
+    window.addEventListener('scroll', handleHistoriqueScroll);
+    fetchHistorique();
+};
+
 window.filterHistorique = filterHistorique;
 window.filterHistoriqueByType = filterHistoriqueByType;
+window.loadMoreHistorique = loadMoreHistorique;

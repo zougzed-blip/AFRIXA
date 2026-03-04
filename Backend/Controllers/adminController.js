@@ -235,13 +235,28 @@ exports.getPendingCompanies = async (req, res) => {
 };
 
 // ==========================================RECUP DE TOUS LES UTILISATEURS =======================================
+
 exports.getAllUsers = async (req, res) => {
   try {
+    const page = parseInt(req.query.page) || 1;
+    const limit = parseInt(req.query.limit) || 30; 
+    const skip = (page - 1) * limit;
+
     const users = await User.find()
       .select('email role isVerified client petitTransporteur grandTransporteur agence createdAt')
-      .sort({ createdAt: -1 }); 
+      .sort({ createdAt: -1 })
+      .skip(skip)
+      .limit(limit);
 
-    res.json(users);
+    const total = await User.countDocuments();
+
+    res.json({
+      users,
+      total,
+      page,
+      totalPages: Math.ceil(total / limit),
+      hasMore: page < Math.ceil(total / limit)
+    });
   } catch (error) {
     businessLogger.error(error, { context: 'getAllUsers', userId: req.user?.id });
     res.status(500).json({ message: 'Erreur serveur' });
@@ -386,8 +401,24 @@ const { paiementAccepteTemplate, paiementRefuseTemplate } = require('../Emails/p
 // ===================================RECUP DES TOUTES  PREUVES DE PAIEMENT===================== ====================
 exports.getAllPaymentProofs = async (req, res) => {
   try {
-    const proofs = await paymentProof.find().sort({ createdAt: -1 });
-    res.status(200).json(proofs);
+    const page = parseInt(req.query.page) || 1;
+    const limit = parseInt(req.query.limit) || 1;
+    const skip = (page - 1) * limit;
+
+    const proofs = await paymentProof.find()
+      .sort({ createdAt: -1 })
+      .skip(skip)
+      .limit(limit);
+
+    const total = await paymentProof.countDocuments();
+
+    res.status(200).json({
+      proofs,
+      total,
+      page,
+      totalPages: Math.ceil(total / limit),
+      hasMore: page < Math.ceil(total / limit)
+    });
   } catch(error) {
     businessLogger.error(error, { context: 'getAllPaymentProofs', userId: req.user?.id });
     res.status(500).json({message : 'Erreur serveur'});

@@ -133,8 +133,15 @@ function generateEmailTemplate(title, clientName, message, details, actionUrl = 
 // ==================================MA GESTION DES DEMANDES ===================================================================
 exports.adminListDemandes = async (req, res) => {
     try {
+        const page = parseInt(req.query.page) || 1;
+        const limit = parseInt(req.query.limit) || 30;
+        const skip = (page - 1) * limit;
+        const total = await DemandeAgenceV2.countDocuments();
+
         const demandes = await DemandeAgenceV2.find()
             .sort({ createdAt: -1 })
+            .skip(skip)
+            .limit(limit)
             .populate('user', 'fullName email telephone')
             .populate('agence', 'email agence.agenceName')
             .lean();
@@ -146,7 +153,13 @@ exports.adminListDemandes = async (req, res) => {
         
         res.json({
             success: true,
-            data: demandesFormatted
+            data: {
+                demandes: demandesFormatted,
+                total,
+                page,
+                totalPages: Math.ceil(total / limit),
+                hasMore: page < Math.ceil(total / limit)
+            }
         });
     } catch (error) {
         businessLogger.error(error, { context: 'adminListDemandes', userId: req.user?.id });
@@ -806,13 +819,23 @@ exports.adminMarkNotificationAsRead = [
 //=======================================MES RECUPERATIONS DES EVALUATIONS AVEC LES ETOILES DES AGENCES PAR L ADMIN=====================================//
 exports.adminGetAllAgenceRatings = async (req, res) => {
   try {
+    const page = parseInt(req.query.page) || 1;
+    const limit = parseInt(req.query.limit) || 30;
+    const skip = (page - 1) * limit;
+
+    const total = await DemandeAgence.countDocuments({ 
+      rating: { $exists: true, $ne: null } 
+    });
+
     const ratedDemandes = await DemandeAgence.find({ 
       rating: { $exists: true, $ne: null } 
     })
     .select('codeColis fullName email rating destination prix delai createdAt status')
     .populate('agence', 'email agence.agenceName')
     .populate('user', 'fullName email')
-    .sort({ createdAt: -1 });
+    .sort({ createdAt: -1 })
+    .skip(skip)
+    .limit(limit);
 
     const ratings = ratedDemandes.map(demande => ({
       codeColis: demande.codeColis,
@@ -830,7 +853,13 @@ exports.adminGetAllAgenceRatings = async (req, res) => {
 
     res.status(200).json({
       success: true,
-      data: ratings
+      data: {
+        ratings,
+        total,
+        page,
+        totalPages: Math.ceil(total / limit),
+        hasMore: page < Math.ceil(total / limit)
+      }
     });
   } catch(error) {
     businessLogger.error(error, { context: 'adminGetAllAgenceRatings', userId: req.user?.id });
@@ -840,7 +869,6 @@ exports.adminGetAllAgenceRatings = async (req, res) => {
     });
   }
 };
-
 exports.adminMarkAllNotificationsAsRead = async (req, res) => {
   try {
     await Notification.updateMany(

@@ -1,5 +1,10 @@
-// pages/proofs.js
 import * as API from '../api/admin.api.js';
+
+// ==================== AJOUT PAGINATION ====================
+let currentPage = 1;
+let isLoading = false;
+let hasMore = true;
+let allProofs = [];
 
 function escapeHtml(text) {
     if (!text) return '';
@@ -53,26 +58,39 @@ function getMethodLabel(method) {
 let currentProofs = [];
 
 export async function loadProofsPage() {
-   
+    
+    currentPage = 1;
+    hasMore = true;
+    allProofs = [];
+    isLoading = false;
 
     try {
-        const proofs = await API.loadProofsDataAPI();
-        currentProofs = proofs || [];
+        const data = await API.loadProofsDataAPI(currentPage,30);
+        
+        if (data && data.proofs) {
+            allProofs = data.proofs;
+            currentProofs = allProofs;
+            hasMore = data.hasMore;
+        } else {
+            allProofs = data || [];
+            currentProofs = allProofs;
+        }
         
         const container = document.getElementById('proofs-table-body');
+        if (!container) {
+            return;
+        }
         
-        if (!container) return;
-        
-        displayProofs(currentProofs);
+        displayProofs(allProofs, false); 
 
         const counter = document.getElementById('total-proofs');
-        if (counter) {
-            counter.textContent = currentProofs.length;
-        }
-
-        localStorage.setItem('lastProofsViewed', new Date().toISOString());
+        if (counter) counter.textContent = allProofs.length;
 
         setupFilters();
+        
+        setTimeout(() => {
+            setupInfiniteScroll();
+        }, 100);
 
     } catch (error) {
         const container = document.getElementById('proofs-table-body');
@@ -82,7 +100,7 @@ export async function loadProofsPage() {
                     <td colspan="8">
                         <div class="error-state">
                             <i class="fas fa-exclamation-triangle"></i>
-                            <p>Erreur de chargement des preuves</p>
+                            <p>Erreur de chargement</p>
                             <button onclick="loadProofsPage()" class="btn-retry">Réessayer</button>
                         </div>
                     </td>
@@ -92,23 +110,26 @@ export async function loadProofsPage() {
     }
 }
 
-function displayProofs(proofs) {
+function displayProofs(proofs, append = false) {
+    
     const container = document.getElementById('proofs-table-body');
     if (!container) return;
     
-    container.innerHTML = '';
+    if (!append) container.innerHTML = '';
 
     if (!proofs || proofs.length === 0) {
-        container.innerHTML = `
-            <tr>
-                <td colspan="8">
-                    <div class="empty-state">
-                        <i class="fas fa-inbox"></i>
-                        <p>Aucune preuve de paiement trouvée</p>
-                    </div>
-                </td>
-            </tr>
-        `;
+        if (!append) {
+            container.innerHTML = `
+                <tr>
+                    <td colspan="8">
+                        <div class="empty-state">
+                            <i class="fas fa-inbox"></i>
+                            <p>Aucune preuve trouvée</p>
+                        </div>
+                    </td>
+                </tr>
+            `;
+        }
         return;
     }
 
@@ -163,7 +184,7 @@ function displayProofs(proofs) {
                             data-action="view-proof" 
                             data-proof-id="${proofId}"
                             data-proof-url="${proofUrl}"
-                            title="Voir la preuve">
+                            title="Voir">
                         <i class="fas fa-eye"></i>
                     </button>
                     ${proof.status === 'en_attente' ? `
@@ -184,7 +205,7 @@ function displayProofs(proofs) {
                         <button class="btn-action btn-reset" 
                                 data-action="reset-proof" 
                                 data-proof-id="${proofId}"
-                                title="Remettre en attente">
+                                title="Remettre">
                             <i class="fas fa-redo"></i>
                         </button>
                     ` : ''}
@@ -198,44 +219,84 @@ function displayProofs(proofs) {
 
 function setupFilters() {
     const filterBtn = document.getElementById('filter-proofs-btn');
-    if (filterBtn) {
-        filterBtn.onclick = filterProofsByDate;
-    }
+    if (filterBtn) filterBtn.onclick = filterProofsByDate;
 }
 
 function filterProofsByDate() {
     const startDate = document.getElementById('date-filter-start')?.value;
     const endDate = document.getElementById('date-filter-end')?.value;
 
-    if (!startDate && !endDate) {
-        displayProofs(currentProofs);
+    let proofsToShow = allProofs;
+    if (startDate || endDate) {
+        proofsToShow = allProofs.filter(proof => {
+            if (!proof.uploadedAt) return false;
+            const proofDate = new Date(proof.uploadedAt);
+            if (isNaN(proofDate.getTime())) return false;
+
+            const proofTime = proofDate.getTime();
+            const startTime = startDate ? new Date(startDate).getTime() : null;
+            const endTime = endDate ? new Date(endDate).getTime() + 86400000 : null;
+
+            let match = true;
+            if (startTime && proofTime < startTime) match = false;
+            if (endTime && proofTime > endTime) match = false;
+            return match;
+        });
+    }
+
+    displayProofs(proofsToShow, false); 
+    const counter = document.getElementById('total-proofs');
+    if (counter) counter.textContent = proofsToShow.length;
+}
+
+function setupInfiniteScroll() {
+    
+    function checkScroll() {
+        const scrollY = window.scrollY;
+        const windowHeight = window.innerHeight;
+        const documentHeight = document.documentElement.scrollHeight;
+        
+        const scrollPosition = scrollY + windowHeight;
+        const distanceFromBottom = documentHeight - scrollPosition;
+        
+        if (distanceFromBottom < 200) {
+            if (!isLoading && hasMore) {
+                loadMoreProofs();
+            }
+        }
+    }
+    
+    window.addEventListener('scroll', checkScroll);
+    setTimeout(checkScroll, 500);
+}
+
+async function loadMoreProofs() {
+    if (isLoading || !hasMore) {
         return;
     }
-
-    const filtered = currentProofs.filter(proof => {
-        if (!proof.uploadedAt) return false;
-        
-        const proofDate = new Date(proof.uploadedAt);
-        if (isNaN(proofDate.getTime())) return false;
-
-        const proofTime = proofDate.getTime();
-        const startTime = startDate ? new Date(startDate).getTime() : null;
-        const endTime = endDate ? new Date(endDate).getTime() + 86400000 : null;
-
-        let match = true;
-        if (startTime && proofTime < startTime) match = false;
-        if (endTime && proofTime > endTime) match = false;
-        
-        return match;
-    });
-
-    displayProofs(filtered);
     
-    const counter = document.getElementById('total-proofs');
-    if (counter) {
-        counter.textContent = filtered.length;
+    isLoading = true;
+    currentPage++;
+    
+    const data = await API.loadProofsDataAPI(currentPage, 30);
+    
+    if (data.proofs && data.proofs.length > 0) {
+        allProofs = [...allProofs, ...data.proofs];
+        currentProofs = allProofs;
+        
+        displayProofs(data.proofs, true); 
+        
+        hasMore = data.hasMore;
+        
+        const counter = document.getElementById('total-proofs');
+        if (counter) counter.textContent = allProofs.length;
+    } else {
+        hasMore = false;
     }
+    
+    isLoading = false;
 }
 
 window.filterProofsByDate = filterProofsByDate;
 window.loadProofsPage = loadProofsPage;
+window.loadMoreProofs = loadMoreProofs;

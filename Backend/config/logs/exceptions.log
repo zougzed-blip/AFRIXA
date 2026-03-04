@@ -14627,3 +14627,148 @@ SyntaxError: Invalid or unexpected token
     }
   ]
 }
+2026-03-04 14:07:17 [ERROR] uncaughtException: Unexpected token ';'
+C:\Users\zougz\Desktop\AFRIXA\Backend\Controllers\adminController.js:242
+    const limit = parseInt(req.query.limit) || ; 
+                                               ^
+
+SyntaxError: Unexpected token ';'
+    at wrapSafe (node:internal/modules/cjs/loader:1692:18)
+    at Module._compile (node:internal/modules/cjs/loader:1735:20)
+    at Object..js (node:internal/modules/cjs/loader:1893:10)
+    at Module.load (node:internal/modules/cjs/loader:1481:32)
+    at Module._load (node:internal/modules/cjs/loader:1300:12)
+    at TracingChannel.traceSync (node:diagnostics_channel:328:14)
+    at wrapModuleLoad (node:internal/modules/cjs/loader:245:24)
+    at Module.require (node:internal/modules/cjs/loader:1504:12)
+    at require (node:internal/modules/helpers:152:16)
+    at Object.<anonymous> (C:\Users\zougz\Desktop\AFRIXA\Backend\Routes\adminRoutes.js:5:25)
+C:\Users\zougz\Desktop\AFRIXA\Backend\Controllers\adminController.js:242
+    const limit = parseInt(req.query.limit) || ; 
+                                               ^
+
+SyntaxError: Unexpected token ';'
+    at wrapSafe (node:internal/modules/cjs/loader:1692:18)
+    at Module._compile (node:internal/modules/cjs/loader:1735:20)
+    at Object..js (node:internal/modules/cjs/loader:1893:10)
+    at Module.load (node:internal/modules/cjs/loader:1481:32)
+    at Module._load (node:internal/modules/cjs/loader:1300:12)
+    at TracingChannel.traceSync (node:diagnostics_channel:328:14)
+    at wrapModuleLoad (node:internal/modules/cjs/loader:245:24)
+    at Module.require (node:internal/modules/cjs/loader:1504:12)
+    at require (node:internal/modules/helpers:152:16)
+    at Object.<anonymous> (C:\Users\zougz\Desktop\AFRIXA\Backend\Routes\adminRoutes.js:5:25)
+{
+  "error": {},
+  "exception": true,
+  "date": "Wed Mar 04 2026 14:07:17 GMT+0200 (South Africa Standard Time)",
+  "process": {
+    "pid": 22664,
+    "uid": null,
+    "gid": null,
+    "cwd": "C:\\Users\\zougz\\Desktop\\AFRIXA",
+    "execPath": "C:\\Program Files\\nodejs\\node.exe",
+    "version": "v24.12.0",
+    "argv": [
+      "C:\\Program Files\\nodejs\\node.exe",
+      "C:\\Users\\zougz\\Desktop\\AFRIXA\\server.js"
+    ],
+    "memoryUsage": {
+      "rss": 90873856,
+      "heapTotal": 58892288,
+      "heapUsed": 34792792,
+      "external": 20787801,
+      "arrayBuffers": 18264735
+    }
+  },
+  "os": {
+    "loadavg": [
+      0,
+      0,
+      0
+    ],
+    "uptime": 83806.921
+  },
+  "trace": [
+    {
+      "column": 18,
+      "file": "node:internal/modules/cjs/loader",
+      "function": "wrapSafe",
+      "line": 1692,
+      "method": null,
+      "native": false
+    },
+    {
+      "column": 20,
+      "file": "node:internal/modules/cjs/loader",
+      "function": "Module._compile",
+      "line": 1735,
+      "method": "_compile",
+      "native": false
+    },
+    {
+      "column": 10,
+      "file": "node:internal/modules/cjs/loader",
+      "function": "Object..js",
+      "line": 1893,
+      "method": ".js",
+      "native": false
+    },
+    {
+      "column": 32,
+      "file": "node:internal/modules/cjs/loader",
+      "function": "Module.load",
+      "line": 1481,
+      "method": "load",
+      "native": false
+    },
+    {
+      "column": 12,
+      "file": "node:internal/modules/cjs/loader",
+      "function": "Module._load",
+      "line": 1300,
+      "method": "_load",
+      "native": false
+    },
+    {
+      "column": 14,
+      "file": "node:diagnostics_channel",
+      "function": "TracingChannel.traceSync",
+      "line": 328,
+      "method": "traceSync",
+      "native": false
+    },
+    {
+      "column": 24,
+      "file": "node:internal/modules/cjs/loader",
+      "function": "wrapModuleLoad",
+      "line": 245,
+      "method": null,
+      "native": false
+    },
+    {
+      "column": 12,
+      "file": "node:internal/modules/cjs/loader",
+      "function": "Module.require",
+      "line": 1504,
+      "method": "require",
+      "native": false
+    },
+    {
+      "column": 16,
+      "file": "node:internal/modules/helpers",
+      "function": "require",
+      "line": 152,
+      "method": null,
+      "native": false
+    },
+    {
+      "column": 25,
+      "file": "C:\\Users\\zougz\\Desktop\\AFRIXA\\Backend\\Routes\\adminRoutes.js",
+      "function": null,
+      "line": 5,
+      "method": null,
+      "native": false
+    }
+  ]
+}

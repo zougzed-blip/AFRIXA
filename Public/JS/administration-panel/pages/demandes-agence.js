@@ -2,33 +2,48 @@ import * as API from '../api/admin.api.js';
 import * as Utils from '../utils/helpers.js';
 import * as MessageBox from '../ui/components/message-box.js';
 
+// ==================== AJOUT PAGINATION ====================
+let currentPage = 1;
+let isLoading = false;
+let hasMore = true;
+let allDemandes = [];
+
 export async function loadDemandesAgencePage() {
+    // ==================== RESET PAGINATION ====================
+    currentPage = 1;
+    hasMore = true;
+    allDemandes = [];
+    isLoading = false;
+
     try {
-        const demandes = await API.loadDemandesAgenceDataAPI();
+        // ==================== CHARGE PREMIÈRE PAGE ====================
+        const data = await API.loadDemandesAgenceDataAPI(currentPage, 30);
         
-        if (!demandes) {
+        if (!data) {
             showEmptyState('demandes-agence-table-body', 'Aucune donnée disponible');
             return;
         }
         
-        if (!Array.isArray(demandes)) {
-            const demandesArray = Array.isArray(demandes.data) ? demandes.data : 
-                                 Array.isArray(demandes.demandes) ? demandes.demandes : [];
-            
-            if (demandesArray.length > 0) {
-                displayDemandesAgence(demandesArray);
-                updateDemandesAgenceCount();
-            } else {
-                showEmptyState('demandes-agence-table-body', 'Format de données invalide');
-            }
-            return;
+        let demandesArray = [];
+        
+        if (data && data.demandes) {
+            demandesArray = data.demandes;
+            hasMore = data.hasMore;
+        } else if (Array.isArray(data)) {
+            demandesArray = data;
+            hasMore = false;
+        } else if (data.data && Array.isArray(data.data)) {
+            demandesArray = data.data;
+            hasMore = data.hasMore || false;
         }
         
-        if (demandes.length === 0) {
-            showEmptyState('demandes-agence-table-body', 'Aucune demande d\'agence disponible');
-        } else {
-            displayDemandesAgence(demandes);
+        if (demandesArray.length > 0) {
+            allDemandes = demandesArray;
+            displayDemandesAgence(allDemandes, false);
             updateDemandesAgenceCount();
+            setupInfiniteScroll();
+        } else {
+            showEmptyState('demandes-agence-table-body', 'Aucune demande d\'agence disponible');
         }
         
     } catch (error) {
@@ -37,12 +52,21 @@ export async function loadDemandesAgencePage() {
     }
 }
 
-function displayDemandesAgence(demandes) {
+function displayDemandesAgence(demandes, append = false) {
     const container = document.getElementById('demandes-agence-table-body');
     if (!container) return;
 
-    container.innerHTML = '';
-    
+    if (!append) {
+        container.innerHTML = '';
+    }
+
+    if (!demandes || demandes.length === 0) {
+        if (!append) {
+            showEmptyState('demandes-agence-table-body', 'Aucune demande disponible');
+        }
+        return;
+    }
+
     demandes.forEach(demande => {
         const date = new Date(demande.date || demande.createdAt);
         const formattedDate = date.toLocaleDateString('fr-FR', {
@@ -55,38 +79,28 @@ function displayDemandesAgence(demandes) {
         
         const row = document.createElement('tr');
         
-        // Cellule 1: Code colis
         const td1 = document.createElement('td');
         td1.textContent = demande.codeColis || demande.code || 'N/A';
-        
-        // Cellule 2: Client
+      
         const td2 = document.createElement('td');
         td2.textContent = demande.fullName || demande.nom || demande.clientName || 'N/A';
-        
-    
-        // const td7 = document.createElement('td');
-        // td7.textContent = demande.receveur 
-        // Cellule 3: Destination
+  
         const td3 = document.createElement('td');
         td3.textContent = demande.destination || demande.villeArrivee || 'N/A';
         
-        // Cellule 4: Date
         const td4 = document.createElement('td');
         td4.textContent = formattedDate;
         
-        // Cellule 5: Statut
         const td5 = document.createElement('td');
         const statusSpan = document.createElement('span');
         statusSpan.className = `status-badge status-${demande.status || 'en_attente'}`;
         statusSpan.textContent = Utils.getAgenceStatusText(demande.status);
         td5.appendChild(statusSpan);
         
-        // Cellule 6: Actions
         const td6 = document.createElement('td');
         const actionsDiv = document.createElement('div');
         actionsDiv.className = 'action-buttons';
         
-        // Bouton Voir détails
         const viewButton = document.createElement('button');
         viewButton.className = 'btn-action btn-view';
         viewButton.setAttribute('data-action', 'view-demande-agence-details');
@@ -96,7 +110,6 @@ function displayDemandesAgence(demandes) {
         viewIcon.className = 'fas fa-eye';
         viewButton.appendChild(viewIcon);
         
-        // Bouton Changer statut
         const statusButton = document.createElement('button');
         statusButton.className = 'btn-action btn-status';
         statusButton.setAttribute('data-action', 'change-demande-agence-status');
@@ -110,8 +123,7 @@ function displayDemandesAgence(demandes) {
         
         actionsDiv.appendChild(viewButton);
         actionsDiv.appendChild(statusButton);
-        
-        // Bouton Ajuster poids (uniquement pour certains statuts)
+       
         if (demande.status === 'en_attente' || demande.status === 'acceptee' || demande.status === 'accepté') {
             const adjustButton = document.createElement('button');
             adjustButton.className = 'btn-action btn-adjust';
@@ -131,19 +143,68 @@ function displayDemandesAgence(demandes) {
         row.appendChild(td1);
         row.appendChild(td2);
         row.appendChild(td3);
-        // row.appendChild(td7)
         row.appendChild(td4);
         row.appendChild(td5);
         row.appendChild(td6);
-
         
         container.appendChild(row);
     });
 }
 
+// ==================== INFINITE SCROLL ====================
+function setupInfiniteScroll() {
+    function checkScroll() {
+        const scrollY = window.scrollY;
+        const windowHeight = window.innerHeight;
+        const documentHeight = document.documentElement.scrollHeight;
+        
+        const scrollPosition = scrollY + windowHeight;
+        const distanceFromBottom = documentHeight - scrollPosition;
+        
+        if (distanceFromBottom < 200 && !isLoading && hasMore) {
+            loadMoreDemandes();
+        }
+    }
+    
+    window.addEventListener('scroll', checkScroll);
+    setTimeout(checkScroll, 500);
+}
+
+async function loadMoreDemandes() {
+    if (isLoading || !hasMore) return;
+    
+    isLoading = true;
+    currentPage++;
+    
+    const data = await API.loadDemandesAgenceDataAPI(currentPage, 30);
+    
+    let newDemandes = [];
+    
+    if (data && data.demandes) {
+        newDemandes = data.demandes;
+        hasMore = data.hasMore;
+    } else if (Array.isArray(data)) {
+        newDemandes = data;
+        hasMore = false;
+    } else if (data.data && Array.isArray(data.data)) {
+        newDemandes = data.data;
+        hasMore = data.hasMore || false;
+    }
+    
+    if (newDemandes.length > 0) {
+        allDemandes = [...allDemandes, ...newDemandes];
+        displayDemandesAgence(newDemandes, true);
+        updateDemandesAgenceCount();
+    } else {
+        hasMore = false;
+    }
+    
+    isLoading = false;
+}
+
 export function filterDemandesAgence() {
-    const searchTerm = document.getElementById('search-demande-agence').value.toLowerCase().trim();
-    const statusFilter = document.getElementById('status-filter-agence').value;
+    const searchTerm = document.getElementById('search-demande-agence')?.value.toLowerCase().trim() || '';
+    const statusFilter = document.getElementById('status-filter-agence')?.value || 'all';
     const startDateInput = document.getElementById('date-filter-start-agence');
     const endDateInput = document.getElementById('date-filter-end-agence');
     
@@ -159,9 +220,7 @@ export function filterDemandesAgence() {
             return;
         }
         
-        if (!row.cells || row.cells.length < 6) {
-            return;
-        }
+        if (!row.cells || row.cells.length < 6) return;
         
         const codeCell = row.cells[0].textContent.toLowerCase();
         const clientCell = row.cells[1].textContent.toLowerCase();
@@ -203,25 +262,17 @@ export function filterDemandesAgence() {
         
         const shouldShow = matchesSearch && matchesStatus && matchesDate;
         row.style.display = shouldShow ? '' : 'none';
-        
         if (shouldShow) visibleCount++;
     });
     
     const totalElement = document.getElementById('total-demandes-agence');
-    if (totalElement) {
-        totalElement.textContent = visibleCount;
-    }
-    
-    if (visibleCount === 0 && rows.length > 0) {
-        MessageBox.showMessage('Aucune demande ne correspond aux filtres', 'info');
-    }
+    if (totalElement) totalElement.textContent = visibleCount;
 }
 
 function updateDemandesAgenceCount() {
     const totalDemandes = document.getElementById('total-demandes-agence');
     if (totalDemandes) {
-        const count = API.getCurrentDemandesAgence()?.length || 0;
-        totalDemandes.textContent = count;
+        totalDemandes.textContent = allDemandes.length;
     }
 }
 
@@ -241,5 +292,6 @@ function showEmptyState(containerId, message) {
     }
 }
 
-
 window.loadDemandesAgencePage = loadDemandesAgencePage;
+window.filterDemandesAgence = filterDemandesAgence;
+window.loadMoreDemandes = loadMoreDemandes;

@@ -143,14 +143,28 @@ function checkDemandeOwnership(demande, agenceId) {
 
 exports.listDemandes = async (req, res) => {
     try {
+        const page = parseInt(req.query.page) || 1;
+        const limit = parseInt(req.query.limit) || 30;
+        const skip = (page - 1) * limit;
+
+        const total = await DemandeAgenceV2.countDocuments({ agence: req.user._id });
+
         const demandes = await DemandeAgenceV2.find({ agence: req.user._id })
             .sort({ createdAt: -1 })
+            .skip(skip)
+            .limit(limit)
             .populate('user', 'fullName email telephone')
             .lean();
         
         res.json({
             success: true,
-            data: demandes
+            data: {
+                demandes,
+                total,
+                page,
+                totalPages: Math.ceil(total / limit),
+                hasMore: page < Math.ceil(total / limit)
+            }
         });
     } catch (error) {
         businessLogger.error(error, { context: 'listDemandes', userId: req.user?.id });
@@ -559,13 +573,27 @@ exports.updateDemandeComplete = [
 
 exports.listPaiements = async (req, res) => {
     try {
+        const page = parseInt(req.query.page) || 1;
+        const limit = parseInt(req.query.limit) || 1;
+        const skip = (page - 1) * limit;
+
+        const total = await Paiement.countDocuments();
+
         const paiements = await Paiement.find()
             .sort({ createdAt: -1 })
+            .skip(skip)
+            .limit(limit)
             .lean();
         
         res.json({
             success: true,
-            data: paiements
+            data: {
+                paiements,
+                total,
+                page,
+                totalPages: Math.ceil(total / limit),
+                hasMore: page < Math.ceil(total / limit)
+            }
         });
     } catch (error) {
         businessLogger.error(error, { context: 'listPaiements', userId: req.user?.id });
@@ -575,7 +603,6 @@ exports.listPaiements = async (req, res) => {
         });
     }
 };
-
 exports.getPaiementById = [
   validateRequest(getPaiementByIdSchema),
   async (req, res) => {
@@ -813,14 +840,27 @@ exports.markAllNotificationsAsRead = async (req, res) => {
 
 exports.listHistorique = async (req, res) => {
     try {
+        const page = parseInt(req.query.page) || 1;
+        const limit = parseInt(req.query.limit) || 1;
+        const skip = (page - 1) * limit;
+
+        const total = await Historique.countDocuments();
+
         const historique = await Historique.find()
             .sort({ createdAt: -1 })
-            .limit(100)
+            .skip(skip)
+            .limit(limit)
             .lean();
         
         res.json({
             success: true,
-            data: historique
+            data: {
+                historique,
+                total,
+                page,
+                totalPages: Math.ceil(total / limit),
+                hasMore: page < Math.ceil(total / limit)
+            }
         });
     } catch (error) {
         businessLogger.error(error, { context: 'listHistorique', userId: req.user?.id });
