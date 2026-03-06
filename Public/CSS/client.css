@@ -1885,7 +1885,7 @@ body {
     flex-wrap: wrap;
 }
 
-/* Style pour l'upload area */
+
 .upload-area {
     border: 3px dashed var(--gris-moyen);
     border-radius: 12px;
@@ -3355,7 +3355,12 @@ body {
     gap: 0.5rem;
 }
 
-/* Responsive Design */
+ .modal-header{
+        z-index: 3;
+    }
+    
+
+
 @media (max-width: 1200px) {
     .dashboard-content {
         grid-template-columns: 1fr;
@@ -3468,11 +3473,15 @@ body {
         width: 95%;
         margin: 0.5rem;
     }
+    .modal-header{
+        z-index: 3;
+    }
     
     .modal-steps {
         flex-direction: column;
         gap: 1rem;
         align-items: flex-start;
+        z-index: 1;
     }
     
     .modal-steps::before {

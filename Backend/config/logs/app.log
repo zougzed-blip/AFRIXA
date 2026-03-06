@@ -11400,3 +11400,8 @@
   "environment": "production",
   "corsOrigin": "https://afrixa-demo.up.railway.app"
 }
+2026-03-06 11:09:32 [INFO] INFO Server started successfully on port 3000
+{
+  "environment": "production",
+  "corsOrigin": "https://afrixa-demo.up.railway.app"
+}
