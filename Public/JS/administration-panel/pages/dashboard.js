@@ -167,8 +167,22 @@ export async function loadRecentDemandesAgence() {
         }
         
         const result = await response.json();
-        const demandes = result.success ? result.data : result;
         
+        let demandes = [];
+        
+        if (result?.success && result?.data) {
+            if (Array.isArray(result.data)) {
+                demandes = result.data;
+            } else if (result.data?.demandes && Array.isArray(result.data.demandes)) {
+                demandes = result.data.demandes; 
+            } else if (result.data?.data && Array.isArray(result.data.data)) {
+                demandes = result.data.data;
+            }
+        } else if (Array.isArray(result)) {
+            demandes = result;
+        } else if (result?.demandes && Array.isArray(result.demandes)) {
+            demandes = result.demandes;
+        }
         
         if (!Array.isArray(demandes) || demandes.length === 0) {
             showEmptyState('recent-agence-demands', 'Aucune demande d\'agence récente');
@@ -177,7 +191,6 @@ export async function loadRecentDemandesAgence() {
  
         const recentDemandes = demandes.slice(0, 5);
         displayRecentDemandesAgence(recentDemandes);
-        
         
     } catch (error) {
         showEmptyState('recent-agence-demands', 'Erreur de chargement');

@@ -11201,3 +11201,202 @@
   "userId": "698df30f573345b90c20a561",
   "type": "statut"
 }
+2026-03-06 10:29:07 [INFO] INFO Server started successfully on port 3000
+{
+  "environment": "production",
+  "corsOrigin": "https://afrixa-demo.up.railway.app"
+}
+2026-03-06 10:29:17 [INFO] USER_LOGIN
+{
+  "userId": "698db1a6a5941047994043ad",
+  "email": "gradiipi@gmail.com"
+}
+2026-03-06 10:30:22 [INFO] USER_LOGIN
+{
+  "userId": "698df30f573345b90c20a561",
+  "email": "zougzed@gmail.com"
+}
+2026-03-06 10:30:48 [INFO] DEMANDE_CREATED
+{
+  "demandeId": "69aa90b807ef8f20d68170b2",
+  "codeColis": "AGENCE-848364",
+  "userId": "698df30f573345b90c20a561",
+  "type": "agence"
+}
+2026-03-06 10:32:40 [INFO] PAYMENT_PROOF_UPLOADED
+{
+  "proofId": "69aa912807ef8f20d681720e",
+  "codeColis": " AGENCE-874886",
+  "userId": "698df30f573345b90c20a561",
+  "amount": 20000
+}
+2026-03-06 10:32:40 [INFO] NOTIFICATION_CREATED
+{
+  "notificationId": "69aa912807ef8f20d6817210",
+  "userId": "698df30f573345b90c20a561",
+  "type": "payment_proof"
+}
+2026-03-06 10:39:58 [INFO] INFO Server started successfully on port 3000
+{
+  "environment": "production",
+  "corsOrigin": "https://afrixa-demo.up.railway.app"
+}
+2026-03-06 10:40:15 [INFO] INFO Server started successfully on port 3000
+{
+  "environment": "production",
+  "corsOrigin": "https://afrixa-demo.up.railway.app"
+}
+2026-03-06 10:41:09 [INFO] DEMANDE_CREATED
+{
+  "demandeId": "69aa9324c62c1341f257b26b",
+  "codeColis": "AGENCE-468982",
+  "userId": "698df30f573345b90c20a561",
+  "type": "agence"
+}
+2026-03-06 10:44:25 [INFO] INFO Server started successfully on port 3000
+{
+  "environment": "production",
+  "corsOrigin": "https://afrixa-demo.up.railway.app"
+}
+2026-03-06 10:45:53 [INFO] DEMANDE_CREATED
+{
+  "demandeId": "69aa9441a5099ab4bf40bf41",
+  "codeColis": "AGENCE-753607",
+  "userId": "698df30f573345b90c20a561",
+  "type": "agence"
+}
+2026-03-06 10:46:43 [INFO] DEMANDE_STATUS_UPDATED
+{
+  "demandeId": "69aa9324c62c1341f257b26b",
+  "codeColis": "AGENCE-468982",
+  "oldStatus": "en_attente",
+  "newStatus": "livré",
+  "byUserId": "698db1a6a5941047994043ad"
+}
+2026-03-06 10:46:43 [INFO] NOTIFICATION_CREATED
+{
+  "notificationId": "69aa9473a5099ab4bf40bfdf",
+  "userId": "698df30f573345b90c20a561",
+  "type": "statut"
+}
+2026-03-06 10:46:57 [INFO] INFO Agence request rated
+{
+  "userId": "698df30f573345b90c20a561",
+  "demandeId": "69aa9324c62c1341f257b26b",
+  "rating": 3
+}
+2026-03-06 10:47:34 [INFO] USER_VERIFIED
+{
+  "userId": "6991d1eb0cf2a7531f39a22c",
+  "byUserId": "698db1a6a5941047994043ad"
+}
+2026-03-06 10:51:51 [INFO] INFO Server started successfully on port 3000
+{
+  "environment": "production",
+  "corsOrigin": "https://afrixa-demo.up.railway.app"
+}
+2026-03-06 10:51:55 [INFO] INFO Server started successfully on port 3000
+{
+  "environment": "production",
+  "corsOrigin": "https://afrixa-demo.up.railway.app"
+}
+2026-03-06 10:52:26 [INFO] INFO Server started successfully on port 3000
+{
+  "environment": "production",
+  "corsOrigin": "https://afrixa-demo.up.railway.app"
+}
+2026-03-06 10:52:45 [INFO] INFO Server started successfully on port 3000
+{
+  "environment": "production",
+  "corsOrigin": "https://afrixa-demo.up.railway.app"
+}
+2026-03-06 10:52:51 [INFO] INFO Server started successfully on port 3000
+{
+  "environment": "production",
+  "corsOrigin": "https://afrixa-demo.up.railway.app"
+}
+2026-03-06 10:52:59 [INFO] INFO Server started successfully on port 3000
+{
+  "environment": "production",
+  "corsOrigin": "https://afrixa-demo.up.railway.app"
+}
+2026-03-06 10:53:12 [INFO] INFO Server started successfully on port 3000
+{
+  "environment": "production",
+  "corsOrigin": "https://afrixa-demo.up.railway.app"
+}
+2026-03-06 10:56:05 [INFO] INFO Server started successfully on port 3000
+{
+  "environment": "production",
+  "corsOrigin": "https://afrixa-demo.up.railway.app"
+}
+2026-03-06 10:56:10 [INFO] INFO Server started successfully on port 3000
+{
+  "environment": "production",
+  "corsOrigin": "https://afrixa-demo.up.railway.app"
+}
+2026-03-06 10:56:22 [INFO] INFO Server started successfully on port 3000
+{
+  "environment": "production",
+  "corsOrigin": "https://afrixa-demo.up.railway.app"
+}
+2026-03-06 10:56:26 [INFO] INFO Server started successfully on port 3000
+{
+  "environment": "production",
+  "corsOrigin": "https://afrixa-demo.up.railway.app"
+}
+2026-03-06 10:56:54 [INFO] DEMANDE_CREATED
+{
+  "demandeId": "69aa96d699dc67a01ac5893e",
+  "codeColis": "AGENCE-414318",
+  "userId": "698df30f573345b90c20a561",
+  "type": "agence"
+}
+2026-03-06 10:57:42 [INFO] PAYMENT_PROOF_UPLOADED
+{
+  "proofId": "69aa970699dc67a01ac58961",
+  "codeColis": " AGENCE-874886",
+  "userId": "698df30f573345b90c20a561",
+  "amount": 20000
+}
+2026-03-06 10:57:42 [INFO] NOTIFICATION_CREATED
+{
+  "notificationId": "69aa970699dc67a01ac58963",
+  "userId": "698df30f573345b90c20a561",
+  "type": "payment_proof"
+}
+2026-03-06 10:59:42 [INFO] INFO Server started successfully on port 3000
+{
+  "environment": "production",
+  "corsOrigin": "https://afrixa-demo.up.railway.app"
+}
+2026-03-06 11:01:04 [INFO] USER_LOGIN
+{
+  "userId": "698df30f573345b90c20a561",
+  "email": "zougzed@gmail.com"
+}
+2026-03-06 11:01:15 [INFO] USER_LOGIN
+{
+  "userId": "698df30f573345b90c20a561",
+  "email": "zougzed@gmail.com"
+}
+2026-03-06 11:06:46 [INFO] INFO Server started successfully on port 3000
+{
+  "environment": "production",
+  "corsOrigin": "https://afrixa-demo.up.railway.app"
+}
+2026-03-06 11:06:58 [INFO] INFO Server started successfully on port 3000
+{
+  "environment": "production",
+  "corsOrigin": "https://afrixa-demo.up.railway.app"
+}
+2026-03-06 11:07:09 [INFO] INFO Server started successfully on port 3000
+{
+  "environment": "production",
+  "corsOrigin": "https://afrixa-demo.up.railway.app"
+}
+2026-03-06 11:07:15 [INFO] INFO Server started successfully on port 3000
+{
+  "environment": "production",
+  "corsOrigin": "https://afrixa-demo.up.railway.app"
+}

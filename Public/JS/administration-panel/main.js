@@ -104,3 +104,6 @@ window.loadFilteredRevenue = Dashboard.loadFilteredRevenue;
 window.setupRevenueFilter = Dashboard.setupRevenueFilter;
 window.loadRecentActivities = Dashboard.loadRecentActivities;
 window.loadRecentDemandesAgence = Dashboard.loadRecentDemandesAgence;
+window.badgeCounts = badgeCounts;
+window.updateAllBadges = updateAllBadges;
+window.resetBadge = resetBadge;

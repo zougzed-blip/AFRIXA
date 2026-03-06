@@ -1,4 +1,3 @@
-
 import * as Pages from '../pages/index.js';
 import * as BadgeService from '../services/badge.service.js';
 
@@ -59,7 +58,6 @@ export function loadSectionData(sectionId) {
         case 'demandes-agence':
             if (window.loadDemandesAgencePage) window.loadDemandesAgencePage();
             break;
-   
         case 'ratings':
             if (window.loadRatingsPage) window.loadRatingsPage();
             break;
@@ -82,18 +80,29 @@ function handleSectionVisit(sectionId) {
     switch(sectionId) {
         case 'paiements':
             localStorage.setItem('lastProofsViewed', now);
-            if (window.badgeCounts) window.badgeCounts.proofs = 0;
-            updateBadge('new-proofs-count', 0);
+            BadgeService.resetBadge('proofs');
             break;
+            
         case 'demandes-agence':
             localStorage.setItem('lastDemandesAgenceViewed', now);
-            if (window.badgeCounts) window.badgeCounts.demandesAgence = 0;
-            updateBadge('demandes-agence-badge', 0);
+            BadgeService.resetBadge('demandesAgence');
             break;
+            
         case 'ratings':
             localStorage.setItem('lastRatingsViewed', now);
-            if (window.badgeCounts) window.badgeCounts.ratings = 0;
-            updateBadge('ratings-badge', 0);
+            BadgeService.resetBadge('ratings');
+            break;
+            
+        case 'utilisateurs':
+       
+            break;
+            
+        case 'validation':
+         
+            break;
+            
+        default:
+          
             break;
     }
 }
@@ -106,20 +115,11 @@ function updatePageTitle(sectionId) {
         'demandes-agence': 'Demandes d\'Agence',
         'paiements': 'Preuves de Paiement',
         'ratings': 'Évaluations',
-      
     };
     
     const pageTitle = document.getElementById('page-title');
     if (pageTitle) {
         pageTitle.textContent = titles[sectionId] || 'Tableau de Bord';
-    }
-}
-
-function updateBadge(badgeId, count) {
-    const badge = document.getElementById(badgeId);
-    if (badge) {
-        badge.textContent = count;
-        badge.style.display = count > 0 ? 'inline-block' : 'none';
     }
 }
 

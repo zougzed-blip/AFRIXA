@@ -115,7 +115,7 @@ document.addEventListener("DOMContentLoaded", async () => {
                 throw new Error(data.message || "Email ou mot de passe incorrect");
             }
 
-            showNotification("Connexion réussie ! Redirection en cours...", "success");
+            showNotification("Connexion réussie !", "success");
             loginBtn.querySelector('.btn-text').textContent = 'Connecté !';
             loginBtn.querySelector('i').className = 'fas fa-check';
             loginBtn.style.background = 'var(--success)';
