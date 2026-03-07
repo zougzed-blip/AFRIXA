@@ -1,6 +1,5 @@
 import * as API from '../api/admin.api.js';
 
-// ==================== AJOUT PAGINATION ====================
 let currentPage = 1;
 let isLoading = false;
 let hasMore = true;
@@ -18,7 +17,6 @@ function safeDate(dateString) {
     if (!dateString || dateString === 'N/A') return 'N/A';
     
     try {
-       
         if (dateString.includes('/') && dateString.includes(':')) {
             const [datePart] = dateString.split(' ');
             const [day, month, year] = datePart.split('/');
@@ -180,9 +178,10 @@ function showEmptyStateWithRetry() {
 }
 
 function updateRatingsCount() {
-    const totalRatings = document.getElementById('total-ratings');
-    if (totalRatings) {
-        totalRatings.textContent = allRatings.length;
+   
+    const totalRatingsElement = document.getElementById('total-ratings');
+    if (totalRatingsElement) {
+        totalRatingsElement.textContent = allRatings.length;
     }
 }
 
@@ -248,10 +247,13 @@ function filterRatings() {
         if (matchesFilter && matchesSearch && matchesDate) visibleCount++;
     });
     
-    const totalRatings = document.getElementById('total-ratings');
-    if (totalRatings) {
-        totalRatings.textContent = visibleCount;
+    // Met à jour UNIQUEMENT l'affichage du nombre filtré dans la page
+    const totalRatingsElement = document.getElementById('total-ratings');
+    if (totalRatingsElement) {
+        totalRatingsElement.textContent = visibleCount;
     }
+    
+    // NE PAS toucher au badge ici - il est géré par badge.service.js
 }
 
 // ==================== INFINITE SCROLL ====================

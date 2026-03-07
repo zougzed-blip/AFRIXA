@@ -853,6 +853,22 @@
 
     <div id="popup-container"></div>
 
+    <script>
+ 
+    document.addEventListener('DOMContentLoaded', function() {
+        const sidebar = document.querySelector('.sidebar');
+        const toggleBtn = document.getElementById('sidebarToggle');
+        
+        if (toggleBtn && sidebar) {
+            toggleBtn.addEventListener('click', function(e) {
+                e.preventDefault()
+                e.stopPropagation()
+                sidebar.classList.toggle('active')
+                console.log('Toggle clicked')
+            })
+        }
+    });
+</script>
     <script type="module" src="/JS/administration-panel/main.js"></script>
 </body>
 </html>

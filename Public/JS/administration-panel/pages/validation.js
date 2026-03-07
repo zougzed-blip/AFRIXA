@@ -9,7 +9,7 @@ function showConfirm(message, onConfirm, onCancel = null) {
     const messageEl = document.getElementById('customAlertMessage');
     const titleEl = document.getElementById('customAlertTitle');
     const confirmBtn = document.getElementById('customAlertConfirm');
-    const cancelBtn = document.getElementById('customAlertCancel');
+    // const cancelBtn = document.getElementById('customAlertCancel');
     
     if (!alertBox || !messageEl) {
         console.error('Modal elements not found');
@@ -53,15 +53,14 @@ function showConfirm(message, onConfirm, onCancel = null) {
         alertBox.classList.remove('active');
         overlay.classList.remove('active');
         confirmBtn.removeEventListener('click', handleConfirm);
-        cancelBtn.removeEventListener('click', handleCancel);
+        // cancelBtn.removeEventListener('click', handleCancel);
         document.removeEventListener('keydown', handleKeydown);
         overlay.removeEventListener('click', handleCancel);
     };
     
     confirmBtn.addEventListener('click', handleConfirm);
-    cancelBtn.addEventListener('click', handleCancel);
     document.addEventListener('keydown', handleKeydown);
-    overlay.addEventListener('click', handleCancel);
+    // overlay.addEventListener('click', handleCancel);
 }
 
 function getAlertTitle(type) {
@@ -311,7 +310,7 @@ function displayCompanies(companies) {
                     <p>${phone} • ${address}</p>
                     <span class="company-type">${roleLabel}</span>
                     <div class="company-meta">
-                        <small>Inscrit le: ${formattedDate}</small>
+                        
                     </div>
                 </div>
             </div>
@@ -320,14 +319,9 @@ function displayCompanies(companies) {
                         data-company-id="${escapeHtml(company._id)}"
                         data-company-name="${companyName}"
                         title="Accepter">
-                    <i class="fas fa-check"></i> Accepter
+                        Accepter
                 </button>
-                <button class="btn btn-refuse refuse-company-btn" 
-                        data-company-id="${escapeHtml(company._id)}"
-                        data-company-name="${companyName}"
-                        title="Refuser">
-                    <i class="fas fa-times"></i> Refuser
-                </button>
+               
             </div>
         `;
         

@@ -59,6 +59,10 @@ body {
     transition: transform 0.3s ease;
 }
 
+.sidebar.active {
+    transform: translateX(0);
+}
+
 .logo {
     padding: 1.25rem;
     border-bottom: 1px solid var(--gris-border);
@@ -403,80 +407,135 @@ body {
     box-shadow: var(--hover-shadow);
 }
 
-/* ===================== REVENU CARD  =================== */
+.stat-card h3 {
+    color: var(--vert-fonce);
+    font-size: 1.3rem;
+    font-weight: 700;
+    margin-bottom: 0.2rem;
+    line-height: 1.2;
+}
+
+.stat-card p {
+    color: var(--gris-texte);
+    font-size: 0.9rem;
+}
+
+.stat-subinfo {
+    margin-top: 0.5rem;
+    font-size: 0.8rem;
+    color: var(--gris-texte);
+}
+
+.stat-subinfo strong {
+    color: var(--vert-fonce);
+    font-weight: 600;
+}
+
+.stat-subinfo-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 0.5rem;
+    margin-top: 0.5rem;
+    font-size: 0.8rem;
+}
+
+.stat-subinfo-grid span {
+    color: var(--gris-texte);
+}
+
+.stat-subinfo-grid strong {
+    color: var(--vert-fonce);
+    font-weight: 600;
+}
+
+/* ===================== REVENU CARD =================== */
 .stat-card:nth-child(5) {
     grid-column: span 2;
     background: linear-gradient(135deg, var(--vert-fonce) 0%, #006644 100%);
-    padding: 0.3rem;
-    height: 140px; 
+    padding: 0;
+    height: 180px;
     width: 100%;
-    padding-bottom: 1rem;
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 1.5rem;
-    align-items: center;
-    text-align: center;
+    display: flex;
+    align-items: stretch;
+    border: none;
+    box-shadow: var(--shadow-lg);
+    overflow: hidden;
+}
+
+.stat-card:nth-child(5):hover {
+    transform: translateY(-4px);
+    box-shadow: var(--shadow-xl);
+}
+
+.stat-card:nth-child(5) .stat-info {
+    display: flex;
+    width: 100%;
+    height: 100%;
+    align-items: stretch;
 }
 
 .revenue-left {
+    flex: 1.2;
     display: flex;
     flex-direction: column;
     justify-content: center;
-    padding-right: 80px;
-    padding-bottom: 0;
-    height: 100%;
+    padding: 1.5rem 2rem;
+    border-right: 1px solid rgba(255, 255, 255, 0.15);
 }
 
 .revenue-left h3 {
     color: var(--blanc) !important;
-    font-size: 1rem; 
-    margin-bottom: 0.2rem;
+    font-size: 1.5rem;
+    margin-bottom: 0.25rem;
     font-weight: 700;
-    line-height: 1;
+    line-height: 1.2;
 }
 
 .revenue-left > p {
     color: var(--blanc) !important;
-    font-size: 0.9rem; 
+    font-size: 0.9rem;
     font-weight: 500;
-    margin-bottom: 0.8rem;
-    opacity: 0.9;
-}
-
-.revenue-left .stat-subinfo {
-    margin-top: 0.5rem;
+    margin-bottom: 1rem;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
 }
 
 .revenue-left .revenue-filters {
     display: flex;
     align-items: center;
-    gap: 0.5rem;
-    margin-bottom: 0;
+    gap: 0.75rem;
+    margin-top: 0.25rem;
 }
 
 .revenue-left .revenue-filters label {
-    font-size: 0.8rem;
+    font-size: 0.75rem;
     color: var(--blanc) !important;
-    font-weight: 500;
+    font-weight: 600;
     min-width: 45px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
 }
 
 .revenue-left .mini-select {
-    padding: 0.4rem 0.6rem;
+    padding: 0.4rem 1.8rem 0.4rem 0.6rem;
     border: 1px solid rgba(255, 255, 255, 0.3);
-    border-radius: 4px;
+    border-radius: 6px;
     font-size: 0.8rem;
     background: rgba(255, 255, 255, 0.15);
     color: var(--blanc) !important;
-    min-width: 80px;
+    min-width: 85px;
     cursor: pointer;
-    height: 32px;
+    height: 34px;
+    appearance: none;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='10' viewBox='0 0 16 16'%3E%3Cpath fill='white' d='M7.247 11.14L2.451 5.658C1.885 5.013 2.345 4 3.204 4h9.592a1 1 0 0 1 .753 1.659l-4.796 5.48a1 1 0 0 1-1.506 0z'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right 0.6rem center;
+    background-size: 8px;
 }
 
 .revenue-left .mini-select option {
     background: var(--vert-fonce);
     color: var(--blanc);
-    font-size: 0.8rem;
 }
 
 .revenue-left .mini-select:focus {
@@ -485,38 +544,39 @@ body {
     box-shadow: 0 0 0 2px rgba(197, 155, 51, 0.3);
 }
 
-
 .revenue-right {
+    flex: 1;
     display: flex;
     flex-direction: column;
     justify-content: center;
-    gap: 0.6rem;
-    padding-left: 1rem;
-    border-left: 1px solid rgba(255, 255, 255, 0.2);
+    padding: 1.5rem 2rem;
 }
 
 .revenue-right .revenue-filters {
     display: flex;
     align-items: center;
-    gap: 0.5rem;
+    gap: 0.75rem;
+    margin-bottom: 0.75rem;
 }
 
 .revenue-right .revenue-filters label {
-    font-size: 0.8rem;
+    font-size: 0.75rem;
     color: var(--blanc) !important;
-    font-weight: 500;
+    font-weight: 600;
     min-width: 25px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
 }
 
 .revenue-right .mini-input {
     padding: 0.4rem 0.6rem;
     border: 1px solid rgba(255, 255, 255, 0.3);
-    border-radius: 4px;
+    border-radius: 6px;
     font-size: 0.8rem;
     background: rgba(255, 255, 255, 0.15);
     color: var(--blanc) !important;
     min-width: 120px;
-    height: 32px;
+    height: 34px;
 }
 
 .revenue-right .mini-input:focus {
@@ -525,93 +585,69 @@ body {
     box-shadow: 0 0 0 2px rgba(197, 155, 51, 0.3);
 }
 
-.revenue-right .btn-mini {
-    align-self: flex-start;
-    padding: 0.4rem 1rem;
-    background: var(--beige-clair);
-    color: var(--vert-fonce) !important;
-    border: none;
-    border-radius: 4px;
-    font-size: 0.8rem;
-    font-weight: 600;
-    cursor: pointer;
-    transition: var(--transition);
-    margin-top: 0.2rem;
-    height: 32px;
-}
-.sidebar-toggle {
-    display: none;
-    background: var(--vert-fonce);
-    color: var(--blanc);
-    border: none;
-    border-radius: var(--radius-sm);
-    width: 40px;
-    height: 40px;
-    cursor: pointer;
-    align-items: center;
-    justify-content: center;
-    font-size: 1.25rem;
-    transition: var(--transition);
-    position: fixed;
-    top: 15px;
-    right: 15px;
-    z-index: 1001;
-    box-shadow: var(--shadow);
-}
-
-.sidebar-toggle:hover {
-    background: var(--dore);
-    transform: scale(1.05);
-}
-.revenue-right .btn-mini:hover {
-    background: var(--blanc);
-    color: var(--vert-fonce) !important;
-    transform: translateY(-1px);
-}
-
-/* Pour les inputs date */
 .revenue-right .mini-input::-webkit-calendar-picker-indicator {
-    filter: invert(1) brightness(2);
+    filter: invert(1);
     opacity: 0.7;
     cursor: pointer;
-    width: 16px;
-    height: 16px;
-    padding: 0;
 }
 
-/* Pour le select */
+.revenue-right .btn-mini {
+    align-self: flex-start;
+    padding: 0.3rem 1.5rem;
+    background: var(--dore);
+    color: var(--blanc) !important;
+    border: none;
+    border-radius: 6px;
+    font-size: 0.85rem;
+    font-weight: 700;
+    cursor: pointer;
+    transition: var(--transition);
+    height: 38px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    box-shadow: 0 4px 10px rgba(197, 155, 51, 0.4);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.revenue-right .btn-mini:hover {
+    background: #ad8626;
+    transform: translateY(-3px);
+    box-shadow: 0 6px 15px rgba(197, 155, 51, 0.5);
+}
+
 .revenue-left .mini-select {
     background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='10' fill='white' viewBox='0 0 16 16'%3E%3Cpath d='M7.247 11.14 2.451 5.658C1.885 5.013 2.345 4 3.204 4h9.592a1 1 0 0 1 .753 1.659l-4.796 5.48a1 1 0 0 1-1.506 0z'/%3E%3C/svg%3E") !important;
     background-repeat: no-repeat !important;
-    background-position: right 0.5rem center !important;
-    background-size: 10px 10px !important;
+    background-position: right 0.6rem center !important;
+    background-size: 8px !important;
     padding-right: 1.8rem !important;
 }
 
-/* Sur mobile, afficher en colonne */
+
 @media (max-width: 768px) {
     .stat-card:nth-child(5) {
         grid-column: span 1;
-        grid-template-columns: 1fr;
         height: auto;
-        padding: 1rem;
-        min-height: 180px;
+        min-height: 280px;
+        flex-direction: column;
+    }
+    
+    .stat-card:nth-child(5) .stat-info {
+        flex-direction: column;
+    }
+    
+    .revenue-left {
+        border-right: none;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.15);
+        padding: 1.25rem;
     }
     
     .revenue-right {
-        border-left: none;
-        border-top: 1px solid rgba(255, 255, 255, 0.2);
-        padding-left: 0;
-        padding-top: 0.8rem;
-        margin-top: 0.8rem;
+        padding: 1.25rem;
     }
     
     .revenue-left h3 {
-        font-size: 1.6rem;
-    }
-    
-    .revenue-right .mini-input {
-        min-width: 100px;
+        font-size: 1.8rem;
     }
     
     .revenue-right .revenue-filters,
@@ -620,19 +656,6 @@ body {
     }
 }
 
-.stat-card:nth-child(5) .stat-info {
-    width: 80%;
-    height: 100%;
-    display: flex;
-    align-items: center;
-}
-
-.revenue-left, .revenue-right {
-    height: 100%;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-}
 /* =============================DASHB CONTENT ===========================*/
 .dashboard-content {
     display: grid;
@@ -817,9 +840,21 @@ body {
     background-color: var(--vert-fonce);
 }
 
-#send-proof-btn{
+#send-proof-btn {
     background-color: var(--dore);
-    color: var(--blanc);    
+    color: var(--blanc);
+    border: none;
+    border-radius: 8px;
+    padding: 0.75rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+#send-proof-btn:hover {
+    background: #ad8626;
+    transform: translateY(-2px);
+    box-shadow: var(--shadow);
 }
 
 .companies-send-list {
@@ -998,15 +1033,6 @@ body {
 .notification-item.unread {
     background: rgba(255, 255, 255, 0.05);
 }
-
-/* .notification-item.success {
-}
-
-.notification-item.warning {
-}
-
-.notification-item.danger {
-} */
 
 .notification-item:hover {
     background: var(--dore-clair);
@@ -2278,6 +2304,18 @@ body {
         min-width: 280px;
         max-width: 95%;
     }
+    
+    .revenue-right .revenue-filters {
+        flex-wrap: wrap;
+    }
+    
+    .revenue-right .mini-input {
+        flex: 1 1 100%;
+    }
+    
+    .revenue-right .btn-mini {
+        width: 100%;
+    }
 }
 
 /* ====================== PROFILE SECTIONS ======================= */
@@ -2440,12 +2478,6 @@ body {
     background: #f8d7da;
     color: #721c24;
     border: 1px solid #f5c6cb;
-}
-
-.status-accepté {
-    background: #d4edda;
-    color: #155724;
-    border: 1px solid #c3e6cb;
 }
 
 .status-refusé {

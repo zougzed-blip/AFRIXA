@@ -247,7 +247,7 @@ function closeModal() {
 
 // ==================== FONCTIONS PRINCIPALES ====================
 export async function loadUsersPage() {
-    // ==================== AJOUT PAGINATION ====================
+   
     currentPage = 1;
     hasMore = true;
     allUsers = [];

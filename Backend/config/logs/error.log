@@ -705,3 +705,27 @@
   },
   "userId": null
 }
+2026-03-06 16:22:15 [ERROR] ERROR connection <monitor> to 159.41.89.35:27017 closed
+{
+  "context": {
+    "context": "getAllUsers",
+    "userId": "698db1a6a5941047994043ad"
+  },
+  "userId": null
+}
+2026-03-06 16:22:21 [ERROR] ERROR Socket 'secureConnect' timed out after 10127ms (connectTimeoutMS: 10000)
+{
+  "context": {
+    "context": "adminGetAllAgenceRatings",
+    "userId": "698db1a6a5941047994043ad"
+  },
+  "userId": null
+}
+2026-03-06 16:22:25 [ERROR] ERROR Socket 'secureConnect' timed out after 10127ms (connectTimeoutMS: 10000)
+{
+  "context": {
+    "context": "adminListDemandes",
+    "userId": "698db1a6a5941047994043ad"
+  },
+  "userId": null
+}

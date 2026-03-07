@@ -161,54 +161,50 @@ async function updateRatingsBadge() {
     try {
         await sleep(500);
         const lastRatingsViewed = localStorage.getItem('lastRatingsViewed');
+        
         const response = await API.apiFetch('/api/admin/agence/all-ratings');
         
         if (response && response.ok) {
             const result = await response.json();
             
             let ratings = [];
-            
-            if (result?.success && result?.data) {
-                if (Array.isArray(result.data)) {
-                    ratings = result.data;
-                } else if (result.data?.ratings && Array.isArray(result.data.ratings)) {
-                    ratings = result.data.ratings;
-                }
-            } else if (Array.isArray(result)) {
-                ratings = result;
-            } else if (result?.ratings && Array.isArray(result.ratings)) {
-                ratings = result.ratings;
+            if (result?.success && Array.isArray(result.data)) {
+                ratings = result.data;
             }
-            
+       
             if (lastRatingsViewed) {
-                const lastViewedDate = new Date(lastRatingsViewed);
+                const lastDate = new Date(lastRatingsViewed);
+                
                 const newRatings = ratings.filter(r => {
-                    const ratingDate = r?.Date || r?.date || r?.createdAt || r?.created_at || r?.created;
-                    if (!ratingDate) return false;
-                    
-                    const date = new Date(ratingDate);
-                    return date > lastViewedDate;
+                    if (r?.createdAt) {
+                        const ratingDate = new Date(r.createdAt);
+                        const isNew = ratingDate > lastDate;
+                        return isNew;
+                    }
+                    return false;
                 });
+                
                 badgeCounts.ratings = newRatings.length;
+                
             } else {
+               
                 const yesterday = new Date(Date.now() - 24 * 60 * 60 * 1000);
                 const newRatings = ratings.filter(r => {
-                    const ratingDate = r?.Date || r?.date || r?.createdAt || r?.created_at || r?.created;
-                    if (!ratingDate) return false;
-                    
-                    const date = new Date(ratingDate);
-                    return date > yesterday;
+                    if (r?.createdAt) {
+                        return new Date(r.createdAt) > yesterday;
+                    }
+                    return false;
                 });
+                
                 badgeCounts.ratings = newRatings.length;
             }
             
             updateBadge('ratings-badge', badgeCounts.ratings);
         }
     } catch (error) {
-       
+  
     }
 }
-
 export function updateBadge(badgeId, count) {
     const badge = document.getElementById(badgeId);
     if (badge) {

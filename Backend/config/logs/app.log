@@ -11405,3 +11405,328 @@
   "environment": "production",
   "corsOrigin": "https://afrixa-demo.up.railway.app"
 }
+2026-03-06 11:27:51 [INFO] INFO Server started successfully on port 3000
+{
+  "environment": "production",
+  "corsOrigin": "https://afrixa-demo.up.railway.app"
+}
+2026-03-06 11:42:19 [WARN] WARNING Login attempt with incorrect password
+{
+  "context": {
+    "email": "gradiipi@gmail.com",
+    "userId": "698db1a6a5941047994043ad"
+  },
+  "userId": null
+}
+2026-03-06 16:22:15 [ERROR] ERROR connection <monitor> to 159.41.89.35:27017 closed
+{
+  "context": {
+    "context": "getAllUsers",
+    "userId": "698db1a6a5941047994043ad"
+  },
+  "userId": null
+}
+2026-03-06 16:22:21 [ERROR] ERROR Socket 'secureConnect' timed out after 10127ms (connectTimeoutMS: 10000)
+{
+  "context": {
+    "context": "adminGetAllAgenceRatings",
+    "userId": "698db1a6a5941047994043ad"
+  },
+  "userId": null
+}
+2026-03-06 16:22:25 [ERROR] ERROR Socket 'secureConnect' timed out after 10127ms (connectTimeoutMS: 10000)
+{
+  "context": {
+    "context": "adminListDemandes",
+    "userId": "698db1a6a5941047994043ad"
+  },
+  "userId": null
+}
+2026-03-07 15:15:54 [INFO] USER_LOGIN
+{
+  "userId": "698db1a6a5941047994043ad",
+  "email": "gradiipi@gmail.com"
+}
+2026-03-07 17:24:12 [INFO] INFO Server started successfully on port 3000
+{
+  "environment": "production",
+  "corsOrigin": "https://afrixa-demo.up.railway.app"
+}
+2026-03-07 17:24:15 [INFO] INFO Server started successfully on port 3000
+{
+  "environment": "production",
+  "corsOrigin": "https://afrixa-demo.up.railway.app"
+}
+2026-03-07 17:24:28 [INFO] INFO Server started successfully on port 3000
+{
+  "environment": "production",
+  "corsOrigin": "https://afrixa-demo.up.railway.app"
+}
+2026-03-07 17:24:40 [INFO] INFO Server started successfully on port 3000
+{
+  "environment": "production",
+  "corsOrigin": "https://afrixa-demo.up.railway.app"
+}
+2026-03-07 17:25:16 [INFO] INFO Server started successfully on port 3000
+{
+  "environment": "production",
+  "corsOrigin": "https://afrixa-demo.up.railway.app"
+}
+2026-03-07 17:26:41 [INFO] INFO Server started successfully on port 3000
+{
+  "environment": "production",
+  "corsOrigin": "https://afrixa-demo.up.railway.app"
+}
+2026-03-07 17:26:53 [INFO] INFO Server started successfully on port 3000
+{
+  "environment": "production",
+  "corsOrigin": "https://afrixa-demo.up.railway.app"
+}
+2026-03-07 17:27:06 [INFO] INFO Server started successfully on port 3000
+{
+  "environment": "production",
+  "corsOrigin": "https://afrixa-demo.up.railway.app"
+}
+2026-03-07 17:27:10 [INFO] INFO Server started successfully on port 3000
+{
+  "environment": "production",
+  "corsOrigin": "https://afrixa-demo.up.railway.app"
+}
+2026-03-07 17:27:35 [INFO] INFO Server started successfully on port 3000
+{
+  "environment": "production",
+  "corsOrigin": "https://afrixa-demo.up.railway.app"
+}
+2026-03-07 17:27:49 [INFO] INFO Server started successfully on port 3000
+{
+  "environment": "production",
+  "corsOrigin": "https://afrixa-demo.up.railway.app"
+}
+2026-03-07 17:28:13 [INFO] INFO Server started successfully on port 3000
+{
+  "environment": "production",
+  "corsOrigin": "https://afrixa-demo.up.railway.app"
+}
+2026-03-07 17:30:53 [INFO] INFO Server started successfully on port 3000
+{
+  "environment": "production",
+  "corsOrigin": "https://afrixa-demo.up.railway.app"
+}
+2026-03-07 17:30:59 [INFO] INFO Server started successfully on port 3000
+{
+  "environment": "production",
+  "corsOrigin": "https://afrixa-demo.up.railway.app"
+}
+2026-03-07 17:31:03 [INFO] INFO Server started successfully on port 3000
+{
+  "environment": "production",
+  "corsOrigin": "https://afrixa-demo.up.railway.app"
+}
+2026-03-07 17:31:05 [INFO] INFO Server started successfully on port 3000
+{
+  "environment": "production",
+  "corsOrigin": "https://afrixa-demo.up.railway.app"
+}
+2026-03-07 17:31:11 [INFO] USER_VERIFIED
+{
+  "userId": "698df6c6573345b90c20a97d",
+  "byUserId": "698db1a6a5941047994043ad"
+}
+2026-03-07 17:31:47 [INFO] INFO Server started successfully on port 3000
+{
+  "environment": "production",
+  "corsOrigin": "https://afrixa-demo.up.railway.app"
+}
+2026-03-07 17:37:11 [INFO] INFO Server started successfully on port 3000
+{
+  "environment": "production",
+  "corsOrigin": "https://afrixa-demo.up.railway.app"
+}
+2026-03-07 17:39:15 [INFO] INFO Server started successfully on port 3000
+{
+  "environment": "production",
+  "corsOrigin": "https://afrixa-demo.up.railway.app"
+}
+2026-03-07 17:39:25 [INFO] INFO Server started successfully on port 3000
+{
+  "environment": "production",
+  "corsOrigin": "https://afrixa-demo.up.railway.app"
+}
+2026-03-07 17:39:35 [INFO] INFO Server started successfully on port 3000
+{
+  "environment": "production",
+  "corsOrigin": "https://afrixa-demo.up.railway.app"
+}
+2026-03-07 17:40:03 [INFO] INFO Server started successfully on port 3000
+{
+  "environment": "production",
+  "corsOrigin": "https://afrixa-demo.up.railway.app"
+}
+2026-03-07 17:44:41 [INFO] INFO Server started successfully on port 3000
+{
+  "environment": "production",
+  "corsOrigin": "https://afrixa-demo.up.railway.app"
+}
+2026-03-07 17:46:53 [INFO] INFO Server started successfully on port 3000
+{
+  "environment": "production",
+  "corsOrigin": "https://afrixa-demo.up.railway.app"
+}
+2026-03-07 17:47:02 [INFO] INFO Server started successfully on port 3000
+{
+  "environment": "production",
+  "corsOrigin": "https://afrixa-demo.up.railway.app"
+}
+2026-03-07 17:47:08 [INFO] INFO Server started successfully on port 3000
+{
+  "environment": "production",
+  "corsOrigin": "https://afrixa-demo.up.railway.app"
+}
+2026-03-07 17:48:53 [INFO] INFO Server started successfully on port 3000
+{
+  "environment": "production",
+  "corsOrigin": "https://afrixa-demo.up.railway.app"
+}
+2026-03-07 17:48:57 [INFO] INFO Server started successfully on port 3000
+{
+  "environment": "production",
+  "corsOrigin": "https://afrixa-demo.up.railway.app"
+}
+2026-03-07 17:49:00 [INFO] INFO Server started successfully on port 3000
+{
+  "environment": "production",
+  "corsOrigin": "https://afrixa-demo.up.railway.app"
+}
+2026-03-07 17:51:04 [INFO] INFO Server started successfully on port 3000
+{
+  "environment": "production",
+  "corsOrigin": "https://afrixa-demo.up.railway.app"
+}
+2026-03-07 17:51:10 [INFO] INFO Server started successfully on port 3000
+{
+  "environment": "production",
+  "corsOrigin": "https://afrixa-demo.up.railway.app"
+}
+2026-03-07 17:51:13 [INFO] INFO Server started successfully on port 3000
+{
+  "environment": "production",
+  "corsOrigin": "https://afrixa-demo.up.railway.app"
+}
+2026-03-07 17:54:27 [INFO] USER_LOGIN
+{
+  "userId": "698df30f573345b90c20a561",
+  "email": "zougzed@gmail.com"
+}
+2026-03-07 17:54:36 [INFO] INFO Agence request rated
+{
+  "userId": "698df30f573345b90c20a561",
+  "demandeId": "69aa96d699dc67a01ac5893e",
+  "rating": 3
+}
+2026-03-07 17:56:46 [INFO] INFO Server started successfully on port 3000
+{
+  "environment": "production",
+  "corsOrigin": "https://afrixa-demo.up.railway.app"
+}
+2026-03-07 17:59:21 [INFO] INFO Server started successfully on port 3000
+{
+  "environment": "production",
+  "corsOrigin": "https://afrixa-demo.up.railway.app"
+}
+2026-03-07 18:00:40 [INFO] INFO Agence request rated
+{
+  "userId": "698df30f573345b90c20a561",
+  "demandeId": "69aa90b807ef8f20d68170b2",
+  "rating": 3
+}
+2026-03-07 18:02:45 [INFO] DEMANDE_STATUS_UPDATED
+{
+  "demandeId": "69aa9441a5099ab4bf40bf41",
+  "codeColis": "AGENCE-753607",
+  "oldStatus": "accepté",
+  "newStatus": "livré",
+  "byUserId": "698db1a6a5941047994043ad"
+}
+2026-03-07 18:02:45 [INFO] NOTIFICATION_CREATED
+{
+  "notificationId": "69ac4c25f05c508a490be2a0",
+  "userId": "698df30f573345b90c20a561",
+  "type": "statut"
+}
+2026-03-07 18:10:44 [INFO] DEMANDE_CREATED
+{
+  "demandeId": "69ac4e04f05c508a490be525",
+  "codeColis": "AGENCE-844721",
+  "userId": "698df30f573345b90c20a561",
+  "type": "agence"
+}
+2026-03-07 18:11:16 [INFO] DEMANDE_STATUS_UPDATED
+{
+  "demandeId": "69ac4e04f05c508a490be525",
+  "codeColis": "AGENCE-844721",
+  "oldStatus": "en_attente",
+  "newStatus": "livré",
+  "byUserId": "698db1a6a5941047994043ad"
+}
+2026-03-07 18:11:16 [INFO] NOTIFICATION_CREATED
+{
+  "notificationId": "69ac4e24f05c508a490be59b",
+  "userId": "698df30f573345b90c20a561",
+  "type": "statut"
+}
+2026-03-07 18:11:26 [INFO] INFO Agence request rated
+{
+  "userId": "698df30f573345b90c20a561",
+  "demandeId": "69ac4e04f05c508a490be525",
+  "rating": 4
+}
+2026-03-07 18:12:48 [INFO] INFO Server started successfully on port 3000
+{
+  "environment": "production",
+  "corsOrigin": "https://afrixa-demo.up.railway.app"
+}
+2026-03-07 18:12:51 [INFO] INFO Server started successfully on port 3000
+{
+  "environment": "production",
+  "corsOrigin": "https://afrixa-demo.up.railway.app"
+}
+2026-03-07 18:12:54 [INFO] INFO Server started successfully on port 3000
+{
+  "environment": "production",
+  "corsOrigin": "https://afrixa-demo.up.railway.app"
+}
+2026-03-07 18:12:57 [INFO] INFO Server started successfully on port 3000
+{
+  "environment": "production",
+  "corsOrigin": "https://afrixa-demo.up.railway.app"
+}
+2026-03-07 18:13:00 [INFO] INFO Server started successfully on port 3000
+{
+  "environment": "production",
+  "corsOrigin": "https://afrixa-demo.up.railway.app"
+}
+2026-03-07 18:13:03 [INFO] INFO Server started successfully on port 3000
+{
+  "environment": "production",
+  "corsOrigin": "https://afrixa-demo.up.railway.app"
+}
+2026-03-07 18:13:06 [INFO] INFO Server started successfully on port 3000
+{
+  "environment": "production",
+  "corsOrigin": "https://afrixa-demo.up.railway.app"
+}
+2026-03-07 18:13:21 [INFO] INFO Server started successfully on port 3000
+{
+  "environment": "production",
+  "corsOrigin": "https://afrixa-demo.up.railway.app"
+}
+2026-03-07 18:13:25 [INFO] INFO Server started successfully on port 3000
+{
+  "environment": "production",
+  "corsOrigin": "https://afrixa-demo.up.railway.app"
+}
+2026-03-07 18:13:28 [INFO] INFO Server started successfully on port 3000
+{
+  "environment": "production",
+  "corsOrigin": "https://afrixa-demo.up.railway.app"
+}

@@ -1247,15 +1247,14 @@ exports.adminGetAllAgenceRatings = async (req, res) => {
                 year: 'numeric',
                 hour: '2-digit',
                 minute: '2-digit'
-              }) : 'N/A'
+              }) : 'N/A',
+      'createdAt': demande.createdAt 
     }));
 
     const totalRatings = ratings.length;
     const averageRating = ratedDemandes.length > 0 ? 
       (ratedDemandes.reduce((sum, d) => sum + (d.rating || 0), 0) / ratedDemandes.length).toFixed(1) : 
       0;
-
-  
 
     res.status(200).json({
       success: true,

@@ -280,7 +280,7 @@ export function setupEventListeners() {
 export async function validateCompany(companyId, accept, companyName) {
     const action = accept ? 'accepter' : 'refuser';
     
-    MessageBox.showConfirm(`Êtes-vous sûr de vouloir ${action} la société "${companyName}" ?`, () => {
+    MessageBox.showConfirm(`Êtes-vous sûr de vouloir ${action} / activer la société "${companyName}" ?`, () => {
         executeValidateCompany(companyId, accept, companyName);
     });
 }
@@ -290,7 +290,7 @@ export async function toggleUserStatus(userId, suspend, userName) {
     const user = API.getCurrentUsers().find(u => u._id === userId);
     const userNameDisplay = user ? Utils.getUserName(user) : 'cet utilisateur';
     
-    MessageBox.showConfirm(`Êtes-vous sûr de vouloir ${action} l'utilisateur "${userNameDisplay}" ?`, () => {
+    MessageBox.showConfirm(`Êtes-vous sûr de vouloir ${action} / activer l'utilisateur "${userNameDisplay}" ?`, () => {
         executeToggleUserStatus(userId, suspend, userNameDisplay);
     });
 }
@@ -315,7 +315,7 @@ export function viewProof(proofId, proofUrl) {
     window.open(proofUrl, '_blank');
 }
 
-// 2. Fonction pour ajuster le poids d'une demande d'agence
+//Fonction pour ajuster le poids d'une demande d'agence
 export async function adjustDemandeAgenceWeight(event) {
     event.preventDefault();
     
