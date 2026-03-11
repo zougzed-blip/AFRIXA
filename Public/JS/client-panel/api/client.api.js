@@ -1,5 +1,5 @@
 let csrfToken = null;
-let debugMode = true;
+let debugMode = false;
 
 function logDebug(...args) {
     if (debugMode) {

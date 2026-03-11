@@ -17,9 +17,6 @@
                 <img src="/images/afrixa_logo.png" alt="AFRIXA LOGISTICS">
                 <h2>AFRIXA <span>ADMIN</span></h2>
             </div>
-             <button class="sidebar-toggle" id="sidebarToggle">
-            <i class="fas fa-bars"></i>
-        </button>
         </div>
 
         <div class="admin-profile-sidebar">
@@ -91,12 +88,17 @@
         
         <header class="header">
             <div class="header-left">
-                <div class="breadcrumb">
-                    <span id="page-title">Dashboard</span>
-                    <span class="separator">/</span>
-                    <span id="page-subtitle">Vue d'ensemble</span>
+                <button class="sidebar-toggle" id="sidebarToggle">
+                    <i class="fas fa-bars"></i>
+                </button>
+                <div class="header-title-group">
+                    <div class="breadcrumb">
+                        <span id="page-title">Dashboard</span>
+                        <span class="separator">/</span>
+                        <span id="page-subtitle">Vue d'ensemble</span>
+                    </div>
+                    <h1>Hello Admin</h1>
                 </div>
-                <h1>Tableau de Bord</h1>
             </div>
             <div class="header-right">
                 <div class="header-actions">
@@ -123,6 +125,9 @@
 <section id="dashboard" class="content-section active">
     <div class="stats-grid">
         <div class="stat-card">
+            <div class="stat-icon">
+                <i class="fas fa-users" style="color: #004732;"></i>
+            </div>
             <div class="stat-info">
                 <h3 id="total-users">0</h3>
                 <p>Total Utilisateurs</p>
@@ -130,6 +135,9 @@
         </div>
 
         <div class="stat-card">
+            <div class="stat-icon">
+                <i class="fas fa-building" style="color: #A43E2A;"></i>
+            </div>
             <div class="stat-info">
                 <h3 id="total-agences">0</h3>
                 <p>Agences</p>
@@ -140,6 +148,9 @@
         </div>
 
         <div class="stat-card">
+            <div class="stat-icon">
+                <i class="fas fa-truck" style="color: #C59B33;"></i>
+            </div>
             <div class="stat-info">
                 <h3 id="total-demandes-agence">0</h3>
                 <p>Demandes Agence</p>
@@ -153,6 +164,9 @@
         </div>
 
         <div class="stat-card">
+            <div class="stat-icon">
+                <i class="fas fa-credit-card" style="color: #004732;"></i>
+            </div>
             <div class="stat-info">
                 <h3 id="total-paiements-agence">0</h3>
                 <p>Paiements Agence</p>
@@ -164,30 +178,31 @@
             </div>
         </div>
 
-        <div class="stat-card">
-            <div class="stat-info" style="display: grid; grid-template-columns: 1fr 1fr; width: 100%; gap: 2rem;">
+        <div class="stat-card revenue-card">
+            <div class="stat-icon">
+                <i class="fas fa-coins" style="color: #C59B33;"></i>
+            </div>
+            <div class="stat-info revenue-info">
                 <div class="revenue-left">
                     <h3 id="revenue-agence">0 USD</h3>
-                    <p>Revenu Total Agences</p>
-                    <div class="stat-subinfo">
-                        <div class="revenue-filters">
-                            <label>Devise:</label>
-                            <select id="revenue-currency" class="mini-select">
-                                <option value="USD">USD</option>
-                                <option value="FC">FC</option>
-                                <option value="ZAR">ZAR</option>
-                            </select>
-                        </div>
+                    <p>Total</p>
+                    <div class="revenue-filters">
+                        <span class="filter-label">Devise:</span>
+                        <select id="revenue-currency" class="mini-select">
+                            <option value="USD">USD</option>
+                            <option value="FC">FC</option>
+                            <option value="ZAR">ZAR</option>
+                        </select>
                     </div>
                 </div>
                 
                 <div class="revenue-right">
                     <div class="revenue-filters">
-                        <label>Du:</label>
+                        <span class="filter-label">Du:</span>
                         <input type="date" id="revenue-date-start" class="mini-input">
                     </div>
                     <div class="revenue-filters">
-                        <label>Au:</label>
+                        <span class="filter-label">Au:</span>
                         <input type="date" id="revenue-date-end" class="mini-input">
                     </div>
                     <button class="btn-mini" id="filter-revenue-btn">Filtrer</button>
@@ -853,20 +868,28 @@
 
     <div id="popup-container"></div>
 
-    <script>
- 
+   <script>
     document.addEventListener('DOMContentLoaded', function() {
         const sidebar = document.querySelector('.sidebar');
         const toggleBtn = document.getElementById('sidebarToggle');
         
         if (toggleBtn && sidebar) {
             toggleBtn.addEventListener('click', function(e) {
-                e.preventDefault()
-                e.stopPropagation()
-                sidebar.classList.toggle('active')
-                console.log('Toggle clicked')
-            })
+                e.preventDefault();
+                e.stopPropagation();
+                sidebar.classList.toggle('active');
+                console.log('Toggle clicked - sidebar active:', sidebar.classList.contains('active'));
+            });
         }
+        
+        document.addEventListener('click', function(e) {
+            if (sidebar && sidebar.classList.contains('active')) {
+                if (!sidebar.contains(e.target) && e.target !== toggleBtn && !toggleBtn.contains(e.target)) {
+                    sidebar.classList.remove('active');
+                    console.log('Clicked outside - sidebar closed');
+                }
+            }
+        });
     });
 </script>
     <script type="module" src="/JS/administration-panel/main.js"></script>

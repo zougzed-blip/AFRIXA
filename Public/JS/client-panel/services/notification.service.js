@@ -131,7 +131,7 @@ function addNotificationToPanel(message, type = 'info') {
             <i class="fas fa-${escapeHtml(getNotificationIcon(type))}"></i>
         </div>
         <div class="notification-content">
-            <div class="notification-title">${escapeHtml(type === 'success' ? 'Offre acceptée' : 'Offre refusée')}</div>
+            <div class="notification-title">${escapeHtml(type === 'success' ? 'Offre acceptée' : 'Offre en attente')}</div>
             <div class="notification-message">${escapeHtml(message)}</div>
             <div class="notification-time">À l'instant</div>
         </div>

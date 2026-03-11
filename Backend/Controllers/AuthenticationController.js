@@ -2,6 +2,7 @@ const bcrypt = require('bcrypt');
 const jwt = require('jsonwebtoken');
 const User = require('../Models/User');
 const { uploadToCloudinary } = require('../Helper/UploadProfile');
+const { sendEmail } = require('../Helper/EmailServices');
 const multer = require('multer');
 const nodemailer = require('nodemailer');
 const crypto = require('crypto');
@@ -27,6 +28,45 @@ const validateLogin = validateWithZod(loginSchema);
 const validateForgotPassword = validateWithZod(forgotPasswordSchema);
 const validateResetPassword = validateWithZod(resetPasswordSchema);
 const validateVerify2FA = validateWithZod(verify2FASchema);
+function generateEmailTemplate(title, clientName, message, details, actionUrl = null, buttonText = null) {
+    return `
+        <div style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto; padding: 20px; background: #f5f7fa;">
+            <div style="text-align: center; margin-bottom: 30px;">
+                <h2 style="color: #004732; margin-bottom: 10px; border-bottom: 3px solid #C59B33; padding-bottom: 10px;">
+                    ${title}
+                </h2>
+            </div>
+            
+            <div style="background: white; padding: 25px; border-radius: 10px; box-shadow: 0 2px 10px rgba(0,0,0,0.1); margin-bottom: 25px;">
+                <p style="color: #333; font-size: 16px; margin-bottom: 20px;">
+                    Bonjour <strong>${clientName}</strong>,
+                </p>
+                
+                <p style="color: #666; margin-bottom: 25px; line-height: 1.6;">
+                    ${message}
+                </p>
+                
+                <div style="background: linear-gradient(135deg, #f9f5e7, #fff); padding: 20px; border-radius: 8px; border-left: 4px solid #C59B33;">
+                    ${details}
+                </div>
+                
+                ${actionUrl ? `
+                <p style="color: #666; margin-top: 25px; text-align: center;">
+                    <a href="${actionUrl}" 
+                       style="background: #004732; color: white; padding: 12px 30px; text-decoration: none; border-radius: 6px; display: inline-block;">
+                        ${buttonText || 'Voir les détails'}
+                    </a>
+                </p>
+                ` : ''}
+            </div>
+            
+            <div style="text-align: center; color: #999; font-size: 12px; padding-top: 20px; border-top: 1px solid #eee;">
+                <p style="margin-bottom: 5px;">AFRIXA LOGISTICS - Transport & Logistique</p>
+                <p style="margin: 0;">© ${new Date().getFullYear()} Tous droits réservés</p>
+            </div>
+        </div>
+    `;
+}
 
 const register = [
   upload.fields([
@@ -253,42 +293,53 @@ const forgotPassword = [
       user.resetPasswordExpires = Date.now() + 3600000; 
       await user.save();
 
-      const transporter = nodemailer.createTransport({
-        service: 'gmail',
-        auth: {
-          user: process.env.EMAIL_USER,
-          pass: process.env.EMAIL_PASS,
-        },
-      });
-
+    
       const resetUrl = `${process.env.FRONTEND_URL || 'http://localhost:3000'}/reset-password?token=${token}`;
-      
-      const mailOptions = {
-        from: process.env.EMAIL_USER,
-        to: user.email,
-        subject: 'Réinitialisation du mot de passe',
-        html: `
-          <p>Bonjour,</p>
-          <p>Vous avez demandé à réinitialiser votre mot de passe. Cliquez sur le lien ci-dessous :</p>
-          <a href="${resetUrl}">
-            Réinitialiser le mot de passe
-          </a>
-          <p>Ce lien expire dans 1 heure.</p>
-        `,
-      };
 
-      await transporter.sendMail(mailOptions);
+      const details = `
+        <div style="text-align: left;">
+          <p style="margin: 5px 0;"><strong>Email :</strong> ${user.email}</p>
+          <p style="margin: 5px 0;"><strong>Lien de réinitialisation :</strong></p>
+          <p style="margin: 10px 0; word-break: break-all; background: #f5f5f5; padding: 10px; border-radius: 5px; font-size: 14px;">
+            ${resetUrl}
+          </p>
+          <p style="margin: 10px 0 0 0; color: #ff6b6b;"><strong>⚠️ Ce lien expire dans 1 heure</strong></p>
+        </div>
+      `;
 
-      businessLogger.info('Password reset email sent', { email, userId: user._id });
+      const htmlContent = generateEmailTemplate(
+        'Réinitialisation du mot de passe',
+        user.name || user.firstName || 'Client',
+        'Nous avons reçu une demande de réinitialisation de mot de passe pour votre compte. Cliquez sur le bouton ci-dessous pour définir un nouveau mot de passe.',
+        details,
+        resetUrl,
+        'Réinitialiser mon mot de passe'
+      );
 
-      res.status(200).json({ message: 'Email envoyé ! Vérifie ta boîte mail.' });
+      const emailSent = await sendEmail(
+        user.email,
+        user.name || user.firstName || 'Client',
+        'Réinitialisation du mot de passe - AFRIXA LOGISTICS',
+        htmlContent
+      );
+
+      if (emailSent) {
+        businessLogger.info('Password reset email sent', { email, userId: user._id });
+        return res.status(200).json({ message: 'Email envoyé ! Vérifie ta boîte mail.' });
+      } else {
+        user.resetPasswordToken = undefined;
+        user.resetPasswordExpires = undefined;
+        await user.save();
+        
+        throw new Error("Échec de l'envoi de l'email");
+      }
+
     } catch (error) {
       businessLogger.error(error, { context: 'forgotPassword', email });
-      res.status(500).json({ message: 'Erreur serveur' });
+      res.status(500).json({ message: "Erreur lors de l'envoi de l'email. Veuillez réessayer." });
     }
   }
 ];
-
 const resetPassword = [
   validateResetPassword,
   async (req, res) => {

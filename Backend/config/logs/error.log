@@ -729,3 +729,35 @@
   },
   "userId": null
 }
+2026-03-11 12:00:33 [ERROR] ERROR generateEmailTemplate is not defined
+{
+  "context": {
+    "context": "forgotPassword",
+    "email": "gradiipi@gmail.com"
+  },
+  "userId": null
+}
+2026-03-11 12:06:43 [ERROR] ERROR generateEmailTemplate is not defined
+{
+  "context": {
+    "context": "forgotPassword",
+    "email": "zougzed@gmail.com"
+  },
+  "userId": null
+}
+2026-03-11 12:10:17 [ERROR] ERROR sendEmailToClient is not a function
+{
+  "context": {
+    "context": "forgotPassword",
+    "email": "zougzed@gmail.com"
+  },
+  "userId": null
+}
+2026-03-11 12:10:41 [ERROR] ERROR sendEmailToClient is not a function
+{
+  "context": {
+    "context": "forgotPassword",
+    "email": "zougzed@gmail.com"
+  },
+  "userId": null
+}

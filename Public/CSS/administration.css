@@ -95,31 +95,6 @@ body {
     font-weight: 300;
 }
 
-.sidebar-toggle {
-    display: none;
-    background: var(--vert-fonce);
-    color: var(--blanc);
-    border: none;
-    border-radius: var(--radius-sm);
-    width: 40px;
-    height: 40px;
-    cursor: pointer;
-    align-items: center;
-    justify-content: center;
-    font-size: 1.25rem;
-    transition: var(--transition);
-    position: fixed;
-    top: 15px;
-    left: 15px;
-    z-index: 1001;
-    box-shadow: var(--shadow);
-}
-
-.sidebar-toggle:hover {
-    background: var(--dore);
-    transform: scale(1.05);
-}
-
 /*======================= Profil Admin dans Sidebar============================ */
 .admin-profile-sidebar {
     padding: 1rem 1.25rem;
@@ -252,6 +227,17 @@ body {
     z-index: 100;
 }
 
+.header-left {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.header-title-group {
+    display: flex;
+    flex-direction: column;
+}
+
 .header-left .breadcrumb {
     display: flex;
     align-items: center;
@@ -269,6 +255,7 @@ body {
     color: var(--vert-fonce);
     font-size: 1.5rem;
     font-weight: 700;
+    line-height: 1.2;
 }
 
 .header-actions {
@@ -394,7 +381,7 @@ body {
     border-radius: 10px;
     box-shadow: var(--card-shadow);
     display: flex;
-    align-items: center;
+    align-items: flex-start;
     gap: 1rem;
     transition: all 0.3s ease;
     position: relative;
@@ -405,6 +392,26 @@ body {
 .stat-card:hover {
     transform: translateY(-2px);
     box-shadow: var(--hover-shadow);
+}
+
+.stat-icon {
+    width: 24px;
+    height: 24px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.5rem;
+    flex-shrink: 0;
+    margin-top: 2px;
+}
+
+.stat-icon i {
+    font-size: 1.5rem;
+}
+
+.stat-info {
+    flex: 1;
+    min-width: 0;
 }
 
 .stat-card h3 {
@@ -427,7 +434,7 @@ body {
 }
 
 .stat-subinfo strong {
-    color: var(--vert-fonce);
+    color: var(--dore);
     font-weight: 600;
 }
 
@@ -444,216 +451,164 @@ body {
 }
 
 .stat-subinfo-grid strong {
-    color: var(--vert-fonce);
+    color: var(--dore);
     font-weight: 600;
 }
 
 /* ===================== REVENU CARD =================== */
-.stat-card:nth-child(5) {
-    grid-column: span 2;
-    background: linear-gradient(135deg, var(--vert-fonce) 0%, #006644 100%);
-    padding: 0;
-    height: 180px;
-    width: 100%;
+.revenue-card {
+    background: var(--blanc);
+    padding: 1rem;
+    height: 140px;
     display: flex;
-    align-items: stretch;
+    align-items: flex-start;
+    gap: 0.75rem;
     border: none;
-    box-shadow: var(--shadow-lg);
+    box-shadow: var(--card-shadow);
     overflow: hidden;
+    grid-column: span 2;
 }
 
-.stat-card:nth-child(5):hover {
-    transform: translateY(-4px);
-    box-shadow: var(--shadow-xl);
+.revenue-card:hover {
+    transform: translateY(-2px);
+    box-shadow: var(--hover-shadow);
 }
 
-.stat-card:nth-child(5) .stat-info {
+.revenue-card .stat-icon {
+    width: 20px;
+    height: 20px;
     display: flex;
-    width: 100%;
-    height: 100%;
-    align-items: stretch;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    margin-top: 2px;
+}
+
+.revenue-card .stat-icon i {
+    font-size: 1.2rem;
+    color: var(--dore);
+}
+
+.revenue-info {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    min-width: 0;
 }
 
 .revenue-left {
-    flex: 1.2;
+    flex: 1;
     display: flex;
     flex-direction: column;
     justify-content: center;
-    padding: 1.5rem 2rem;
-    border-right: 1px solid rgba(255, 255, 255, 0.15);
+    min-width: 0;
 }
 
 .revenue-left h3 {
-    color: var(--blanc) !important;
-    font-size: 1.5rem;
-    margin-bottom: 0.25rem;
+    color: var(--vert-fonce);
+    font-size: 1.1rem;
     font-weight: 700;
+    margin-bottom: 0.1rem;
     line-height: 1.2;
 }
 
 .revenue-left > p {
-    color: var(--blanc) !important;
-    font-size: 0.9rem;
-    font-weight: 500;
-    margin-bottom: 1rem;
-    text-transform: uppercase;
-    letter-spacing: 0.5px;
+    color: var(--gris-texte);
+    font-size: 0.75rem;
+    margin-bottom: 0.25rem;
 }
 
 .revenue-left .revenue-filters {
     display: flex;
     align-items: center;
-    gap: 0.75rem;
-    margin-top: 0.25rem;
+    gap: 0.25rem;
+    margin-top: 0.1rem;
 }
 
-.revenue-left .revenue-filters label {
-    font-size: 0.75rem;
-    color: var(--blanc) !important;
-    font-weight: 600;
-    min-width: 45px;
-    text-transform: uppercase;
-    letter-spacing: 0.5px;
+.revenue-left .filter-label {
+    font-size: 0.7rem;
+    color: var(--gris-texte);
+    font-weight: 500;
 }
 
 .revenue-left .mini-select {
-    padding: 0.4rem 1.8rem 0.4rem 0.6rem;
-    border: 1px solid rgba(255, 255, 255, 0.3);
-    border-radius: 6px;
-    font-size: 0.8rem;
-    background: rgba(255, 255, 255, 0.15);
-    color: var(--blanc) !important;
-    min-width: 85px;
+    padding: 0.2rem 1.2rem 0.2rem 0.3rem;
+    border: 1px solid var(--gris-border);
+    border-radius: 3px;
+    font-size: 0.7rem;
+    background: var(--blanc);
+    color: var(--gris-fonce);
+    min-width: 55px;
     cursor: pointer;
-    height: 34px;
+    height: 22px;
     appearance: none;
-    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='10' viewBox='0 0 16 16'%3E%3Cpath fill='white' d='M7.247 11.14L2.451 5.658C1.885 5.013 2.345 4 3.204 4h9.592a1 1 0 0 1 .753 1.659l-4.796 5.48a1 1 0 0 1-1.506 0z'/%3E%3C/svg%3E");
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='8' height='8' viewBox='0 0 16 16'%3E%3Cpath fill='%23666' d='M7.247 11.14L2.451 5.658C1.885 5.013 2.345 4 3.204 4h9.592a1 1 0 0 1 .753 1.659l-4.796 5.48a1 1 0 0 1-1.506 0z'/%3E%3C/svg%3E");
     background-repeat: no-repeat;
-    background-position: right 0.6rem center;
-    background-size: 8px;
-}
-
-.revenue-left .mini-select option {
-    background: var(--vert-fonce);
-    color: var(--blanc);
+    background-position: right 0.3rem center;
+    background-size: 6px;
 }
 
 .revenue-left .mini-select:focus {
     outline: none;
     border-color: var(--dore);
-    box-shadow: 0 0 0 2px rgba(197, 155, 51, 0.3);
 }
 
 .revenue-right {
-    flex: 1;
+    flex: 0.9;
     display: flex;
     flex-direction: column;
     justify-content: center;
-    padding: 1.5rem 2rem;
+    gap: 0.25rem;
 }
 
 .revenue-right .revenue-filters {
     display: flex;
     align-items: center;
-    gap: 0.75rem;
-    margin-bottom: 0.75rem;
+    gap: 0.25rem;
 }
 
-.revenue-right .revenue-filters label {
-    font-size: 0.75rem;
-    color: var(--blanc) !important;
-    font-weight: 600;
-    min-width: 25px;
-    text-transform: uppercase;
-    letter-spacing: 0.5px;
+.revenue-right .filter-label {
+    font-size: 0.7rem;
+    color: var(--gris-texte);
+    min-width: 20px;
+    font-weight: 500;
 }
 
 .revenue-right .mini-input {
-    padding: 0.4rem 0.6rem;
-    border: 1px solid rgba(255, 255, 255, 0.3);
-    border-radius: 6px;
-    font-size: 0.8rem;
-    background: rgba(255, 255, 255, 0.15);
-    color: var(--blanc) !important;
-    min-width: 120px;
-    height: 34px;
+    padding: 0.2rem 0.3rem;
+    border: 1px solid var(--gris-border);
+    border-radius: 3px;
+    font-size: 0.7rem;
+    background: var(--blanc);
+    color: var(--gris-fonce);
+    min-width: 85px;
+    height: 22px;
 }
 
 .revenue-right .mini-input:focus {
     outline: none;
     border-color: var(--dore);
-    box-shadow: 0 0 0 2px rgba(197, 155, 51, 0.3);
-}
-
-.revenue-right .mini-input::-webkit-calendar-picker-indicator {
-    filter: invert(1);
-    opacity: 0.7;
-    cursor: pointer;
 }
 
 .revenue-right .btn-mini {
-    align-self: flex-start;
-    padding: 0.3rem 1.5rem;
+    padding: 0.2rem 0.5rem;
     background: var(--dore);
-    color: var(--blanc) !important;
+    color: var(--blanc);
     border: none;
-    border-radius: 6px;
-    font-size: 0.85rem;
-    font-weight: 700;
+    border-radius: 3px;
+    font-size: 0.7rem;
+    font-weight: 600;
     cursor: pointer;
     transition: var(--transition);
-    height: 38px;
-    text-transform: uppercase;
-    letter-spacing: 0.5px;
-    box-shadow: 0 4px 10px rgba(197, 155, 51, 0.4);
-    border: 1px solid rgba(255, 255, 255, 0.2);
+    height: 24px;
+    align-self: flex-start;
 }
 
 .revenue-right .btn-mini:hover {
     background: #ad8626;
-    transform: translateY(-3px);
-    box-shadow: 0 6px 15px rgba(197, 155, 51, 0.5);
-}
-
-.revenue-left .mini-select {
-    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='10' fill='white' viewBox='0 0 16 16'%3E%3Cpath d='M7.247 11.14 2.451 5.658C1.885 5.013 2.345 4 3.204 4h9.592a1 1 0 0 1 .753 1.659l-4.796 5.48a1 1 0 0 1-1.506 0z'/%3E%3C/svg%3E") !important;
-    background-repeat: no-repeat !important;
-    background-position: right 0.6rem center !important;
-    background-size: 8px !important;
-    padding-right: 1.8rem !important;
-}
-
-
-@media (max-width: 768px) {
-    .stat-card:nth-child(5) {
-        grid-column: span 1;
-        height: auto;
-        min-height: 280px;
-        flex-direction: column;
-    }
-    
-    .stat-card:nth-child(5) .stat-info {
-        flex-direction: column;
-    }
-    
-    .revenue-left {
-        border-right: none;
-        border-bottom: 1px solid rgba(255, 255, 255, 0.15);
-        padding: 1.25rem;
-    }
-    
-    .revenue-right {
-        padding: 1.25rem;
-    }
-    
-    .revenue-left h3 {
-        font-size: 1.8rem;
-    }
-    
-    .revenue-right .revenue-filters,
-    .revenue-left .revenue-filters {
-        gap: 0.4rem;
-    }
+    transform: translateY(-1px);
+    box-shadow: var(--shadow-sm);
 }
 
 /* =============================DASHB CONTENT ===========================*/
@@ -1848,11 +1803,11 @@ body {
 
 .stat-subinfo-grid span {
     font-size: 0.85rem;
-    color: var(--gris-moyen);
+    color: var(--gris-texte);
 }
 
 .stat-subinfo-grid strong {
-    color: var(--vert-fonce);
+    color: var(--dore);
     font-weight: 600;
 }
 
@@ -1866,7 +1821,7 @@ body {
 
 .revenue-filters label {
     font-size: 0.85rem;
-    color: var(--gris-moyen);
+    color: var(--gris-texte);
     white-space: nowrap;
 }
 
@@ -2129,6 +2084,10 @@ body {
     background: rgba(0,0,0,0.1);
 }
 
+.sidebar-toggle{
+    display: none;
+}
+
 /*==================== RESPONSIVE DESIGN ========================*/
 @media (max-width: 1200px) {
     .dashboard-content {
@@ -2138,28 +2097,56 @@ body {
     .stats-grid {
         grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
     }
+    
+    .revenue-card {
+        grid-column: span 1;
+    }
 }
 
 @media (max-width: 1024px) {
     .sidebar {
         transform: translateX(-100%);
+        transition: transform 0.3s ease;
+        box-shadow: none;
     }
     
     .sidebar.active {
         transform: translateX(0);
+        box-shadow: var(--shadow-lg);
     }
     
     .main-content {
         margin-left: 0;
     }
     
-    /* Show hamburger button */
     .sidebar-toggle {
         display: flex;
+        background: var(--blanc);
+        border: 1px solid var(--gris-border);
+        border-radius: var(--radius-sm);
+        width: 40px;
+        height: 40px;
+        align-items: center;
+        justify-content: center;
+        box-shadow: var(--shadow-sm);
+        position: static;
+        margin-right: 1rem;
     }
     
-    .header {
-        padding-left: 70px;
+    .sidebar-toggle i {
+        color: var(--vert-fonce);
+        font-size: 1.2rem;
+    }
+    
+    .sidebar-toggle:hover {
+        background: var(--gris-clair);
+        transform: scale(1.05);
+    }
+    
+    .header-left {
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
     }
     
     .section-header {
@@ -2185,6 +2172,18 @@ body {
         align-items: stretch;
     }
     
+    .header-left {
+        flex-wrap: wrap;
+    }
+    
+    .header-title-group {
+        flex: 1;
+    }
+    
+    .header-left h1 {
+        font-size: 1.3rem;
+    }
+    
     .admin-details {
         display: none;
     }
@@ -2193,8 +2192,7 @@ body {
         grid-template-columns: 1fr;
     }
     
-    /* Sur mobile, la carte de revenu ne prend qu'une colonne */
-    .stat-card:nth-child(5) {
+    .revenue-card {
         grid-column: span 1;
     }
     
@@ -2282,6 +2280,32 @@ body {
         max-width: 90%;
         margin: 0.5rem;
     }
+    
+    .revenue-card {
+        height: auto;
+        min-height: 160px;
+        flex-direction: column;
+        align-items: flex-start;
+    }
+    
+    .revenue-info {
+        flex-direction: column;
+        align-items: flex-start;
+        width: 100%;
+    }
+    
+    .revenue-left {
+        width: 100%;
+    }
+    
+    .revenue-right {
+        width: 100%;
+    }
+    
+    .revenue-right .btn-mini {
+        align-self: stretch;
+        text-align: center;
+    }
 }
 
 @media (max-width: 480px) {
@@ -2315,6 +2339,20 @@ body {
     
     .revenue-right .btn-mini {
         width: 100%;
+    }
+    
+    .sidebar-toggle {
+        width: 36px;
+        height: 36px;
+        margin-right: 0.75rem;
+    }
+    
+    .sidebar-toggle i {
+        font-size: 1.1rem;
+    }
+    
+    .header-left h1 {
+        font-size: 1.2rem;
     }
 }
 
@@ -2504,4 +2542,48 @@ body {
 
 ::-webkit-scrollbar-thumb:hover {
     background: var(--vert-fonce);
+}
+
+/* =============== BOUTONS D'ACTION DANS DEMANDES AGENCE =============== */
+.action-buttons {
+    display: flex;
+    gap: 0.75rem;
+    align-items: center;
+}
+
+.action-btn-icon {
+    width: 32px;
+    height: 32px;
+    border-radius: 6px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--gris-clair);
+    color: var(--gris-fonce);
+    border: 1px solid var(--gris-border);
+    cursor: pointer;
+    transition: all 0.2s ease;
+    font-size: 0.9rem;
+}
+
+.action-btn-icon:hover {
+    background: var(--dore);
+    color: var(--blanc);
+    border-color: var(--dore);
+    transform: translateY(-1px);
+}
+
+.action-btn-icon.adjust:hover {
+    background: var(--danger);
+    border-color: var(--danger);
+}
+
+.action-btn-icon.status:hover {
+    background: var(--dore);
+    border-color: var(--dore);
+}
+
+.action-btn-icon.view:hover {
+    background: var(--vert-fonce);
+    border-color: var(--vert-fonce);
 }

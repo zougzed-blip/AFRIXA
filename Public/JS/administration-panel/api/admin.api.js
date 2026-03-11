@@ -79,6 +79,7 @@ export async function apiFetch(url, options = {}) {
     try {
         const response = await fetch(url, config);
         if (response.status === 401) {
+            window.location.href = '/login';
             return null;
         }
         if (response.status === 429) {
