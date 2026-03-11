@@ -2,7 +2,7 @@ const bcrypt = require('bcrypt');
 const jwt = require('jsonwebtoken');
 const User = require('../Models/User');
 const { uploadToCloudinary } = require('../Helper/UploadProfile');
-const { sendEmail } = require('../Helper/EmailServices');
+const  { sendEmail, sendEmailToClient } = require('../Helper/EmailServices');
 const multer = require('multer');
 const nodemailer = require('nodemailer');
 const crypto = require('crypto');
@@ -316,7 +316,7 @@ const forgotPassword = [
         'Réinitialiser mon mot de passe'
       );
 
-      const emailSent = await sendEmail(
+      const emailSent = await sendEmailToClient(
         user.email,
         user.name || user.firstName || 'Client',
         'Réinitialisation du mot de passe - AFRIXA LOGISTICS',

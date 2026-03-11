@@ -761,3 +761,11 @@
   },
   "userId": null
 }
+2026-03-11 12:34:10 [ERROR] ERROR Échec de l'envoi de l'email
+{
+  "context": {
+    "context": "forgotPassword",
+    "email": "zougzed@gmail.com"
+  },
+  "userId": null
+}

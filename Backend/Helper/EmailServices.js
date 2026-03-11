@@ -21,4 +21,15 @@ const sendEmail = async ({ to, subject, text, html }) => {
     }
 };
 
-module.exports = { sendEmail };
+const sendEmailToClient = async (clientEmail, clientName, subject, htmlContent) => {
+    try {
+        if (!clientEmail) return false;
+        const result = await sendEmail({ to: clientEmail, subject, html: htmlContent });
+        return result.success;
+    } catch (error) {
+        console.error(error);
+        return false;
+    }
+};
+
+module.exports = { sendEmail, sendEmailToClient };
