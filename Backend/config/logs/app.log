@@ -12132,3 +12132,119 @@
   },
   "userId": null
 }
+2026-03-11 13:04:32 [INFO] INFO Server started successfully on port 3000
+{
+  "environment": "production",
+  "corsOrigin": "https://afrixa-demo.up.railway.app"
+}
+2026-03-11 13:13:22 [INFO] INFO Server started successfully on port 3000
+{
+  "environment": "production",
+  "corsOrigin": "https://afrixa-demo.up.railway.app"
+}
+2026-03-11 13:13:47 [INFO] INFO Server started successfully on port 3000
+{
+  "environment": "production",
+  "corsOrigin": "https://afrixa-demo.up.railway.app"
+}
+2026-03-11 13:13:52 [INFO] INFO Server started successfully on port 3000
+{
+  "environment": "production",
+  "corsOrigin": "https://afrixa-demo.up.railway.app"
+}
+2026-03-11 13:14:08 [ERROR] ERROR
+{
+  "context": {
+    "message": "ENOENT: no such file or directory, stat 'C:\\Users\\zougz\\Desktop\\AFRIXA\\Public\\found.html'",
+    "stack": "Error: ENOENT: no such file or directory, stat 'C:\\Users\\zougz\\Desktop\\AFRIXA\\Public\\found.html'",
+    "path": "/404",
+    "method": "GET"
+  },
+  "userId": null
+}
+2026-03-11 13:14:21 [ERROR] ERROR
+{
+  "context": {
+    "message": "ENOENT: no such file or directory, stat 'C:\\Users\\zougz\\Desktop\\AFRIXA\\Public\\found.html'",
+    "stack": "Error: ENOENT: no such file or directory, stat 'C:\\Users\\zougz\\Desktop\\AFRIXA\\Public\\found.html'",
+    "path": "/404",
+    "method": "GET"
+  },
+  "userId": null
+}
+2026-03-11 13:15:14 [INFO] INFO Server started successfully on port 3000
+{
+  "environment": "production",
+  "corsOrigin": "https://afrixa-demo.up.railway.app"
+}
+2026-03-11 13:15:16 [ERROR] ERROR
+{
+  "context": {
+    "message": "ENOENT: no such file or directory, stat 'C:\\Users\\zougz\\Desktop\\AFRIXA\\Public\\found.html'",
+    "stack": "Error: ENOENT: no such file or directory, stat 'C:\\Users\\zougz\\Desktop\\AFRIXA\\Public\\found.html'",
+    "path": "/404",
+    "method": "GET"
+  },
+  "userId": null
+}
+2026-03-11 13:15:37 [INFO] INFO Server started successfully on port 3000
+{
+  "environment": "production",
+  "corsOrigin": "https://afrixa-demo.up.railway.app"
+}
+2026-03-11 13:15:42 [INFO] INFO Server started successfully on port 3000
+{
+  "environment": "production",
+  "corsOrigin": "https://afrixa-demo.up.railway.app"
+}
+2026-03-11 13:16:58 [INFO] INFO Server started successfully on port 3000
+{
+  "environment": "production",
+  "corsOrigin": "https://afrixa-demo.up.railway.app"
+}
+2026-03-11 13:18:15 [INFO] INFO Server started successfully on port 3000
+{
+  "environment": "production",
+  "corsOrigin": "https://afrixa-demo.up.railway.app"
+}
+2026-03-11 13:18:34 [INFO] INFO Server started successfully on port 3000
+{
+  "environment": "production",
+  "corsOrigin": "https://afrixa-demo.up.railway.app"
+}
+2026-03-11 13:23:17 [ERROR] ERROR
+{
+  "context": {
+    "message": "Missing parameter name at index 5: /api*; visit https://git.new/pathToRegexpError for info",
+    "stack": "TypeError: Missing parameter name at index 5: /api*; visit https://git.new/pathToRegexpError for info\n    at name (C:\\Users\\zougz\\Desktop\\AFRIXA\\node_modules\\path-to-regexp\\dist\\index.js:96:19)\n    at parse (C:\\Users\\zougz\\Desktop\\AFRIXA\\node_modules\\path-to-regexp\\dist\\index.js:113:68)\n    at pathToRegexp (C:\\Users\\zougz\\Desktop\\AFRIXA\\node_modules\\path-to-regexp\\dist\\index.js:267:58)\n    at Object.match (C:\\Users\\zougz\\Desktop\\AFRIXA\\node_modules\\path-to-regexp\\dist\\index.js:237:30)\n    at matcher (C:\\Users\\zougz\\Desktop\\AFRIXA\\node_modules\\router\\lib\\layer.js:86:23)\n    at new Layer (C:\\Users\\zougz\\Desktop\\AFRIXA\\node_modules\\router\\lib\\layer.js:93:62)\n    at router.use (C:\\Users\\zougz\\Desktop\\AFRIXA\\node_modules\\router\\index.js:398:19)\n    at app.<anonymous> (C:\\Users\\zougz\\Desktop\\AFRIXA\\node_modules\\express\\lib\\application.js:222:21)\n    at Array.forEach (<anonymous>)\n    at app.use (C:\\Users\\zougz\\Desktop\\AFRIXA\\node_modules\\express\\lib\\application.js:219:7)"
+  },
+  "userId": null
+}
+2026-03-11 13:24:28 [ERROR] ERROR
+{
+  "context": {
+    "message": "Missing parameter name at index 4: /ap*; visit https://git.new/pathToRegexpError for info",
+    "stack": "TypeError: Missing parameter name at index 4: /ap*; visit https://git.new/pathToRegexpError for info\n    at name (C:\\Users\\zougz\\Desktop\\AFRIXA\\node_modules\\path-to-regexp\\dist\\index.js:96:19)\n    at parse (C:\\Users\\zougz\\Desktop\\AFRIXA\\node_modules\\path-to-regexp\\dist\\index.js:113:68)\n    at pathToRegexp (C:\\Users\\zougz\\Desktop\\AFRIXA\\node_modules\\path-to-regexp\\dist\\index.js:267:58)\n    at Object.match (C:\\Users\\zougz\\Desktop\\AFRIXA\\node_modules\\path-to-regexp\\dist\\index.js:237:30)\n    at matcher (C:\\Users\\zougz\\Desktop\\AFRIXA\\node_modules\\router\\lib\\layer.js:86:23)\n    at new Layer (C:\\Users\\zougz\\Desktop\\AFRIXA\\node_modules\\router\\lib\\layer.js:93:62)\n    at router.use (C:\\Users\\zougz\\Desktop\\AFRIXA\\node_modules\\router\\index.js:398:19)\n    at app.<anonymous> (C:\\Users\\zougz\\Desktop\\AFRIXA\\node_modules\\express\\lib\\application.js:222:21)\n    at Array.forEach (<anonymous>)\n    at app.use (C:\\Users\\zougz\\Desktop\\AFRIXA\\node_modules\\express\\lib\\application.js:219:7)"
+  },
+  "userId": null
+}
+2026-03-11 13:24:31 [INFO] INFO Server started successfully on port 3000
+{
+  "environment": "production",
+  "corsOrigin": "https://afrixa-demo.up.railway.app"
+}
+2026-03-11 13:25:29 [INFO] INFO Server started successfully on port 3000
+{
+  "environment": "production",
+  "corsOrigin": "https://afrixa-demo.up.railway.app"
+}
+2026-03-11 13:25:36 [INFO] INFO Server started successfully on port 3000
+{
+  "environment": "production",
+  "corsOrigin": "https://afrixa-demo.up.railway.app"
+}
+2026-03-11 13:25:39 [INFO] INFO Server started successfully on port 3000
+{
+  "environment": "production",
+  "corsOrigin": "https://afrixa-demo.up.railway.app"
+}

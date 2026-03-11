@@ -20,6 +20,7 @@ const { logRequest, businessLogger } = require('./Backend/config/logger');
 const cors = require('cors');
 const csrf = require('csurf');
 const { validateEnv } = require('./Backend/config/envValidators');
+const { notFoundHandler, authErrorHandler } = require('./Backend/Middleware/errorPagemid');
 
 validateEnv();
 
@@ -29,7 +30,6 @@ validateEnv();
     
     const app = express();
 
-    // ==================== CORS ====================
     const corsOptions = {
       origin: process.env.FRONTEND_URL || 'http://localhost:3000',
       credentials: true,
@@ -38,7 +38,6 @@ validateEnv();
     };
     app.use(cors(corsOptions));
 
-    // ==================== SÉCURITÉ ====================
     app.use(helmet({
       contentSecurityPolicy: {
         directives: {
@@ -59,8 +58,7 @@ validateEnv();
     }));
 
     app.use(cookieParser());
-
-    // ==================== CSRF ====================
+   
     const csrfProtection = csrf({
       cookie: {
         httpOnly: true,
@@ -73,12 +71,10 @@ validateEnv();
       res.json({ csrfToken: req.csrfToken() });
     });
 
-    // ==================== MIDDLEWARE ====================
     app.use(logRequest);
     app.use(express.json({ limit: '10mb' }));
     app.use(express.urlencoded({ extended: true, limit: '10mb' }));
 
-    // ==================== RATE LIMITING ====================
     const adminLimiter = rateLimit({
       windowMs: parseInt(process.env.RATE_LIMIT_WINDOW_MS) || 900000,
       max: parseInt(process.env.RATE_LIMIT_MAX_ADMIN) || 5000,
@@ -120,11 +116,9 @@ validateEnv();
     app.use('/api/client', clientLimiter);
     app.use('/api/', agenceLimiter);
 
-    // ==================== STATIC FILES ====================
     app.use(express.static(path.join(__dirname, 'Public')));
     app.use(express.static(path.join(__dirname, 'images')));
 
-    // ==================== ROUTES ====================
     app.use('/api/auth', authenticationRoute);
     app.use('/api/admin', adminRoutes);
     app.use('/api/client', clientrisquestRouter);
@@ -134,7 +128,6 @@ validateEnv();
     app.use('/api/panel', panelRoutes);
     app.use('/api/', profileRoutes);
 
-    // ==================== PAGES ====================
     app.get('/register', (req, res) => {
       res.sendFile(path.join(__dirname, 'Public', 'inscription.html'));
     });
@@ -163,7 +156,14 @@ validateEnv();
       res.sendFile(path.join(__dirname, 'Public', 'authorization.html'));
     });
 
-    // ==================== DASHBOARDS ====================
+    app.get('/404', (req, res) => {
+      res.sendFile(path.join(__dirname, 'Public', '404.html'));
+    });
+
+    app.get('/401', (req, res) => {
+      res.sendFile(path.join(__dirname, 'Public', '401.html'));
+    });
+
     app.get('/admin/dashboard', authMiddleware, async (req, res) => {
       if (req.user.role !== 'admin') return res.redirect('/authorization.html');
       res.sendFile(path.join(__dirname, 'Public', 'Administration.html'));
@@ -196,17 +196,23 @@ validateEnv();
         method: req.method
       });
 
-      res.status(err.status || 500).json({
-        success: false,
-        message: process.env.NODE_ENV === 'production' ? 'Internal server error' : err.message
-      });
+      if (req.path.startsWith('/api/')) {
+        return res.status(err.status || 500).json({
+          success: false,
+          message: process.env.NODE_ENV === 'production' ? 'Internal server error' : err.message
+        });
+      }
+      
+      res.redirect('/404');
     });
 
-    app.use((req, res) => {
+    app.use('/api', (req, res) => {
       res.status(404).json({ success: false, message: 'Route not found' });
     });
 
-    // ==================== DÉMARRAGE ====================
+    app.use(authErrorHandler);
+    app.use(notFoundHandler);
+
     const port = process.env.PORT || 3000;
     app.listen(port, () => {
       businessLogger.info(`Server started successfully on port ${port}`, {
