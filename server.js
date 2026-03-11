@@ -15,6 +15,7 @@ const profileRoutes = require('./Backend/Routes/userProfilrRoutes');
 const agenceRoutes = require('./Backend/Routes/agenceRoutes');
 const User = require('./Backend/Models/User');
 const helmet = require('helmet');
+const adminExchangeRoutes = require('./Backend/Routes/adminExchangeRoutes')
 const rateLimit = require('express-rate-limit');
 const { logRequest, businessLogger } = require('./Backend/config/logger');
 const cors = require('cors');
@@ -112,6 +113,7 @@ validateEnv();
     });
 
     app.use('/api/admin', adminLimiter);
+     app.use('/api/admin', adminExchangeRoutes);
     app.use('/api/auth/login', loginLimiter);
     app.use('/api/client', clientLimiter);
     app.use('/api/', agenceLimiter);
@@ -127,6 +129,7 @@ validateEnv();
     app.use('/api/', paymentProofRoutes);
     app.use('/api/panel', panelRoutes);
     app.use('/api/', profileRoutes);
+   
 
     app.get('/register', (req, res) => {
       res.sendFile(path.join(__dirname, 'Public', 'inscription.html'));

@@ -1,10 +1,246 @@
+// ==================== GESTION DE LA SÉLECTION D'AGENCE ====================
+
+// Variables dynamiques pour les taux (seront chargées depuis l'API)
+let TAUX_CONVERSION = {
+    USD: 1,
+    CDF: null,
+    ZAR: null
+};
+
+const SYMBOLES_DEVISES = {
+    USD: '$',
+    CDF: 'FC',
+    ZAR: 'R'
+};
+
+// ==================== CHARGER LES TAUX =========================
+async function loadExchangeRates() {
+    try {
+        const response = await apiFetch('/api/client/exchange-rates');
+        
+        if (!response) {
+            return;
+        }
+        
+        const data = await response.json();
+        
+        if (data.success) {
+            if (data.data.FC !== null) TAUX_CONVERSION.CDF = data.data.FC;
+            if (data.data.ZAR !== null) TAUX_CONVERSION.ZAR = data.data.ZAR;
+        }
+    } catch (error) {
+        // Silence
+    }
+}
+
+async function showAgencesModal(destination) {
+    try {
+        const modal = document.createElement('div');
+        modal.className = 'modal';
+        modal.id = 'agencesModal';
+        modal.style.display = 'flex';
+        modal.style.alignItems = 'center';
+        modal.style.justifyContent = 'center';
+        
+        modal.innerHTML = `
+            <div class="modal-content" style="max-width: 600px; width: 90%; background: white; border-radius: 6px; box-shadow: 0 4px 12px rgba(0,0,0,0.15);">
+                <div style="padding: 1rem 1.5rem; border-bottom: 1px solid #e0e0e0; display: flex; justify-content: space-between; align-items: center;">
+                    <h3 style="margin: 0; color: #004732; font-size: 1.1rem; font-weight: 500;">
+                        Choisissez votre agence
+                    </h3>
+                    <button onclick="document.getElementById('agencesModal').remove()" style="background: none; border: none; font-size: 1.2rem; cursor: pointer; color: #666;">&times;</button>
+                </div>
+                <div style="padding: 2rem; text-align: center;">
+                    <i class="fas fa-spinner fa-spin" style="color: #004732;"></i>
+                    <p style="margin-top: 0.5rem; color: #666; font-size: 0.9rem;">Chargement...</p>
+                </div>
+            </div>
+        `;
+        
+        document.body.appendChild(modal);
+        
+        const response = await apiFetch(`/api/client/agences-by-destination?destination=${encodeURIComponent(destination)}`);
+        
+        if (!response.ok) throw new Error('Erreur de chargement');
+        
+        const data = await response.json();
+        
+        if (!data.success || data.data.length === 0) {
+            modal.querySelector('.modal-content').innerHTML = `
+                <div style="padding: 1rem 1.5rem; border-bottom: 1px solid #e0e0e0; display: flex; justify-content: space-between; align-items: center;">
+                    <h3 style="margin: 0; color: #004732; font-size: 1.1rem;">Agences</h3>
+                    <button onclick="document.getElementById('agencesModal').remove()" style="background: none; border: none; font-size: 1.2rem; cursor: pointer; color: #666;">&times;</button>
+                </div>
+                <div style="padding: 2rem; text-align: center;">
+                    <p style="color: #666; font-size: 0.9rem;">Aucune agence disponible</p>
+                    <button onclick="document.getElementById('agencesModal').remove()" style="margin-top: 1rem; padding: 0.4rem 1.2rem; background: #f0f0f0; border: none; border-radius: 3px; cursor: pointer; font-size: 0.85rem;">Fermer</button>
+                </div>
+            `;
+            return;
+        }
+        
+        displayAgencesInModal(modal, data.data);
+        
+    } catch (error) {
+        const modal = document.getElementById('agencesModal');
+        if (modal) {
+            modal.querySelector('.modal-content').innerHTML = `
+                <div style="padding: 1rem 1.5rem; border-bottom: 1px solid #e0e0e0; display: flex; justify-content: space-between; align-items: center;">
+                    <h3 style="margin: 0; color: #004732; font-size: 1.1rem;">Erreur</h3>
+                    <button onclick="document.getElementById('agencesModal').remove()" style="background: none; border: none; font-size: 1.2rem; cursor: pointer; color: #666;">&times;</button>
+                </div>
+                <div style="padding: 2rem; text-align: center;">
+                    <p style="color: #dc3545; font-size: 0.9rem;">Erreur de chargement</p>
+                    <button onclick="document.getElementById('agencesModal').remove()" style="margin-top: 1rem; padding: 0.4rem 1.2rem; background: #f0f0f0; border: none; border-radius: 3px; cursor: pointer; font-size: 0.85rem;">Fermer</button>
+                </div>
+            `;
+        }
+    }
+}
+
+function displayAgencesInModal(modal, agences) {
+    const devise = document.getElementById('as-devise').value;
+    const poids = parseFloat(document.getElementById('as-poids').value) || 1;
+    
+    const modalContent = modal.querySelector('.modal-content');
+    
+    modalContent.innerHTML = `
+        <div style="padding: 1rem 1.5rem; border-bottom: 1px solid #e0e0e0; display: flex; justify-content: space-between; align-items: center;">
+            <h3 style="margin: 0; color: #004732; font-size: 1.1rem;">Sélectionner une agence</h3>
+            <button onclick="document.getElementById('agencesModal').remove()" style="background: none; border: none; font-size: 1.2rem; cursor: pointer; color: #666;">&times;</button>
+        </div>
+        
+        <div style="padding: 1rem; max-height: 350px; overflow-y: auto;">
+            ${agences.map(agence => {
+                const prixTotal = agence.prix * poids;
+                const prixConverti = calculerPrixConverti(prixTotal, devise);
+                const prixFormate = formaterPrixAvecDevise(prixConverti, devise);
+                
+                return `
+                    <div onclick="selectAndSubmitAgence('${escapeHtml(agence._id)}', ${agence.prix}, '${escapeHtml(agence.nom)}')" 
+                         style="border: 1px solid #e0e0e0; border-radius: 4px; padding: 0.75rem; margin-bottom: 0.5rem; cursor: pointer; background: white; display: flex; align-items: center; gap: 0.75rem; transition: all 0.2s;"
+                         onmouseover="this.style.borderColor='#004732'; this.style.backgroundColor='#f9f9f9'"
+                         onmouseout="this.style.borderColor='#e0e0e0'; this.style.backgroundColor='white'">
+                        
+                        <img src="${agence.logo || '/images/default-agence.png'}" 
+                             style="width: 35px; height: 35px; border-radius: 3px; object-fit: cover; border: 1px solid #e0e0e0;">
+                        
+                        <div style="flex: 1;">
+                            <div style="font-weight: 500; color: #004732; font-size: 0.9rem;">${escapeHtml(agence.nom)}</div>
+                            <div style="font-size: 0.8rem; color: #666; display: flex; gap: 1rem; margin-top: 0.25rem;">
+                                <span><i class="fas fa-map-marker-alt" style="color: #C59B33; width: 12px;"></i> ${escapeHtml(agence.ville)}</span>
+                                <span><i class="fas fa-clock" style="color: #C59B33; width: 12px;"></i> ${escapeHtml(agence.delai)}</span>
+                            </div>
+                        </div>
+                        
+                        <div style="background: #004732; color: white; padding: 0.3rem 0.6rem; border-radius: 3px; font-size: 0.8rem; font-weight: 500;">
+                            ${prixFormate}
+                        </div>
+                    </div>
+                `;
+            }).join('')}
+        </div>
+        
+        <div style="padding: 0.75rem 1.5rem; border-top: 1px solid #e0e0e0; text-align: right;">
+            <button onclick="document.getElementById('agencesModal').remove()" style="padding: 0.4rem 1.2rem; background: #f0f0f0; border: none; border-radius: 3px; cursor: pointer; font-size: 0.85rem;">Annuler</button>
+        </div>
+    `;
+}
+async function selectAndSubmitAgence(agenceId, prixParKg, agenceNom) {
+    document.getElementById('selected-agence-id').value = agenceId;
+    document.getElementById('agencesModal').remove();
+    
+    const formData = {
+        fullName: escapeHtml(document.getElementById('as-nom').value),
+        receveur: escapeHtml(document.getElementById('as-receveur').value),
+        email: escapeHtml(document.getElementById('as-email').value),
+        telephone: escapeHtml(document.getElementById('as-telephone').value),
+        typeColis: escapeHtml(document.getElementById('as-typeColis').value),
+        poidOuTaille: escapeHtml(document.getElementById('as-poids').value + " kg"),
+        destination: escapeHtml(document.getElementById('as-destination').value),
+        devise: escapeHtml(document.getElementById('as-devise').value),
+        description: escapeHtml(document.getElementById('as-description').value || ''),
+        agenceId: agenceId
+    };
+
+    const submitBtn = document.querySelector('.submit-btn');
+    const originalBtnText = submitBtn.innerHTML;
+    submitBtn.disabled = true;
+    submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Envoi...';
+
+    
+    try {
+        const response = await apiFetch('/api/client/agence/request', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify(formData)
+        });
+
+        if (!response || !response.ok) {
+            let errorText = await response.text().catch(() => 'Erreur inconnue');
+            let errorData;
+            try {
+                errorData = JSON.parse(errorText);
+            } catch {
+                errorData = { message: errorText };
+            }
+
+            if (response && response.status === 401) {
+                showPopup('Session expirée', 'error');
+                localStorage.removeItem('token');
+                setTimeout(() => window.location.href = '/login', 2000);
+                throw new Error('Session expirée');
+            }
+
+            throw new Error(errorData.message || `Erreur ${response ? response.status : 'inconnue'}`);
+        }
+
+        const data = await response.json();
+
+        if (!data.success) {
+            throw new Error(data.message || 'Erreur inconnue');
+        }
+
+        const poids = parseFloat(document.getElementById('as-poids').value) || 1;
+        const prixTotalUSD = prixParKg * poids;
+        const devise = formData.devise;
+        const prixConverti = calculerPrixConverti(prixTotalUSD, devise);
+
+        await showAgenceConfirmationModal({
+            codeColis: data.demande?.codeColis || 'En attente',
+            prix: prixConverti,
+            devise: devise,
+            poids: poids,
+            prixParKg: prixParKg,
+            delai: data.demande?.delai || data.delai || 'Non spécifié',
+            destination: formData.destination,
+            agenceNom: agenceNom
+        });
+
+        addNotificationToPanel(`Demande créée pour ${formData.destination}`, 'agence');
+        
+        const form = document.getElementById('agence-seule-form');
+        form.reset();
+        document.getElementById('selected-agence-id').value = '';
+
+        setTimeout(() => {
+            const requestsNav = document.querySelector('.nav-item[data-page="requests"]');
+            if (requestsNav) requestsNav.click();
+            loadClientRequests();
+        }, 2000);
+
+    } catch (error) {
+        showPopup(error.message, 'error');
+    } finally {
+        submitBtn.disabled = false;
+        submitBtn.innerHTML = originalBtnText;
+    }
+}
 async function handleAgenceSubmit(e) {
     e.preventDefault();
 
-    
-
     const requiredFields = [
-        'as-nom', 'as-email', 'as-telephone',
+        'as-nom', 'as-email', 'as-telephone', 'as-receveur',
         'as-typeColis', 'as-poids', 'as-destination', 'as-devise'
     ];
 
@@ -13,8 +249,7 @@ async function handleAgenceSubmit(e) {
         const element = document.getElementById(field);
         if (!element || !element.value.trim()) {
             isValid = false;
-            element.style.borderColor = 'var(--danger)';
-            
+            element.style.borderColor = '#dc3545';
         } else {
             element.style.borderColor = '';
         }
@@ -25,117 +260,18 @@ async function handleAgenceSubmit(e) {
         return;
     }
 
-    const formData = {
-        fullName: escapeHtml(document.getElementById('as-nom').value),
-        receveur: escapeHtml(document.getElementById('as-receveur').value),
-        email: escapeHtml(document.getElementById('as-email').value),
-        telephone: escapeHtml(document.getElementById('as-telephone').value),
-        typeColis: escapeHtml(document.getElementById('as-typeColis').value),
-        poidOuTaille: escapeHtml(document.getElementById('as-poids').value + " kg"),
-        destination: escapeHtml(document.getElementById('as-destination').value),
-        devise: escapeHtml(document.getElementById('as-devise').value),
-        description: escapeHtml(document.getElementById('as-description').value || '')
-    };
-
-    
-
-    const submitBtn = e.target.querySelector('.submit-btn');
-    const originalBtnText = submitBtn.innerHTML;
-    submitBtn.disabled = true;
-    submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Envoi en cours...';
-
-    try {
-        
-
-        const response = await apiFetch('/api/client/agence/request', {
-            method: 'POST',
-            headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify(formData)
-        });
-
-        
-
-        if (!response || !response.ok) {
-            let errorText = await response.text().catch(() => 'Erreur inconnue');
-            
-
-            let errorData;
-            try {
-                errorData = JSON.parse(errorText);
-            } catch {
-                errorData = { message: errorText };
-            }
-
-            
-
-            if (response && response.status === 401) {
-                showPopup('Session expirée. Veuillez vous reconnecter.', 'error');
-                localStorage.removeItem('token');
-                setTimeout(() => window.location.href = '/login', 2000);
-                throw new Error('Session expirée');
-            }
-
-            throw new Error(errorData.message || `Erreur ${response ? response.status : 'inconnue'}`);
-        }
-
-        const data = await response.json();
-        
-
-        if (!data.success) {
-            throw new Error(data.message || 'Erreur inconnue');
-        }
-
-        const prixParKg = data.demande?.prix || data.prix || 0
-        const poids = parseFloat(document.getElementById('as-poids').value) || 1;
-        const prixTotalUSD = prixParKg * poids;
-        const devise = formData.devise;
-        const prixConverti = calculerPrixConverti(prixTotalUSD, devise);
-
-        
-
-        await showAgenceConfirmationModal({
-            codeColis: data.demande?.codeColis || 'En attente',
-            prix: prixConverti,
-            devise: devise,
-            poids: poids,
-            prixParKg: prixParKg,
-            delai: data.demande?.delai || data.delai || 'Non spécifié',
-            destination: formData.destination
-        });
-
-        addNotificationToPanel(`Demande d'agence créée pour ${formData.destination}. Code: ${data.demande?.codeColis || 'En attente'}`, 'agence');
-
-        e.target.reset();
-
-        setTimeout(() => {
-            const requestsNav = document.querySelector('.nav-item[data-page="requests"]');
-            if (requestsNav) requestsNav.click();
-            loadClientRequests();
-        }, 2000);
-
-    } catch (error) {
-        
-        showPopup(error.message, 'error');
-    } finally {
-        submitBtn.disabled = false;
-        submitBtn.innerHTML = originalBtnText;
-    }
+    const destination = document.getElementById('as-destination').value;
+    await showAgencesModal(destination);
 }
 
-const TAUX_CONVERSION = {
-    USD: 1,
-    CDF: 2500,
-    ZAR: 17
-};
-
-const SYMBOLES_DEVISES = {
-    USD: '$',
-    CDF: 'FC',
-    ZAR: 'R'
-};
-
 function calculerPrixConverti(prixUSD, devise) {
-    const taux = TAUX_CONVERSION[devise] || 1;
+    if (devise === 'USD') return prixUSD.toFixed(2);
+    
+    const taux = TAUX_CONVERSION[devise === 'CDF' ? 'CDF' : devise];
+    if (!taux || taux === null) {
+        return prixUSD.toFixed(2);
+    }
+    
     return (prixUSD * taux).toFixed(2);
 }
 
@@ -147,49 +283,32 @@ function formaterPrixAvecDevise(prix, devise) {
 function showAgenceConfirmationModal(demande) {
     return new Promise((resolve) => {
         const modal = document.createElement('div');
-        modal.className = 'confirmation-modal';
+        modal.className = 'modal';
+        modal.style.display = 'flex';
+        modal.style.alignItems = 'center';
+        modal.style.justifyContent = 'center';
 
         const prixFormate = formaterPrixAvecDevise(demande.prix, demande.devise);
-        const prixParKgFormate = formaterPrixAvecDevise(calculerPrixConverti(demande.prixParKg, demande.devise), demande.devise);
 
-        modal.innerHTML = sanitizeHtml(`
-            <div class="modal-content">
-                <div style="text-align: center; margin-bottom: 1.5rem;">
-                    <i class="fas fa-check-circle" style="font-size: 3rem; color: var(--success); margin-bottom: 1rem;"></i>
-                    <h3 style="color: var(--vert-fonce); margin-bottom: 0.5rem;">Demande d'Agence Confirmée !</h3>
+        modal.innerHTML = `
+            <div class="modal-content" style="max-width: 400px; width: 90%; background: white; border-radius: 6px; box-shadow: 0 4px 12px rgba(0,0,0,0.15);">
+                <div style="padding: 1rem 1.5rem; border-bottom: 1px solid #e0e0e0;">
+                    <h3 style="margin: 0; color: #004732; font-size: 1rem; font-weight: 500;">Demande envoyée</h3>
                 </div>
-                <div class="confirmation-details">
-                    <p><strong>Code du colis :</strong> ${escapeHtml(demande.codeColis || 'En attente')}</p>
-                    <p><strong>Destination :</strong> ${escapeHtml(demande.destination)}</p>
-                    <p><strong>Délai de livraison :</strong> ${escapeHtml(demande.delai)}</p>
-                </div>
-                <div style="background: linear-gradient(135deg, #00513b 0%, #006644 100%); padding: 1.5rem; border-radius: 8px; margin-bottom: 1rem; color: white;">
-                    <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.75rem;">
-                        <span style="opacity: 0.9;">Prix par kg :</span>
-                        <span style="font-size: 1.1rem; font-weight: 600;">${escapeHtml(prixParKgFormate)}</span>
+                <div style="padding: 1.5rem;">
+                    <div style="text-align: center; margin-bottom: 1rem;">
+                        <i class="fas fa-check-circle" style="color: #28a745; font-size: 2rem;"></i>
                     </div>
-                    <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.75rem;">
-                        <span style="opacity: 0.9;">Poids déclaré :</span>
-                        <span style="font-size: 1.1rem; font-weight: 600;">${escapeHtml(demande.poids)} kg</span>
-                    </div>
-                    <div style="height: 1px; background: rgba(255,255,255,0.2); margin: 1rem 0;"></div>
-                    <div style="display: flex; justify-content: space-between; align-items: center;">
-                        <span style="font-size: 1.1rem; font-weight: 600;">Prix total estimé :</span>
-                        <span style="font-size: 1.8rem; font-weight: 700;">${escapeHtml(prixFormate)}</span>
-                    </div>
+                    <p style="margin: 0.25rem 0; color: #333; font-size: 0.9rem;"><strong>Code:</strong> ${escapeHtml(demande.codeColis)}</p>
+                    <p style="margin: 0.25rem 0; color: #333; font-size: 0.9rem;"><strong>Destination:</strong> ${escapeHtml(demande.destination)}</p>
+                    <p style="margin: 0.25rem 0; color: #333; font-size: 0.9rem;"><strong>Agence:</strong> ${escapeHtml(demande.agenceNom)}</p>
+                    <p style="margin: 0.25rem 0; color: #333; font-size: 0.9rem;"><strong>Total:</strong> ${escapeHtml(prixFormate)}</p>
                 </div>
-                <div style="background: var(--dore-clair); padding: 1rem; border-radius: 8px; margin-bottom: 1.5rem;">
-                    <p style="margin: 0; color: var(--gris-fonce); font-size: 0.9rem; line-height: 1.5;">
-                        <i class="fas fa-info-circle"></i> <strong>Important :</strong> Le prix final sera ajusté selon le poids réel après réception et pesée du colis à l'agence.
-                    </p>
-                </div>
-                <div style="text-align: center;">
-                    <button id="confirmAgenceOkBtn" class="btn btn-primary">
-                        <i class="fas fa-check"></i> OK
-                    </button>
+                <div style="padding: 1rem 1.5rem; border-top: 1px solid #e0e0e0; text-align: right;">
+                    <button id="confirmAgenceOkBtn" style="padding: 0.4rem 1.2rem; background: #004732; color: white; border: none; border-radius: 3px; cursor: pointer; font-size: 0.85rem;">OK</button>
                 </div>
             </div>
-        `);
+        `;
 
         document.body.appendChild(modal);
 
@@ -217,32 +336,18 @@ function selectRequestType(type) {
     const selectedForm = document.getElementById(`${escapeHtml(type)}-form`);
     if (selectedForm) {
         selectedForm.classList.add('active');
-    } else {
-        let formId;
-        if (type === 'agence') {
-            formId = 'agence-form';
-        }
-
-        const altForm = document.getElementById(formId);
-        if (altForm) {
-            altForm.classList.add('active');
-        }
     }
 }
 
 function setupRequestForms() {
     const agenceForm = document.getElementById('agence-seule-form');
     if (agenceForm) {
-        
         agenceForm.addEventListener('submit', handleAgenceSubmit);
-    } else {
-        
     }
 
     document.querySelectorAll('.select-type-btn').forEach(btn => {
         btn.addEventListener('click', function () {
             const type = this.getAttribute('data-type');
-            
             selectRequestType(type);
         });
     });
@@ -250,13 +355,28 @@ function setupRequestForms() {
     const cancelBtn = document.querySelector('.cancel-btn');
     if (cancelBtn) {
         cancelBtn.addEventListener('click', function () {
-            showConfirmPopup('Êtes-vous sûr de vouloir annuler ? Toutes les données saisies seront perdues.').then(result => {
+            showConfirmPopup('Annuler ?').then(result => {
                 if (result) {
                     const activeForm = document.querySelector('.request-form.active');
                     if (activeForm) activeForm.reset();
+                    document.getElementById('selected-agence-id').value = '';
                     showPopup('Formulaire réinitialisé', 'info');
                 }
             });
         });
     }
 }
+
+document.addEventListener('DOMContentLoaded', async function() {
+    // Charger les taux au démarrage
+    await loadExchangeRates();
+    
+    const form = document.getElementById('agence-seule-form');
+    if (form) {
+        const hiddenInput = document.createElement('input');
+        hiddenInput.type = 'hidden';
+        hiddenInput.id = 'selected-agence-id';
+        hiddenInput.value = '';
+        form.appendChild(hiddenInput);
+    }
+});

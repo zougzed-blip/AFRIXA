@@ -86,7 +86,8 @@ const createDemandeAgenceSchema = z.object({
     
     description: z.string()
       .max(500, { message: "La description ne peut pas dépasser 500 caractères" })
-      .optional()
+      .optional(),
+    agenceId: objectIdSchema 
   })
 });
 

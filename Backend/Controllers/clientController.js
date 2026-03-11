@@ -11,6 +11,7 @@ const {
   paginationQuerySchema
 } = require('../validation/demandeAgenceValidation');
 const { businessLogger } = require('../config/logger');
+const ExchangeRate = require('../Models/ExchangeRate'); 
 
 // ==================== PROFIL CLIENT ============================================
 exports.getProfile = async (req, res) => {
@@ -110,17 +111,15 @@ exports.getDashboard = async (req, res) => {
       res.status(500).json({ message: 'Erreur serveur' });
     }
 };
-
-// ====================FAIRE UNE DEMANDE A UNE AGENCE=================================================
+// ==================== 2. CRÉER UNE DEMANDE AVEC AGENCE CHOISIE ====================
 exports.createDemandeAgence = [
   validateRequest(createDemandeAgenceSchema),
   async (req, res) => {
     try {
       const {
-        fullName, email, telephone,receveur,
-        destination,
-        typeColis, poidOuTaille,
-        description
+        fullName, email, telephone, receveur,
+        destination, typeColis, poidOuTaille,
+        description, agenceId 
       } = req.validatedData.body;
 
       const userId = req.user.id;
@@ -136,6 +135,7 @@ exports.createDemandeAgence = [
       const destinationNormalized = normalizeDestination(destination);
       
       const agence = await User.findOne({
+        _id: agenceId,
         role: 'agence',
         isVerified: true
       });
@@ -143,7 +143,7 @@ exports.createDemandeAgence = [
       if (!agence) {
         return res.status(404).json({
           success: false,
-          message: 'Aucune agence disponible'
+          message: 'Agence non trouvée ou non disponible'
         });
       }
 
@@ -161,7 +161,7 @@ exports.createDemandeAgence = [
       if (!tarifTrouve) {
         return res.status(400).json({
           success: false,
-          message: 'Destination non disponible'
+          message: 'Cette agence ne dessert pas cette destination'
         });
       }
 
@@ -173,13 +173,12 @@ exports.createDemandeAgence = [
         telephone,
         receveur,
         user: userId,
-        agence: agence._id,
+        agence: agence._id,  
         destination: tarifTrouve.destination,
         typeColis,
         poidOuTaille,
         description,
         codeColis,
-        rating: null,
         prix: tarifTrouve.prix,
         delai: tarifTrouve.delai || 'Non spécifié',
         status: 'en_attente',
@@ -188,12 +187,7 @@ exports.createDemandeAgence = [
 
       await newDemande.save();
 
-      businessLogger.demande.create(
-        newDemande._id,
-        codeColis,
-        req.user.id,
-        'agence'
-      );
+      console.log(`Demande créée: ${codeColis} pour agence ${agence.agence?.agenceName}`);
 
       res.json({
         success: true,
@@ -201,23 +195,19 @@ exports.createDemandeAgence = [
         demande: {
           _id: newDemande._id,
           codeColis: newDemande.codeColis,
-          fullName: newDemande.fullName,
-          receveur: newDemande.receveur,
           destination: newDemande.destination,
           prix: newDemande.prix,
           delai: newDemande.delai,
-          status: newDemande.status,
-          user: newDemande.user
+          status: newDemande.status
         },
-        prix: newDemande.prix,
-        delai: newDemande.delai,
-        agenceName: agence.agence?.agenceName || 'Agence'
+        agence: {
+          nom: agence.agence?.agenceName || 'Agence',
+          id: agence._id
+        }
       });
+
     } catch (error) {
-      businessLogger.error(error, { 
-        context: 'createDemandeAgence', 
-        userId: req.user?.id 
-      });
+      console.error('Erreur createDemandeAgence:', error);
       res.status(500).json({
         success: false,
         message: 'Erreur serveur'
@@ -225,6 +215,186 @@ exports.createDemandeAgence = [
     }
   }
 ];
+
+
+exports.getAgencesByDestination = async (req, res) => {
+  try {
+    const { destination } = req.query;
+    
+    if (!destination) {
+      return res.status(400).json({
+        success: false,
+        message: 'Destination requise'
+      });
+    }
+
+    const normalizeDestination = (dest) => {
+      if (!dest) return '';
+      return dest.toLowerCase()
+        .replace(/\s+/g, ' ')
+        .replace(/\s*-\s*/g, '-')
+        .trim();
+    };
+
+    const destinationNormalized = normalizeDestination(destination);
+
+    const agences = await User.find({
+      role: 'agence',
+      isVerified: true
+    }).select('agence.agenceName agence.logo agence.tarifs agence.locations');
+
+  
+    const agencesDisponibles = agences
+      .filter(agence => {
+        const tarifs = agence.agence?.tarifs || [];
+        return tarifs.some(t => 
+          normalizeDestination(t.destination) === destinationNormalized
+        );
+      })
+      .map(agence => {
+        const tarif = agence.agence.tarifs.find(t => 
+          normalizeDestination(t.destination) === destinationNormalized
+        );
+        
+        return {
+          _id: agence._id,
+          nom: agence.agence?.agenceName || 'Agence',
+          logo: agence.agence?.logo || null,
+          ville: agence.agence?.locations?.[0]?.ville || 'Non spécifié',
+          pays: agence.agence?.locations?.[0]?.pays || 'RDC',
+          prix: tarif?.prix || 0,
+          delai: tarif?.delai || 'Non spécifié',
+          telephone: agence.agence?.telephone || 'Non disponible'
+        };
+      });
+
+    res.json({
+      success: true,
+      data: agencesDisponibles
+    });
+
+  } catch (error) {
+    console.error('Erreur getAgencesByDestination:', error);
+    res.status(500).json({
+      success: false,
+      message: 'Erreur serveur'
+    });
+  }
+};
+
+// exports.createDemandeAgence = [
+//   validateRequest(createDemandeAgenceSchema),
+//   async (req, res) => {
+//     try {
+//       const {
+//         fullName, email, telephone,receveur,
+//         destination,
+//         typeColis, poidOuTaille,
+//         description
+//       } = req.validatedData.body;
+
+//       const userId = req.user.id;
+      
+//       const normalizeDestination = (dest) => {
+//         if (!dest) return '';
+//         return dest.toLowerCase()
+//           .replace(/\s+/g, ' ')
+//           .replace(/\s*-\s*/g, '-')
+//           .trim();
+//       };
+
+//       const destinationNormalized = normalizeDestination(destination);
+      
+//       const agence = await User.findOne({
+//         role: 'agence',
+//         isVerified: true
+//       });
+
+//       if (!agence) {
+//         return res.status(404).json({
+//           success: false,
+//           message: 'Aucune agence disponible'
+//         });
+//       }
+
+//       const tarifs = agence.agence?.tarifs || [];
+//       let tarifTrouve = null;
+      
+//       for (const t of tarifs) {
+//         const tarifDest = normalizeDestination(t.destination);
+//         if (tarifDest === destinationNormalized) {
+//           tarifTrouve = t;
+//           break;
+//         }
+//       }
+
+//       if (!tarifTrouve) {
+//         return res.status(400).json({
+//           success: false,
+//           message: 'Destination non disponible'
+//         });
+//       }
+
+//       const codeColis = `AGENCE-${Date.now().toString().slice(-6)}`;
+      
+//       const newDemande = new DemandeAgence({
+//         fullName,
+//         email,
+//         telephone,
+//         receveur,
+//         user: userId,
+//         agence: agence._id,
+//         destination: tarifTrouve.destination,
+//         typeColis,
+//         poidOuTaille,
+//         description,
+//         codeColis,
+//         rating: null,
+//         prix: tarifTrouve.prix,
+//         delai: tarifTrouve.delai || 'Non spécifié',
+//         status: 'en_attente',
+//         date: new Date()
+//       });
+
+//       await newDemande.save();
+
+//       businessLogger.demande.create(
+//         newDemande._id,
+//         codeColis,
+//         req.user.id,
+//         'agence'
+//       );
+
+//       res.json({
+//         success: true,
+//         message: 'Demande agence créée avec succès !',
+//         demande: {
+//           _id: newDemande._id,
+//           codeColis: newDemande.codeColis,
+//           fullName: newDemande.fullName,
+//           receveur: newDemande.receveur,
+//           destination: newDemande.destination,
+//           prix: newDemande.prix,
+//           delai: newDemande.delai,
+//           status: newDemande.status,
+//           user: newDemande.user
+//         },
+//         prix: newDemande.prix,
+//         delai: newDemande.delai,
+//         agenceName: agence.agence?.agenceName || 'Agence'
+//       });
+//     } catch (error) {
+//       businessLogger.error(error, { 
+//         context: 'createDemandeAgence', 
+//         userId: req.user?.id 
+//       });
+//       res.status(500).json({
+//         success: false,
+//         message: 'Erreur serveur'
+//       });
+//     }
+//   }
+// ];
 
 // ==================== TOUTES LES DEMANDES AGENCE ====================
 exports.getAllClientRequests = async (req, res) => {
@@ -544,5 +714,21 @@ exports.getAgenceNotificationsForClient = async (req, res) => {
         success: false, 
         message: 'Erreur serveur'
       });
+    }
+};
+
+
+exports.getExchangeRates = async (req, res) => {
+    try {
+        const rates = await ExchangeRate.find();
+        
+        const result = {
+            FC: rates.find(r => r.currency === 'FC')?.rate || null,
+            ZAR: rates.find(r => r.currency === 'ZAR')?.rate || null
+        };
+        
+        res.json({ success: true, data: result });
+    } catch (error) {
+        res.status(500).json({ success: false, message: 'Erreur' });
     }
 };

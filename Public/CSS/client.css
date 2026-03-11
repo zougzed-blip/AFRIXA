@@ -3703,3 +3703,149 @@ body {
         margin-top: 1rem;
     }
 }
+
+
+/* Styles pour les cartes d'agences */
+.agences-section {
+    margin-top: 1.5rem;
+}
+
+.agences-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 1.5rem;
+    margin-top: 1rem;
+}
+
+.agence-card {
+    background: white;
+    border: 1px solid var(--gris-border);
+    border-radius: 12px;
+    overflow: hidden;
+    transition: all 0.3s ease;
+    cursor: pointer;
+    box-shadow: var(--card-shadow);
+    position: relative;
+}
+
+.agence-card:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--hover-shadow);
+    border-color: var(--dore);
+}
+
+.agence-card.selected {
+    border: 2px solid var(--vert-fonce);
+    box-shadow: 0 8px 20px rgba(0, 71, 50, 0.2);
+}
+
+.agence-card.selected::before {
+    content: '\f00c';
+    font-family: 'Font Awesome 6 Free';
+    font-weight: 900;
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background: var(--vert-fonce);
+    color: white;
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 12px;
+    z-index: 1;
+}
+
+.agence-header {
+    background: linear-gradient(135deg, #f8f9fa, #e9ecef);
+    padding: 1rem;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    border-bottom: 1px solid var(--gris-border);
+}
+
+.agence-logo {
+    width: 50px;
+    height: 50px;
+    border-radius: 10px;
+    object-fit: cover;
+    background: white;
+    border: 2px solid var(--dore-clair);
+}
+
+.agence-header h4 {
+    margin: 0;
+    font-size: 1rem;
+    font-weight: 700;
+    color: var(--vert-fonce);
+    flex: 1;
+}
+
+.agence-body {
+    padding: 1rem;
+}
+
+.agence-detail {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    margin-bottom: 0.75rem;
+    color: var(--gris-fonce);
+    font-size: 0.9rem;
+}
+
+.agence-detail i {
+    width: 20px;
+    color: var(--dore);
+    text-align: center;
+}
+
+.agence-prix {
+    background: var(--vert-fonce);
+    color: white;
+    padding: 0.75rem;
+    border-radius: 8px;
+    margin: 1rem 0;
+    text-align: center;
+    font-weight: 700;
+    font-size: 1.2rem;
+}
+
+.agence-footer {
+    padding: 0.75rem 1rem;
+    border-top: 1px solid var(--gris-border);
+    text-align: center;
+    font-size: 0.85rem;
+    color: var(--gris-texte);
+}
+
+.loading-spinner {
+    grid-column: 1/-1;
+    text-align: center;
+    padding: 2rem;
+    color: var(--gris-texte);
+}
+
+.loading-spinner i {
+    margin-right: 0.5rem;
+    color: var(--dore);
+}
+
+.selected-agence-message {
+    background: #d4edda;
+    color: #155724;
+    padding: 1rem;
+    border-radius: 8px;
+    margin-bottom: 1.5rem;
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    border-left: 4px solid var(--success);
+}
+
+.selected-agence-message i {
+    font-size: 1.2rem;
+}

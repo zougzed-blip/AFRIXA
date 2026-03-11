@@ -208,7 +208,7 @@ async function updatePaiementStatus(paiementId, newStatus) {
         showMessage(`Paiement ${newStatus === 'accepté' ? 'accepté' : 'refusé'} avec succès`, 'success');
         
         setTimeout(() => {
-            fetchPaiements(); // Changé ici
+            fetchPaiements(); 
             loadHistorique();
             loadBadgeCounts();
         }, 1000);

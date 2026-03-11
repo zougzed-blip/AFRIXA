@@ -123,6 +123,37 @@
 
 <!-- Dashboard Section -->
 <section id="dashboard" class="content-section active">
+<div class="exchange-rate-section">
+    <div class="exchange-rate-header">
+        <div class="exchange-rate-title">
+          
+            <span>Taux de change</span>
+        </div>
+        
+        <div class="exchange-rate-center">
+            <div class="rate-input-group">
+                <select id="admin-currency-select" class="rate-select">
+                    <option value="FC">FC</option>
+                    <option value="ZAR">ZAR</option>
+                </select>
+                <input type="number" id="admin-rate-input" class="rate-input" placeholder="Taux">
+                <button onclick="saveExchangeRate()" class="rate-save-btn">
+                     <i class="fas fa-exchange-alt"></i>
+                </button>
+            </div>
+            
+            <div class="rate-display">
+                <div><span>FC:</span> <strong id="display-fc">-</strong></div>
+                <div><span>ZAR:</span> <strong id="display-zar">-</strong></div>
+            </div>
+        </div>
+
+        <button class="export-btn" id="exportMonthlyBtn">
+            <i class="fas fa-download"></i>
+            <span>Export</span>
+        </button>
+    </div>
+</div>
     <div class="stats-grid">
         <div class="stat-card">
             <div class="stat-icon">

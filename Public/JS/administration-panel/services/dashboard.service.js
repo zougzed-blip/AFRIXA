@@ -1,10 +1,10 @@
-
 import * as API from '../api/admin.api.js';
 
-const EXCHANGE_RATES = {
+// Variables dynamiques
+let EXCHANGE_RATES = {
     USD: 1,
-    FC: 2500,  
-    ZAR: 17.5   
+    FC: null,
+    ZAR: null
 };
 
 const CURRENCY_SYMBOLS = {
@@ -13,28 +13,120 @@ const CURRENCY_SYMBOLS = {
     ZAR: 'R'
 };
 
+// ==================== CHARGER LES TAUX =========================
+export async function loadExchangeRates() {
+    try {
+        const response = await API.apiFetch('/api/admin/exchange-rates');
+        
+        // Vérifier si la réponse est valide
+        if (!response) {
+            console.log('Non autorisé ou session expirée');
+            return;
+        }
+        
+        const data = await response.json();
+        
+        if (data.success) {
+            if (data.data.FC !== undefined) EXCHANGE_RATES.FC = data.data.FC;
+            if (data.data.ZAR !== undefined) EXCHANGE_RATES.ZAR = data.data.ZAR;
+            
+            updateExchangeRateDisplay();
+        }
+    } catch (error) {
+        console.error('Erreur chargement taux:', error);
+    }
+}
+
+// ==================== SAUVEGARDER UN TAUX =========================
+export async function saveExchangeRate() {
+    const currency = document.getElementById('admin-currency-select')?.value;
+    const rateInput = document.getElementById('admin-rate-input');
+    const rate = rateInput?.value;
+    
+    if (!currency || !rate || rate <= 0) {
+        if (window.showPopup) {
+            window.showPopup('Entrez un taux valide', 'error');
+        } else {
+            alert('Entrez un taux valide');
+        }
+        return;
+    }
+    
+    try {
+        const response = await API.apiFetch('/api/admin/exchange-rate', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ 
+                currency, 
+                rate: parseFloat(rate) 
+            })
+        });
+        
+        if (!response) {
+            throw new Error('Erreur sauvegarde');
+        }
+        
+        const data = await response.json();
+        
+        if (data.success) {
+            if (window.showPopup) {
+                window.showPopup(`Taux ${currency} mis à jour`, 'success');
+            }
+            if (rateInput) rateInput.value = '';
+            await loadExchangeRates();
+        }
+    } catch (error) {
+        console.error('Erreur sauvegarde:', error);
+        if (window.showPopup) {
+            window.showPopup('Erreur sauvegarde', 'error');
+        }
+    }
+}
+
+// ==================== METTRE À JOUR L'AFFICHAGE =========================
+function updateExchangeRateDisplay() {
+    const fcDisplay = document.getElementById('display-fc');
+    const zarDisplay = document.getElementById('display-zar');
+    
+    if (fcDisplay) {
+        fcDisplay.textContent = EXCHANGE_RATES.FC !== null ? EXCHANGE_RATES.FC : '-';
+    }
+    if (zarDisplay) {
+        zarDisplay.textContent = EXCHANGE_RATES.ZAR !== null ? EXCHANGE_RATES.ZAR : '-';
+    }
+}
+
 // ==================== FONCTIONS DE CONVERSION =========================
 export function convertToUSD(amount, fromCurrency) {
     if (!amount || amount === 0) return 0;
     if (fromCurrency === 'USD') return amount;
+    
     const rate = EXCHANGE_RATES[fromCurrency];
-    if (!rate) return amount;
+    if (!rate || rate === null) return amount;
+    
     return amount / rate;
 }
 
 export function convertFromUSD(amountInUSD, toCurrency) {
     if (!amountInUSD || amountInUSD === 0) return 0;
     if (toCurrency === 'USD') return amountInUSD;
+    
     const rate = EXCHANGE_RATES[toCurrency];
-    if (!rate) return amountInUSD;
+    if (!rate || rate === null) return amountInUSD;
+    
     return amountInUSD * rate;
 }
 
 export function formatCurrency(amount, currency = 'USD') {
     if (amount === undefined || amount === null) return '0';
+    
     const symbol = CURRENCY_SYMBOLS[currency] || currency;
     const numAmount = parseFloat(amount);
     if (isNaN(numAmount)) return '0';
+    
+    if (currency !== 'USD' && (EXCHANGE_RATES[currency] === null || EXCHANGE_RATES[currency] === undefined)) {
+        return `${numAmount.toLocaleString('fr-FR')} ${symbol} (taux?)`;
+    }
     
     const formattedAmount = numAmount.toLocaleString('fr-FR', { 
         minimumFractionDigits: 0, 
@@ -46,6 +138,8 @@ export function formatCurrency(amount, currency = 'USD') {
 // ==================== CHARGER DASHBOARD AGENCE ======================
 export async function loadAgenceDashboardData() {
     try {
+        await loadExchangeRates();
+        
         const agenceStats = await API.loadAgenceDashboardDataAPI();
         
         if (!agenceStats || typeof agenceStats !== 'object') {
@@ -274,10 +368,10 @@ export async function loadFilteredRevenue(currency = 'USD', startDate = null, en
         paiements.forEach(p => {
             const montant = parseFloat(p.montant) || 0;
             const devise = p.devise || 'USD';
-            totalInUSD += (montant / EXCHANGE_RATES[devise]);
+            totalInUSD += convertToUSD(montant, devise);
         });
         
-        const totalInTargetCurrency = totalInUSD * EXCHANGE_RATES[currency];
+        const totalInTargetCurrency = convertFromUSD(totalInUSD, currency);
         updateStatistic('revenue-agence', formatCurrency(totalInTargetCurrency, currency));
         
     } catch (error) {
@@ -323,13 +417,22 @@ function updateStatistic(elementId, value) {
 }
 
 // ==================== INITIALISATION ===========================
+document.addEventListener('DOMContentLoaded', () => {
+    setTimeout(() => {
+        loadExchangeRates();
+    }, 1000);
+});
+
+window.saveExchangeRate = saveExchangeRate;
 window.DashboardService = {
     convertToUSD,
     convertFromUSD,
     formatCurrency,
     loadAgenceDashboardData,
     loadFilteredRevenue,
-    setupRevenueFilter
+    setupRevenueFilter,
+    loadExchangeRates,
+    saveExchangeRate
 };
 
 export default {
@@ -338,5 +441,7 @@ export default {
     formatCurrency,
     loadAgenceDashboardData,
     loadFilteredRevenue,
-    setupRevenueFilter
+    setupRevenueFilter,
+    loadExchangeRates,
+    saveExchangeRate
 };

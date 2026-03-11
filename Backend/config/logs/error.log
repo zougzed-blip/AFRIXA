@@ -815,3 +815,19 @@
   },
   "userId": null
 }
+2026-03-11 16:15:53 [ERROR] ERROR
+{
+  "context": {
+    "message": "adminExchangeRoutes is not defined",
+    "stack": "ReferenceError: adminExchangeRoutes is not defined\n    at C:\\Users\\zougz\\Desktop\\AFRIXA\\server.js:130:27\n    at process.processTicksAndRejections (node:internal/process/task_queues:103:5)"
+  },
+  "userId": null
+}
+2026-03-11 16:16:05 [ERROR] ERROR
+{
+  "context": {
+    "message": "adminExchangeRoutes is not defined",
+    "stack": "ReferenceError: adminExchangeRoutes is not defined\n    at C:\\Users\\zougz\\Desktop\\AFRIXA\\server.js:131:27\n    at process.processTicksAndRejections (node:internal/process/task_queues:103:5)"
+  },
+  "userId": null
+}

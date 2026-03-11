@@ -7,6 +7,7 @@ const { roleMiddleware } = require('../Middleware/RoleMiddlware');
 const { upload3, uploadToCloudinaryMiddleware3, compressImage } = require('../Middleware/uploadProofMid');
 const paymentProofController = require('../Controllers/paymentProofController');
 const { validateMongoId } = require('../Middleware/validationMiddleware');
+const ExchangeRate = require('../Models/ExchangeRate')
 const mongoose = require('mongoose');
 
 const validateObjectId = (req, res, next) => {
@@ -40,12 +41,10 @@ router.put('/profile',
 // ==================== ROUTES DE DASHBOARD ====================
 router.get('/dashboard', authMiddleware, clientController.getDashboard);
 
-// ==================== ROUTES D'HISTORIQUE ====================
-// Utilise getAllClientHistory pour /history (car getHistory n'existe pas)
+
 router.get('/history', authMiddleware, clientController.getAllClientHistory);
 
-// ==================== ROUTES DE NOTIFICATIONS ====================
-// Crée d'abord une fonction simple pour getNotifications
+
 const getSimpleNotifications = async (req, res) => {
   try {
     res.json({ 
@@ -61,13 +60,11 @@ router.get('/notifications', authMiddleware, getSimpleNotifications);
 
 // ==================== ROUTES AGENCE ====================
 router.post('/agence/request', authMiddleware, clientController.createDemandeAgence);
-
+router.get('/agences-by-destination', authMiddleware, clientController.getAgencesByDestination);
 router.get('/all-requests', authMiddleware, clientController.getAllClientRequests);
 
 router.get('/all-history', authMiddleware, clientController.getAllClientHistory);
 
-// ==================== ROUTES DE MISE À JOUR ====================
-// Crée des fonctions simples pour les routes manquantes
 const checkSimpleUpdates = async (req, res) => {
   res.json({ 
     success: true, 
@@ -105,5 +102,8 @@ router.get('/agence-notifications',
   authMiddleware, 
   clientController.getAgenceNotificationsForClient
 );
+
+router.get('/exchange-rates', authMiddleware, clientController.getExchangeRates);
+
 
 module.exports = router;

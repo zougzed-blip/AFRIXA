@@ -146,6 +146,7 @@ export async function loadAllRatingsAPI(page = 1, limit = 30) {
         return { ratings: [], total: 0, hasMore: false };
     }
 }
+
 // ==================== ADMIN PROFILE ===========================================
 export async function loadAdminProfileAPI() {
     try {
@@ -249,8 +250,6 @@ export async function loadProofsDataAPI(page = 1, limit = 30) {
         return { proofs: [], total: 0, hasMore: false };
     }
 }
-
-
 
 export async function updateProofStatusAPI(proofId, newStatus) {
     const response = await apiFetch(`/api/admin/payment-proofs/${proofId}/status`, {
@@ -432,6 +431,33 @@ export async function sendProofAPI(formData) {
     });
     
     return response;
+}
+
+// ==================== EXCHANGE RATES ==========================================
+export async function loadExchangeRatesAPI() {
+    try {
+        const response = await apiFetch('/api/admin/exchange-rates');
+        if (!response) {
+            return null;
+        }
+        const data = await response.json();
+        return data;
+    } catch (error) {
+        return null;
+    }
+}
+
+export async function saveExchangeRateAPI(currency, rate) {
+    const response = await apiFetch('/api/admin/exchange-rate', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ currency, rate: parseFloat(rate) })
+    });
+    
+    if (response && response.ok) {
+        return await response.json();
+    }
+    return null;
 }
 
 // ==================== GETTERS =================================================

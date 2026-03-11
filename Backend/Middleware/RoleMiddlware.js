@@ -5,7 +5,9 @@ const roleMiddleware = (expectedRole) => {
       return res.status(401).json({ message: 'Utilisateur non authentifié' });
     }
     
-    if (req.user.role !== expectedRole) {
+    const roles = Array.isArray(expectedRole) ? expectedRole : [expectedRole];
+    
+    if (!roles.includes(req.user.role)) {
       return res.status(403).json({ message: 'Accès interdit : rôle non autorisé' });
     }
     next();

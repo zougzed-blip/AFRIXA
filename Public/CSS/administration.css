@@ -2587,3 +2587,133 @@ body {
     background: var(--vert-fonce);
     border-color: var(--vert-fonce);
 }
+
+
+/* ==================== SECTION TAUX DE CHANGE ==================== */
+.exchange-rate-section {
+    margin-bottom: 1.5rem;
+    background: white;
+    border-radius: 8px;
+    padding: 1rem;
+    box-shadow: var(--card-shadow);
+}
+
+.exchange-rate-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 1rem;
+}
+
+.exchange-rate-title {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    min-width: 140px;
+}
+
+.exchange-rate-title i {
+    color: #004732;
+    font-size: 1.2rem;
+}
+
+.exchange-rate-title span {
+    font-weight: 600;
+    color: #004732;
+}
+
+.exchange-rate-center {
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+    flex: 1;
+    justify-content: center;
+}
+
+.rate-input-group {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.rate-select {
+    padding: 0.4rem;
+    border: 1px solid #e0e0e0;
+    border-radius: 4px;
+    font-size: 0.9rem;
+    background: white;
+}
+
+.rate-input {
+    width: 100px;
+    padding: 0.4rem;
+    border: 1px solid #e0e0e0;
+    border-radius: 4px;
+    font-size: 0.9rem;
+}
+
+.rate-save-btn {
+    background: #004732;
+    color: white;
+    border: none;
+    padding: 0.4rem 1rem;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 0.9rem;
+    transition: background 0.2s;
+}
+
+.rate-save-btn:hover {
+    background: #006644;
+}
+
+.rate-display {
+    display: flex;
+    gap: 1rem;
+    font-size: 0.9rem;
+}
+
+.rate-display span {
+    color: #666;
+}
+
+.rate-display strong {
+    color: #004732;
+}
+
+.export-btn {
+    background: #C59B33;
+    color: white;
+    border: none;
+    padding: 0.5rem 1.2rem;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 0.9rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    transition: background 0.2s;
+    min-width: 100px;
+    justify-content: center;
+}
+
+.export-btn:hover {
+    background: #ad8626;
+}
+
+@media (max-width: 768px) {
+    .exchange-rate-header {
+        flex-direction: column;
+        align-items: stretch;
+    }
+    
+    .exchange-rate-center {
+        flex-direction: column;
+        gap: 1rem;
+    }
+    
+    .export-btn {
+        width: 100%;
+    }
+}
