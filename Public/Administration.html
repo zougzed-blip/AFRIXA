@@ -92,13 +92,16 @@
                     <i class="fas fa-bars"></i>
                 </button>
                 <div class="header-title-group">
-                    <div class="breadcrumb">
-                        <span id="page-title">Dashboard</span>
-                        <span class="separator">/</span>
-                        <span id="page-subtitle">Vue d'ensemble</span>
-                    </div>
-                    <h1>Hello Admin</h1>
-                </div>
+    <div class="breadcrumb">
+        <span id="page-title">Dashboard</span>
+        <span class="separator">/</span>
+        <span id="page-subtitle">Vue d'ensemble</span>
+    </div>
+    <div class="stats-badge">
+<i class="fas fa-chart-simple" style="color: #C59B33; font-size: 1.2rem;"></i>
+        <span>Statistiques en temps réel</span>
+    </div>
+</div>
             </div>
             <div class="header-right">
                 <div class="header-actions">
@@ -126,8 +129,7 @@
 <div class="exchange-rate-section">
     <div class="exchange-rate-header">
         <div class="exchange-rate-title">
-          
-            <span>Taux de change</span>
+            <span>Welcome <small style="color: grey; font-size: small; font-weight: lighter;">Admin</small></span>
         </div>
         
         <div class="exchange-rate-center">
@@ -148,10 +150,23 @@
             </div>
         </div>
 
-        <button class="export-btn" id="exportMonthlyBtn">
-            <i class="fas fa-download"></i>
-            <span>Export</span>
-        </button>
+        <div class="export-container">
+         <div class="date-picker-wrapper">
+        <input 
+            type="date" 
+            id="exportDate" 
+            class="date-input"
+            max="2026-12-31"
+            value="2026-01-23"
+        >
+        </div>
+    <button class="export-btn" id="exportBtn">
+        <i class="fas fa-download"></i>
+        <span>Export CSV</span>
+    </button>
+</div>
+
+      
     </div>
 </div>
     <div class="stats-grid">
@@ -180,7 +195,7 @@
 
         <div class="stat-card">
             <div class="stat-icon">
-                <i class="fas fa-truck" style="color: #C59B33;"></i>
+               <i class="fas fa-cube" style="color: #C59B33;"></i>
             </div>
             <div class="stat-info">
                 <h3 id="total-demandes-agence">0</h3>
@@ -196,7 +211,7 @@
 
         <div class="stat-card">
             <div class="stat-icon">
-                <i class="fas fa-credit-card" style="color: #004732;"></i>
+              <i class="fas fa-receipt" style="color: #004732;"></i>
             </div>
             <div class="stat-info">
                 <h3 id="total-paiements-agence">0</h3>
@@ -211,7 +226,7 @@
 
         <div class="stat-card revenue-card">
             <div class="stat-icon">
-                <i class="fas fa-coins" style="color: #C59B33;"></i>
+               <i class="fas fa-sack-dollar" style="color: #A43E2A;"></i>
             </div>
             <div class="stat-info revenue-info">
                 <div class="revenue-left">
@@ -241,6 +256,9 @@
             </div>
         </div>
     </div>
+    
+    <!-- ===== CHART COMPOSANT ===== -->
+    <div id="chart-component" class="chart-section"></div>
     
     <div class="dashboard-content">
         
@@ -327,7 +345,7 @@
                     </div>
                 </div>
                 
-                <div class="card quick-stats">
+                <!-- <div class="card quick-stats">
                     <div class="card-header">
                         <h3><i class="fas fa-chart-pie"></i> Statistiques Agence</h3>
                     </div>
@@ -359,7 +377,7 @@
                             </div>
                         </div>
                     </div>
-                </div>
+                </div> -->
                 
                 <!-- <div class="card quick-actions">
                     <div class="card-header">
@@ -924,5 +942,6 @@
     });
 </script>
     <script type="module" src="/JS/administration-panel/main.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.0/chart.umd.min.js"></script>
 </body>
 </html>

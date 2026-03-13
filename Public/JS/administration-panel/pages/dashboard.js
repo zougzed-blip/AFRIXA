@@ -1,10 +1,12 @@
-
 import * as API from '../api/admin.api.js';
 import * as DashboardService from '../services/dashboard.service.js';
 import * as Utils from '../utils/helpers.js';
 import * as MessageBox from '../ui/components/message-box.js';
+import { ChartComponent } from '../ui/components/ChartComponent.js';
 
-// ==================== DASHBOARD PRINCIPAL ==============================
+
+let chartComponent;
+
 export async function loadDashboardPage() {
     try {
         
@@ -24,14 +26,98 @@ export async function loadDashboardPage() {
         await loadRecentActivities();
         await loadRecentDemandesAgence();
 
+      
+        initChart();
+
         setTimeout(() => {
             DashboardService.setupRevenueFilter();
         }, 1000);
         
+        initExportButton();
         
     } catch (error) {
         MessageBox.showMessage('Erreur de chargement des données du dashboard', 'error');
     }
+}
+
+// ==================== AJOUT: Fonction pour le bouton export ===========
+function initExportButton() {
+    const exportBtn = document.getElementById('exportBtn');
+    const dateInput = document.getElementById('exportDate');
+    
+    if (!exportBtn || !dateInput) return;
+    
+    const newBtn = exportBtn.cloneNode(true);
+    exportBtn.parentNode.replaceChild(newBtn, exportBtn);
+    
+    newBtn.addEventListener('click', async function(e) {
+        e.preventDefault();
+        
+        const selectedDate = dateInput.value;
+        
+        if (!selectedDate) {
+            MessageBox.showMessage('Choisis une date mon bro!', 'warning');
+            return;
+        }
+        
+        const originalContent = this.innerHTML;
+        
+        this.disabled = true;
+        this.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Export...';
+        
+        try {
+           
+            const response = await API.apiFetch(`/api/admin/export/${selectedDate}`);
+            
+            if (!response || !response.ok) {
+                throw new Error('Erreur lors de l\'export');
+            }
+            
+            const blob = await response.blob();
+            const url = window.URL.createObjectURL(blob);
+            const a = document.createElement('a');
+            a.href = url;
+            a.download = `export_${selectedDate}.csv`;
+            document.body.appendChild(a);
+            a.click();
+            
+            window.URL.revokeObjectURL(url);
+            a.remove();
+            
+            MessageBox.showMessage('Export réussi!', 'success');
+            
+        } catch (error) {
+            MessageBox.showMessage('Erreur lors de l\'export', 'error');
+        } finally {
+           
+            this.disabled = false;
+            this.innerHTML = originalContent;
+        }
+    });
+}
+
+// ====================  chart =====
+function initChart() {
+  
+    let chartContainer = document.getElementById('chart-component');
+    
+    if (!chartContainer) {
+        chartContainer = document.createElement('div');
+        chartContainer.id = 'chart-component';
+        
+        const statsSection = document.querySelector('.stats-grid');
+        if (statsSection) {
+            statsSection.parentNode.insertBefore(chartContainer, statsSection.nextSibling);
+        } else {
+            const dashboardContent = document.querySelector('.dashboard-content');
+            if (dashboardContent) {
+                dashboardContent.appendChild(chartContainer);
+            }
+        }
+    }
+    
+    chartComponent = new ChartComponent('chart-component');
+    chartComponent.render();
 }
 
 // ==================== STATS AGENCE ====================================
@@ -189,7 +275,7 @@ export async function loadRecentDemandesAgence() {
             return;
         }
  
-        const recentDemandes = demandes.slice(0, 5);
+        const recentDemandes = demandes.slice(0, 3);
         displayRecentDemandesAgence(recentDemandes);
         
     } catch (error) {
@@ -305,6 +391,13 @@ function showEmptyState(containerId, message) {
         container.appendChild(emptyState);
     }
 }
+
+// ==================== NOUVEAU: Nettoyer le chart en quittant ==========
+window.addEventListener('beforeunload', () => {
+    if (chartComponent) {
+        chartComponent.destroy();
+    }
+});
 
 // ==================== EXPORTS ==========================================
 

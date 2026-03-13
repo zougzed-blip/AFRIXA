@@ -360,7 +360,7 @@ body {
 /* =============================CONTENT SECTIONS================================ */
 .content-section {
     display: none;
-    padding: 1.5rem;
+    padding: 1rem;
 }
 
 .content-section.active {
@@ -2591,11 +2591,10 @@ body {
 
 /* ==================== SECTION TAUX DE CHANGE ==================== */
 .exchange-rate-section {
-    margin-bottom: 1.5rem;
-    background: white;
+    margin-bottom: 1rem;
     border-radius: 8px;
-    padding: 1rem;
-    box-shadow: var(--card-shadow);
+    padding: 0.3rem;
+    
 }
 
 .exchange-rate-header {
@@ -2683,7 +2682,7 @@ body {
 }
 
 .export-btn {
-    background: #C59B33;
+    background: #A43E2A;;
     color: white;
     border: none;
     padding: 0.5rem 1.2rem;
@@ -2698,9 +2697,9 @@ body {
     justify-content: center;
 }
 
-.export-btn:hover {
+/* .export-btn:hover {
     background: #ad8626;
-}
+} */
 
 @media (max-width: 768px) {
     .exchange-rate-header {
@@ -2716,4 +2715,120 @@ body {
     .export-btn {
         width: 100%;
     }
+}
+
+.export-container {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    margin: 10px 0;
+
+}
+
+.date-picker-wrapper {
+    display: flex;
+    align-items: center;
+    margin-right: 0.3rem;
+}
+
+.date-input {
+    padding: 8px 12px;
+    border: 1px solid #ced4da;
+    border-radius: 6px;
+    font-size: 14px;
+    outline: none;
+    transition: border-color 0.2s;
+}
+
+.date-input:focus {
+    border-color: #4361ee;
+    box-shadow: 0 0 0 2px rgba(67, 97, 238, 0.1);
+}
+
+
+/* ui/styles/chart.css */
+.chart-wrapper {
+  background: white;
+  border-radius: 12px;
+  padding: 20px;
+  margin: 20px 0;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+  border: 1px solid #e9ecef;
+}
+
+.chart-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.chart-header h3 {
+  margin: 0;
+  color: #2c3e50;
+  font-size: 1.2rem;
+}
+
+.chart-select {
+  padding: 8px 12px;
+  border: 1px solid #dee2e6;
+  border-radius: 6px;
+  font-size: 14px;
+  background: #f8f9fa;
+  cursor: pointer;
+}
+
+.chart-select:hover {
+  background: #ffffff;
+}
+
+.chart-select:focus {
+  outline: none;
+  border-color: #C59B33;
+}
+
+.chart-container {
+  position: relative;
+  height: 400px;
+  width: 100%;
+  margin-bottom: 20px;
+}
+
+.chart-stats {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 15px;
+  margin-top: 20px;
+  padding-top: 20px;
+  border-top: 1px solid #e9ecef;
+}
+
+.stat-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.stat-label {
+  font-size: 0.9rem;
+  color: #6c757d;
+  margin-bottom: 5px;
+}
+
+.stat-value {
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: #2c3e50;
+}
+
+@media (max-width: 768px) {
+  .chart-stats {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  
+  .chart-header {
+    flex-direction: column;
+    gap: 10px;
+  }
 }

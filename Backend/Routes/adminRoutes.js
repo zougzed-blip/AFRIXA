@@ -9,6 +9,7 @@ const { body } = require('express-validator');
 const { validate } = require('../Middleware/validationMiddleware');
 const { validateMongoId, validateSearch } = require('../Middleware/validationMiddleware');
 const mongoose = require('mongoose');
+const exportController = require('../Controllers/exportChartController')
 
 const validateObjectId = (req, res, next) => {
   if (!mongoose.Types.ObjectId.isValid(req.params.id)) {
@@ -74,4 +75,7 @@ router.put('/agence/notifications/mark-all-read', authMiddleware, adminMiddlewar
 
 router.put('/agence/profile', authMiddleware, adminMiddleware, adminAgenceController.adminUpdateProfile);
 
-module.exports = router;  
+router.get('/export/:date', authMiddleware, adminMiddleware, exportController.exportByDate);
+router.get('/chart-evolution', authMiddleware, adminMiddleware, exportController.getChartEvolution);
+
+module.exports = router;

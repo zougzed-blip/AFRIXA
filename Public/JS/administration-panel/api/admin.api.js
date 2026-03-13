@@ -460,6 +460,65 @@ export async function saveExchangeRateAPI(currency, rate) {
     return null;
 }
 
+
+// ==================== EXPORT PAR DATE ========================================
+export async function exportDataByDateAPI(date) {
+    try {
+        const response = await apiFetch(`/api/admin/export/${date}`);
+        
+        if (!response) {
+            showMessage('Erreur lors de l\'export', 'error');
+            return null;
+        }
+        
+        if (!response.ok) {
+            showMessage('Erreur lors de l\'export', 'error');
+            return null;
+        }
+        
+        
+        const blob = await response.blob();
+        
+        const url = window.URL.createObjectURL(blob);
+        const a = document.createElement('a');
+        a.href = url;
+        a.download = `export_${date}.csv`;
+        document.body.appendChild(a);
+        a.click();
+        
+        window.URL.revokeObjectURL(url);
+        a.remove();
+        
+        showMessage('Export réussi!', 'success');
+        return true;
+        
+    } catch (error) {
+        console.error('Erreur export:', error);
+        showMessage('Erreur lors de l\'export', 'error');
+        return null;
+    }
+}
+
+// ==================== CHART ÉVOLUTION ========================================
+export async function getChartEvolutionAPI(jours = 30) {
+    try {
+        const response = await apiFetch(`/api/admin/chart-evolution?jours=${jours}`);
+        
+        if (!response) {
+            showMessage('Erreur lors du chargement du graphique', 'error');
+            return null;
+        }
+        
+        const data = await response.json();
+        return data;
+        
+    } catch (error) {
+        console.error('Erreur chart evolution:', error);
+        showMessage('Erreur lors du chargement du graphique', 'error');
+        return null;
+    }
+}
+
 // ==================== GETTERS =================================================
 export function getCurrentCompanies() { return currentCompanies; }
 export function getCurrentUsers() { return currentUsers; }
