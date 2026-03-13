@@ -831,3 +831,11 @@
   },
   "userId": null
 }
+2026-03-13 11:53:27 [ERROR] ERROR
+{
+  "context": {
+    "message": "Server selection timed out after 5000 ms",
+    "stack": "MongooseServerSelectionError: Server selection timed out after 5000 ms\n    at _handleConnectionErrors (C:\\Users\\zougz\\Desktop\\AFRIXA\\node_modules\\mongoose\\lib\\connection.js:1169:11)\n    at NativeConnection.openUri (C:\\Users\\zougz\\Desktop\\AFRIXA\\node_modules\\mongoose\\lib\\connection.js:1100:11)\n    at async MongoConnection (C:\\Users\\zougz\\Desktop\\AFRIXA\\Backend\\DataBase\\MongoConnection.js:8:9)\n    at async C:\\Users\\zougz\\Desktop\\AFRIXA\\server.js:30:5"
+  },
+  "userId": null
+}
