@@ -1,7 +1,6 @@
 const express = require('express');
 const router = express.Router();
 const authMiddleware = require('../Middleware/authenticationMiddlware');
-const { roleMiddleware } = require('../Middleware/RoleMiddlware');
 const { upload3, uploadToCloudinaryMiddleware3, compressImage } = require('../Middleware/uploadProofMid');
 const paymentProofController = require('../Controllers/paymentProofController');
 
@@ -12,6 +11,12 @@ router.post(
   compressImage,
   uploadToCloudinaryMiddleware3,
   paymentProofController.uploadPaymentProof
+);
+
+router.get(
+  "/agences",
+  authMiddleware,
+  paymentProofController.getAllAgences
 );
 
 module.exports = router;

@@ -26,7 +26,13 @@ router.post(
   compressImage,
   uploadToCloudinaryMiddleware3,
   paymentProofController.uploadPaymentProof
-);
+)
+
+router.get(
+  "/agences",
+  authMiddleware,
+  paymentProofController.getAllAgences
+)
 
 // ==================== ROUTES DE PROFIL ====================
 router.get('/profile', authMiddleware, clientController.getProfile);

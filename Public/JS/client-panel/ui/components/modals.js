@@ -100,29 +100,28 @@ function displayAgenceRequestModal(request) {
 
             <div class="profile-section">
                 <h4> Tarification</h4>           
-                    <div class="devise-selector">
-                        <label for="modal-devise">
-                            <i class="fas fa-exchange-alt"></i> Convertir en:
-                        </label>
-                        <select id="modal-devise" class="devise-select">
-                            <option value="USD" ${devise === 'USD' ? 'selected' : ''}>$ Dollar (USD)</option>
-                            <option value="CDF" ${devise === 'CDF' ? 'selected' : ''}>FC Franc Congolais</option>
-                            <option value="ZAR" ${devise === 'ZAR' ? 'selected' : ''}>R Rand Sud-Africain</option>
-                        </select>
-                    </div>
-                    
-                    <div class="prix-converti">
-                        <span class="prix-label">Prix total converti:</span>
-                        <span class="prix-value" id="modal-prix-converti">${escapeHtml(formaterPrixAvecDevise(calculerPrixConverti(prixTotalUSD, devise), devise))}</span>
-                    </div>
-                    
-                    ${request.prixAjuste && request.prixAjuste !== request.prix ? `
-                    <div class="prix-ajuste-info">
-                        <i class="fas fa-info-circle"></i>
-                        <span>Prix final après pesée réelle: <strong id="modal-prix-ajuste">${escapeHtml(formaterPrixAvecDevise(calculerPrixConverti(request.prixAjuste, devise), devise))}</strong></span>
-                    </div>
-                    ` : ''}
+                <div class="devise-selector">
+                    <label for="modal-devise">
+                        <i class="fas fa-exchange-alt"></i> Convertir en:
+                    </label>
+                    <select id="modal-devise" class="devise-select">
+                        <option value="USD" ${devise === 'USD' ? 'selected' : ''}>$ Dollar (USD)</option>
+                        <option value="CDF" ${devise === 'CDF' ? 'selected' : ''}>FC Franc Congolais</option>
+                        <option value="ZAR" ${devise === 'ZAR' ? 'selected' : ''}>R Rand Sud-Africain</option>
+                    </select>
                 </div>
+                
+                <div class="prix-converti">
+                    <span class="prix-label">Prix total converti:</span>
+                    <span class="prix-value" id="modal-prix-converti">${escapeHtml(formaterPrixAvecDevise(calculerPrixConverti(prixTotalUSD, devise), devise))}</span>
+                </div>
+                
+                ${request.prixAjuste && request.prixAjuste !== request.prix ? `
+                <div class="prix-ajuste-info">
+                    <i class="fas fa-info-circle"></i>
+                    <span>Prix final après pesée réelle: <strong id="modal-prix-ajuste">${escapeHtml(formaterPrixAvecDevise(calculerPrixConverti(request.prixAjuste, devise), devise))}</strong></span>
+                </div>
+                ` : ''}
             </div>
 
             <div class="profile-section">

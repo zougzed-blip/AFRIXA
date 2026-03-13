@@ -839,3 +839,19 @@
   },
   "userId": null
 }
+2026-03-13 12:36:20 [ERROR] ERROR
+{
+  "context": {
+    "message": "Server selection timed out after 5000 ms",
+    "stack": "MongooseServerSelectionError: Server selection timed out after 5000 ms\n    at _handleConnectionErrors (C:\\Users\\zougz\\Desktop\\AFRIXA\\node_modules\\mongoose\\lib\\connection.js:1169:11)\n    at NativeConnection.openUri (C:\\Users\\zougz\\Desktop\\AFRIXA\\node_modules\\mongoose\\lib\\connection.js:1100:11)\n    at async MongoConnection (C:\\Users\\zougz\\Desktop\\AFRIXA\\Backend\\DataBase\\MongoConnection.js:8:9)\n    at async C:\\Users\\zougz\\Desktop\\AFRIXA\\server.js:30:5"
+  },
+  "userId": null
+}
+2026-03-13 13:05:38 [ERROR] ERROR
+{
+  "context": {
+    "message": "Socket 'secureConnect' timed out after 10014ms (connectTimeoutMS: 10000)",
+    "stack": "MongoNetworkTimeoutError: Socket 'secureConnect' timed out after 10014ms (connectTimeoutMS: 10000)\n    at TLSSocket.<anonymous> (C:\\Users\\zougz\\Desktop\\AFRIXA\\node_modules\\mongodb\\lib\\cmap\\connect.js:288:20)\n    at Object.onceWrapper (node:events:622:28)\n    at TLSSocket.emit (node:events:508:28)\n    at Socket._onTimeout (node:net:604:8)\n    at listOnTimeout (node:internal/timers:605:17)\n    at process.processTimers (node:internal/timers:541:7)"
+  },
+  "userId": null
+}

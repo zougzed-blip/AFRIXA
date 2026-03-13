@@ -46,7 +46,7 @@
                         <span class="nav-title">Mes Demandes</span>
                         <span class="nav-subtitle">Gérer les demandes</span>
                     </div>
-                    <span class="badge clickable-badge" id="demandes-count" onclick="clearBadge('demandes'); return false;">0</span>
+                    <span class="badge clickable-badge hidden" id="demandes-count" onclick="clearBadge('demandes'); return false;">0</span>
                 </a>
             </li>
             <li class="nav-item">
@@ -55,7 +55,7 @@
                         <span class="nav-title">Paiements</span>
                         <span class="nav-subtitle">Suivi des paiements</span>
                     </div>
-                    <span class="badge clickable-badge" id="paiements-count" onclick="clearBadge('paiements'); return false;">0</span>
+                    <span class="badge clickable-badge hidden" id="paiements-count" onclick="clearBadge('paiements'); return false;">0</span>
                 </a>
             </li>
             <li class="nav-item">
@@ -105,7 +105,7 @@
                     <button class="filter-btn active" onclick="filterDemandesByStatus('all')">Toutes</button>
                     <button class="filter-btn" onclick="filterDemandesByStatus('en_attente')">En attente</button>
                     <button class="filter-btn" onclick="filterDemandesByStatus('accepté')">Accepté</button>
-                    <button class="filter-btn" onclick="filterDemandesByStatus('en_cours')">En cours</button>
+                    <!-- <button class="filter-btn" onclick="filterDemandesByStatus('en_cours')">En cours</button> -->
                     <button class="filter-btn" onclick="filterDemandesByStatus('livré')">Livré</button>
                     <button class="filter-btn" onclick="filterDemandesByStatus('annulé')">Annulé</button>
                 </div>

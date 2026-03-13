@@ -296,6 +296,15 @@ body {
     flex-shrink: 0;
 }
 
+.hidden {
+    display: none !important;
+}
+
+@keyframes badgePulse {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.2); background-color: #ff4444; }
+    100% { transform: scale(1); }
+}
 .clickable-badge {
     cursor: pointer;
     transition: var(--transition);

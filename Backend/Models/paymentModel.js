@@ -24,6 +24,11 @@ const paymentProofSchema = new mongoose.Schema({
         enum: ['FC', 'ZAR', 'USD'],
         default: 'FC'
     },
+    destinataireId: {  
+        type: mongoose.Schema.Types.ObjectId,
+        ref: 'User',
+        required: true 
+    },
     method: {
         type: String,
         required: true,

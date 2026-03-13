@@ -13134,3 +13134,377 @@
   "environment": "production",
   "corsOrigin": "https://afrixa-demo.up.railway.app"
 }
+2026-03-13 12:14:43 [INFO] INFO Server started successfully on port 3000
+{
+  "environment": "production",
+  "corsOrigin": "https://afrixa-demo.up.railway.app"
+}
+2026-03-13 12:20:57 [INFO] INFO Server started successfully on port 3000
+{
+  "environment": "production",
+  "corsOrigin": "https://afrixa-demo.up.railway.app"
+}
+2026-03-13 12:22:50 [INFO] INFO Server started successfully on port 3000
+{
+  "environment": "production",
+  "corsOrigin": "https://afrixa-demo.up.railway.app"
+}
+2026-03-13 12:24:19 [INFO] INFO Server started successfully on port 3000
+{
+  "environment": "production",
+  "corsOrigin": "https://afrixa-demo.up.railway.app"
+}
+2026-03-13 12:24:28 [INFO] INFO Server started successfully on port 3000
+{
+  "environment": "production",
+  "corsOrigin": "https://afrixa-demo.up.railway.app"
+}
+2026-03-13 12:24:31 [INFO] INFO Server started successfully on port 3000
+{
+  "environment": "production",
+  "corsOrigin": "https://afrixa-demo.up.railway.app"
+}
+2026-03-13 12:24:40 [INFO] INFO Server started successfully on port 3000
+{
+  "environment": "production",
+  "corsOrigin": "https://afrixa-demo.up.railway.app"
+}
+2026-03-13 12:24:58 [INFO] INFO Server started successfully on port 3000
+{
+  "environment": "production",
+  "corsOrigin": "https://afrixa-demo.up.railway.app"
+}
+2026-03-13 12:25:41 [INFO] INFO Server started successfully on port 3000
+{
+  "environment": "production",
+  "corsOrigin": "https://afrixa-demo.up.railway.app"
+}
+2026-03-13 12:25:43 [INFO] INFO Server started successfully on port 3000
+{
+  "environment": "production",
+  "corsOrigin": "https://afrixa-demo.up.railway.app"
+}
+2026-03-13 12:25:49 [INFO] INFO Server started successfully on port 3000
+{
+  "environment": "production",
+  "corsOrigin": "https://afrixa-demo.up.railway.app"
+}
+2026-03-13 12:27:17 [INFO] INFO Server started successfully on port 3000
+{
+  "environment": "production",
+  "corsOrigin": "https://afrixa-demo.up.railway.app"
+}
+2026-03-13 12:27:22 [INFO] INFO Server started successfully on port 3000
+{
+  "environment": "production",
+  "corsOrigin": "https://afrixa-demo.up.railway.app"
+}
+2026-03-13 12:27:24 [INFO] INFO Server started successfully on port 3000
+{
+  "environment": "production",
+  "corsOrigin": "https://afrixa-demo.up.railway.app"
+}
+2026-03-13 12:31:34 [INFO] INFO Server started successfully on port 3000
+{
+  "environment": "production",
+  "corsOrigin": "https://afrixa-demo.up.railway.app"
+}
+2026-03-13 12:31:37 [INFO] INFO Server started successfully on port 3000
+{
+  "environment": "production",
+  "corsOrigin": "https://afrixa-demo.up.railway.app"
+}
+2026-03-13 12:31:46 [INFO] INFO Server started successfully on port 3000
+{
+  "environment": "production",
+  "corsOrigin": "https://afrixa-demo.up.railway.app"
+}
+2026-03-13 12:31:49 [INFO] INFO Server started successfully on port 3000
+{
+  "environment": "production",
+  "corsOrigin": "https://afrixa-demo.up.railway.app"
+}
+2026-03-13 12:31:54 [INFO] INFO Server started successfully on port 3000
+{
+  "environment": "production",
+  "corsOrigin": "https://afrixa-demo.up.railway.app"
+}
+2026-03-13 12:36:20 [ERROR] ERROR
+{
+  "context": {
+    "message": "Server selection timed out after 5000 ms",
+    "stack": "MongooseServerSelectionError: Server selection timed out after 5000 ms\n    at _handleConnectionErrors (C:\\Users\\zougz\\Desktop\\AFRIXA\\node_modules\\mongoose\\lib\\connection.js:1169:11)\n    at NativeConnection.openUri (C:\\Users\\zougz\\Desktop\\AFRIXA\\node_modules\\mongoose\\lib\\connection.js:1100:11)\n    at async MongoConnection (C:\\Users\\zougz\\Desktop\\AFRIXA\\Backend\\DataBase\\MongoConnection.js:8:9)\n    at async C:\\Users\\zougz\\Desktop\\AFRIXA\\server.js:30:5"
+  },
+  "userId": null
+}
+2026-03-13 12:36:25 [INFO] INFO Server started successfully on port 3000
+{
+  "environment": "production",
+  "corsOrigin": "https://afrixa-demo.up.railway.app"
+}
+2026-03-13 12:36:28 [INFO] INFO Server started successfully on port 3000
+{
+  "environment": "production",
+  "corsOrigin": "https://afrixa-demo.up.railway.app"
+}
+2026-03-13 12:38:32 [INFO] INFO Server started successfully on port 3000
+{
+  "environment": "production",
+  "corsOrigin": "https://afrixa-demo.up.railway.app"
+}
+2026-03-13 12:41:27 [INFO] INFO Server started successfully on port 3000
+{
+  "environment": "production",
+  "corsOrigin": "https://afrixa-demo.up.railway.app"
+}
+2026-03-13 12:41:32 [INFO] INFO Server started successfully on port 3000
+{
+  "environment": "production",
+  "corsOrigin": "https://afrixa-demo.up.railway.app"
+}
+2026-03-13 12:41:44 [INFO] INFO Server started successfully on port 3000
+{
+  "environment": "production",
+  "corsOrigin": "https://afrixa-demo.up.railway.app"
+}
+2026-03-13 12:45:02 [INFO] USER_LOGIN
+{
+  "userId": "698df6c6573345b90c20a97d",
+  "email": "leonagence@gmail.com"
+}
+2026-03-13 12:45:17 [INFO] USER_LOGIN
+{
+  "userId": "698df30f573345b90c20a561",
+  "email": "zougzed@gmail.com"
+}
+2026-03-13 12:46:23 [INFO] PAYMENT_PROOF_UPLOADED
+{
+  "proofId": "69b3eaff20bc3dcb1bef5c41",
+  "codeColis": "AFRIXA-49128",
+  "userId": "698df30f573345b90c20a561",
+  "amount": 7000
+}
+2026-03-13 12:47:44 [INFO] PAYMENT_PROOF_UPLOADED
+{
+  "proofId": "69b3eb5020bc3dcb1bef5c60",
+  "codeColis": " AFRIXA-57664",
+  "userId": "698df30f573345b90c20a561",
+  "amount": 544322
+}
+2026-03-13 12:48:24 [INFO] USER_LOGIN
+{
+  "userId": "698df6c6573345b90c20a97d",
+  "email": "leonagence@gmail.com"
+}
+2026-03-13 12:49:47 [INFO] PAYMENT_PROOF_UPLOADED
+{
+  "proofId": "69b3ebcb20bc3dcb1bef5e18",
+  "codeColis": "AGENCE-492193",
+  "userId": "698df30f573345b90c20a561",
+  "amount": 80000
+}
+2026-03-13 12:55:54 [INFO] INFO Server started successfully on port 3000
+{
+  "environment": "production",
+  "corsOrigin": "https://afrixa-demo.up.railway.app"
+}
+2026-03-13 12:56:00 [INFO] INFO Server started successfully on port 3000
+{
+  "environment": "production",
+  "corsOrigin": "https://afrixa-demo.up.railway.app"
+}
+2026-03-13 12:57:40 [INFO] PAYMENT_PROOF_UPLOADED
+{
+  "proofId": "69b3eda4b6a131cf84df5760",
+  "codeColis": "AFRIXA-49128",
+  "userId": "698df30f573345b90c20a561",
+  "amount": 4000
+}
+2026-03-13 13:05:38 [ERROR] ERROR
+{
+  "context": {
+    "message": "Socket 'secureConnect' timed out after 10014ms (connectTimeoutMS: 10000)",
+    "stack": "MongoNetworkTimeoutError: Socket 'secureConnect' timed out after 10014ms (connectTimeoutMS: 10000)\n    at TLSSocket.<anonymous> (C:\\Users\\zougz\\Desktop\\AFRIXA\\node_modules\\mongodb\\lib\\cmap\\connect.js:288:20)\n    at Object.onceWrapper (node:events:622:28)\n    at TLSSocket.emit (node:events:508:28)\n    at Socket._onTimeout (node:net:604:8)\n    at listOnTimeout (node:internal/timers:605:17)\n    at process.processTimers (node:internal/timers:541:7)"
+  },
+  "userId": null
+}
+2026-03-13 13:05:55 [INFO] INFO Server started successfully on port 3000
+{
+  "environment": "production",
+  "corsOrigin": "https://afrixa-demo.up.railway.app"
+}
+2026-03-13 13:12:41 [INFO] PAYMENT_PROOF_UPLOADED
+{
+  "proofId": "69b3f1293c3cf3c15641f0b7",
+  "codeColis": " AFRIXA-57664",
+  "userId": "698df30f573345b90c20a561",
+  "amount": 544322
+}
+2026-03-13 13:13:47 [INFO] PAYMENT_PROOF_UPLOADED
+{
+  "proofId": "69b3f16b3c3cf3c15641f203",
+  "codeColis": " AFRIXA-88897",
+  "userId": "698df30f573345b90c20a561",
+  "amount": 7000
+}
+2026-03-13 13:14:50 [INFO] USER_LOGIN
+{
+  "userId": "698db1a6a5941047994043ad",
+  "email": "gradiipi@gmail.com"
+}
+2026-03-13 13:18:11 [INFO] USER_LOGIN
+{
+  "userId": "698df30f573345b90c20a561",
+  "email": "zougzed@gmail.com"
+}
+2026-03-13 13:23:08 [INFO] INFO Server started successfully on port 3000
+{
+  "environment": "production",
+  "corsOrigin": "https://afrixa-demo.up.railway.app"
+}
+2026-03-13 13:23:37 [INFO] INFO Server started successfully on port 3000
+{
+  "environment": "production",
+  "corsOrigin": "https://afrixa-demo.up.railway.app"
+}
+2026-03-13 13:25:02 [INFO] INFO Server started successfully on port 3000
+{
+  "environment": "production",
+  "corsOrigin": "https://afrixa-demo.up.railway.app"
+}
+2026-03-13 13:33:48 [INFO] DEMANDE_STATUS_UPDATED
+{
+  "demandeId": "69b3f50c33d9c4e3b57ce765",
+  "codeColis": "AGENCE-356052",
+  "oldStatus": "en_attente",
+  "newStatus": "livré",
+  "byUserId": "698df6c6573345b90c20a97d"
+}
+2026-03-13 13:33:48 [INFO] NOTIFICATION_CREATED
+{
+  "notificationId": "69b3f61c33d9c4e3b57cec11",
+  "userId": "698df30f573345b90c20a561",
+  "type": "statut"
+}
+2026-03-13 13:42:14 [INFO] INFO Server started successfully on port 3000
+{
+  "environment": "production",
+  "corsOrigin": "https://afrixa-demo.up.railway.app"
+}
+2026-03-13 13:42:18 [INFO] INFO Server started successfully on port 3000
+{
+  "environment": "production",
+  "corsOrigin": "https://afrixa-demo.up.railway.app"
+}
+2026-03-13 13:43:27 [INFO] INFO Server started successfully on port 3000
+{
+  "environment": "production",
+  "corsOrigin": "https://afrixa-demo.up.railway.app"
+}
+2026-03-13 13:48:20 [WARN] WARNING Login attempt with incorrect password
+{
+  "context": {
+    "email": "zougzed@gmail.com",
+    "userId": "698df30f573345b90c20a561"
+  },
+  "userId": null
+}
+2026-03-13 13:48:33 [INFO] USER_LOGIN
+{
+  "userId": "698df6c6573345b90c20a97d",
+  "email": "leonagence@gmail.com"
+}
+2026-03-13 13:50:55 [INFO] INFO Server started successfully on port 3000
+{
+  "environment": "production",
+  "corsOrigin": "https://afrixa-demo.up.railway.app"
+}
+2026-03-13 13:51:11 [INFO] INFO Server started successfully on port 3000
+{
+  "environment": "production",
+  "corsOrigin": "https://afrixa-demo.up.railway.app"
+}
+2026-03-13 13:51:56 [INFO] INFO Server started successfully on port 3000
+{
+  "environment": "production",
+  "corsOrigin": "https://afrixa-demo.up.railway.app"
+}
+2026-03-13 13:52:21 [INFO] USER_LOGIN
+{
+  "userId": "698db1a6a5941047994043ad",
+  "email": "gradiipi@gmail.com"
+}
+2026-03-13 13:54:54 [INFO] INFO Server started successfully on port 3000
+{
+  "environment": "production",
+  "corsOrigin": "https://afrixa-demo.up.railway.app"
+}
+2026-03-13 13:59:45 [INFO] INFO Server started successfully on port 3000
+{
+  "environment": "production",
+  "corsOrigin": "https://afrixa-demo.up.railway.app"
+}
+2026-03-13 14:01:05 [INFO] INFO Server started successfully on port 3000
+{
+  "environment": "production",
+  "corsOrigin": "https://afrixa-demo.up.railway.app"
+}
+2026-03-13 14:03:04 [INFO] INFO Server started successfully on port 3000
+{
+  "environment": "production",
+  "corsOrigin": "https://afrixa-demo.up.railway.app"
+}
+2026-03-13 14:07:50 [INFO] INFO Server started successfully on port 3000
+{
+  "environment": "production",
+  "corsOrigin": "https://afrixa-demo.up.railway.app"
+}
+2026-03-13 14:08:09 [INFO] USER_LOGIN
+{
+  "userId": "698df30f573345b90c20a561",
+  "email": "zougzed@gmail.com"
+}
+2026-03-13 14:15:49 [INFO] INFO Server started successfully on port 3000
+{
+  "environment": "production",
+  "corsOrigin": "https://afrixa-demo.up.railway.app"
+}
+2026-03-13 14:15:53 [INFO] INFO Server started successfully on port 3000
+{
+  "environment": "production",
+  "corsOrigin": "https://afrixa-demo.up.railway.app"
+}
+2026-03-13 14:16:21 [INFO] INFO Server started successfully on port 3000
+{
+  "environment": "production",
+  "corsOrigin": "https://afrixa-demo.up.railway.app"
+}
+2026-03-13 14:19:27 [INFO] USER_LOGIN
+{
+  "userId": "698db1a6a5941047994043ad",
+  "email": "gradiipi@gmail.com"
+}
+2026-03-13 14:20:08 [INFO] PAYMENT_PROOF_UPLOADED
+{
+  "proofId": "69b400f8da0e2cefb65f4135",
+  "codeColis": "AFRIXA-41478",
+  "userId": "6991d1eb0cf2a7531f39a22c",
+  "amount": "12"
+}
+2026-03-13 14:20:34 [INFO] PAYMENT_PROOF_UPLOADED
+{
+  "proofId": "69b40112da0e2cefb65f425f",
+  "codeColis": "AFRIXA-41478",
+  "userId": "698df6c6573345b90c20a97d",
+  "amount": "12"
+}
+2026-03-13 14:29:35 [INFO] INFO Server started successfully on port 3000
+{
+  "environment": "production",
+  "corsOrigin": "https://afrixa-demo.up.railway.app"
+}
+2026-03-13 14:29:47 [INFO] USER_LOGIN
+{
+  "userId": "698df6c6573345b90c20a97d",
+  "email": "leonagence@gmail.com"
+}

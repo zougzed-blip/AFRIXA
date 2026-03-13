@@ -60,6 +60,9 @@ document.addEventListener('DOMContentLoaded', async () => {
     if (typeof window.setupEventDelegation === 'function') {
         window.setupEventDelegation();
     }
+     if (typeof window.startBadgeAutoRefresh === 'function') {
+        window.startBadgeAutoRefresh();
+    }
 })
 function waitForServices() {
     return new Promise((resolve) => {

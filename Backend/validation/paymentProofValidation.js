@@ -1,6 +1,5 @@
 const { z } = require('zod');
 
-
 const createPaymentProofSchema = z.object({
   body: z.object({
     user: z.string().min(1, { message: "L'ID utilisateur est requis" })
@@ -27,6 +26,9 @@ const createPaymentProofSchema = z.object({
       message: "Méthode de paiement invalide"
     }).default('agencemethod'),
     
+    destinataireId: z.string()
+      .regex(/^[0-9a-fA-F]{24}$/, { message: "ID agence destinataire invalide" })
+      .optional(),
 
     proofUrl: z.string()
       .url({ message: "URL de la preuve invalide" })
@@ -42,6 +44,51 @@ const createPaymentProofSchema = z.object({
   })
 });
 
+// ==================== UPLOAD PAYMENT PROOF VALIDATION ====================
+const uploadPaymentProofSchema = z.object({
+  body: z.object({
+    clientName: z.string()
+      .min(2, { message: "Le nom du client doit contenir au moins 2 caractères" })
+      .max(100, { message: "Le nom du client est trop long" })
+      .regex(/^[a-zA-Z\s\-']+$/, { message: "Le nom ne peut contenir que des lettres" }),
+    
+    codeColis: z.string()
+      .min(3, { message: "Le code colis doit contenir au moins 3 caractères" })
+      .max(50, { message: "Le code colis est trop long" }),
+    
+    montant: z.union([z.string(), z.number()])
+      .transform(val => parseFloat(val))
+      .refine(val => val >= 0, { message: "Le montant ne peut pas être négatif" })
+      .refine(val => val <= 1000000, { message: "Le montant est trop élevé" }),
+      
+    
+    devise: z.enum(['FC', 'ZAR', 'USD'], {
+      message: "Devise invalide. Valeurs autorisées: FC, ZAR, USD"
+    }).default('FC'),
+    
+    agenceId: z.string()
+      .regex(/^[0-9a-fA-F]{24}$/, { message: "ID agence destinataire invalide" })
+      .min(1, { message: "L'ID de l'agence est requis" }),
+    
+    paymentMethod: z.enum(['agencemethod', 'mpsa', 'orange', 'bank'], {
+      message: "Méthode de paiement invalide"
+    }).optional(),
+    
+    method: z.enum(['agencemethod', 'mpsa', 'orange', 'bank'], {
+      message: "Méthode de paiement invalide"
+    }).optional()
+  }).refine(data => {
+    if (!data.paymentMethod && !data.method) {
+      return false;
+    }
+    return true;
+  }, {
+    message: "La méthode de paiement est requise",
+    path: ["paymentMethod"]
+  })
+});
+
+// ==================== AUTRES SCHEMAS (inchangés) ====================
 const updatePaymentProofSchema = z.object({
   body: z.object({
     status: z.enum(['en_attente', 'accepté', 'refusé'], {
@@ -68,12 +115,14 @@ const updatePaymentProofSchema = z.object({
   })
 });
 
-// ==================== QUERY VALIDATION ====================
 const paymentProofQuerySchema = z.object({
   query: z.object({
     status: z.enum(['en_attente', 'accepté', 'refusé']).optional(),
     user: z.string()
       .regex(/^[0-9a-fA-F]{24}$/, { message: "ID utilisateur invalide" })
+      .optional(),
+    destinataireId: z.string() 
+      .regex(/^[0-9a-fA-F]{24}$/, { message: "ID agence invalide" })
       .optional(),
     method: z.enum(['agencemethod', 'mpsa', 'orange', 'bank']).optional(),
     startDate: z.string()
@@ -92,51 +141,6 @@ const paymentProofQuerySchema = z.object({
       .default("10")
   })
 });
-
-// ==================== PAYMENT PROOF UPLOAD VALIDATION ====================
-const uploadPaymentProofSchema = z.object({
-  body: z.object({
-    clientName: z.string()
-      .min(2, { message: "Le nom du client doit contenir au moins 2 caractères" })
-      .max(100, { message: "Le nom du client est trop long" })
-      .regex(/^[a-zA-Z\s\-']+$/, { message: "Le nom ne peut contenir que des lettres" }),
-    
-    codeColis: z.string()
-      .min(3, { message: "Le code colis doit contenir au moins 3 caractères" })
-      .max(50, { message: "Le code colis est trop long" }),
-    
-    montant: z.union([z.string(), z.number()])
-      .transform(val => parseFloat(val))
-      .refine(val => val >= 0, { message: "Le montant ne peut pas être négatif" })
-      .refine(val => val <= 1000000, { message: "Le montant est trop élevé" })
-      .optional()
-      .default(0),
-    
-    devise: z.enum(['FC', 'ZAR', 'USD'], {
-      message: "Devise invalide. Valeurs autorisées: FC, ZAR, USD"
-    }).default('FC'),
-    
-    paymentMethod: z.enum(['agencemethod', 'mpsa', 'orange', 'bank'], {
-      message: "Méthode de paiement invalide"
-    }).optional(),
-    
-    method: z.enum(['agencemethod', 'mpsa', 'orange', 'bank'], {
-      message: "Méthode de paiement invalide"
-    }).optional()
-  }).refine(data => {
-    
-    if (!data.paymentMethod && !data.method) {
-      return false;
-    }
-    return true;
-  }, {
-    message: "La méthode de paiement est requise",
-    path: ["paymentMethod"]
-  })
-});
-
-
-
 
 module.exports = {
   createPaymentProofSchema,

@@ -46,7 +46,7 @@ async function getCurrentTotal(badgeType) {
                 const demandesResp = await apiFetch('/api/agence/demandes');
                 if (demandesResp && demandesResp.ok) {
                     const result = await demandesResp.json();
-                    return result.data?.length || result.length || 0;
+                    return result.data?.demandes?.length || result.data?.length || result.length || 0;
                 }
                 break;
                 
@@ -54,7 +54,7 @@ async function getCurrentTotal(badgeType) {
                 const paiementsResp = await apiFetch('/api/agence/paiements');
                 if (paiementsResp && paiementsResp.ok) {
                     const result = await paiementsResp.json();
-                    return result.data?.length || result.length || 0;
+                    return result.data?.paiements?.length || result.data?.length || result.length || 0;
                 }
                 break;
         }
@@ -69,14 +69,14 @@ async function loadBadgeCounts() {
         const demandesResp = await apiFetch('/api/agence/demandes');
         if (demandesResp && demandesResp.ok) {
             const result = await demandesResp.json();
-            const total = result.data?.length || result.length || 0;
+            const total = result.data?.demandes?.length || result.data?.length || result.length || 0;
             updateBadge('demandes', total);
         }
         
         const paiementsResp = await apiFetch('/api/agence/paiements');
         if (paiementsResp && paiementsResp.ok) {
             const result = await paiementsResp.json();
-            const total = result.data?.length || result.length || 0;
+            const total = result.data?.paiements?.length || result.data?.length || result.length || 0;
             updateBadge('paiements', total);
         }
         

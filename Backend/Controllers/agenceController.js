@@ -569,17 +569,20 @@ exports.updateDemandeComplete = [
   }
 ];
 
-//=====================================RECUP DES TOUS LE PAIMENT=======================================
+//=====================================RECUP DES TOUS LES PAIMENTS - CORRIGÉ AVEC FILTRE ======================================
 
 exports.listPaiements = async (req, res) => {
     try {
         const page = parseInt(req.query.page) || 1;
-        const limit = parseInt(req.query.limit) || 1;
+        const limit = parseInt(req.query.limit) || 10;
         const skip = (page - 1) * limit;
 
-        const total = await Paiement.countDocuments();
+        const filter = { destinataireId: req.user._id };
 
-        const paiements = await Paiement.find()
+        const total = await Paiement.countDocuments(filter);
+
+        const paiements = await Paiement.find(filter)
+            .populate('user', 'fullName email telephone')
             .sort({ createdAt: -1 })
             .skip(skip)
             .limit(limit)
@@ -603,13 +606,19 @@ exports.listPaiements = async (req, res) => {
         });
     }
 };
+
+// 👇 CORRIGÉ AUSSI: getPaiementById avec filtre
 exports.getPaiementById = [
   validateRequest(getPaiementByIdSchema),
   async (req, res) => {
     try {
       const { id } = req.validatedData.params;
       
-      const paiement = await Paiement.findById(id);
+      // 👇 Vérifier que le paiement appartient bien à cette agence
+      const paiement = await Paiement.findOne({
+        _id: id,
+        destinataireId: req.user._id
+      }).populate('user', 'fullName email telephone');
       
       if (!paiement) {
         return res.status(404).json({
@@ -632,7 +641,7 @@ exports.getPaiementById = [
   }
 ];
 
-//==================================UPDATE LES PAIEMETN STATUS===================================
+//==================================UPDATE LES PAIEMENTS STATUS===================================
 exports.updatePaiementStatus = [
   validateRequest(updatePaiementStatusSchema),
   async (req, res) => {
@@ -640,7 +649,11 @@ exports.updatePaiementStatus = [
       const { id } = req.validatedData.params;
       const { statut } = req.validatedData.body;
       
-      const paiement = await Paiement.findById(id).populate('user', 'email fullName _id');
+      // 👆 Vérifier que le paiement appartient à cette agence
+      const paiement = await Paiement.findOne({
+        _id: id,
+        destinataireId: req.user._id
+      }).populate('user', 'email fullName _id');
       
       if (!paiement) {
         return res.status(404).json({
@@ -841,7 +854,7 @@ exports.markAllNotificationsAsRead = async (req, res) => {
 exports.listHistorique = async (req, res) => {
     try {
         const page = parseInt(req.query.page) || 1;
-        const limit = parseInt(req.query.limit) || 1;
+        const limit = parseInt(req.query.limit) || 10;
         const skip = (page - 1) * limit;
 
         const total = await Historique.countDocuments();

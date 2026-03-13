@@ -1,6 +1,4 @@
-// ==================== GESTION DE LA SÉLECTION D'AGENCE ====================
 
-// Variables dynamiques pour les taux (seront chargées depuis l'API)
 let TAUX_CONVERSION = {
     USD: 1,
     CDF: null,
@@ -29,7 +27,7 @@ async function loadExchangeRates() {
             if (data.data.ZAR !== null) TAUX_CONVERSION.ZAR = data.data.ZAR;
         }
     } catch (error) {
-        // Silence
+       
     }
 }
 
@@ -368,7 +366,7 @@ function setupRequestForms() {
 }
 
 document.addEventListener('DOMContentLoaded', async function() {
-    // Charger les taux au démarrage
+
     await loadExchangeRates();
     
     const form = document.getElementById('agence-seule-form');

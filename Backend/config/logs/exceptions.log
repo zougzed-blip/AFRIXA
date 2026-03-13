@@ -17773,3 +17773,1544 @@ SyntaxError: Identifier 'DemandeAgenceV2' has already been declared
     }
   ]
 }
+2026-03-13 12:20:20 [ERROR] uncaughtException: Cannot find module '../Models/userModel'
+Require stack:
+- C:\Users\zougz\Desktop\AFRIXA\Backend\Controllers\paymentProofController.js
+- C:\Users\zougz\Desktop\AFRIXA\Backend\Routes\clientRoutes.js
+- C:\Users\zougz\Desktop\AFRIXA\server.js
+Error: Cannot find module '../Models/userModel'
+Require stack:
+- C:\Users\zougz\Desktop\AFRIXA\Backend\Controllers\paymentProofController.js
+- C:\Users\zougz\Desktop\AFRIXA\Backend\Routes\clientRoutes.js
+- C:\Users\zougz\Desktop\AFRIXA\server.js
+    at Module._resolveFilename (node:internal/modules/cjs/loader:1421:15)
+    at defaultResolveImpl (node:internal/modules/cjs/loader:1059:19)
+    at resolveForCJSWithHooks (node:internal/modules/cjs/loader:1064:22)
+    at Module._load (node:internal/modules/cjs/loader:1227:37)
+    at TracingChannel.traceSync (node:diagnostics_channel:328:14)
+    at wrapModuleLoad (node:internal/modules/cjs/loader:245:24)
+    at Module.require (node:internal/modules/cjs/loader:1504:12)
+    at require (node:internal/modules/helpers:152:16)
+    at Object.<anonymous> (C:\Users\zougz\Desktop\AFRIXA\Backend\Controllers\paymentProofController.js:3:14)
+    at Module._compile (node:internal/modules/cjs/loader:1761:14)
+Error: Cannot find module '../Models/userModel'
+Require stack:
+- C:\Users\zougz\Desktop\AFRIXA\Backend\Controllers\paymentProofController.js
+- C:\Users\zougz\Desktop\AFRIXA\Backend\Routes\clientRoutes.js
+- C:\Users\zougz\Desktop\AFRIXA\server.js
+    at Module._resolveFilename (node:internal/modules/cjs/loader:1421:15)
+    at defaultResolveImpl (node:internal/modules/cjs/loader:1059:19)
+    at resolveForCJSWithHooks (node:internal/modules/cjs/loader:1064:22)
+    at Module._load (node:internal/modules/cjs/loader:1227:37)
+    at TracingChannel.traceSync (node:diagnostics_channel:328:14)
+    at wrapModuleLoad (node:internal/modules/cjs/loader:245:24)
+    at Module.require (node:internal/modules/cjs/loader:1504:12)
+    at require (node:internal/modules/helpers:152:16)
+    at Object.<anonymous> (C:\Users\zougz\Desktop\AFRIXA\Backend\Controllers\paymentProofController.js:3:14)
+    at Module._compile (node:internal/modules/cjs/loader:1761:14)
+{
+  "error": {
+    "code": "MODULE_NOT_FOUND",
+    "requireStack": [
+      "C:\\Users\\zougz\\Desktop\\AFRIXA\\Backend\\Controllers\\paymentProofController.js",
+      "C:\\Users\\zougz\\Desktop\\AFRIXA\\Backend\\Routes\\clientRoutes.js",
+      "C:\\Users\\zougz\\Desktop\\AFRIXA\\server.js"
+    ]
+  },
+  "exception": true,
+  "date": "Fri Mar 13 2026 12:20:20 GMT+0200 (South Africa Standard Time)",
+  "process": {
+    "pid": 27880,
+    "uid": null,
+    "gid": null,
+    "cwd": "C:\\Users\\zougz\\Desktop\\AFRIXA",
+    "execPath": "C:\\Program Files\\nodejs\\node.exe",
+    "version": "v24.12.0",
+    "argv": [
+      "C:\\Program Files\\nodejs\\node.exe",
+      "C:\\Users\\zougz\\Desktop\\AFRIXA\\server.js"
+    ],
+    "memoryUsage": {
+      "rss": 123678720,
+      "heapTotal": 110624768,
+      "heapUsed": 47368520,
+      "external": 21922185,
+      "arrayBuffers": 18265157
+    }
+  },
+  "os": {
+    "loadavg": [
+      0,
+      0,
+      0
+    ],
+    "uptime": 185246.078
+  },
+  "trace": [
+    {
+      "column": 15,
+      "file": "node:internal/modules/cjs/loader",
+      "function": "Module._resolveFilename",
+      "line": 1421,
+      "method": "_resolveFilename",
+      "native": false
+    },
+    {
+      "column": 19,
+      "file": "node:internal/modules/cjs/loader",
+      "function": "defaultResolveImpl",
+      "line": 1059,
+      "method": null,
+      "native": false
+    },
+    {
+      "column": 22,
+      "file": "node:internal/modules/cjs/loader",
+      "function": "resolveForCJSWithHooks",
+      "line": 1064,
+      "method": null,
+      "native": false
+    },
+    {
+      "column": 37,
+      "file": "node:internal/modules/cjs/loader",
+      "function": "Module._load",
+      "line": 1227,
+      "method": "_load",
+      "native": false
+    },
+    {
+      "column": 14,
+      "file": "node:diagnostics_channel",
+      "function": "TracingChannel.traceSync",
+      "line": 328,
+      "method": "traceSync",
+      "native": false
+    },
+    {
+      "column": 24,
+      "file": "node:internal/modules/cjs/loader",
+      "function": "wrapModuleLoad",
+      "line": 245,
+      "method": null,
+      "native": false
+    },
+    {
+      "column": 12,
+      "file": "node:internal/modules/cjs/loader",
+      "function": "Module.require",
+      "line": 1504,
+      "method": "require",
+      "native": false
+    },
+    {
+      "column": 16,
+      "file": "node:internal/modules/helpers",
+      "function": "require",
+      "line": 152,
+      "method": null,
+      "native": false
+    },
+    {
+      "column": 14,
+      "file": "C:\\Users\\zougz\\Desktop\\AFRIXA\\Backend\\Controllers\\paymentProofController.js",
+      "function": null,
+      "line": 3,
+      "method": null,
+      "native": false
+    },
+    {
+      "column": 14,
+      "file": "node:internal/modules/cjs/loader",
+      "function": "Module._compile",
+      "line": 1761,
+      "method": "_compile",
+      "native": false
+    }
+  ]
+}
+2026-03-13 12:20:27 [ERROR] uncaughtException: Cannot find module '../Models/userModel'
+Require stack:
+- C:\Users\zougz\Desktop\AFRIXA\Backend\Controllers\paymentProofController.js
+- C:\Users\zougz\Desktop\AFRIXA\Backend\Routes\clientRoutes.js
+- C:\Users\zougz\Desktop\AFRIXA\server.js
+Error: Cannot find module '../Models/userModel'
+Require stack:
+- C:\Users\zougz\Desktop\AFRIXA\Backend\Controllers\paymentProofController.js
+- C:\Users\zougz\Desktop\AFRIXA\Backend\Routes\clientRoutes.js
+- C:\Users\zougz\Desktop\AFRIXA\server.js
+    at Module._resolveFilename (node:internal/modules/cjs/loader:1421:15)
+    at defaultResolveImpl (node:internal/modules/cjs/loader:1059:19)
+    at resolveForCJSWithHooks (node:internal/modules/cjs/loader:1064:22)
+    at Module._load (node:internal/modules/cjs/loader:1227:37)
+    at TracingChannel.traceSync (node:diagnostics_channel:328:14)
+    at wrapModuleLoad (node:internal/modules/cjs/loader:245:24)
+    at Module.require (node:internal/modules/cjs/loader:1504:12)
+    at require (node:internal/modules/helpers:152:16)
+    at Object.<anonymous> (C:\Users\zougz\Desktop\AFRIXA\Backend\Controllers\paymentProofController.js:3:14)
+    at Module._compile (node:internal/modules/cjs/loader:1761:14)
+Error: Cannot find module '../Models/userModel'
+Require stack:
+- C:\Users\zougz\Desktop\AFRIXA\Backend\Controllers\paymentProofController.js
+- C:\Users\zougz\Desktop\AFRIXA\Backend\Routes\clientRoutes.js
+- C:\Users\zougz\Desktop\AFRIXA\server.js
+    at Module._resolveFilename (node:internal/modules/cjs/loader:1421:15)
+    at defaultResolveImpl (node:internal/modules/cjs/loader:1059:19)
+    at resolveForCJSWithHooks (node:internal/modules/cjs/loader:1064:22)
+    at Module._load (node:internal/modules/cjs/loader:1227:37)
+    at TracingChannel.traceSync (node:diagnostics_channel:328:14)
+    at wrapModuleLoad (node:internal/modules/cjs/loader:245:24)
+    at Module.require (node:internal/modules/cjs/loader:1504:12)
+    at require (node:internal/modules/helpers:152:16)
+    at Object.<anonymous> (C:\Users\zougz\Desktop\AFRIXA\Backend\Controllers\paymentProofController.js:3:14)
+    at Module._compile (node:internal/modules/cjs/loader:1761:14)
+{
+  "error": {
+    "code": "MODULE_NOT_FOUND",
+    "requireStack": [
+      "C:\\Users\\zougz\\Desktop\\AFRIXA\\Backend\\Controllers\\paymentProofController.js",
+      "C:\\Users\\zougz\\Desktop\\AFRIXA\\Backend\\Routes\\clientRoutes.js",
+      "C:\\Users\\zougz\\Desktop\\AFRIXA\\server.js"
+    ]
+  },
+  "exception": true,
+  "date": "Fri Mar 13 2026 12:20:27 GMT+0200 (South Africa Standard Time)",
+  "process": {
+    "pid": 17120,
+    "uid": null,
+    "gid": null,
+    "cwd": "C:\\Users\\zougz\\Desktop\\AFRIXA",
+    "execPath": "C:\\Program Files\\nodejs\\node.exe",
+    "version": "v24.12.0",
+    "argv": [
+      "C:\\Program Files\\nodejs\\node.exe",
+      "C:\\Users\\zougz\\Desktop\\AFRIXA\\server.js"
+    ],
+    "memoryUsage": {
+      "rss": 126902272,
+      "heapTotal": 106168320,
+      "heapUsed": 44079248,
+      "external": 21922185,
+      "arrayBuffers": 18265157
+    }
+  },
+  "os": {
+    "loadavg": [
+      0,
+      0,
+      0
+    ],
+    "uptime": 185253
+  },
+  "trace": [
+    {
+      "column": 15,
+      "file": "node:internal/modules/cjs/loader",
+      "function": "Module._resolveFilename",
+      "line": 1421,
+      "method": "_resolveFilename",
+      "native": false
+    },
+    {
+      "column": 19,
+      "file": "node:internal/modules/cjs/loader",
+      "function": "defaultResolveImpl",
+      "line": 1059,
+      "method": null,
+      "native": false
+    },
+    {
+      "column": 22,
+      "file": "node:internal/modules/cjs/loader",
+      "function": "resolveForCJSWithHooks",
+      "line": 1064,
+      "method": null,
+      "native": false
+    },
+    {
+      "column": 37,
+      "file": "node:internal/modules/cjs/loader",
+      "function": "Module._load",
+      "line": 1227,
+      "method": "_load",
+      "native": false
+    },
+    {
+      "column": 14,
+      "file": "node:diagnostics_channel",
+      "function": "TracingChannel.traceSync",
+      "line": 328,
+      "method": "traceSync",
+      "native": false
+    },
+    {
+      "column": 24,
+      "file": "node:internal/modules/cjs/loader",
+      "function": "wrapModuleLoad",
+      "line": 245,
+      "method": null,
+      "native": false
+    },
+    {
+      "column": 12,
+      "file": "node:internal/modules/cjs/loader",
+      "function": "Module.require",
+      "line": 1504,
+      "method": "require",
+      "native": false
+    },
+    {
+      "column": 16,
+      "file": "node:internal/modules/helpers",
+      "function": "require",
+      "line": 152,
+      "method": null,
+      "native": false
+    },
+    {
+      "column": 14,
+      "file": "C:\\Users\\zougz\\Desktop\\AFRIXA\\Backend\\Controllers\\paymentProofController.js",
+      "function": null,
+      "line": 3,
+      "method": null,
+      "native": false
+    },
+    {
+      "column": 14,
+      "file": "node:internal/modules/cjs/loader",
+      "function": "Module._compile",
+      "line": 1761,
+      "method": "_compile",
+      "native": false
+    }
+  ]
+}
+2026-03-13 12:20:34 [ERROR] uncaughtException: Cannot find module '../Models/userModel'
+Require stack:
+- C:\Users\zougz\Desktop\AFRIXA\Backend\Controllers\paymentProofController.js
+- C:\Users\zougz\Desktop\AFRIXA\Backend\Routes\clientRoutes.js
+- C:\Users\zougz\Desktop\AFRIXA\server.js
+Error: Cannot find module '../Models/userModel'
+Require stack:
+- C:\Users\zougz\Desktop\AFRIXA\Backend\Controllers\paymentProofController.js
+- C:\Users\zougz\Desktop\AFRIXA\Backend\Routes\clientRoutes.js
+- C:\Users\zougz\Desktop\AFRIXA\server.js
+    at Module._resolveFilename (node:internal/modules/cjs/loader:1421:15)
+    at defaultResolveImpl (node:internal/modules/cjs/loader:1059:19)
+    at resolveForCJSWithHooks (node:internal/modules/cjs/loader:1064:22)
+    at Module._load (node:internal/modules/cjs/loader:1227:37)
+    at TracingChannel.traceSync (node:diagnostics_channel:328:14)
+    at wrapModuleLoad (node:internal/modules/cjs/loader:245:24)
+    at Module.require (node:internal/modules/cjs/loader:1504:12)
+    at require (node:internal/modules/helpers:152:16)
+    at Object.<anonymous> (C:\Users\zougz\Desktop\AFRIXA\Backend\Controllers\paymentProofController.js:3:14)
+    at Module._compile (node:internal/modules/cjs/loader:1761:14)
+Error: Cannot find module '../Models/userModel'
+Require stack:
+- C:\Users\zougz\Desktop\AFRIXA\Backend\Controllers\paymentProofController.js
+- C:\Users\zougz\Desktop\AFRIXA\Backend\Routes\clientRoutes.js
+- C:\Users\zougz\Desktop\AFRIXA\server.js
+    at Module._resolveFilename (node:internal/modules/cjs/loader:1421:15)
+    at defaultResolveImpl (node:internal/modules/cjs/loader:1059:19)
+    at resolveForCJSWithHooks (node:internal/modules/cjs/loader:1064:22)
+    at Module._load (node:internal/modules/cjs/loader:1227:37)
+    at TracingChannel.traceSync (node:diagnostics_channel:328:14)
+    at wrapModuleLoad (node:internal/modules/cjs/loader:245:24)
+    at Module.require (node:internal/modules/cjs/loader:1504:12)
+    at require (node:internal/modules/helpers:152:16)
+    at Object.<anonymous> (C:\Users\zougz\Desktop\AFRIXA\Backend\Controllers\paymentProofController.js:3:14)
+    at Module._compile (node:internal/modules/cjs/loader:1761:14)
+{
+  "error": {
+    "code": "MODULE_NOT_FOUND",
+    "requireStack": [
+      "C:\\Users\\zougz\\Desktop\\AFRIXA\\Backend\\Controllers\\paymentProofController.js",
+      "C:\\Users\\zougz\\Desktop\\AFRIXA\\Backend\\Routes\\clientRoutes.js",
+      "C:\\Users\\zougz\\Desktop\\AFRIXA\\server.js"
+    ]
+  },
+  "exception": true,
+  "date": "Fri Mar 13 2026 12:20:34 GMT+0200 (South Africa Standard Time)",
+  "process": {
+    "pid": 20572,
+    "uid": null,
+    "gid": null,
+    "cwd": "C:\\Users\\zougz\\Desktop\\AFRIXA",
+    "execPath": "C:\\Program Files\\nodejs\\node.exe",
+    "version": "v24.12.0",
+    "argv": [
+      "C:\\Program Files\\nodejs\\node.exe",
+      "C:\\Users\\zougz\\Desktop\\AFRIXA\\server.js"
+    ],
+    "memoryUsage": {
+      "rss": 126992384,
+      "heapTotal": 106168320,
+      "heapUsed": 44580616,
+      "external": 21922185,
+      "arrayBuffers": 18265157
+    }
+  },
+  "os": {
+    "loadavg": [
+      0,
+      0,
+      0
+    ],
+    "uptime": 185260.593
+  },
+  "trace": [
+    {
+      "column": 15,
+      "file": "node:internal/modules/cjs/loader",
+      "function": "Module._resolveFilename",
+      "line": 1421,
+      "method": "_resolveFilename",
+      "native": false
+    },
+    {
+      "column": 19,
+      "file": "node:internal/modules/cjs/loader",
+      "function": "defaultResolveImpl",
+      "line": 1059,
+      "method": null,
+      "native": false
+    },
+    {
+      "column": 22,
+      "file": "node:internal/modules/cjs/loader",
+      "function": "resolveForCJSWithHooks",
+      "line": 1064,
+      "method": null,
+      "native": false
+    },
+    {
+      "column": 37,
+      "file": "node:internal/modules/cjs/loader",
+      "function": "Module._load",
+      "line": 1227,
+      "method": "_load",
+      "native": false
+    },
+    {
+      "column": 14,
+      "file": "node:diagnostics_channel",
+      "function": "TracingChannel.traceSync",
+      "line": 328,
+      "method": "traceSync",
+      "native": false
+    },
+    {
+      "column": 24,
+      "file": "node:internal/modules/cjs/loader",
+      "function": "wrapModuleLoad",
+      "line": 245,
+      "method": null,
+      "native": false
+    },
+    {
+      "column": 12,
+      "file": "node:internal/modules/cjs/loader",
+      "function": "Module.require",
+      "line": 1504,
+      "method": "require",
+      "native": false
+    },
+    {
+      "column": 16,
+      "file": "node:internal/modules/helpers",
+      "function": "require",
+      "line": 152,
+      "method": null,
+      "native": false
+    },
+    {
+      "column": 14,
+      "file": "C:\\Users\\zougz\\Desktop\\AFRIXA\\Backend\\Controllers\\paymentProofController.js",
+      "function": null,
+      "line": 3,
+      "method": null,
+      "native": false
+    },
+    {
+      "column": 14,
+      "file": "node:internal/modules/cjs/loader",
+      "function": "Module._compile",
+      "line": 1761,
+      "method": "_compile",
+      "native": false
+    }
+  ]
+}
+2026-03-13 12:20:36 [ERROR] uncaughtException: Cannot find module '../Models/userModel'
+Require stack:
+- C:\Users\zougz\Desktop\AFRIXA\Backend\Controllers\paymentProofController.js
+- C:\Users\zougz\Desktop\AFRIXA\Backend\Routes\clientRoutes.js
+- C:\Users\zougz\Desktop\AFRIXA\server.js
+Error: Cannot find module '../Models/userModel'
+Require stack:
+- C:\Users\zougz\Desktop\AFRIXA\Backend\Controllers\paymentProofController.js
+- C:\Users\zougz\Desktop\AFRIXA\Backend\Routes\clientRoutes.js
+- C:\Users\zougz\Desktop\AFRIXA\server.js
+    at Module._resolveFilename (node:internal/modules/cjs/loader:1421:15)
+    at defaultResolveImpl (node:internal/modules/cjs/loader:1059:19)
+    at resolveForCJSWithHooks (node:internal/modules/cjs/loader:1064:22)
+    at Module._load (node:internal/modules/cjs/loader:1227:37)
+    at TracingChannel.traceSync (node:diagnostics_channel:328:14)
+    at wrapModuleLoad (node:internal/modules/cjs/loader:245:24)
+    at Module.require (node:internal/modules/cjs/loader:1504:12)
+    at require (node:internal/modules/helpers:152:16)
+    at Object.<anonymous> (C:\Users\zougz\Desktop\AFRIXA\Backend\Controllers\paymentProofController.js:3:14)
+    at Module._compile (node:internal/modules/cjs/loader:1761:14)
+Error: Cannot find module '../Models/userModel'
+Require stack:
+- C:\Users\zougz\Desktop\AFRIXA\Backend\Controllers\paymentProofController.js
+- C:\Users\zougz\Desktop\AFRIXA\Backend\Routes\clientRoutes.js
+- C:\Users\zougz\Desktop\AFRIXA\server.js
+    at Module._resolveFilename (node:internal/modules/cjs/loader:1421:15)
+    at defaultResolveImpl (node:internal/modules/cjs/loader:1059:19)
+    at resolveForCJSWithHooks (node:internal/modules/cjs/loader:1064:22)
+    at Module._load (node:internal/modules/cjs/loader:1227:37)
+    at TracingChannel.traceSync (node:diagnostics_channel:328:14)
+    at wrapModuleLoad (node:internal/modules/cjs/loader:245:24)
+    at Module.require (node:internal/modules/cjs/loader:1504:12)
+    at require (node:internal/modules/helpers:152:16)
+    at Object.<anonymous> (C:\Users\zougz\Desktop\AFRIXA\Backend\Controllers\paymentProofController.js:3:14)
+    at Module._compile (node:internal/modules/cjs/loader:1761:14)
+{
+  "error": {
+    "code": "MODULE_NOT_FOUND",
+    "requireStack": [
+      "C:\\Users\\zougz\\Desktop\\AFRIXA\\Backend\\Controllers\\paymentProofController.js",
+      "C:\\Users\\zougz\\Desktop\\AFRIXA\\Backend\\Routes\\clientRoutes.js",
+      "C:\\Users\\zougz\\Desktop\\AFRIXA\\server.js"
+    ]
+  },
+  "exception": true,
+  "date": "Fri Mar 13 2026 12:20:36 GMT+0200 (South Africa Standard Time)",
+  "process": {
+    "pid": 18936,
+    "uid": null,
+    "gid": null,
+    "cwd": "C:\\Users\\zougz\\Desktop\\AFRIXA",
+    "execPath": "C:\\Program Files\\nodejs\\node.exe",
+    "version": "v24.12.0",
+    "argv": [
+      "C:\\Program Files\\nodejs\\node.exe",
+      "C:\\Users\\zougz\\Desktop\\AFRIXA\\server.js"
+    ],
+    "memoryUsage": {
+      "rss": 124248064,
+      "heapTotal": 70516736,
+      "heapUsed": 52697520,
+      "external": 21922185,
+      "arrayBuffers": 18265157
+    }
+  },
+  "os": {
+    "loadavg": [
+      0,
+      0,
+      0
+    ],
+    "uptime": 185262.562
+  },
+  "trace": [
+    {
+      "column": 15,
+      "file": "node:internal/modules/cjs/loader",
+      "function": "Module._resolveFilename",
+      "line": 1421,
+      "method": "_resolveFilename",
+      "native": false
+    },
+    {
+      "column": 19,
+      "file": "node:internal/modules/cjs/loader",
+      "function": "defaultResolveImpl",
+      "line": 1059,
+      "method": null,
+      "native": false
+    },
+    {
+      "column": 22,
+      "file": "node:internal/modules/cjs/loader",
+      "function": "resolveForCJSWithHooks",
+      "line": 1064,
+      "method": null,
+      "native": false
+    },
+    {
+      "column": 37,
+      "file": "node:internal/modules/cjs/loader",
+      "function": "Module._load",
+      "line": 1227,
+      "method": "_load",
+      "native": false
+    },
+    {
+      "column": 14,
+      "file": "node:diagnostics_channel",
+      "function": "TracingChannel.traceSync",
+      "line": 328,
+      "method": "traceSync",
+      "native": false
+    },
+    {
+      "column": 24,
+      "file": "node:internal/modules/cjs/loader",
+      "function": "wrapModuleLoad",
+      "line": 245,
+      "method": null,
+      "native": false
+    },
+    {
+      "column": 12,
+      "file": "node:internal/modules/cjs/loader",
+      "function": "Module.require",
+      "line": 1504,
+      "method": "require",
+      "native": false
+    },
+    {
+      "column": 16,
+      "file": "node:internal/modules/helpers",
+      "function": "require",
+      "line": 152,
+      "method": null,
+      "native": false
+    },
+    {
+      "column": 14,
+      "file": "C:\\Users\\zougz\\Desktop\\AFRIXA\\Backend\\Controllers\\paymentProofController.js",
+      "function": null,
+      "line": 3,
+      "method": null,
+      "native": false
+    },
+    {
+      "column": 14,
+      "file": "node:internal/modules/cjs/loader",
+      "function": "Module._compile",
+      "line": 1761,
+      "method": "_compile",
+      "native": false
+    }
+  ]
+}
+2026-03-13 12:20:39 [ERROR] uncaughtException: Cannot find module '../Models/userModel'
+Require stack:
+- C:\Users\zougz\Desktop\AFRIXA\Backend\Controllers\paymentProofController.js
+- C:\Users\zougz\Desktop\AFRIXA\Backend\Routes\clientRoutes.js
+- C:\Users\zougz\Desktop\AFRIXA\server.js
+Error: Cannot find module '../Models/userModel'
+Require stack:
+- C:\Users\zougz\Desktop\AFRIXA\Backend\Controllers\paymentProofController.js
+- C:\Users\zougz\Desktop\AFRIXA\Backend\Routes\clientRoutes.js
+- C:\Users\zougz\Desktop\AFRIXA\server.js
+    at Module._resolveFilename (node:internal/modules/cjs/loader:1421:15)
+    at defaultResolveImpl (node:internal/modules/cjs/loader:1059:19)
+    at resolveForCJSWithHooks (node:internal/modules/cjs/loader:1064:22)
+    at Module._load (node:internal/modules/cjs/loader:1227:37)
+    at TracingChannel.traceSync (node:diagnostics_channel:328:14)
+    at wrapModuleLoad (node:internal/modules/cjs/loader:245:24)
+    at Module.require (node:internal/modules/cjs/loader:1504:12)
+    at require (node:internal/modules/helpers:152:16)
+    at Object.<anonymous> (C:\Users\zougz\Desktop\AFRIXA\Backend\Controllers\paymentProofController.js:3:14)
+    at Module._compile (node:internal/modules/cjs/loader:1761:14)
+Error: Cannot find module '../Models/userModel'
+Require stack:
+- C:\Users\zougz\Desktop\AFRIXA\Backend\Controllers\paymentProofController.js
+- C:\Users\zougz\Desktop\AFRIXA\Backend\Routes\clientRoutes.js
+- C:\Users\zougz\Desktop\AFRIXA\server.js
+    at Module._resolveFilename (node:internal/modules/cjs/loader:1421:15)
+    at defaultResolveImpl (node:internal/modules/cjs/loader:1059:19)
+    at resolveForCJSWithHooks (node:internal/modules/cjs/loader:1064:22)
+    at Module._load (node:internal/modules/cjs/loader:1227:37)
+    at TracingChannel.traceSync (node:diagnostics_channel:328:14)
+    at wrapModuleLoad (node:internal/modules/cjs/loader:245:24)
+    at Module.require (node:internal/modules/cjs/loader:1504:12)
+    at require (node:internal/modules/helpers:152:16)
+    at Object.<anonymous> (C:\Users\zougz\Desktop\AFRIXA\Backend\Controllers\paymentProofController.js:3:14)
+    at Module._compile (node:internal/modules/cjs/loader:1761:14)
+{
+  "error": {
+    "code": "MODULE_NOT_FOUND",
+    "requireStack": [
+      "C:\\Users\\zougz\\Desktop\\AFRIXA\\Backend\\Controllers\\paymentProofController.js",
+      "C:\\Users\\zougz\\Desktop\\AFRIXA\\Backend\\Routes\\clientRoutes.js",
+      "C:\\Users\\zougz\\Desktop\\AFRIXA\\server.js"
+    ]
+  },
+  "exception": true,
+  "date": "Fri Mar 13 2026 12:20:39 GMT+0200 (South Africa Standard Time)",
+  "process": {
+    "pid": 15380,
+    "uid": null,
+    "gid": null,
+    "cwd": "C:\\Users\\zougz\\Desktop\\AFRIXA",
+    "execPath": "C:\\Program Files\\nodejs\\node.exe",
+    "version": "v24.12.0",
+    "argv": [
+      "C:\\Program Files\\nodejs\\node.exe",
+      "C:\\Users\\zougz\\Desktop\\AFRIXA\\server.js"
+    ],
+    "memoryUsage": {
+      "rss": 127496192,
+      "heapTotal": 106430464,
+      "heapUsed": 43836416,
+      "external": 21922185,
+      "arrayBuffers": 18265157
+    }
+  },
+  "os": {
+    "loadavg": [
+      0,
+      0,
+      0
+    ],
+    "uptime": 185264.843
+  },
+  "trace": [
+    {
+      "column": 15,
+      "file": "node:internal/modules/cjs/loader",
+      "function": "Module._resolveFilename",
+      "line": 1421,
+      "method": "_resolveFilename",
+      "native": false
+    },
+    {
+      "column": 19,
+      "file": "node:internal/modules/cjs/loader",
+      "function": "defaultResolveImpl",
+      "line": 1059,
+      "method": null,
+      "native": false
+    },
+    {
+      "column": 22,
+      "file": "node:internal/modules/cjs/loader",
+      "function": "resolveForCJSWithHooks",
+      "line": 1064,
+      "method": null,
+      "native": false
+    },
+    {
+      "column": 37,
+      "file": "node:internal/modules/cjs/loader",
+      "function": "Module._load",
+      "line": 1227,
+      "method": "_load",
+      "native": false
+    },
+    {
+      "column": 14,
+      "file": "node:diagnostics_channel",
+      "function": "TracingChannel.traceSync",
+      "line": 328,
+      "method": "traceSync",
+      "native": false
+    },
+    {
+      "column": 24,
+      "file": "node:internal/modules/cjs/loader",
+      "function": "wrapModuleLoad",
+      "line": 245,
+      "method": null,
+      "native": false
+    },
+    {
+      "column": 12,
+      "file": "node:internal/modules/cjs/loader",
+      "function": "Module.require",
+      "line": 1504,
+      "method": "require",
+      "native": false
+    },
+    {
+      "column": 16,
+      "file": "node:internal/modules/helpers",
+      "function": "require",
+      "line": 152,
+      "method": null,
+      "native": false
+    },
+    {
+      "column": 14,
+      "file": "C:\\Users\\zougz\\Desktop\\AFRIXA\\Backend\\Controllers\\paymentProofController.js",
+      "function": null,
+      "line": 3,
+      "method": null,
+      "native": false
+    },
+    {
+      "column": 14,
+      "file": "node:internal/modules/cjs/loader",
+      "function": "Module._compile",
+      "line": 1761,
+      "method": "_compile",
+      "native": false
+    }
+  ]
+}
+2026-03-13 12:20:42 [ERROR] uncaughtException: Cannot find module '../Models/userModel'
+Require stack:
+- C:\Users\zougz\Desktop\AFRIXA\Backend\Controllers\paymentProofController.js
+- C:\Users\zougz\Desktop\AFRIXA\Backend\Routes\clientRoutes.js
+- C:\Users\zougz\Desktop\AFRIXA\server.js
+Error: Cannot find module '../Models/userModel'
+Require stack:
+- C:\Users\zougz\Desktop\AFRIXA\Backend\Controllers\paymentProofController.js
+- C:\Users\zougz\Desktop\AFRIXA\Backend\Routes\clientRoutes.js
+- C:\Users\zougz\Desktop\AFRIXA\server.js
+    at Module._resolveFilename (node:internal/modules/cjs/loader:1421:15)
+    at defaultResolveImpl (node:internal/modules/cjs/loader:1059:19)
+    at resolveForCJSWithHooks (node:internal/modules/cjs/loader:1064:22)
+    at Module._load (node:internal/modules/cjs/loader:1227:37)
+    at TracingChannel.traceSync (node:diagnostics_channel:328:14)
+    at wrapModuleLoad (node:internal/modules/cjs/loader:245:24)
+    at Module.require (node:internal/modules/cjs/loader:1504:12)
+    at require (node:internal/modules/helpers:152:16)
+    at Object.<anonymous> (C:\Users\zougz\Desktop\AFRIXA\Backend\Controllers\paymentProofController.js:3:14)
+    at Module._compile (node:internal/modules/cjs/loader:1761:14)
+Error: Cannot find module '../Models/userModel'
+Require stack:
+- C:\Users\zougz\Desktop\AFRIXA\Backend\Controllers\paymentProofController.js
+- C:\Users\zougz\Desktop\AFRIXA\Backend\Routes\clientRoutes.js
+- C:\Users\zougz\Desktop\AFRIXA\server.js
+    at Module._resolveFilename (node:internal/modules/cjs/loader:1421:15)
+    at defaultResolveImpl (node:internal/modules/cjs/loader:1059:19)
+    at resolveForCJSWithHooks (node:internal/modules/cjs/loader:1064:22)
+    at Module._load (node:internal/modules/cjs/loader:1227:37)
+    at TracingChannel.traceSync (node:diagnostics_channel:328:14)
+    at wrapModuleLoad (node:internal/modules/cjs/loader:245:24)
+    at Module.require (node:internal/modules/cjs/loader:1504:12)
+    at require (node:internal/modules/helpers:152:16)
+    at Object.<anonymous> (C:\Users\zougz\Desktop\AFRIXA\Backend\Controllers\paymentProofController.js:3:14)
+    at Module._compile (node:internal/modules/cjs/loader:1761:14)
+{
+  "error": {
+    "code": "MODULE_NOT_FOUND",
+    "requireStack": [
+      "C:\\Users\\zougz\\Desktop\\AFRIXA\\Backend\\Controllers\\paymentProofController.js",
+      "C:\\Users\\zougz\\Desktop\\AFRIXA\\Backend\\Routes\\clientRoutes.js",
+      "C:\\Users\\zougz\\Desktop\\AFRIXA\\server.js"
+    ]
+  },
+  "exception": true,
+  "date": "Fri Mar 13 2026 12:20:42 GMT+0200 (South Africa Standard Time)",
+  "process": {
+    "pid": 18996,
+    "uid": null,
+    "gid": null,
+    "cwd": "C:\\Users\\zougz\\Desktop\\AFRIXA",
+    "execPath": "C:\\Program Files\\nodejs\\node.exe",
+    "version": "v24.12.0",
+    "argv": [
+      "C:\\Program Files\\nodejs\\node.exe",
+      "C:\\Users\\zougz\\Desktop\\AFRIXA\\server.js"
+    ],
+    "memoryUsage": {
+      "rss": 124375040,
+      "heapTotal": 70516736,
+      "heapUsed": 52925224,
+      "external": 21922185,
+      "arrayBuffers": 18265157
+    }
+  },
+  "os": {
+    "loadavg": [
+      0,
+      0,
+      0
+    ],
+    "uptime": 185267.812
+  },
+  "trace": [
+    {
+      "column": 15,
+      "file": "node:internal/modules/cjs/loader",
+      "function": "Module._resolveFilename",
+      "line": 1421,
+      "method": "_resolveFilename",
+      "native": false
+    },
+    {
+      "column": 19,
+      "file": "node:internal/modules/cjs/loader",
+      "function": "defaultResolveImpl",
+      "line": 1059,
+      "method": null,
+      "native": false
+    },
+    {
+      "column": 22,
+      "file": "node:internal/modules/cjs/loader",
+      "function": "resolveForCJSWithHooks",
+      "line": 1064,
+      "method": null,
+      "native": false
+    },
+    {
+      "column": 37,
+      "file": "node:internal/modules/cjs/loader",
+      "function": "Module._load",
+      "line": 1227,
+      "method": "_load",
+      "native": false
+    },
+    {
+      "column": 14,
+      "file": "node:diagnostics_channel",
+      "function": "TracingChannel.traceSync",
+      "line": 328,
+      "method": "traceSync",
+      "native": false
+    },
+    {
+      "column": 24,
+      "file": "node:internal/modules/cjs/loader",
+      "function": "wrapModuleLoad",
+      "line": 245,
+      "method": null,
+      "native": false
+    },
+    {
+      "column": 12,
+      "file": "node:internal/modules/cjs/loader",
+      "function": "Module.require",
+      "line": 1504,
+      "method": "require",
+      "native": false
+    },
+    {
+      "column": 16,
+      "file": "node:internal/modules/helpers",
+      "function": "require",
+      "line": 152,
+      "method": null,
+      "native": false
+    },
+    {
+      "column": 14,
+      "file": "C:\\Users\\zougz\\Desktop\\AFRIXA\\Backend\\Controllers\\paymentProofController.js",
+      "function": null,
+      "line": 3,
+      "method": null,
+      "native": false
+    },
+    {
+      "column": 14,
+      "file": "node:internal/modules/cjs/loader",
+      "function": "Module._compile",
+      "line": 1761,
+      "method": "_compile",
+      "native": false
+    }
+  ]
+}
+2026-03-13 12:20:51 [ERROR] uncaughtException: Cannot overwrite `User` model once compiled.
+OverwriteModelError: Cannot overwrite `User` model once compiled.
+    at Mongoose.model (C:\Users\zougz\Desktop\AFRIXA\node_modules\mongoose\lib\mongoose.js:610:13)
+    at Object.<anonymous> (C:\Users\zougz\Desktop\AFRIXA\Backend\Models\user.js:137:27)
+    at Module._compile (node:internal/modules/cjs/loader:1761:14)
+    at Object..js (node:internal/modules/cjs/loader:1893:10)
+    at Module.load (node:internal/modules/cjs/loader:1481:32)
+    at Module._load (node:internal/modules/cjs/loader:1300:12)
+    at TracingChannel.traceSync (node:diagnostics_channel:328:14)
+    at wrapModuleLoad (node:internal/modules/cjs/loader:245:24)
+    at Module.require (node:internal/modules/cjs/loader:1504:12)
+    at require (node:internal/modules/helpers:152:16)
+OverwriteModelError: Cannot overwrite `User` model once compiled.
+    at Mongoose.model (C:\Users\zougz\Desktop\AFRIXA\node_modules\mongoose\lib\mongoose.js:610:13)
+    at Object.<anonymous> (C:\Users\zougz\Desktop\AFRIXA\Backend\Models\user.js:137:27)
+    at Module._compile (node:internal/modules/cjs/loader:1761:14)
+    at Object..js (node:internal/modules/cjs/loader:1893:10)
+    at Module.load (node:internal/modules/cjs/loader:1481:32)
+    at Module._load (node:internal/modules/cjs/loader:1300:12)
+    at TracingChannel.traceSync (node:diagnostics_channel:328:14)
+    at wrapModuleLoad (node:internal/modules/cjs/loader:245:24)
+    at Module.require (node:internal/modules/cjs/loader:1504:12)
+    at require (node:internal/modules/helpers:152:16)
+{
+  "error": {},
+  "exception": true,
+  "date": "Fri Mar 13 2026 12:20:51 GMT+0200 (South Africa Standard Time)",
+  "process": {
+    "pid": 6960,
+    "uid": null,
+    "gid": null,
+    "cwd": "C:\\Users\\zougz\\Desktop\\AFRIXA",
+    "execPath": "C:\\Program Files\\nodejs\\node.exe",
+    "version": "v24.12.0",
+    "argv": [
+      "C:\\Program Files\\nodejs\\node.exe",
+      "C:\\Users\\zougz\\Desktop\\AFRIXA\\server.js"
+    ],
+    "memoryUsage": {
+      "rss": 128466944,
+      "heapTotal": 112459776,
+      "heapUsed": 41212864,
+      "external": 21922185,
+      "arrayBuffers": 18265157
+    }
+  },
+  "os": {
+    "loadavg": [
+      0,
+      0,
+      0
+    ],
+    "uptime": 185277.25
+  },
+  "trace": [
+    {
+      "column": 13,
+      "file": "C:\\Users\\zougz\\Desktop\\AFRIXA\\node_modules\\mongoose\\lib\\mongoose.js",
+      "function": "Mongoose.model",
+      "line": 610,
+      "method": "model",
+      "native": false
+    },
+    {
+      "column": 27,
+      "file": "C:\\Users\\zougz\\Desktop\\AFRIXA\\Backend\\Models\\user.js",
+      "function": null,
+      "line": 137,
+      "method": null,
+      "native": false
+    },
+    {
+      "column": 14,
+      "file": "node:internal/modules/cjs/loader",
+      "function": "Module._compile",
+      "line": 1761,
+      "method": "_compile",
+      "native": false
+    },
+    {
+      "column": 10,
+      "file": "node:internal/modules/cjs/loader",
+      "function": "Object..js",
+      "line": 1893,
+      "method": ".js",
+      "native": false
+    },
+    {
+      "column": 32,
+      "file": "node:internal/modules/cjs/loader",
+      "function": "Module.load",
+      "line": 1481,
+      "method": "load",
+      "native": false
+    },
+    {
+      "column": 12,
+      "file": "node:internal/modules/cjs/loader",
+      "function": "Module._load",
+      "line": 1300,
+      "method": "_load",
+      "native": false
+    },
+    {
+      "column": 14,
+      "file": "node:diagnostics_channel",
+      "function": "TracingChannel.traceSync",
+      "line": 328,
+      "method": "traceSync",
+      "native": false
+    },
+    {
+      "column": 24,
+      "file": "node:internal/modules/cjs/loader",
+      "function": "wrapModuleLoad",
+      "line": 245,
+      "method": null,
+      "native": false
+    },
+    {
+      "column": 12,
+      "file": "node:internal/modules/cjs/loader",
+      "function": "Module.require",
+      "line": 1504,
+      "method": "require",
+      "native": false
+    },
+    {
+      "column": 16,
+      "file": "node:internal/modules/helpers",
+      "function": "require",
+      "line": 152,
+      "method": null,
+      "native": false
+    }
+  ]
+}
+2026-03-13 12:22:48 [ERROR] uncaughtException: Cannot find module '../Models/userModel'
+Require stack:
+- C:\Users\zougz\Desktop\AFRIXA\Backend\Controllers\paymentProofController.js
+- C:\Users\zougz\Desktop\AFRIXA\Backend\Routes\clientRoutes.js
+- C:\Users\zougz\Desktop\AFRIXA\server.js
+Error: Cannot find module '../Models/userModel'
+Require stack:
+- C:\Users\zougz\Desktop\AFRIXA\Backend\Controllers\paymentProofController.js
+- C:\Users\zougz\Desktop\AFRIXA\Backend\Routes\clientRoutes.js
+- C:\Users\zougz\Desktop\AFRIXA\server.js
+    at Module._resolveFilename (node:internal/modules/cjs/loader:1421:15)
+    at defaultResolveImpl (node:internal/modules/cjs/loader:1059:19)
+    at resolveForCJSWithHooks (node:internal/modules/cjs/loader:1064:22)
+    at Module._load (node:internal/modules/cjs/loader:1227:37)
+    at TracingChannel.traceSync (node:diagnostics_channel:328:14)
+    at wrapModuleLoad (node:internal/modules/cjs/loader:245:24)
+    at Module.require (node:internal/modules/cjs/loader:1504:12)
+    at require (node:internal/modules/helpers:152:16)
+    at Object.<anonymous> (C:\Users\zougz\Desktop\AFRIXA\Backend\Controllers\paymentProofController.js:3:14)
+    at Module._compile (node:internal/modules/cjs/loader:1761:14)
+Error: Cannot find module '../Models/userModel'
+Require stack:
+- C:\Users\zougz\Desktop\AFRIXA\Backend\Controllers\paymentProofController.js
+- C:\Users\zougz\Desktop\AFRIXA\Backend\Routes\clientRoutes.js
+- C:\Users\zougz\Desktop\AFRIXA\server.js
+    at Module._resolveFilename (node:internal/modules/cjs/loader:1421:15)
+    at defaultResolveImpl (node:internal/modules/cjs/loader:1059:19)
+    at resolveForCJSWithHooks (node:internal/modules/cjs/loader:1064:22)
+    at Module._load (node:internal/modules/cjs/loader:1227:37)
+    at TracingChannel.traceSync (node:diagnostics_channel:328:14)
+    at wrapModuleLoad (node:internal/modules/cjs/loader:245:24)
+    at Module.require (node:internal/modules/cjs/loader:1504:12)
+    at require (node:internal/modules/helpers:152:16)
+    at Object.<anonymous> (C:\Users\zougz\Desktop\AFRIXA\Backend\Controllers\paymentProofController.js:3:14)
+    at Module._compile (node:internal/modules/cjs/loader:1761:14)
+{
+  "error": {
+    "code": "MODULE_NOT_FOUND",
+    "requireStack": [
+      "C:\\Users\\zougz\\Desktop\\AFRIXA\\Backend\\Controllers\\paymentProofController.js",
+      "C:\\Users\\zougz\\Desktop\\AFRIXA\\Backend\\Routes\\clientRoutes.js",
+      "C:\\Users\\zougz\\Desktop\\AFRIXA\\server.js"
+    ]
+  },
+  "exception": true,
+  "date": "Fri Mar 13 2026 12:22:48 GMT+0200 (South Africa Standard Time)",
+  "process": {
+    "pid": 15292,
+    "uid": null,
+    "gid": null,
+    "cwd": "C:\\Users\\zougz\\Desktop\\AFRIXA",
+    "execPath": "C:\\Program Files\\nodejs\\node.exe",
+    "version": "v24.12.0",
+    "argv": [
+      "C:\\Program Files\\nodejs\\node.exe",
+      "C:\\Users\\zougz\\Desktop\\AFRIXA\\server.js"
+    ],
+    "memoryUsage": {
+      "rss": 124403712,
+      "heapTotal": 71041024,
+      "heapUsed": 52346328,
+      "external": 21922185,
+      "arrayBuffers": 18265157
+    }
+  },
+  "os": {
+    "loadavg": [
+      0,
+      0,
+      0
+    ],
+    "uptime": 185393.718
+  },
+  "trace": [
+    {
+      "column": 15,
+      "file": "node:internal/modules/cjs/loader",
+      "function": "Module._resolveFilename",
+      "line": 1421,
+      "method": "_resolveFilename",
+      "native": false
+    },
+    {
+      "column": 19,
+      "file": "node:internal/modules/cjs/loader",
+      "function": "defaultResolveImpl",
+      "line": 1059,
+      "method": null,
+      "native": false
+    },
+    {
+      "column": 22,
+      "file": "node:internal/modules/cjs/loader",
+      "function": "resolveForCJSWithHooks",
+      "line": 1064,
+      "method": null,
+      "native": false
+    },
+    {
+      "column": 37,
+      "file": "node:internal/modules/cjs/loader",
+      "function": "Module._load",
+      "line": 1227,
+      "method": "_load",
+      "native": false
+    },
+    {
+      "column": 14,
+      "file": "node:diagnostics_channel",
+      "function": "TracingChannel.traceSync",
+      "line": 328,
+      "method": "traceSync",
+      "native": false
+    },
+    {
+      "column": 24,
+      "file": "node:internal/modules/cjs/loader",
+      "function": "wrapModuleLoad",
+      "line": 245,
+      "method": null,
+      "native": false
+    },
+    {
+      "column": 12,
+      "file": "node:internal/modules/cjs/loader",
+      "function": "Module.require",
+      "line": 1504,
+      "method": "require",
+      "native": false
+    },
+    {
+      "column": 16,
+      "file": "node:internal/modules/helpers",
+      "function": "require",
+      "line": 152,
+      "method": null,
+      "native": false
+    },
+    {
+      "column": 14,
+      "file": "C:\\Users\\zougz\\Desktop\\AFRIXA\\Backend\\Controllers\\paymentProofController.js",
+      "function": null,
+      "line": 3,
+      "method": null,
+      "native": false
+    },
+    {
+      "column": 14,
+      "file": "node:internal/modules/cjs/loader",
+      "function": "Module._compile",
+      "line": 1761,
+      "method": "_compile",
+      "native": false
+    }
+  ]
+}
+2026-03-13 12:24:12 [ERROR] uncaughtException: Cannot find module '../Models/userModel'
+Require stack:
+- C:\Users\zougz\Desktop\AFRIXA\Backend\Controllers\paymentProofController.js
+- C:\Users\zougz\Desktop\AFRIXA\Backend\Routes\clientRoutes.js
+- C:\Users\zougz\Desktop\AFRIXA\server.js
+Error: Cannot find module '../Models/userModel'
+Require stack:
+- C:\Users\zougz\Desktop\AFRIXA\Backend\Controllers\paymentProofController.js
+- C:\Users\zougz\Desktop\AFRIXA\Backend\Routes\clientRoutes.js
+- C:\Users\zougz\Desktop\AFRIXA\server.js
+    at Module._resolveFilename (node:internal/modules/cjs/loader:1421:15)
+    at defaultResolveImpl (node:internal/modules/cjs/loader:1059:19)
+    at resolveForCJSWithHooks (node:internal/modules/cjs/loader:1064:22)
+    at Module._load (node:internal/modules/cjs/loader:1227:37)
+    at TracingChannel.traceSync (node:diagnostics_channel:328:14)
+    at wrapModuleLoad (node:internal/modules/cjs/loader:245:24)
+    at Module.require (node:internal/modules/cjs/loader:1504:12)
+    at require (node:internal/modules/helpers:152:16)
+    at Object.<anonymous> (C:\Users\zougz\Desktop\AFRIXA\Backend\Controllers\paymentProofController.js:3:14)
+    at Module._compile (node:internal/modules/cjs/loader:1761:14)
+Error: Cannot find module '../Models/userModel'
+Require stack:
+- C:\Users\zougz\Desktop\AFRIXA\Backend\Controllers\paymentProofController.js
+- C:\Users\zougz\Desktop\AFRIXA\Backend\Routes\clientRoutes.js
+- C:\Users\zougz\Desktop\AFRIXA\server.js
+    at Module._resolveFilename (node:internal/modules/cjs/loader:1421:15)
+    at defaultResolveImpl (node:internal/modules/cjs/loader:1059:19)
+    at resolveForCJSWithHooks (node:internal/modules/cjs/loader:1064:22)
+    at Module._load (node:internal/modules/cjs/loader:1227:37)
+    at TracingChannel.traceSync (node:diagnostics_channel:328:14)
+    at wrapModuleLoad (node:internal/modules/cjs/loader:245:24)
+    at Module.require (node:internal/modules/cjs/loader:1504:12)
+    at require (node:internal/modules/helpers:152:16)
+    at Object.<anonymous> (C:\Users\zougz\Desktop\AFRIXA\Backend\Controllers\paymentProofController.js:3:14)
+    at Module._compile (node:internal/modules/cjs/loader:1761:14)
+{
+  "error": {
+    "code": "MODULE_NOT_FOUND",
+    "requireStack": [
+      "C:\\Users\\zougz\\Desktop\\AFRIXA\\Backend\\Controllers\\paymentProofController.js",
+      "C:\\Users\\zougz\\Desktop\\AFRIXA\\Backend\\Routes\\clientRoutes.js",
+      "C:\\Users\\zougz\\Desktop\\AFRIXA\\server.js"
+    ]
+  },
+  "exception": true,
+  "date": "Fri Mar 13 2026 12:24:12 GMT+0200 (South Africa Standard Time)",
+  "process": {
+    "pid": 27300,
+    "uid": null,
+    "gid": null,
+    "cwd": "C:\\Users\\zougz\\Desktop\\AFRIXA",
+    "execPath": "C:\\Program Files\\nodejs\\node.exe",
+    "version": "v24.12.0",
+    "argv": [
+      "C:\\Program Files\\nodejs\\node.exe",
+      "C:\\Users\\zougz\\Desktop\\AFRIXA\\server.js"
+    ],
+    "memoryUsage": {
+      "rss": 122273792,
+      "heapTotal": 68608000,
+      "heapUsed": 50376248,
+      "external": 21922185,
+      "arrayBuffers": 18265157
+    }
+  },
+  "os": {
+    "loadavg": [
+      0,
+      0,
+      0
+    ],
+    "uptime": 185478.25
+  },
+  "trace": [
+    {
+      "column": 15,
+      "file": "node:internal/modules/cjs/loader",
+      "function": "Module._resolveFilename",
+      "line": 1421,
+      "method": "_resolveFilename",
+      "native": false
+    },
+    {
+      "column": 19,
+      "file": "node:internal/modules/cjs/loader",
+      "function": "defaultResolveImpl",
+      "line": 1059,
+      "method": null,
+      "native": false
+    },
+    {
+      "column": 22,
+      "file": "node:internal/modules/cjs/loader",
+      "function": "resolveForCJSWithHooks",
+      "line": 1064,
+      "method": null,
+      "native": false
+    },
+    {
+      "column": 37,
+      "file": "node:internal/modules/cjs/loader",
+      "function": "Module._load",
+      "line": 1227,
+      "method": "_load",
+      "native": false
+    },
+    {
+      "column": 14,
+      "file": "node:diagnostics_channel",
+      "function": "TracingChannel.traceSync",
+      "line": 328,
+      "method": "traceSync",
+      "native": false
+    },
+    {
+      "column": 24,
+      "file": "node:internal/modules/cjs/loader",
+      "function": "wrapModuleLoad",
+      "line": 245,
+      "method": null,
+      "native": false
+    },
+    {
+      "column": 12,
+      "file": "node:internal/modules/cjs/loader",
+      "function": "Module.require",
+      "line": 1504,
+      "method": "require",
+      "native": false
+    },
+    {
+      "column": 16,
+      "file": "node:internal/modules/helpers",
+      "function": "require",
+      "line": 152,
+      "method": null,
+      "native": false
+    },
+    {
+      "column": 14,
+      "file": "C:\\Users\\zougz\\Desktop\\AFRIXA\\Backend\\Controllers\\paymentProofController.js",
+      "function": null,
+      "line": 3,
+      "method": null,
+      "native": false
+    },
+    {
+      "column": 14,
+      "file": "node:internal/modules/cjs/loader",
+      "function": "Module._compile",
+      "line": 1761,
+      "method": "_compile",
+      "native": false
+    }
+  ]
+}
+2026-03-13 12:24:15 [ERROR] uncaughtException: Cannot find module '../Models/'
+Require stack:
+- C:\Users\zougz\Desktop\AFRIXA\Backend\Controllers\paymentProofController.js
+- C:\Users\zougz\Desktop\AFRIXA\Backend\Routes\clientRoutes.js
+- C:\Users\zougz\Desktop\AFRIXA\server.js
+Error: Cannot find module '../Models/'
+Require stack:
+- C:\Users\zougz\Desktop\AFRIXA\Backend\Controllers\paymentProofController.js
+- C:\Users\zougz\Desktop\AFRIXA\Backend\Routes\clientRoutes.js
+- C:\Users\zougz\Desktop\AFRIXA\server.js
+    at Module._resolveFilename (node:internal/modules/cjs/loader:1421:15)
+    at defaultResolveImpl (node:internal/modules/cjs/loader:1059:19)
+    at resolveForCJSWithHooks (node:internal/modules/cjs/loader:1064:22)
+    at Module._load (node:internal/modules/cjs/loader:1227:37)
+    at TracingChannel.traceSync (node:diagnostics_channel:328:14)
+    at wrapModuleLoad (node:internal/modules/cjs/loader:245:24)
+    at Module.require (node:internal/modules/cjs/loader:1504:12)
+    at require (node:internal/modules/helpers:152:16)
+    at Object.<anonymous> (C:\Users\zougz\Desktop\AFRIXA\Backend\Controllers\paymentProofController.js:3:14)
+    at Module._compile (node:internal/modules/cjs/loader:1761:14)
+Error: Cannot find module '../Models/'
+Require stack:
+- C:\Users\zougz\Desktop\AFRIXA\Backend\Controllers\paymentProofController.js
+- C:\Users\zougz\Desktop\AFRIXA\Backend\Routes\clientRoutes.js
+- C:\Users\zougz\Desktop\AFRIXA\server.js
+    at Module._resolveFilename (node:internal/modules/cjs/loader:1421:15)
+    at defaultResolveImpl (node:internal/modules/cjs/loader:1059:19)
+    at resolveForCJSWithHooks (node:internal/modules/cjs/loader:1064:22)
+    at Module._load (node:internal/modules/cjs/loader:1227:37)
+    at TracingChannel.traceSync (node:diagnostics_channel:328:14)
+    at wrapModuleLoad (node:internal/modules/cjs/loader:245:24)
+    at Module.require (node:internal/modules/cjs/loader:1504:12)
+    at require (node:internal/modules/helpers:152:16)
+    at Object.<anonymous> (C:\Users\zougz\Desktop\AFRIXA\Backend\Controllers\paymentProofController.js:3:14)
+    at Module._compile (node:internal/modules/cjs/loader:1761:14)
+{
+  "error": {
+    "code": "MODULE_NOT_FOUND",
+    "requireStack": [
+      "C:\\Users\\zougz\\Desktop\\AFRIXA\\Backend\\Controllers\\paymentProofController.js",
+      "C:\\Users\\zougz\\Desktop\\AFRIXA\\Backend\\Routes\\clientRoutes.js",
+      "C:\\Users\\zougz\\Desktop\\AFRIXA\\server.js"
+    ]
+  },
+  "exception": true,
+  "date": "Fri Mar 13 2026 12:24:15 GMT+0200 (South Africa Standard Time)",
+  "process": {
+    "pid": 28040,
+    "uid": null,
+    "gid": null,
+    "cwd": "C:\\Users\\zougz\\Desktop\\AFRIXA",
+    "execPath": "C:\\Program Files\\nodejs\\node.exe",
+    "version": "v24.12.0",
+    "argv": [
+      "C:\\Program Files\\nodejs\\node.exe",
+      "C:\\Users\\zougz\\Desktop\\AFRIXA\\server.js"
+    ],
+    "memoryUsage": {
+      "rss": 126402560,
+      "heapTotal": 105119744,
+      "heapUsed": 46576568,
+      "external": 21922185,
+      "arrayBuffers": 18265157
+    }
+  },
+  "os": {
+    "loadavg": [
+      0,
+      0,
+      0
+    ],
+    "uptime": 185481.25
+  },
+  "trace": [
+    {
+      "column": 15,
+      "file": "node:internal/modules/cjs/loader",
+      "function": "Module._resolveFilename",
+      "line": 1421,
+      "method": "_resolveFilename",
+      "native": false
+    },
+    {
+      "column": 19,
+      "file": "node:internal/modules/cjs/loader",
+      "function": "defaultResolveImpl",
+      "line": 1059,
+      "method": null,
+      "native": false
+    },
+    {
+      "column": 22,
+      "file": "node:internal/modules/cjs/loader",
+      "function": "resolveForCJSWithHooks",
+      "line": 1064,
+      "method": null,
+      "native": false
+    },
+    {
+      "column": 37,
+      "file": "node:internal/modules/cjs/loader",
+      "function": "Module._load",
+      "line": 1227,
+      "method": "_load",
+      "native": false
+    },
+    {
+      "column": 14,
+      "file": "node:diagnostics_channel",
+      "function": "TracingChannel.traceSync",
+      "line": 328,
+      "method": "traceSync",
+      "native": false
+    },
+    {
+      "column": 24,
+      "file": "node:internal/modules/cjs/loader",
+      "function": "wrapModuleLoad",
+      "line": 245,
+      "method": null,
+      "native": false
+    },
+    {
+      "column": 12,
+      "file": "node:internal/modules/cjs/loader",
+      "function": "Module.require",
+      "line": 1504,
+      "method": "require",
+      "native": false
+    },
+    {
+      "column": 16,
+      "file": "node:internal/modules/helpers",
+      "function": "require",
+      "line": 152,
+      "method": null,
+      "native": false
+    },
+    {
+      "column": 14,
+      "file": "C:\\Users\\zougz\\Desktop\\AFRIXA\\Backend\\Controllers\\paymentProofController.js",
+      "function": null,
+      "line": 3,
+      "method": null,
+      "native": false
+    },
+    {
+      "column": 14,
+      "file": "node:internal/modules/cjs/loader",
+      "function": "Module._compile",
+      "line": 1761,
+      "method": "_compile",
+      "native": false
+    }
+  ]
+}

@@ -186,19 +186,30 @@ function displayPaiements(paiements) {
         `;
     }).join('');
 }
-
 function displayHistorique(historique) {
     const container = document.getElementById('historique-table-body');
     if (!container) return;
     
-    if (!historique || historique.length === 0) {
+    const historiqueFiltre = historique.filter(item => {
+    
+        if (item.type === 'demande') {
+            return item.status === 'livré' || item.status === 'livree' || item.status === 'livré';
+        }
+
+        if (item.type === 'paiement') {
+            return item.status === 'accepté' || item.status === 'accepte' || item.status === 'payé';
+        }
+        return false;
+    });
+    
+    if (!historiqueFiltre || historiqueFiltre.length === 0) {
         container.innerHTML = `
             <tr>
                 <td colspan="6">
                     <div class="empty-state">
                         <i class="fas fa-history"></i>
                         <p>Aucun historique disponible</p>
-                        <p class="small">L'historique apparaîtra ici</p>
+                        <p class="small">L'historique des demandes livrées et paiements acceptés apparaîtra ici</p>
                     </div>
                 </td>
             </tr>
@@ -206,7 +217,7 @@ function displayHistorique(historique) {
         return;
     }
 
-    container.innerHTML = historique.map(item => {
+    container.innerHTML = historiqueFiltre.map(item => {
         const date = new Date(item.date);
         const formattedDate = date.toLocaleDateString('fr-FR', {
             day: 'numeric',
@@ -220,34 +231,19 @@ function displayHistorique(historique) {
         let typeIcon = item.type === 'demande' ? 'fa-box' : 'fa-credit-card';
         
         let statusText = 'N/A';
-        let statusClass = 'status-en_attente';
+        let statusClass = 'status-livré';
         
         if (item.type === 'demande') {
-            if (item.status === 'accepté') {
-                statusText = 'Accepté';
-                statusClass = 'status-livré';
-            } else if (item.status === 'annulé') {
-                statusText = 'Annulé';
-                statusClass = 'status-annulé';
-            } else if (item.status === 'livré') {
-                statusText = 'Livré';
-                statusClass = 'status-livré';
-            }
+            statusText = 'Livré';
+            statusClass = 'status-livré';
         } else if (item.type === 'paiement') {
-            if (item.status === 'accepté') {
-                statusText = 'Accepté';
-                statusClass = 'status-livré';
-            } else if (item.status === 'refusé') {
-                statusText = 'Refusé';
-                statusClass = 'status-annulé';
-            }
+            statusText = 'Accepté';
+            statusClass = 'status-livré';
         }
         
         let montantDisplay = '';
         if (item.type === 'paiement') {
             montantDisplay = `${escapeHtml((item.montant || 0).toLocaleString())} ${escapeHtml(item.devise || 'USD')}`;
-        } else if (item.type === 'demande') {
-            montantDisplay = `${escapeHtml((item.montant || 0).toLocaleString())} FC`;
         }
         
         return `
