@@ -13653,3 +13653,53 @@
   "userId": "698db1a6a5941047994043ad",
   "email": "gradiipi@gmail.com"
 }
+2026-03-15 10:15:44 [INFO] INFO Server started successfully on port 3000
+{
+  "environment": "production",
+  "corsOrigin": "https://afrixa-demo.up.railway.app"
+}
+2026-03-15 10:15:49 [WARN] WARNING Login attempt with incorrect password
+{
+  "context": {
+    "email": "gradiipi@gmail.com",
+    "userId": "698db1a6a5941047994043ad"
+  },
+  "userId": null
+}
+2026-03-15 10:15:52 [WARN] WARNING Login attempt with incorrect password
+{
+  "context": {
+    "email": "gradiipi@gmail.com",
+    "userId": "698db1a6a5941047994043ad"
+  },
+  "userId": null
+}
+2026-03-15 10:15:58 [WARN] WARNING Login attempt with incorrect password
+{
+  "context": {
+    "email": "gradiipi@gmail.com",
+    "userId": "698db1a6a5941047994043ad"
+  },
+  "userId": null
+}
+2026-03-15 10:16:03 [WARN] WARNING Login attempt with incorrect password
+{
+  "context": {
+    "email": "gradiipi@gmail.com",
+    "userId": "698db1a6a5941047994043ad"
+  },
+  "userId": null
+}
+2026-03-15 10:16:07 [WARN] WARNING Login attempt with incorrect password
+{
+  "context": {
+    "email": "gradiipi@gmail.com",
+    "userId": "698db1a6a5941047994043ad"
+  },
+  "userId": null
+}
+2026-03-15 10:37:15 [INFO] INFO Server started successfully on port 3000
+{
+  "environment": "production",
+  "corsOrigin": "https://afrixa-demo.up.railway.app"
+}

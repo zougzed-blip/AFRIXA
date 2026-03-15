@@ -112,6 +112,11 @@ document.addEventListener("DOMContentLoaded", async () => {
                     window.location.reload();
                     return;
                 }
+                // Message pour dépassement de tentatives
+                if (response.status === 429) {
+                    showNotification("Trop de tentatives. Réessayez dans 15 min", "error");
+                    return;
+                }
                 throw new Error(data.message || "Email ou mot de passe incorrect");
             }
 
