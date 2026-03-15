@@ -392,7 +392,7 @@ function showEmptyState(containerId, message) {
     }
 }
 
-// ==================== NOUVEAU: Nettoyer le chart en quittant ==========
+// ==================== Nettoyer le chart en quittant ==========
 window.addEventListener('beforeunload', () => {
     if (chartComponent) {
         chartComponent.destroy();

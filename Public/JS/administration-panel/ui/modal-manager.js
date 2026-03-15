@@ -23,7 +23,7 @@ export function closeAllModals() {
 // ==================== ATTACHER LES ÉVÉNEMENTS AUX BOUTONS ====================
 
 export function attachModalEvents() {
-    console.log('🔧 Attachement des événements modaux...');
+
     
     document.addEventListener('click', function(event) {
        

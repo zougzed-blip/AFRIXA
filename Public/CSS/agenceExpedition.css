@@ -200,7 +200,7 @@ body {
     position: fixed;
     left: 0;
     top: 70px;
-    padding-top: 4rem;
+    /* padding-top: 4rem; */
     width: 250px;
     height: calc(100vh - 70px);
     background: var(--blanc);

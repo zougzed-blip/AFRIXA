@@ -18,9 +18,8 @@ export async function loadExchangeRates() {
     try {
         const response = await API.apiFetch('/api/admin/exchange-rates');
         
-        // Vérifier si la réponse est valide
         if (!response) {
-            console.log('Non autorisé ou session expirée');
+            
             return;
         }
         
@@ -33,7 +32,7 @@ export async function loadExchangeRates() {
             updateExchangeRateDisplay();
         }
     } catch (error) {
-        console.error('Erreur chargement taux:', error);
+       
     }
 }
 
@@ -76,7 +75,6 @@ export async function saveExchangeRate() {
             await loadExchangeRates();
         }
     } catch (error) {
-        console.error('Erreur sauvegarde:', error);
         if (window.showPopup) {
             window.showPopup('Erreur sauvegarde', 'error');
         }

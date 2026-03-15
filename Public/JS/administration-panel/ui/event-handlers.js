@@ -61,7 +61,7 @@ function hideSimpleLoader() {
     }
 }
 
-// ==================== GESTIONNAIRES D'ÉVÉNEMENTS SÉCURISÉS ====================
+// ==================== GESTIONNAIRES D'EVENT  ====================
 export function setupSecureEventHandlers() {
     document.addEventListener('click', function(event) {
       
@@ -315,7 +315,7 @@ export function viewProof(proofId, proofUrl) {
     window.open(proofUrl, '_blank');
 }
 
-//Fonction pour ajuster le poids d'une demande d'agence
+
 export async function adjustDemandeAgenceWeight(event) {
     event.preventDefault();
     
