@@ -31,6 +31,16 @@ validateEnv();
     
     const app = express();
 
+    // Force HTTPS in production
+    if (process.env.NODE_ENV === 'production') {
+      app.use((req, res, next) => {
+        if (req.headers['x-forwarded-proto'] !== 'https') {
+          return res.redirect(`https://${req.headers.host}${req.url}`);
+        }
+        next();
+      });
+    }
+
     const corsOptions = {
       origin: process.env.FRONTEND_URL || 'http://localhost:3000',
       credentials: true,
@@ -76,6 +86,66 @@ validateEnv();
     app.use(express.json({ limit: '10mb' }));
     app.use(express.urlencoded({ extended: true, limit: '10mb' }));
 
+app.use((req, res, next) => {
+  try {
+    
+    const sanitizeValue = (value) => {
+      if (typeof value === 'string') {
+    
+        return value
+          .replace(/[<>]/g, (match) => {
+            return match === '<' ? '&lt;' : '&gt;';
+          })
+          .replace(/\$/g, '&#36;')
+          .replace(/\{/g, '&#123;')
+          .replace(/\}/g, '&#125;');
+      }
+      return value;
+    };
+
+    if (req.body && typeof req.body === 'object') {
+      Object.keys(req.body).forEach(key => {
+        if (typeof req.body[key] === 'string') {
+          req.body[key] = sanitizeValue(req.body[key]);
+        }
+        else if (req.body[key] && typeof req.body[key] === 'object') {
+          Object.keys(req.body[key]).forEach(subKey => {
+            if (typeof req.body[key][subKey] === 'string') {
+              req.body[key][subKey] = sanitizeValue(req.body[key][subKey]);
+            }
+          });
+        }
+      });
+    }
+
+    if (req.query && typeof req.query === 'object') {
+      Object.keys(req.query).forEach(key => {
+        if (typeof req.query[key] === 'string') {
+          req.query[key] = sanitizeValue(req.query[key]);
+        }
+      });
+    }
+
+    
+    if (req.params && typeof req.params === 'object') {
+      Object.keys(req.params).forEach(key => {
+        if (typeof req.params[key] === 'string') {
+          req.params[key] = sanitizeValue(req.params[key]);
+        }
+      });
+    }
+
+    next();
+  } catch (error) {
+    
+    businessLogger.warn('Sanitization error:', { 
+      message: error.message,
+      path: req.path 
+    });
+    next(); 
+  }
+});
+
     const adminLimiter = rateLimit({
       windowMs: parseInt(process.env.RATE_LIMIT_WINDOW_MS) || 900000,
       max: parseInt(process.env.RATE_LIMIT_MAX_ADMIN) || 5000,
@@ -113,7 +183,7 @@ validateEnv();
     });
 
     app.use('/api/admin', adminLimiter);
-     app.use('/api/admin', adminExchangeRoutes);
+    app.use('/api/admin', adminExchangeRoutes);
     app.use('/api/auth/login', loginLimiter);
     app.use('/api/client', clientLimiter);
     app.use('/api/', agenceLimiter);
@@ -194,7 +264,7 @@ validateEnv();
       
       businessLogger.error('Server error:', {
         message: err.message,
-        stack: err.stack,
+        // stack: err.stack,  // Masqué
         path: req.path,
         method: req.method
       });
@@ -202,7 +272,7 @@ validateEnv();
       if (req.path.startsWith('/api/')) {
         return res.status(err.status || 500).json({
           success: false,
-          message: process.env.NODE_ENV === 'production' ? 'Internal server error' : err.message
+          message: 'Internal server error'
         });
       }
       
@@ -227,7 +297,7 @@ validateEnv();
   } catch (error) {
     businessLogger.error('Fatal error during startup:', {
       message: error.message,
-      stack: error.stack
+      // stack: error.stack  // Masqué
     });
     process.exit(1);
   }
